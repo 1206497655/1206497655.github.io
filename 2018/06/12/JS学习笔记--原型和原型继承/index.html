@@ -18,7 +18,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/img/6/12/consoleLog.JPG">
 <meta property="og:image" content="http://yoursite.com/img/6/12/alert.JPG">
-<meta property="og:updated_time" content="2018-06-25T05:18:50.978Z">
+<meta property="og:updated_time" content="2018-06-25T05:26:22.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS学习笔记--原型和原型继承">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。">
@@ -167,7 +167,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p> &emsp;&emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。<a id="more"></a><br><br> &emsp;&emsp;在js中原型主要分为prototype(显式原型)、_proto_(隐式原型)。_proto_是每一个对象都具有的属性，而prototype是函数对象Function才具有的属性。他们之间具有一个直接的指向关系：_proto_指向构造函数的prototype，意思就是构造函数Function.prototype的所有属性和方法都可以让_proto_\查询和使用。当试图得到一个对象的某个属性时，如果这个对象本身，那么会去它的_proto_(即它的构造函数的Function.prototype中寻找)。<br><br> &emsp;&emsp;下面举个例子<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.alertName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//创建示例</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> Foo(<span class="string">'zhangsan'</span>);</span><br><span class="line">f.printName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line">f.printName();</span><br><span class="line">f.alertName();</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;在上述例子中，printName方法属于f对象本身的方法而不是构造函数Foo的方法，所以调用f.printName方法时，控制台输出<img src="../../../../img/6/12/consoleLog.JPG" alt="avatar">,但是当调用f.alertName方法时，浏览器同样弹出了警告框<img src="../../../../img/6/12/alert.JPG" alt="avatar">这是为什么呢？这就是笔者所说的，_proto_指向问题，当调用对象自身没有的属性和方法时，js解释器会根据当前对象的_proto_指向的构造函数Foo.prototype中去寻找有无该属性或方法，如果有便返回执行，如果没有便报undefined错误。而这个其实就是我们常说的原型继承。<br>&emsp;&emsp;有趣的是，Foo.prototype其实也是一个普通对象(js万物皆对象)，那么它必然也存在有_proto_和prototype以及它们之间的指向问题，Foo.prototype_proto_究竟指向谁？这个问题留给大家思考。</p>
+<p>&emsp;&emsp;在上述例子中，printName方法属于f对象本身的方法而不是构造函数Foo的方法，所以调用f.printName方法时，控制台输出<br><img src="../../../../img/6/12/consoleLog.JPG" alt="avatar"><br>但是当调用f.alertName方法时，浏览器同样弹出了警告框<br><img src="../../../../img/6/12/alert.JPG" alt="avatar"><br>这是为什么呢？这就是笔者所说的，_proto_指向问题，当调用对象自身没有的属性和方法时，js解释器会根据当前对象的_proto_指向的构造函数Foo.prototype中去寻找有无该属性或方法，如果有便返回执行，如果没有便报undefined错误。而这个其实就是我们常说的原型继承。<br>&emsp;&emsp;有趣的是，Foo.prototype其实也是一个普通对象(js万物皆对象)，那么它必然也存在有_proto_和prototype以及它们之间的指向问题，Foo.prototype_proto_究竟指向谁？这个问题留给大家思考。</p>
 
       
 
@@ -390,18 +390,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">_proto_</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">prototype</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
@@ -411,6 +399,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网页前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">_proto_</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">prototype</a>
               </li>
             
             <div class="clearfix"></div>
