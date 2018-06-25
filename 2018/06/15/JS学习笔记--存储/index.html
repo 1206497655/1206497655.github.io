@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | Leno的个人博客</title>
+  <title>JS学习笔记--存储 | Leno的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Leno的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="&amp;emsp;&amp;emsp;我们常用的存储主要有cookie、localStorage、sessionStorage这三种方式，在H5之前，存储主要使用cookie方式，">
+<meta name="keywords" content="js,cookie,localStorage,sessionStorage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS学习笔记--存储">
+<meta property="og:url" content="http://yoursite.com/2018/06/15/JS学习笔记--存储/index.html">
 <meta property="og:site_name" content="Leno的个人博客">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;我们常用的存储主要有cookie、localStorage、sessionStorage这三种方式，在H5之前，存储主要使用cookie方式，">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-24T11:19:25.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leno的个人博客">
+<meta name="twitter:title" content="JS学习笔记--存储">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;我们常用的存储主要有cookie、localStorage、sessionStorage这三种方式，在H5之前，存储主要使用cookie方式，">
   
     <link rel="alternative" href="/atom.xml" title="Leno的个人博客" type="application/atom+xml">
   
@@ -138,82 +143,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-JS学习笔记--存储" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/17/JS学习笔记--原型和原型继承/" class="archive-article-date">
-  	<time datetime="2018-06-17T04:00:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/17/JS学习笔记--原型和原型继承/">JS学习笔记--原型和原型继承</a>
+    <h1 class="article-title" itemprop="name">
+      JS学习笔记--存储
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">_proto_</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">prototype</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/15/JS学习笔记--存储/" class="archive-article-date">
+        
+        <a href="/2018/06/15/JS学习笔记--存储/" class="archive-article-date">
   	<time datetime="2018-06-15T10:46:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/15/JS学习笔记--存储/">JS学习笔记--存储</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&emsp;&emsp;我们常用的存储主要有cookie、localStorage、sessionStorage这三种方式，在H5之前，存储主要使用cookie方式，<a id="more"></a>其实cookie本身用于客户端和服务器端通信，但是它具有本地存储的功能，于是就被借用，使用以下方法获取和修改即可<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = data;</span><br></pre></td></tr></table></figure></p>
+<p>cookie的缺点也十分明显：<br><br>&emsp;&emsp;1.存储量太小，只有4KB;<br><br>&emsp;&emsp;2.携带到Ajax中所有的http请求，会影响获取资源的效率；<br><br>&emsp;&emsp;3.API简单，需要封装才能使用。<br><br>&emsp;&emsp;localStorage和sessionStorage都是H5专门为存储而设计的，它们的最大容量一样，可达5M，两者不同的是前者的存储属于永久式存储，关闭页面或者关闭浏览器不会清楚被缓存下来的数据，而后者则是暂时式的，关闭浏览器或关闭页面时缓存会被自动清理。它们的API简单易用，如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取localStorage缓存</span></span><br><span class="line">localStorage.getItem(key);</span><br><span class="line"><span class="comment">//设置localStorage缓存</span></span><br><span class="line">localStorage.setItem(key,value);</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取sessionStorage缓存</span></span><br><span class="line">sessionStorage.getItem(key);</span><br><span class="line"><span class="comment">//设置sessionStorage缓存</span></span><br><span class="line">sessionStorage.setItem(key,value)</span><br></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -237,99 +196,126 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/15/JS学习笔记--存储/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/12/对于网页相关工作的一些个人看法/" class="archive-article-date">
-  	<time datetime="2018-06-12T02:16:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-12</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/06/17/JS学习笔记--原型和原型继承/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JS学习笔记--原型和原型继承
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/12/对于网页相关工作的一些个人看法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">对于网页相关工作的一些个人看法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/12/对于网页相关工作的一些个人看法/">对于网页相关工作的一些个人看法</a>
-    </h1>
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2018/06/15/JS学习笔记--存储/", 
+    sourceId: "JS学习笔记--存储",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网页前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/10/我的个人博客-诞生/" class="archive-article-date">
-  	<time datetime="2018-06-10T01:17:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/10/我的个人博客-诞生/">我的个人博客- -诞生</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -352,8 +338,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
