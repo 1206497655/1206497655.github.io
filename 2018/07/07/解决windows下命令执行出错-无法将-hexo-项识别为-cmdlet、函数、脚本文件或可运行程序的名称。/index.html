@@ -6,16 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Leno的个人博客</title>
+  <title>解决windows下命令执行出错:无法将&#39;hexo&#39;项识别为 cmdlet、函数、脚本文件或可运行程序的名称。 | Leno的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Leno的个人博客">
-<meta property="og:url" content="http://yoursite.com/2018/07/01/实现tree组件/index.html">
+  <meta name="description" content="hexo : 无法将“hexo”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决windows下命令执行出错:无法将&#39;hexo&#39;项识别为 cmdlet、函数、脚本文件或可运行程序的名称。">
+<meta property="og:url" content="http://yoursite.com/2018/07/07/解决windows下命令执行出错-无法将-hexo-项识别为-cmdlet、函数、脚本文件或可运行程序的名称。/index.html">
 <meta property="og:site_name" content="Leno的个人博客">
+<meta property="og:description" content="hexo : 无法将“hexo”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-01T15:13:37.062Z">
+<meta property="og:image" content="http://yoursite.com/img/7/7/path.png">
+<meta property="og:image" content="http://yoursite.com/img/7/7/result.png">
+<meta property="og:updated_time" content="2018-07-07T16:06:36.512Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leno的个人博客">
+<meta name="twitter:title" content="解决windows下命令执行出错:无法将&#39;hexo&#39;项识别为 cmdlet、函数、脚本文件或可运行程序的名称。">
+<meta name="twitter:description" content="hexo : 无法将“hexo”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次。">
+<meta name="twitter:image" content="http://yoursite.com/img/7/7/path.png">
   
     <link rel="alternative" href="/atom.xml" title="Leno的个人博客" type="application/atom+xml">
   
@@ -26,7 +32,7 @@
   <style type="text/css">
   
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#a0cfe4,#555555);
     }
   </style>
   
@@ -139,12 +145,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-实现tree组件" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-解决windows下命令执行出错-无法将-hexo-项识别为-cmdlet、函数、脚本文件或可运行程序的名称。" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      解决windows下命令执行出错:无法将&#39;hexo&#39;项识别为 cmdlet、函数、脚本文件或可运行程序的名称。
+    </h1>
+  
+
+        
+        <a href="/2018/07/07/解决windows下命令执行出错-无法将-hexo-项识别为-cmdlet、函数、脚本文件或可运行程序的名称。/" class="archive-article-date">
+  	<time datetime="2018-07-07T14:32:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-07</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>hexo : 无法将“hexo”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次。<a id="more"></a><br>所在位置 行:1 字符: 1<br>+ hexo<br>+ ~~~~<br>    + CategoryInfo          : ObjectNotFound: (hexo:String) [], CommandNotFoundException<br>    + FullyQualifiedErrorId : CommandNotFoundException<br>今天笔者换新电脑后进行资料迁移以及重新配置一遍工作环境，在迁移完这个博客的工程后，在工程中使用hexo new “name”创建新博客时一直报错，系统找不到指定的命令”hexo”，一般情况下出现这种错误有两种错误，一种是没有进行全局安装，另一种是全局安装目录没有加入系统环境变量PATH中。楼主先是测试第一中情况，执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><br>进行全局安装，再次运行hexo new “name”命令，依然报错，执行npm list –depth=0 -global查看当前已经进行全局安装的模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-- hexo-cli@1.1.0</span><br></pre></td></tr></table></figure><br>可见hexo-cli是存在有的，那么我们看看第二种情况。查案看当前的PATH环境变量<br></p>
+<p><div align="center"><img src="../../../../img/7/7/path.png" width="50%" height="50%"></div> <br><br>注意PATH中的第二行，这个其实就是npm的全局安装目录，全局变量模块都存于此目录（C:\Users\用户名\AppData\Roaming\npm）下，所以需要在PATH环境变量中加入此目录路径，那么为什么还会报错呢？其实这里用户名是不存在的，昨天笔者拿到新本子开机心切，随便起了个1111的用户名，后来还是觉得太随便太丑了，就强行改了回来，结果在改名之前就已经安装了编辑器并且安装了node，应该就是当时node配置环境变量时使用了当时的1111用户名，所以才会出项这种情况。所以该回来之后，再执行hexo new “name”</p>
+<p><div align="center"><img src="../../../../img/7/7/result.png" width="80%" height="80%"></div> <br><br>OK，大功告成。</p>
+
       
 
       
@@ -202,7 +226,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/01/实现tree组件/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/07/解决windows下命令执行出错-无法将-hexo-项识别为-cmdlet、函数、脚本文件或可运行程序的名称。/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -218,7 +242,7 @@
   
   
     <a href="/2018/07/01/JS实战笔记-实现tree组件/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">post</div>
+      <div class="article-nav-title">JS实战笔记--实现tree组件</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -249,8 +273,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2018/07/01/实现tree组件/", 
-    sourceId: "实现tree组件",
+    url: "http://yoursite.com/2018/07/07/解决windows下命令执行出错-无法将-hexo-项识别为-cmdlet、函数、脚本文件或可运行程序的名称。/", 
+    sourceId: "解决windows下命令执行出错-无法将-hexo-项识别为-cmdlet、函数、脚本文件或可运行程序的名称。",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };
@@ -359,19 +383,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">tree组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">tree组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网页前端</a>
               </li>
             
             <div class="clearfix"></div>
@@ -422,7 +446,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">一个正在努力找工作的前端程序猿&lt;br&gt;&lt;/br&gt;邮箱1206497655@qq.com，欢迎联系</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">一个正在努力工作的前端程序猿&lt;br&gt;&lt;/br&gt;邮箱1206497655@qq.com，欢迎联系</div>
   	  	
     	</section>
     
