@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JS学习笔记--原型和原型继承 | Leno的个人博客</title>
+  <title>dojo学习笔记--Deferred对象 | Leno的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;emsp;&amp;emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。">
-<meta name="keywords" content="JavaScript,_proto_,prototype">
+  <meta name="description" content="&amp;emsp;&amp;emsp;dojo.Deferred管理异步线程（回调）之间的通信。 dojo.Deferred封装了一系列回调以响应可能尚未可用的值。 所有dojo.xhr*函数都使用此类(Deferred)，其他许多函数也是如此，例如dojo.io.script。">
+<meta name="keywords" content="dojoJs,Deferred">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS学习笔记--原型和原型继承">
-<meta property="og:url" content="http://yoursite.com/2018/06/12/JS学习笔记-原型和原型继承/index.html">
+<meta property="og:title" content="dojo学习笔记--Deferred对象">
+<meta property="og:url" content="http://yoursite.com/2018/07/29/dojo学习笔记-Deferred对象/index.html">
 <meta property="og:site_name" content="Leno的个人博客">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;dojo.Deferred管理异步线程（回调）之间的通信。 dojo.Deferred封装了一系列回调以响应可能尚未可用的值。 所有dojo.xhr*函数都使用此类(Deferred)，其他许多函数也是如此，例如dojo.io.script。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/img/6/12/consoleLog.JPG">
-<meta property="og:image" content="http://yoursite.com/img/6/12/alert.JPG">
-<meta property="og:updated_time" content="2018-07-09T01:26:35.136Z">
+<meta property="og:updated_time" content="2018-07-29T15:02:33.019Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS学习笔记--原型和原型继承">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。">
-<meta name="twitter:image" content="http://yoursite.com/img/6/12/consoleLog.JPG">
+<meta name="twitter:title" content="dojo学习笔记--Deferred对象">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;dojo.Deferred管理异步线程（回调）之间的通信。 dojo.Deferred封装了一系列回调以响应可能尚未可用的值。 所有dojo.xhr*函数都使用此类(Deferred)，其他许多函数也是如此，例如dojo.io.script。">
   
     <link rel="alternative" href="/atom.xml" title="Leno的个人博客" type="application/atom+xml">
   
@@ -146,30 +143,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS学习笔记-原型和原型继承" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-dojo学习笔记-Deferred对象" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JS学习笔记--原型和原型继承
+      dojo学习笔记--Deferred对象
     </h1>
   
 
         
-        <a href="/2018/06/12/JS学习笔记-原型和原型继承/" class="archive-article-date">
-  	<time datetime="2018-06-12T04:00:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-12</time>
+        <a href="/2018/07/29/dojo学习笔记-Deferred对象/" class="archive-article-date">
+  	<time datetime="2018-07-29T14:59:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> &emsp;&emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。<a id="more"></a><br><br> &emsp;&emsp;在js中原型主要分为prototype(显式原型)、_proto_(隐式原型)。_proto_是每一个对象都具有的属性，而prototype是函数对象Function才具有的属性。他们之间具有一个直接的指向关系：_proto_指向构造函数的prototype，意思就是构造函数Function.prototype的所有属性和方法都可以让_proto_\查询和使用。当试图得到一个对象的某个属性时，如果这个对象本身没有这个属性，那么会去它的_proto_(即它的构造函数的Function.prototype中寻找)。<br><br> &emsp;&emsp;下面举个例子<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.alertName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//创建示例</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> Foo(<span class="string">'zhangsan'</span>);</span><br><span class="line">f.printName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line">f.printName();</span><br><span class="line">f.alertName();</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;在上述例子中，printName方法属于f对象本身的方法而不是构造函数Foo的方法，所以调用f.printName方法时，控制台输出</p>
-<p><div align="center"><img src="../../../../img/6/12/consoleLog.JPG"></div> <br><br>但是当调用f.alertName方法时，浏览器同样弹出了警告框</p>
-<p><div align="center"><img src="../../../../img/6/12/alert.JPG"></div> <br><br>这是为什么呢？这就是笔者所说的，_proto_指向问题，当调用对象自身没有的属性和方法时，js解释器会根据当前对象的_proto_指向的构造函数Foo.prototype中去寻找有无该属性或方法，如果有便返回执行，如果没有便报undefined错误。而这个其实就是我们常说的原型继承。<br>&emsp;&emsp;有趣的是，Foo.prototype其实也是一个普通对象(js万物皆对象)，那么它必然也存在有_proto_和prototype以及它们之间的指向问题，Foo.prototype_proto_究竟指向谁？这个问题留给大家思考。</p>
+        <p>&emsp;&emsp;dojo.Deferred管理异步线程（回调）之间的通信。 dojo.Deferred封装了一系列回调以响应可能尚未可用的值。 所有dojo.xhr*函数都使用此类(Deferred)，其他许多函数也是如此，例如dojo.io.script。<a id="more"></a><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([</span><br><span class="line">            <span class="string">'dojo'</span>,</span><br><span class="line">            <span class="string">'dojo/_base/Deferred'</span>,</span><br><span class="line">            <span class="string">'dojo/dom'</span></span><br><span class="line">        ], <span class="function"><span class="keyword">function</span> (<span class="params">dojo, Deferred, dom</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 官方：从1.09开始不再建议使用dojo/_base/Deferred，改用dojo/Deferred.</span></span><br><span class="line">            <span class="comment">// dojo.Deferred是一个对象，允许用户为可能无法立即完成的任务分配成功和错误条件的回调函数。 </span></span><br><span class="line">            <span class="comment">// 这些任务通常是通过调用dojo.xhrGet和其他异步操作的IO函数生成的。</span></span><br><span class="line">            <span class="comment">// 基本前提是这个异步任务（甚至是同步任务）可以返回dojo.Deferred的实例。然后，用户可以调用</span></span><br><span class="line">            <span class="comment">// then()来为Deferred分配回调函数，回调函数可以有两个(Deferred.then(success_callback, error_callback))。</span></span><br><span class="line">            <span class="comment">// 如果在执行Deferred之后调用then()函数，则Deferred将立即根据任务结果(成功或错误)调用相应的</span></span><br><span class="line">            <span class="comment">// 回调函数。一般then()的第一个参数为返回成功时执行的回调函数，第二个参数为返回错误时执行的回</span></span><br><span class="line">            <span class="comment">// 调函数并且是可选的。</span></span><br><span class="line">            <span class="comment">// 使用dojo.Deferred非常简单。当你想提供一个函数作为返回时调用，你只需调用then()并</span></span><br><span class="line">            <span class="comment">// 将then()交给一个函数，以便在触发Deferred时执行。如果你想创建一个Deferred，则只需</span></span><br><span class="line">            <span class="comment">// new一个实例并将其返回给调用者。当Deferred完成时将调用callback或者errback，此时的回调函数</span></span><br><span class="line">            <span class="comment">// 返回的又是一个Deferred对象，所以可以多次使用回调函数直至你想要的结果。</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//创建和调用Deferred</span></span><br><span class="line">            <span class="keyword">var</span> deferred = <span class="keyword">new</span> Deferred();</span><br><span class="line">            setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                deferred.resolve(&#123;</span><br><span class="line">                    success: <span class="literal">true</span></span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;, <span class="number">1000</span>);</span><br><span class="line">            <span class="built_in">console</span>.log(deferred);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//在Deferred触发时指定要触发的回调</span></span><br><span class="line">            <span class="comment">// var deferred = someAsyncFunction();</span></span><br><span class="line">            <span class="comment">// deferred.then(</span></span><br><span class="line">            <span class="comment">//     function (value) &#123;</span></span><br><span class="line">            <span class="comment">//         // Do something on success.</span></span><br><span class="line">            <span class="comment">//     &#125;,</span></span><br><span class="line">            <span class="comment">//     function (error) &#123;</span></span><br><span class="line">            <span class="comment">//         // Do something on failure.</span></span><br><span class="line">            <span class="comment">//     &#125;</span></span><br><span class="line">            <span class="comment">// );</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// when()方法</span></span><br><span class="line">            <span class="comment">// when() 函数是与Deferred对象交互的有用工具，因为它可以提供异步Deferred和正常同步值之间的规范化。</span></span><br><span class="line">            <span class="comment">// 在Dojo 1.7中，when函数作为dojo / _base / Deferred模块返回（也是Deferred构造函数）的成员公开，</span></span><br><span class="line">            <span class="comment">// 但在Dojo 1.8中，模块已经移动到自己的位置。</span></span><br><span class="line">            Deferred.when(<span class="number">4</span>, print); <span class="comment">// this will print 4 immediately</span></span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(value);</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> fourAsync = <span class="keyword">new</span> Deferred();</span><br><span class="line">            Deferred.when(fourAsync, print); <span class="comment">// this will print 4, one second later when the Deferred is resolved</span></span><br><span class="line"></span><br><span class="line">            setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                fourAsync.resolve(<span class="number">4</span>);</span><br><span class="line">            &#125;, <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Deferred API基于promise的概念，它为最终完成异步操作提供了通用接口。 promise的动机从根本上讲是创建一个</span></span><br><span class="line">            <span class="comment">// 关注点的分离，允许人们在同步代码中实现与异步代码相同类型的调用模式和逻辑数据流。Promise的参数允许是纯粹</span></span><br><span class="line">            <span class="comment">// 的函数。 如果实现从同步切换到异步（或反之亦然），则不应该更改调用的参数。 </span></span><br><span class="line">            <span class="comment">// Deferred是一种promise，它提供了通过成功结果或错误来履行 promise的方法。 使用Dojo的promises最重要的方</span></span><br><span class="line">            <span class="comment">// 法是then（）方法，它遵循CommonJS提出的promise API。 一个then()例子被调用后会返回一个新的promise，表示</span></span><br><span class="line">            <span class="comment">// 执行回调的结果。 回调永远不会影响原始的promises值。</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 允许回调自己返回promise，因此可以轻松地构建复杂的事件序列。</span></span><br><span class="line">            <span class="comment">// Deferred的创建者可以指定一个cancel函数。 如果在Deferred被触发之前调用Deferred.canceler回调函数，则这个</span></span><br><span class="line">            <span class="comment">// Deferred会被取消，停止执行。例如可以使用它来实现XMLHttpRequest请求中止。请注意，cancel将使用CancelledError</span></span><br><span class="line">            <span class="comment">// 类型来触发Deferred（除非你的canceller返回另一种error），因此errbacks回调函数应做好取消Deferred错误的准备。</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//例子</span></span><br><span class="line">            createDeferred = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="comment">// Create a deferred and set it to fire in 1 second.</span></span><br><span class="line">                <span class="keyword">var</span> deferred = <span class="keyword">new</span> Deferred();</span><br><span class="line">                setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    deferred.resolve(&#123;</span><br><span class="line">                        called: <span class="literal">true</span></span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;, <span class="number">1000</span>);</span><br><span class="line">                dom.byId(<span class="string">"response"</span>).innerHTML = <span class="string">"Created a deferred."</span>;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// Add a callback that changes the displayed message after it fires.</span></span><br><span class="line">                deferred.then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                    dom.byId(<span class="string">"response"</span>).innerHTML = <span class="string">"Deferred has fired."</span>;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// then(resolvedCallback,errorCallback,progressCallback)</span></span><br><span class="line">            <span class="comment">// then()方法是在Deferred执行后给三个状态(resolve、error、progress，其中error包括reject和cancel)添加回调函</span></span><br><span class="line">            <span class="comment">// 数的方法。一共可设置三个回调函数，第一参数在调用resolve后回调，第二参数在调用reject和cancel后</span></span><br><span class="line">            <span class="comment">// 回调，第三参数在调用progress后回调。所有参数都是可选的，忽略非函数值。progressHandler不仅是一个可选参数，</span></span><br><span class="line">            <span class="comment">// 而且progress事件也是可选的。 promise提供者不需要创建进度事件。</span></span><br><span class="line">            <span class="comment">// 此方法在resolvedCallback或者errorCallback执行完成时返回一个新的promise，所以可以实现链式操作。回调函数返回</span></span><br><span class="line">            <span class="comment">// 的值就是promise返回的结果，如果回调引发错误，则返回的promise将会变为错误状态。</span></span><br><span class="line">            <span class="comment">//例子</span></span><br><span class="line">            asyncComputeTheAnswerToEverything().</span><br><span class="line">                then(addTwo).</span><br><span class="line">                then(printResult, onError);</span><br><span class="line">            <span class="comment">// 其他的一些方法</span></span><br><span class="line">            <span class="comment">// 1、resolve：该deferred完成。</span></span><br><span class="line">            <span class="comment">// 2、reject：该deferred发生错误。</span></span><br><span class="line">            <span class="comment">// 3、cancel：取消所有回调，即不再关心该deferred对象。</span></span><br><span class="line">            <span class="comment">// 4、progress：更新deferred对象状态。</span></span><br><span class="line">            <span class="comment">// 5、isResolved：若调用过resolve函数返回true</span></span><br><span class="line">            <span class="comment">// 6、isRejected：若调用过reject函数返回true</span></span><br><span class="line">            <span class="comment">// 7、isFulfilled：若调用过resolve、reject或cancel三者之一返回true</span></span><br><span class="line">            <span class="comment">// 8、isCanceled：若调用过cancel函数返回true</span></span><br><span class="line"></span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -183,15 +177,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">dojoJs</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">_proto_</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">prototype</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deferred</a>
         		</li>
       		
 		</ul>
@@ -247,7 +237,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/12/JS学习笔记-原型和原型继承/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/29/dojo学习笔记-Deferred对象/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -261,18 +251,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/07/01/JS实战笔记-实现tree组件/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/29/dojo学习笔记-创建widget/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JS实战笔记--实现tree组件
+          dojo学习笔记--创建widget
         
       </div>
     </a>
   
   
-    <a href="/2018/06/12/对于网页相关工作的一些个人看法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">对于网页相关工作的一些个人看法</div>
+    <a href="/2018/07/29/dojo学习笔记-创建类的工具declare/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">dojo学习笔记--创建类的工具declare</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -303,8 +293,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2018/06/12/JS学习笔记-原型和原型继承/", 
-    sourceId: "JS学习笔记-原型和原型继承",
+    url: "http://yoursite.com/2018/07/29/dojo学习笔记-Deferred对象/", 
+    sourceId: "dojo学习笔记-Deferred对象",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };

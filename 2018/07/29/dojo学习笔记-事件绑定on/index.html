@@ -6,23 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JS学习笔记--原型和原型继承 | Leno的个人博客</title>
+  <title>dojo学习笔记--事件绑定on() | Leno的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;emsp;&amp;emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。">
-<meta name="keywords" content="JavaScript,_proto_,prototype">
+  <meta name="description" content="&amp;emsp;&amp;emsp;on() 方法在元素上绑定事件，需要引用包dojo/on，通过on方法实现。">
+<meta name="keywords" content="DojoJs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS学习笔记--原型和原型继承">
-<meta property="og:url" content="http://yoursite.com/2018/06/12/JS学习笔记-原型和原型继承/index.html">
+<meta property="og:title" content="dojo学习笔记--事件绑定on()">
+<meta property="og:url" content="http://yoursite.com/2018/07/29/dojo学习笔记-事件绑定on/index.html">
 <meta property="og:site_name" content="Leno的个人博客">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;on() 方法在元素上绑定事件，需要引用包dojo/on，通过on方法实现。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/img/6/12/consoleLog.JPG">
-<meta property="og:image" content="http://yoursite.com/img/6/12/alert.JPG">
-<meta property="og:updated_time" content="2018-07-09T01:26:35.136Z">
+<meta property="og:updated_time" content="2018-07-29T14:23:15.434Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS学习笔记--原型和原型继承">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。">
-<meta name="twitter:image" content="http://yoursite.com/img/6/12/consoleLog.JPG">
+<meta name="twitter:title" content="dojo学习笔记--事件绑定on()">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;on() 方法在元素上绑定事件，需要引用包dojo/on，通过on方法实现。">
   
     <link rel="alternative" href="/atom.xml" title="Leno的个人博客" type="application/atom+xml">
   
@@ -146,30 +143,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS学习笔记-原型和原型继承" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-dojo学习笔记-事件绑定on" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JS学习笔记--原型和原型继承
+      dojo学习笔记--事件绑定on()
     </h1>
   
 
         
-        <a href="/2018/06/12/JS学习笔记-原型和原型继承/" class="archive-article-date">
-  	<time datetime="2018-06-12T04:00:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-12</time>
+        <a href="/2018/07/29/dojo学习笔记-事件绑定on/" class="archive-article-date">
+  	<time datetime="2018-07-29T14:12:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> &emsp;&emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。<a id="more"></a><br><br> &emsp;&emsp;在js中原型主要分为prototype(显式原型)、_proto_(隐式原型)。_proto_是每一个对象都具有的属性，而prototype是函数对象Function才具有的属性。他们之间具有一个直接的指向关系：_proto_指向构造函数的prototype，意思就是构造函数Function.prototype的所有属性和方法都可以让_proto_\查询和使用。当试图得到一个对象的某个属性时，如果这个对象本身没有这个属性，那么会去它的_proto_(即它的构造函数的Function.prototype中寻找)。<br><br> &emsp;&emsp;下面举个例子<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.alertName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//创建示例</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> Foo(<span class="string">'zhangsan'</span>);</span><br><span class="line">f.printName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line">f.printName();</span><br><span class="line">f.alertName();</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;在上述例子中，printName方法属于f对象本身的方法而不是构造函数Foo的方法，所以调用f.printName方法时，控制台输出</p>
-<p><div align="center"><img src="../../../../img/6/12/consoleLog.JPG"></div> <br><br>但是当调用f.alertName方法时，浏览器同样弹出了警告框</p>
-<p><div align="center"><img src="../../../../img/6/12/alert.JPG"></div> <br><br>这是为什么呢？这就是笔者所说的，_proto_指向问题，当调用对象自身没有的属性和方法时，js解释器会根据当前对象的_proto_指向的构造函数Foo.prototype中去寻找有无该属性或方法，如果有便返回执行，如果没有便报undefined错误。而这个其实就是我们常说的原型继承。<br>&emsp;&emsp;有趣的是，Foo.prototype其实也是一个普通对象(js万物皆对象)，那么它必然也存在有_proto_和prototype以及它们之间的指向问题，Foo.prototype_proto_究竟指向谁？这个问题留给大家思考。</p>
+        <p>&emsp;&emsp;on() 方法在元素上绑定事件，需要引用包dojo/on，通过on方法实现。<a id="more"></a><br>&emsp;&emsp;on方法不需要前缀。包括三个参数。<br>第一个：需要绑定events的元素<br>第二个：event名称<br>第三个：处理event的方法体，这个方法体有只一个参数，为event的对象，包括一些属性和方法，如果需要传递其他参数，将在后面讲到。<br>方法on的返回值是一个简单的对象，只有一个remove方法，执行这个方法，元素就会移除这个event。<br>还有一个方法on.once(element,event name,handler)，参数同on一样，这个方法顾名思义就是只执行一次，在执行了handler后将会自动remove。<br>一个元素可以绑定多个events，每个event按照绑定的先后顺序来执行的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>([<span class="string">"dojo/on"</span>, <span class="string">"dojo/dom"</span>, <span class="string">"dojo/dom-style"</span>, <span class="string">"dojo/mouse"</span>, <span class="string">"dojo/domReady!"</span>],</span><br><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">on, dom, domStyle, mouse</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> myButton = dom.byId(<span class="string">"myButton"</span>),</span><br><span class="line">        myDiv = dom.byId(<span class="string">"myDiv"</span>);</span><br><span class="line"></span><br><span class="line">    on(myButton, <span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span><br><span class="line">        domStyle.set(myDiv, <span class="string">"backgroundColor"</span>, <span class="string">"blue"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    on(myDiv, mouse.enter, <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span><br><span class="line">        domStyle.set(myDiv, <span class="string">"backgroundColor"</span>, <span class="string">"red"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">var</span> handler = on(myDiv, mouse.leave, <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span><br><span class="line">        domStyle.set(myDiv, <span class="string">"backgroundColor"</span>, <span class="string">""</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">    handler.remove();<span class="comment">//移除event</span></span><br><span class="line"></span><br><span class="line">    on.once(myDiv, mouse.leave, <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span><br><span class="line">        domStyle.set(myDiv, <span class="string">"backgroundColor"</span>, <span class="string">""</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -183,15 +177,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">_proto_</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">prototype</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">DojoJs</a>
         		</li>
       		
 		</ul>
@@ -247,7 +233,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/12/JS学习笔记-原型和原型继承/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/29/dojo学习笔记-事件绑定on/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -261,18 +247,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/07/01/JS实战笔记-实现tree组件/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/29/dojo学习笔记-通用工具lang/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JS实战笔记--实现tree组件
+          dojo学习笔记--通用工具lang
         
       </div>
     </a>
   
   
-    <a href="/2018/06/12/对于网页相关工作的一些个人看法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">对于网页相关工作的一些个人看法</div>
+    <a href="/2018/07/07/解决windows下命令执行出错-无法将-hexo-项识别为-cmdlet、函数、脚本文件或可运行程序的名称。/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">解决windows下命令执行出错:无法将&#39;hexo&#39;项识别为 cmdlet、函数、脚本文件或可运行程序的名称。</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -303,8 +289,8 @@
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
 <script>
   var cloudTieConfig = {
-    url: "http://yoursite.com/2018/06/12/JS学习笔记-原型和原型继承/", 
-    sourceId: "JS学习笔记-原型和原型继承",
+    url: "http://yoursite.com/2018/07/29/dojo学习笔记-事件绑定on/", 
+    sourceId: "dojo学习笔记-事件绑定on",
     productKey: "true",
     target: "cloud-tie-wrapper"
   };

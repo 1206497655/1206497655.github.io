@@ -6,23 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JS学习笔记--原型和原型继承 | Leno的个人博客</title>
+  <title>Tag: declare | Leno的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="&amp;emsp;&amp;emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。">
-<meta name="keywords" content="JavaScript,_proto_,prototype">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JS学习笔记--原型和原型继承">
-<meta property="og:url" content="http://yoursite.com/2018/06/12/JS学习笔记-原型和原型继承/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Leno的个人博客">
+<meta property="og:url" content="http://yoursite.com/tags/declare/index.html">
 <meta property="og:site_name" content="Leno的个人博客">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/img/6/12/consoleLog.JPG">
-<meta property="og:image" content="http://yoursite.com/img/6/12/alert.JPG">
-<meta property="og:updated_time" content="2018-07-09T01:26:35.136Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS学习笔记--原型和原型继承">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。">
-<meta name="twitter:image" content="http://yoursite.com/img/6/12/consoleLog.JPG">
+<meta name="twitter:title" content="Leno的个人博客">
   
     <link rel="alternative" href="/atom.xml" title="Leno的个人博客" type="application/atom+xml">
   
@@ -146,177 +138,64 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JS学习笔记-原型和原型继承" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      JS学习笔记--原型和原型继承
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/07/29/dojo学习笔记-创建类的工具declare/" class="archive-article-date">
+  	<time datetime="2018-07-29T14:43:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/29/dojo学习笔记-创建类的工具declare/">dojo学习笔记--创建类的工具declare</a>
     </h1>
   
 
-        
-        <a href="/2018/06/12/JS学习笔记-原型和原型继承/" class="archive-article-date">
-  	<time datetime="2018-06-12T04:00:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> &emsp;&emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。<a id="more"></a><br><br> &emsp;&emsp;在js中原型主要分为prototype(显式原型)、_proto_(隐式原型)。_proto_是每一个对象都具有的属性，而prototype是函数对象Function才具有的属性。他们之间具有一个直接的指向关系：_proto_指向构造函数的prototype，意思就是构造函数Function.prototype的所有属性和方法都可以让_proto_\查询和使用。当试图得到一个对象的某个属性时，如果这个对象本身没有这个属性，那么会去它的_proto_(即它的构造函数的Function.prototype中寻找)。<br><br> &emsp;&emsp;下面举个例子<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">name,age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.alertName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//创建示例</span></span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> Foo(<span class="string">'zhangsan'</span>);</span><br><span class="line">f.printName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line">f.printName();</span><br><span class="line">f.alertName();</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;在上述例子中，printName方法属于f对象本身的方法而不是构造函数Foo的方法，所以调用f.printName方法时，控制台输出</p>
-<p><div align="center"><img src="../../../../img/6/12/consoleLog.JPG"></div> <br><br>但是当调用f.alertName方法时，浏览器同样弹出了警告框</p>
-<p><div align="center"><img src="../../../../img/6/12/alert.JPG"></div> <br><br>这是为什么呢？这就是笔者所说的，_proto_指向问题，当调用对象自身没有的属性和方法时，js解释器会根据当前对象的_proto_指向的构造函数Foo.prototype中去寻找有无该属性或方法，如果有便返回执行，如果没有便报undefined错误。而这个其实就是我们常说的原型继承。<br>&emsp;&emsp;有趣的是，Foo.prototype其实也是一个普通对象(js万物皆对象)，那么它必然也存在有_proto_和prototype以及它们之间的指向问题，Foo.prototype_proto_究竟指向谁？这个问题留给大家思考。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">dojo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">_proto_</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">prototype</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">declare</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/12/JS学习笔记-原型和原型继承/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/07/01/JS实战笔记-实现tree组件/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JS实战笔记--实现tree组件
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/06/12/对于网页相关工作的一些个人看法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">对于网页相关工作的一些个人看法</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
-  
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "http://yoursite.com/2018/06/12/JS学习笔记-原型和原型继承/", 
-    sourceId: "JS学习笔记-原型和原型继承",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -339,9 +218,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
