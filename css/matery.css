@@ -161,7 +161,8 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #007bfb 0%, #7ceeab 100%)
+    background-image: linear-gradient(to right, #007bfb 0%, #7ceeab 100%);
+    transition: all 1.0s;
 }
 
 .text-color {
