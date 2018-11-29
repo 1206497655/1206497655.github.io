@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Leno的个人博客</title>
+  
+  <subtitle>一个小小的前端</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2018-11-29T01:27:35.642Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Leno</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究</title>
+    <link href="http://yoursite.com/2018/11/28/%E6%8E%A2%E7%B4%A2%E5%8F%91%E7%8E%B0-%E5%85%B3%E4%BA%8Ecompositionstart%E3%80%81input%E5%92%8Ccompositionend%E4%BA%8B%E4%BB%B6%E5%8E%BB%E9%99%A4%E6%8B%BC%E9%9F%B3%E5%93%8D%E5%BA%94%E7%9A%84%E7%A0%94%E7%A9%B6/"/>
+    <id>http://yoursite.com/2018/11/28/探索发现-关于compositionstart、input和compositionend事件去除拼音响应的研究/</id>
+    <published>2018-11-28T15:08:48.000Z</published>
+    <updated>2018-11-29T01:27:35.642Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关于利用compositionstart、input和compositionend事件给input元素即时响应去除拼音阶段响应的发现：compositionstart事件在拼音输入阶段开始触发的事件，compositionend事件在输入拼音阶段结束后触发的事件，大部分浏览器都相同，而input事件在不同的浏览器或不同的版本的浏览器之间的顺序有所不同，部分是发生在compositionend事件之前，部分却是在compositionend事件之后，这样给input元素针对中文做即时响应时带来许多不良影响，针对此种情况可以使用keyup事件替代，因为大部分浏览器keyup事件都是在compositionend事件之后的。
+    
+    </summary>
+    
+    
+      <category term="compositionstart" scheme="http://yoursite.com/tags/compositionstart/"/>
+    
+      <category term="compositionend" scheme="http://yoursite.com/tags/compositionend/"/>
+    
+      <category term="input" scheme="http://yoursite.com/tags/input/"/>
+    
+      <category term="兼容性" scheme="http://yoursite.com/tags/%E5%85%BC%E5%AE%B9%E6%80%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决高度设置为auto时无法过渡的情况</title>
+    <link href="http://yoursite.com/2018/11/28/%E8%A7%A3%E5%86%B3%E9%AB%98%E5%BA%A6%E8%AE%BE%E7%BD%AE%E4%B8%BAauto%E6%97%B6%E6%97%A0%E6%B3%95%E8%BF%87%E6%B8%A1%E7%9A%84%E6%83%85%E5%86%B5/"/>
+    <id>http://yoursite.com/2018/11/28/解决高度设置为auto时无法过渡的情况/</id>
+    <published>2018-11-28T02:40:58.000Z</published>
+    <updated>2018-11-28T02:51:02.459Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;css高度过渡(从0过渡至过渡为auto情况),transition过渡只能从一个明确的属性值过渡至另一个明确的属性值,不能从任意一个不确定值过渡至一个确定值,这样是不起作用的,例如常见的&lt;strong&gt;height: 0&lt;/strong&gt;过渡至&lt;strong&gt;height: auto&lt;/strong&gt;.解决办法:&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="css" scheme="http://yoursite.com/tags/css/"/>
+    
+      <category term="高度过渡" scheme="http://yoursite.com/tags/%E9%AB%98%E5%BA%A6%E8%BF%87%E6%B8%A1/"/>
+    
+      <category term="transition" scheme="http://yoursite.com/tags/transition/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设置VSCode下Vue代码自动格式化</title>
+    <link href="http://yoursite.com/2018/11/28/%E8%AE%BE%E7%BD%AEVSCode%E4%B8%8BVue%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96/"/>
+    <id>http://yoursite.com/2018/11/28/设置VSCode下Vue代码自动格式化/</id>
+    <published>2018-11-28T02:35:46.000Z</published>
+    <updated>2018-11-29T01:30:28.258Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;安装Vetur插件，打开VSCode下的setting.json，加入如下配置:&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="VSCode" scheme="http://yoursite.com/tags/VSCode/"/>
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+      <category term="自动格式化" scheme="http://yoursite.com/tags/%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git的日常工作流程总结</title>
+    <link href="http://yoursite.com/2018/11/28/git%E7%9A%84%E6%97%A5%E5%B8%B8%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2018/11/28/git的日常工作流程总结/</id>
+    <published>2018-11-28T02:23:48.000Z</published>
+    <updated>2018-11-28T02:35:14.805Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;总结了一下在团队开发种自己日常使用的一下git操作以及流程：&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+      <category term="常用" scheme="http://yoursite.com/tags/%E5%B8%B8%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dojo学习笔记--模板TemplatedMixin</title>
+    <link href="http://yoursite.com/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A8%A1%E6%9D%BFTemplatedMixin/"/>
+    <id>http://yoursite.com/2018/07/29/dojo学习笔记-模板TemplatedMixin/</id>
+    <published>2018-07-29T15:08:58.000Z</published>
+    <updated>2018-07-29T15:11:57.158Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;_TemplatedMixin(params,srcNodeRef) 用于模板实例化的部件的混合
+    
+    </summary>
+    
+    
+      <category term="dojoJs" scheme="http://yoursite.com/tags/dojoJs/"/>
+    
+      <category term="_TemplatedMixin" scheme="http://yoursite.com/tags/TemplatedMixin/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决VSCode触摸板卡顿问题</title>
+    <link href="http://yoursite.com/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/07/29/解决VSCode触摸板滑动卡顿问题/</id>
+    <published>2018-07-29T15:08:58.000Z</published>
+    <updated>2018-11-28T02:16:35.105Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Setting.json中增加选项：&lt;br&gt;&lt;pre&gt;&lt;code&gt;&amp;quot;window.smoothScrollingWorkaround&amp;quot;: true,
+&amp;quot;window.titleBarStyle&amp;quot;:
+        
+      
+    
+    </summary>
+    
+    
+      <category term="VSCode" scheme="http://yoursite.com/tags/VSCode/"/>
+    
+      <category term="卡顿" scheme="http://yoursite.com/tags/%E5%8D%A1%E9%A1%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dojo学习笔记--创建widget</title>
+    <link href="http://yoursite.com/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9B%E5%BB%BAwidget/"/>
+    <id>http://yoursite.com/2018/07/29/dojo学习笔记-创建widget/</id>
+    <published>2018-07-29T15:03:51.000Z</published>
+    <updated>2018-07-29T15:11:10.307Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;dijit / _WidgetBase是Dijit包中所有组件的基类，也是Dojo中所有组件的一个基类。通常一个组件也会继承一些属性融合的工具类，例如：dijit._TemplatedMixin。 注意：_WidgetBase名字中的下划线表示它是一个基类，不可直接使用，而不是表示它是一个私有的类。
+    
+    </summary>
+    
+    
+      <category term="dojoJs" scheme="http://yoursite.com/tags/dojoJs/"/>
+    
+      <category term="widget" scheme="http://yoursite.com/tags/widget/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dojo学习笔记--Deferred对象</title>
+    <link href="http://yoursite.com/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Deferred%E5%AF%B9%E8%B1%A1/"/>
+    <id>http://yoursite.com/2018/07/29/dojo学习笔记-Deferred对象/</id>
+    <published>2018-07-29T14:59:26.000Z</published>
+    <updated>2018-07-29T15:02:33.019Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;dojo.Deferred管理异步线程（回调）之间的通信。 dojo.Deferred封装了一系列回调以响应可能尚未可用的值。 所有dojo.xhr*函数都使用此类(Deferred)，其他许多函数也是如此，例如dojo.io.script。
+    
+    </summary>
+    
+    
+      <category term="dojoJs" scheme="http://yoursite.com/tags/dojoJs/"/>
+    
+      <category term="Deferred" scheme="http://yoursite.com/tags/Deferred/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dojo学习笔记--创建类的工具declare</title>
+    <link href="http://yoursite.com/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9B%E5%BB%BA%E7%B1%BB%E7%9A%84%E5%B7%A5%E5%85%B7declare/"/>
+    <id>http://yoursite.com/2018/07/29/dojo学习笔记-创建类的工具declare/</id>
+    <published>2018-07-29T14:43:26.000Z</published>
+    <updated>2018-07-29T14:57:29.843Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;declare(className,superclass,props) 是创建类的基础，es6之前js并不支持创建类，没有关键词class和extends.declare允许开发者实现多继承，从而创建灵活的有弹性的代码，避免重复写代码。
+    
+    </summary>
+    
+    
+      <category term="dojo" scheme="http://yoursite.com/tags/dojo/"/>
+    
+      <category term="declare" scheme="http://yoursite.com/tags/declare/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dojo学习笔记--通用工具lang</title>
+    <link href="http://yoursite.com/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%80%9A%E7%94%A8%E5%B7%A5%E5%85%B7lang/"/>
+    <id>http://yoursite.com/2018/07/29/dojo学习笔记-通用工具lang/</id>
+    <published>2018-07-29T14:27:34.000Z</published>
+    <updated>2018-07-29T14:55:16.963Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;dojo/base/lang模块是一个通用工具模块，主要提供以下的工具函数&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="dojojs" scheme="http://yoursite.com/tags/dojojs/"/>
+    
+      <category term="lang" scheme="http://yoursite.com/tags/lang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>dojo学习笔记--事件绑定on()</title>
+    <link href="http://yoursite.com/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9Aon/"/>
+    <id>http://yoursite.com/2018/07/29/dojo学习笔记-事件绑定on/</id>
+    <published>2018-07-29T14:12:26.000Z</published>
+    <updated>2018-07-29T14:23:15.434Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;on() 方法在元素上绑定事件，需要引用包dojo/on，通过on方法实现。
+    
+    </summary>
+    
+    
+      <category term="DojoJs" scheme="http://yoursite.com/tags/DojoJs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决windows下命令执行出错:无法将&#39;hexo&#39;项识别为 cmdlet、函数、脚本文件或可运行程序的名称。</title>
+    <link href="http://yoursite.com/2018/07/07/%E8%A7%A3%E5%86%B3windows%E4%B8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%87%BA%E9%94%99-%E6%97%A0%E6%B3%95%E5%B0%86-hexo-%E9%A1%B9%E8%AF%86%E5%88%AB%E4%B8%BA-cmdlet%E3%80%81%E5%87%BD%E6%95%B0%E3%80%81%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6%E6%88%96%E5%8F%AF%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%90%8D%E7%A7%B0%E3%80%82/"/>
+    <id>http://yoursite.com/2018/07/07/解决windows下命令执行出错-无法将-hexo-项识别为-cmdlet、函数、脚本文件或可运行程序的名称。/</id>
+    <published>2018-07-07T14:32:33.000Z</published>
+    <updated>2018-07-07T16:06:36.512Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;hexo : 无法将“hexo”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次。
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JS实战笔记--实现tree组件</title>
+    <link href="http://yoursite.com/2018/07/01/JS%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0-%E5%AE%9E%E7%8E%B0tree%E7%BB%84%E4%BB%B6/"/>
+    <id>http://yoursite.com/2018/07/01/JS实战笔记-实现tree组件/</id>
+    <published>2018-07-01T14:00:59.000Z</published>
+    <updated>2018-07-07T15:25:51.520Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; &amp;emsp;&amp;emsp;前些天去面试，被要求用原生JS实现一个能遍历数组生成树状展开列表(其实不知道是不是这样表述)的tree组件，花了我不少的时间和精力，看来自己的实战能力确实是不够，不过后来还是做出来了
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="tree组件" scheme="http://yoursite.com/tags/tree%E7%BB%84%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JS学习笔记--原型和原型继承</title>
+    <link href="http://yoursite.com/2018/06/12/JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF/"/>
+    <id>http://yoursite.com/2018/06/12/JS学习笔记-原型和原型继承/</id>
+    <published>2018-06-12T04:00:46.000Z</published>
+    <updated>2018-11-29T01:28:11.793Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt; &amp;emsp;&amp;emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="_proto_" scheme="http://yoursite.com/tags/proto/"/>
+    
+      <category term="prototype" scheme="http://yoursite.com/tags/prototype/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对于网页相关工作的一些个人看法</title>
+    <link href="http://yoursite.com/2018/06/12/%E5%AF%B9%E4%BA%8E%E7%BD%91%E9%A1%B5%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%9C%8B%E6%B3%95/"/>
+    <id>http://yoursite.com/2018/06/12/对于网页相关工作的一些个人看法/</id>
+    <published>2018-06-12T02:16:04.000Z</published>
+    <updated>2018-06-24T11:16:57.096Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;/p&gt;&lt;h3&gt;前言&lt;/h3&gt;&lt;br&gt;&amp;emsp; &amp;emsp;前些天我所在的团队回来了几个毕了业的大师兄，大家聚在一起聊天交流经验时被想从事网页前端工作的几个小师妹问了一些前端方面的问题以及发展情况，交流过后觉得应该写出来，便有了以下的个人看法，希望有误的地方能多多包涵。
+    
+    </summary>
+    
+    
+      <category term="网页前端" scheme="http://yoursite.com/tags/%E7%BD%91%E9%A1%B5%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的个人博客- -诞生</title>
+    <link href="http://yoursite.com/2018/06/10/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E8%AF%9E%E7%94%9F/"/>
+    <id>http://yoursite.com/2018/06/10/我的个人博客-诞生/</id>
+    <published>2018-06-10T01:17:45.000Z</published>
+    <updated>2018-06-23T18:05:43.566Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;嗨！大家好，和大家打个招呼！我是Leno，我是一名普通本科毕业生，写这篇博客为止我还没有工作，希望从事web前端开发。
+    
+    </summary>
+    
+    
+      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+    
+      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
+    
+  </entry>
+  
+</feed>
