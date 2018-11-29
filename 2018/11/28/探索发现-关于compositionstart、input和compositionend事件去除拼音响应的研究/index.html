@@ -9,7 +9,7 @@
   <title>探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究 | Leno的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="关于利用compositionstart、input和compositionend事件给input元素即时响应去除拼音阶段响应的发现：compositionstart事件在拼音输入阶段开始触发的事件，compositionend事件在输入拼音阶段结束后触发的事件，大部分浏览器都相同，而input事件在不同的浏览器或不同的版本的浏览器之间的顺序有所不同，部分是发生在compositionend事件之">
-<meta name="keywords" content="compositionstart,compositionend,拼音响应">
+<meta name="keywords" content="compositionstart,compositionend,input,兼容性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究">
 <meta property="og:url" content="http://yoursite.com/2018/11/28/探索发现-关于compositionstart、input和compositionend事件去除拼音响应的研究/index.html">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://yoursite.com/img/11/28/chrome%2033.0.1750.117.png">
 <meta property="og:image" content="http://yoursite.com/img/11/28/chrome%2070.0.3538.102.png">
 <meta property="og:image" content="http://yoursite.com/img/11/28/fireFox%2063.03.png">
-<meta property="og:updated_time" content="2018-11-29T01:22:43.063Z">
+<meta property="og:updated_time" content="2018-11-29T01:27:35.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究">
 <meta name="twitter:description" content="关于利用compositionstart、input和compositionend事件给input元素即时响应去除拼音阶段响应的发现：compositionstart事件在拼音输入阶段开始触发的事件，compositionend事件在输入拼音阶段结束后触发的事件，大部分浏览器都相同，而input事件在不同的浏览器或不同的版本的浏览器之间的顺序有所不同，部分是发生在compositionend事件之">
@@ -200,7 +200,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">拼音响应</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">input</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">兼容性</a>
         		</li>
       		
 		</ul>
@@ -401,26 +405,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">dojoJs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Deferred</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DojoJs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -433,6 +417,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DojoJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">dojoJs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Deferred</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">常用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">compositionstart</a>
               </li>
              
@@ -441,7 +445,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">拼音响应</a>
+                <a href="javascript:void(0)" class="js-tag color1">input</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">兼容性</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -473,14 +489,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">常用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">tree组件</a>
               </li>
              
@@ -489,19 +497,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">_TemplatedMixin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">dojo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">declare</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">_TemplatedMixin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网页前端</a>
               </li>
              
               <li class="article-tag-list-item">
