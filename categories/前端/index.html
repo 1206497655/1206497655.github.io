@@ -5,8 +5,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Leno的个人博客">
-    <meta name="description" content="Leno的个人博客">
+    <meta name="keywords" content="分类: 前端, Leno的个人博客">
+    <meta name="description" content="分类: 前端 | Leno的个人博客">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Leno的个人博客</title>
+    <title>分类: 前端 | Leno的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -250,14 +250,7 @@
     </nav>
 </header>
 
-<style type="text/css">
-    /* don't remove. */
-    .index-cover {
-        height: 100vh;
-    }
-</style>
-
-<div class="bg-cover index-cover about-cover" style="background-image: url('/medias/cover.jpg')">
+<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
@@ -277,32 +270,6 @@
             </div>
         </div>
         
-        <div class="cover-btns">
-            <a href="#recommend-sections" class="waves-effect waves-light btn">
-                <i class="fa fa-angle-double-down"></i>继续阅读
-            </a>
-
-            
-            <a href="https://github.com/1206497655" class="waves-effect waves-light btn" target="_blank">
-                <i class="fa fa-github "></i>GitHub
-            </a>
-            
-        </div>
-        <div class="cover-social-link"><a href="https://github.com/1206497655" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-    <i class="fa fa-github"></i>
-</a>
-<a href="mailto:1206497655@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-    <i class="fa fa-envelope-open"></i>
-</a>
-<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 1206497655" data-position="top" data-delay="50">
-    <i class="fa fa-qq"></i>
-</a>
-
-<a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-    <i class="fa fa-rss"></i>
-</a>
-</div>
-        
     </div>
 </div>
 
@@ -315,25 +282,55 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     
 
-    <div id="recommend-sections">
-    
-    
-
-
-
-    
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">文章分类</div>
+            <div class="tag-chips">
+                
+                
+                
+                <a href="/categories/前端/" title="前端: 11">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #F9EBEA;">前端
+                        <span class="tag-length">11</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/工具/" title="工具: 4">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">工具
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/杂谈/" title="杂谈: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">杂谈
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+            </div>
+        </div>
     </div>
+</div>
 
     
 
-    <!-- 所有文章卡片 -->
     <article id="articles" class="container articles">
-        <div class="row article-row">
+        <div class="row tags-posts">
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2018/11/28/探索发现-关于compositionstart、input和compositionend事件去除拼音响应的研究/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究">
@@ -341,7 +338,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             <span class="card-title">探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary">关于利用compositionstart、input和compositionend事件给input元素即时响应去除拼音阶段响应的发现：com</div>
                         <div class="publish-info">
@@ -377,10 +373,10 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2018/11/28/解决高度设置为auto时无法过渡的情况/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="解决高度设置为auto时无法过渡的情况">
@@ -388,7 +384,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                             <span class="card-title">解决高度设置为auto时无法过渡的情况</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary">css高度过渡(从0过渡至过渡为auto情况),transition过渡只能从一个明确的属性值过渡至另一个明确的属性值,不能从任意一个不确定</div>
                         <div class="publish-info">
@@ -424,106 +419,10 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/11/28/设置VSCode下Vue代码自动格式化/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="设置VSCode下Vue代码自动格式化">
-                            
-                            <span class="card-title">设置VSCode下Vue代码自动格式化</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">安装Vetur插件，打开VSCode下的setting.json，加入如下配置:&#x2F;&#x2F; 保存自动格式化
-&quot;edi</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/工具/" class="post-category" target="_blank">
-                                    工具
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/VSCode/" target="_blank">
-                            <span class="chip bg-color">VSCode</span>
-                        </a>
-                        
-                        <a href="/tags/vue/" target="_blank">
-                            <span class="chip bg-color">vue</span>
-                        </a>
-                        
-                        <a href="/tags/自动格式化/" target="_blank">
-                            <span class="chip bg-color">自动格式化</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/11/28/git的日常工作流程总结/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="git的日常工作流程总结">
-                            
-                            <span class="card-title">git的日常工作流程总结</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">总结了一下在团队开发种自己日常使用的一下git操作以及流程：&#x2F;&#x2F; 去自己的工作分支
-$ git checkout wor</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/工具/" class="post-category" target="_blank">
-                                    工具
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/git/" target="_blank">
-                            <span class="chip bg-color">git</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2018/07/29/dojo学习笔记-模板TemplatedMixin/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="dojo学习笔记--模板TemplatedMixin">
@@ -531,7 +430,6 @@ $ git checkout wor</div>
                             <span class="card-title">dojo学习笔记--模板TemplatedMixin</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary">&emsp;&emsp;_TemplatedMixin(params,srcNodeRef) 用于模板实例化的部件的混合&emsp;&ems</div>
                         <div class="publish-info">
@@ -567,58 +465,10 @@ $ git checkout wor</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/07/29/解决VSCode触摸板滑动卡顿问题/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="解决VSCode触摸板卡顿问题">
-                            
-                            <span class="card-title">解决VSCode触摸板卡顿问题</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">Setting.json中增加选项：&quot;window.smoothScrollingWorkaround&quot;: true,
-</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-29
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/工具/" class="post-category" target="_blank">
-                                    工具
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/VSCode/" target="_blank">
-                            <span class="chip bg-color">VSCode</span>
-                        </a>
-                        
-                        <a href="/tags/卡顿/" target="_blank">
-                            <span class="chip bg-color">卡顿</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2018/07/29/dojo学习笔记-创建widget/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="dojo学习笔记--创建widget">
@@ -626,7 +476,6 @@ $ git checkout wor</div>
                             <span class="card-title">dojo学习笔记--创建widget</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary">&emsp;&emsp;dijit / _WidgetBase是Dijit包中所有组件的基类，也是Dojo中所有组件的一个基类。通常一个组件</div>
                         <div class="publish-info">
@@ -662,10 +511,10 @@ $ git checkout wor</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2018/07/29/dojo学习笔记-Deferred对象/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="dojo学习笔记--Deferred对象">
@@ -673,7 +522,6 @@ $ git checkout wor</div>
                             <span class="card-title">dojo学习笔记--Deferred对象</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary">&emsp;&emsp;dojo.Deferred管理异步线程（回调）之间的通信。 dojo.Deferred封装了一系列回调以响应可能尚未</div>
                         <div class="publish-info">
@@ -709,10 +557,10 @@ $ git checkout wor</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2018/07/29/dojo学习笔记-创建类的工具declare/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="dojo学习笔记--创建类的工具declare">
@@ -720,7 +568,6 @@ $ git checkout wor</div>
                             <span class="card-title">dojo学习笔记--创建类的工具declare</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary">&emsp;&emsp;declare(className,superclass,props) 是创建类的基础，es6之前js并不支持创建类</div>
                         <div class="publish-info">
@@ -756,10 +603,10 @@ $ git checkout wor</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2018/07/29/dojo学习笔记-通用工具lang/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="dojo学习笔记--通用工具lang">
@@ -767,7 +614,6 @@ $ git checkout wor</div>
                             <span class="card-title">dojo学习笔记--通用工具lang</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary">&emsp;&emsp;dojo/base/lang模块是一个通用工具模块，主要提供以下的工具函数require([&#39;dojo&#3</div>
                         <div class="publish-info">
@@ -803,10 +649,10 @@ $ git checkout wor</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
                     <a href="/2018/07/29/dojo学习笔记-事件绑定on/">
-                        <div class="card-image">
+                        <div class="card-image tag-image">
                             
                             
                             <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="dojo学习笔记--事件绑定on()">
@@ -814,7 +660,6 @@ $ git checkout wor</div>
                             <span class="card-title">dojo学习笔记--事件绑定on()</span>
                         </div>
                     </a>
-
                     <div class="card-content article-content">
                         <div class="summary">&emsp;&emsp;on() 方法在元素上绑定事件，需要引用包dojo/on，通过on方法实现。&emsp;&emsp;on方法不需要前</div>
                         <div class="publish-info">
@@ -846,44 +691,8 @@ $ git checkout wor</div>
                 </div>
             </div>
             
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/07/07/解决windows下命令执行出错-无法将-hexo-项识别为-cmdlet、函数、脚本文件或可运行程序的名称。/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="解决windows下命令执行出错:无法将'hexo'项识别为 cmdlet、函数、脚本文件或可运行程序的名称。">
-                            
-                            <span class="card-title">解决windows下命令执行出错:无法将'hexo'项识别为 cmdlet、函数、脚本文件或可运行程序的名称。</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary">hexo : 无法将“hexo”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/工具/" class="post-category" target="_blank">
-                                    工具
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
-
 </main>
 
 
@@ -901,7 +710,7 @@ $ git checkout wor</div>
         </div>
         <div class="col s6 m4 l4">
             
-            <a href="/page/2/"
+            <a href="/categories/前端/page/2/"
                class="right btn-floating btn-large waves-effect waves-light bg-color">
                 <i class="fa fa-angle-right"></i>
             </a>
@@ -909,7 +718,6 @@ $ git checkout wor</div>
         </div>
     </div>
 </div>
-
 
 
 <footer class="page-footer bg-color">
