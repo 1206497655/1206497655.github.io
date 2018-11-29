@@ -332,11 +332,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>安装Vetur插件，打开VSCode下的setting.json，加入如下配置:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保存自动格式化</span></span><br><span class="line"><span class="string">"editor.formatOnSave"</span>: <span class="literal">true</span>,</span><br><span class="line"><span class="comment">// 保存时自动fix</span></span><br><span class="line"><span class="string">"eslint.autoFixOnSave"</span>: <span class="literal">true</span>,</span><br><span class="line"><span class="comment">// 添加 vue 支持</span></span><br><span class="line"><span class="string">"eslint.validate"</span>: [</span><br><span class="line">    <span class="string">"javascript"</span>,</span><br><span class="line">    <span class="string">"javascriptreact"</span>,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"language"</span>: <span class="string">"vue"</span>,</span><br><span class="line">        <span class="string">"autoFix"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">],</span><br><span class="line"><span class="comment">// 屏蔽vetur的js格式化</span></span><br><span class="line"><span class="string">"vetur.format.defaultFormatter.js"</span>: <span class="string">"none"</span></span><br><span class="line"><span class="comment">// 使用插件格式化 html</span></span><br><span class="line"><span class="string">"vetur.format.defaultFormatter.html"</span>: <span class="string">"prettyhtml"</span></span><br></pre></td></tr></table></figure>
-<p>注意：<br>    1.代码风格使用著名的prettier风格。<br>    2.在*.vue文件保存时会执行两次格式化，一次是Vetur插件的，另一次是ESlint的，应该去掉其中一个以节省性能和时间。一般选择去掉Vetur的，因为ESlint格式化出阿来的JS才符合ESlint的规则，不容易报红。所以加入 “vetur.format.defaultFormatter.js”: “none”以屏蔽Vetur的JS格式化。<br>    3.ESlint不会格式化Vue文件中的模板部分，但是会监测….所以设置Vetur的HTML格式化风格时应尽量选择与ESlint的更友好的Prettier风格，即以上选项。<br>    4.Vetur下的css和其它css预处理语言默认使用Prettier风格，所以这里不用自行配置。</p>
-<p>完成以上配置后，就能愉快的写代码了~~</p>
-
+        <p>安装Vetur插件，打开VSCode下的setting.json，加入如下配置:<br>
+        
+          <a class="article-more-a" href="/2018/11/28/设置VSCode下Vue代码自动格式化/#more">more >></a>
+        
       
 
       
@@ -477,6 +476,84 @@
 
 
   
+    <article id="post-解决VSCode触摸板滑动卡顿问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/29/解决VSCode触摸板滑动卡顿问题/">解决VSCode触摸板卡顿问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/29/解决VSCode触摸板滑动卡顿问题/" class="archive-article-date">
+  	<time datetime="2018-07-29T15:08:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Setting.json中增加选项：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"window.smoothScrollingWorkaround"</span>: <span class="literal">true</span>,</span><br><span class="line"><span class="string">"window.titleBarStyle"</span>: <span class="string">"native"</span></span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">卡顿</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/29/解决VSCode触摸板滑动卡顿问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-dojo学习笔记-模板TemplatedMixin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -528,84 +605,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/29/dojo学习笔记-模板TemplatedMixin/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-解决VSCode触摸板滑动卡顿问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/29/解决VSCode触摸板滑动卡顿问题/">解决VSCode触摸板卡顿问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/29/解决VSCode触摸板滑动卡顿问题/" class="archive-article-date">
-  	<time datetime="2018-07-29T15:08:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Setting.json中增加选项：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"window.smoothScrollingWorkaround"</span>: <span class="literal">true</span>,</span><br><span class="line"><span class="string">"window.titleBarStyle"</span>: <span class="string">"native"</span></span><br></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">VSCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">卡顿</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/29/解决VSCode触摸板滑动卡顿问题/">展开全文 >></a>
         </p>
       
 
@@ -896,15 +895,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">DojoJs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">dojoJs</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Deferred</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">DojoJs</a>
               </li>
              
               <li class="article-tag-list-item">
