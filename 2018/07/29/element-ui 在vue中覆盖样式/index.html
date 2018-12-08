@@ -5,8 +5,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究, Leno的个人博客">
-    <meta name="description" content="关于利用compositionstart、input和compositionend事件给input元素即时响应去除拼音阶段响应的发现：compositionstart事件在拼音输入阶段开始触发的事件，compositionend事件在输入拼">
+    <meta name="keywords" content="element-ui在vue中覆盖样式, Leno的个人博客">
+    <meta name="description" content="vue主张使用scoped关键字来解决css样式的全局污染问题，这样的解决方式明显简单了许多，不过也有一些意外情况，例如想要覆盖一些第三方ui的样式（如elementUi）时，因为大部分的样式都是通过全局样式引入的，在某个页面想进行样式覆盖">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究 | Leno的个人博客</title>
+    <title>element-ui在vue中覆盖样式 | Leno的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -252,13 +252,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究
+                        element-ui在vue中覆盖样式
                     </div>
                 </div>
             </div>
@@ -369,12 +369,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/compositionstart/" target="_blank">
-                    <span class="chip bg-color">compositionstart</span>
-                </a>
-                
-                <a href="/tags/compositionend/" target="_blank">
-                    <span class="chip bg-color">compositionend</span>
+                <a href="/tags/element/" target="_blank">
+                    <span class="chip bg-color">element</span>
                 </a>
                 
             </div>
@@ -392,40 +388,62 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-11-28
+                    <i class="fa fa-clock-o fa-fw"></i>2018-07-29
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>关于利用compositionstart、input和compositionend事件给input元素即时响应去除拼音阶段响应的发现：compositionstart事件在拼音输入阶段开始触发的事件，compositionend事件在输入拼音阶段结束后触发的事件，大部分浏览器都相同，而input事件在不同的浏览器或不同的版本的浏览器之间的顺序有所不同，部分是发生在compositionend事件之前，部分却是在compositionend事件之后，这样给input元素针对中文做即时响应时带来许多不良影响，针对此种情况可以使用keyup事件替代，因为大部分浏览器keyup事件都是在compositionend事件之后的。<a id="more"></a></p>
-<p>测试代码大概是：</p>
-<pre><code>var inputZh = false  &#x2F;&#x2F; 是否结束输入法获取文字标记
-inputNode.addEventListener(&#39;compositionstart&#39;, function () {
-    inputZh = false &#x2F;&#x2F; 开始输入法时置为 false
-    console.log(&#39;compositionstart&#39;)
-})
-oinputNode.addEventListener(&#39;compositionend&#39;, function () {
-    inputZh = true &#x2F;&#x2F; 结束输入法时置为true
-    console.log(&#39;compositionend&#39;)
-})
-inputNode.addEventListener(&#39;inputNode&#39;, function() {
-    console.log(&#39;input&#39;)
-    if (inputZh) { &#x2F;&#x2F; 按下空格键结束输入法时进行响应
-        &#x2F;* 要处理的代码块 *&#x2F;
-    }
-})
+                <p>vue主张使用scoped关键字来解决css样式的全局污染问题，这样的解决方式明显简单了许多，不过也有一些意外情况，例如想要覆盖一些第三方ui的样式（如elementUi）时，因为大部分的样式都是通过全局样式引入的，在某个页面想进行样式覆盖又存在scoped关键字时显然无法进行覆盖。解决方式有两种：</p>
+<p>1.去掉 <code>scoped</code> 提升样式至全局。但是这样的话需要增加命名空间以解决污染问题。</p>
+<pre class=" language-scss"><code class="language-scss"><span class="token selector">.article-page </span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* 你的命名空间 */</span>
+  <span class="token selector">.el-tag </span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/* element-ui 元素*/</span>
+    <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<p>下图是chrome 33拼音输入控制台打印结果：<br><img src="/img/11/28/chrome 33.0.1750.117.png" alt=""><br><!-- ![](E:\notes\img\chrome 33.0.1750.117.png) --></p>
-<p>分析：chrome 33运行此段代码时，拼音输入法在按下空格键之后（即结束输入法获得文字）触发的事件顺序为: compositionend -&gt; input， 这样子就能在compositionend事件时把inputZh置为true然后再之后触发的input事件中处理响应任务。</p>
-<p>下图时chrome 70 拼音输入控制台打印结果：</p>
-<p><img src="/img/11/28/chrome 70.0.3538.102.png" alt=""><br><!-- ![](E:\notes\img\chrome 70.0.3538.102.png) --></p>
-<p>分析：chrome 70的结果显然不是我们想要的。拼音输入把结束输入法的空格键也计算在输入拼音阶段，导致无法在input事件前通过compositionend事件使inputZh标志置为true，所以无法实现拼音过滤。</p>
-<p>下图时firfox 59 拼音输入控制台打印结果：</p>
-<p><img src="/img/11/28/fireFox 63.03.png" alt=""><br><!-- ![ ](E:\notes\img\fireFox 63.03.png) --></p>
-<p>firefox 59与chrome 33相同。</p>
-<p>虽然只是简单的测试了一下，但是从两大浏览器就可以得出input事件与compositionstart、compositionend顺序不一致的问题。解决这个问题的最简单的方法就是使用keyup事件替代input事件，因为大多数浏览器的keyup顺序都是一样的。</p>
+<p>2.使用深度选择器。当你子组件使用了 <code>scoped</code> 但在父组件又想修改子组件的样式可以 通过 <code>&gt;&gt;&gt;</code> 来实现：</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector">&lt;style scoped>
+<span class="token class">.a</span> >>> <span class="token class">.b</span> </span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* ... */</span> <span class="token punctuation">}</span>
+&lt;/style>
+</code></pre>
+<p>将会编译成：</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.a</span><span class="token attribute">[data-v-f3f3eg9]</span> <span class="token class">.b</span> </span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* ... */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>注意：当使用了sass等css预处理语言时， <code>&gt;&gt;&gt;</code> 可能不会生效，此时可以使用 <code>/deep/</code> 替换，它的作用跟 <code>&gt;&gt;&gt;</code> 时一样的。</p>
+<style scoped>
+.a /deep/ .b { /* ... */ }
+</style>
+
+<p>除此之外，父级选择器应该是能够被选中的全局样式，如上的 <code>.a</code> ，它应该组件最顶层的父级容器样式，能够被全局样式判定，否则深度选择器是找不到目标样式的。假如组件的样式结构如下：</p>
+<pre class=" language-scss"><code class="language-scss"><span class="token selector">.article-page </span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* 你的命名空间 */</span>
+  <span class="token selector">.el-tag </span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/* element-ui 元素*/</span>
+    <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>那么深度选择器应该从 <code>.a</code> 样式作为父级选择器开始，比我要改变 <code>.c</code> 样式，从以下方式改变是不行的:</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
+    <span class="token selector"><span class="token class">.b</span> /deep/ <span class="token class">.c</span> </span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/* 修改失败，无法找到 .c 元素, 父级元素未知 */</span>
+    <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>正确的做法应该是这样的:</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
+    <span class="token selector"><span class="token class">.a</span> /deep/ <span class="token class">.b</span> /deep/ <span class="token class">.c</span> </span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/* 修改成功 */</span>
+    <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>以上结果基于vue + elementUi测试获得，其它ui未知。欢迎纠错。</p>
 
             </div>
             <hr/>
@@ -564,7 +582,7 @@ inputNode.addEventListener(&#39;inputNode&#39;, function() {
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://www.coderlyc.xyz" class="b-link-green">Leno的个人博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/11/28/探索发现-关于compositionstart、input和compositionend事件去除拼音响应的研究/" class="b-link-green">探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究</a>
+                    <a href="/2018/07/29/element-ui 在vue中覆盖样式/" class="b-link-green">element-ui在vue中覆盖样式</a>
                 </p>
             </div>
         </div>
@@ -586,7 +604,7 @@ inputNode.addEventListener(&#39;inputNode&#39;, function() {
         repo: '',
         owner: '',
         admin: null,
-        id: '2018-11-28T23-08-48',
+        id: '2018-07-29T22-27-34',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -605,24 +623,24 @@ inputNode.addEventListener(&#39;inputNode&#39;, function() {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">本篇</div>
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/11/28/探索发现-关于compositionstart、input和compositionend事件去除拼音响应的研究/">
+                <a href="/2018/07/29/dojo学习笔记-创建类的工具declare/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="dojo学习笔记--创建类的工具declare">
                         
-                        <span class="card-title">探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究</span>
+                        <span class="card-title">dojo学习笔记--创建类的工具declare</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">关于利用compositionstart、input和compositionend事件给input元素即时响应去除拼音阶段响应的发现：compositionstart事件在拼音输入阶段开始触发的事件，compositionend事件在输入拼</div>
+                    <div class="summary">&emsp;&emsp;declare(className,superclass,props) 是创建类的基础，es6之前js并不支持创建类，没有关键词class和extends.declare允许开发者实现多继承，从而创建灵活的有弹性的代</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-29
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -635,16 +653,15 @@ inputNode.addEventListener(&#39;inputNode&#39;, function() {
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/compositionstart/" target="_blank">
-                        <span class="chip bg-color">compositionstart</span>
+                    <a href="/tags/dojo/" target="_blank">
+                        <span class="chip bg-color">dojo</span>
                     </a>
                     
-                    <a href="/tags/compositionend/" target="_blank">
-                        <span class="chip bg-color">compositionend</span>
+                    <a href="/tags/declare/" target="_blank">
+                        <span class="chip bg-color">declare</span>
                     </a>
                     
                 </div>
@@ -656,20 +673,20 @@ inputNode.addEventListener(&#39;inputNode&#39;, function() {
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/11/28/解决高度设置为auto时无法过渡的情况/">
+                <a href="/2018/07/29/dojo学习笔记-通用工具lang/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="解决高度设置为auto时无法过渡的情况">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="dojo学习笔记--通用工具lang">
                         
-                        <span class="card-title">解决高度设置为auto时无法过渡的情况</span>
+                        <span class="card-title">dojo学习笔记--通用工具lang</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">css高度过渡(从0过渡至过渡为auto情况),transition过渡只能从一个明确的属性值过渡至另一个明确的属性值,不能从任意一个不确定值过渡至一个确定值,这样是不起作用的,例如常见的height: 0过渡至height: auto.解</div>
+                    <div class="summary">&emsp;&emsp;dojo/base/lang模块是一个通用工具模块，主要提供以下的工具函数require([&#39;dojo&#39;, &#39;dojo&#x2F;_base&#x2F;lang&#39;, &#39;dojo</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-28
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-29
                             </span>
                         <span class="publish-author">
                             
@@ -686,12 +703,12 @@ inputNode.addEventListener(&#39;inputNode&#39;, function() {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/css/" target="_blank">
-                        <span class="chip bg-color">css</span>
+                    <a href="/tags/dojo/" target="_blank">
+                        <span class="chip bg-color">dojo</span>
                     </a>
                     
-                    <a href="/tags/高度过渡/" target="_blank">
-                        <span class="chip bg-color">高度过渡</span>
+                    <a href="/tags/lang/" target="_blank">
+                        <span class="chip bg-color">lang</span>
                     </a>
                     
                 </div>
