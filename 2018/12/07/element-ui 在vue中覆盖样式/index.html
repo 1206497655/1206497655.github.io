@@ -5,8 +5,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="dojo学习笔记--模板TemplatedMixin, Leno的个人博客">
-    <meta name="description" content="&amp;emsp;&amp;emsp;_TemplatedMixin(params,srcNodeRef) 用于模板实例化的部件的混合&amp;emsp;&amp;emsp;on方法不需要前缀。包括三个参数。@param: params&amp;emsp;&amp;emsp;类型：Ob">
+    <meta name="keywords" content="Leno的个人博客">
+    <meta name="description" content="element-ui 在vue中覆盖样式vue主张使用scoped关键字来解决css样式的全局污染问题，这样的解决方式明显简单了许多，不过也有一些意外情况，例如想要覆盖一些第三方ui的样式（如elementUi）时，因为大部分的样式都是通过">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>dojo学习笔记--模板TemplatedMixin | Leno的个人博客</title>
+    <title>Leno的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -252,13 +252,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        dojo学习笔记--模板TemplatedMixin
+                        
                     </div>
                 </div>
             </div>
@@ -367,179 +367,66 @@
     <div class="card">
         <div class="card-content article-info">
             
-            <div class="article-tag">
-                
-                <a href="/tags/dojo/" target="_blank">
-                    <span class="chip bg-color">dojo</span>
-                </a>
-                
-                <a href="/tags/TemplatedMixin/" target="_blank">
-                    <span class="chip bg-color">_TemplatedMixin</span>
-                </a>
-                
-            </div>
-            
             <div class="post-info">
-                
-                <span class="post-cate">
-                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                    
-                    <a href="/categories/前端/" class="post-category" target="_blank">
-                        前端
-                    </a>
-                    
-                </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-07-29
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-07
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>&emsp;&emsp;_TemplatedMixin(params,srcNodeRef) 用于模板实例化的部件的混合<a id="more"></a><br>&emsp;&emsp;on方法不需要前缀。包括三个参数。<br>@param: params<br>&emsp;&emsp;类型：Object | null<br>&emsp;&emsp;&emsp;&emsp;描述：部件的初始化参数哈希值，包括标量值（如标题，持续时间等）和函数，通常是onClick之类的回调。<br>&emsp;&emsp;&emsp;&emsp;哈希可以包含任何窗口小部件的属性，不包括只读属性。<br>@param: srcNodeRef<br>&emsp;&emsp;类型：DOMNode | String<br>&emsp;&emsp;描述：可选的。如果指定了srcNodeRef（DOM节点），则将srcNodeRef替换为方法生成的DOM树。<br><pre><code>require([
-            &#39;dojo&#x2F;dom&#39;,
-            &#39;dojo&#x2F;_base&#x2F;declare&#39;,
-            &quot;dijit&#x2F;_WidgetBase&quot;,
-            &#39;dijit&#x2F;_TemplatedMixin&#39;,
-            &#39;dojo&#x2F;domReady!&#39;
-        ], function (dom, declare, _WidgetBase, _TemplatedMixin) {
-            &#x2F;&#x2F; 用法
-            var foo = new _TemplatedMixin(params, srcNodeRef);
+                <h2 id="element-ui-在vue中覆盖样式"><a href="#element-ui-在vue中覆盖样式" class="headerlink" title="element-ui 在vue中覆盖样式"></a>element-ui 在vue中覆盖样式</h2><p>vue主张使用scoped关键字来解决css样式的全局污染问题，这样的解决方式明显简单了许多，不过也有一些意外情况，例如想要覆盖一些第三方ui的样式（如elementUi）时，因为大部分的样式都是通过全局样式引入的，在某个页面想进行样式覆盖又存在scoped关键字时显然无法进行覆盖。解决方式有两种：</p>
+<p>1.去掉 <code>scoped</code> 提升样式至全局。但是这样的话需要增加命名空间以解决污染问题。</p>
+<pre class=" language-scss"><code class="language-scss"><span class="token selector">.article-page </span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* 你的命名空间 */</span>
+  <span class="token selector">.el-tag </span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/* element-ui 元素*/</span>
+    <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>2.使用深度选择器。当你子组件使用了 <code>scoped</code> 但在父组件又想修改子组件的样式可以 通过 <code>&gt;&gt;&gt;</code> 来实现：</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector">&lt;style scoped>
+<span class="token class">.a</span> >>> <span class="token class">.b</span> </span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* ... */</span> <span class="token punctuation">}</span>
+&lt;/style>
+</code></pre>
+<p>将会编译成：</p>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.a</span><span class="token attribute">[data-v-f3f3eg9]</span> <span class="token class">.b</span> </span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* ... */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>注意：当使用了sass等css预处理语言时， <code>&gt;&gt;&gt;</code> 可能不会生效，此时可以使用 <code>/deep/</code> 替换，它的作用跟 <code>&gt;&gt;&gt;</code> 时一样的。</p>
+<style scoped>
+.a /deep/ .b { /* ... */ }
+</style>
 
-            &#x2F;&#x2F; 属性
-            &#x2F;&#x2F; attachScope：附加点和事件将作用于的对象。 默认为&#39;this&#39;。
-            &#x2F;&#x2F; searchContainerNode
-            &#x2F;&#x2F; templatePath: 相对于dojo.baseUrl的此部件的模板（HTML文件）的路径。 不推荐：使用带有require（[...“dojo &#x2F; text！...”]，...）的templateString代替
-            &#x2F;&#x2F; templateString: 表示窗部件html模板的字符串。 与dojo.cache()结合使用以从文件加载。
-
-            &#x2F;&#x2F; 方法
-            &#x2F;**
-             *  buildRendering() 解析HTML模板，从模板构造此部件的UI，设置this.domNode。
-             *&#x2F;
-
-            &#x2F;**
-             *  destroyRendering() 销毁部件的DOM。
-             *&#x2F;
-
-            &#x2F;**
-             * getCachedTemplate(templateString,alwaysUseString,doc) 根据templatePath或templateString键获取模板的静态方法
-             * @param: templateString
-             *         类型：String
-             *         描述：模板
-             * @param: alwaysUseString
-             *         类型：Boolean
-             *         描述：不要为此模板缓存DOM树，即使它没有任何变量
-             * @param: doc
-             *         类型：Document
-             *         描述：可选的。目标文件。 如果未指定，则默认为全局文档。
-             *&#x2F;
-
-            &#x2F;**
-             * 大部分的dijit部件都混入了dijit&#x2F;_TemplatedMixin。它需要一个HTML模板，并根据该模板创建小部件的DOM树。
-             * 换言之，它为你实现了buildRendering()这个方法。请注意，名称中的下划线表示_TemplatedMixin不是私有类，
-             * 而是它是一个mixin，而不是一个小部件。
-             *&#x2F;
-            &#x2F;&#x2F; 用法
-            &#x2F;&#x2F; 声明部件时混入dijit &#x2F; _TemplatedMixin，然后定义一个templateString。
-            declare(&quot;MyWidget&quot;, [_WidgetBase, _TemplatedMixin], {
-                templateString: &quot;&lt;div&gt;hello world&lt;&#x2F;div&gt;&quot;
-            });
-
-            &#x2F;&#x2F; 模板
-            &#x2F;&#x2F; 模板在widget属性templateString中指定，并指向具有单个根节点的，在标签上具有特殊属性，可能还有替换变量的
-            &#x2F;&#x2F; 某个HTML。
-            &#x2F;&#x2F; 它可以指定为字符串：
-            declare(&quot;MyWidget&quot;, [_WidgetBase, _TemplatedMixin], {
-                templateString: &quot;&lt;div&gt;hello world&lt;&#x2F;div&gt;&quot;
-            });
-            &#x2F;&#x2F; 或使用dojo&#x2F;text!从文件中提取插入：
-            require([
-                &quot;dojo&#x2F;declare&quot;,
-                &quot;dijit&#x2F;_WidgetBase&quot;,
-                &quot;dijit&#x2F;_TemplatedMixin&quot;,
-                &quot;dojo&#x2F;text!myNameSpace&#x2F;templates&#x2F;MyWidget.html&quot;
-            ], function (declare, _WidgetBase, _TemplatedMixin, template) {
-                declare(&quot;MyWidget&quot;, [_WidgetBase, _TemplatedMixin], {
-                    templateString: template,
-                });
-            });
-            &#x2F;&#x2F; 构建或发布的Dijit树时，调用字符串将internStrings转换为dojo&#x2F;text！，避免在用户加载部件时网络请求。
-            &#x2F;**
-             * 除了像class这样的典型属性外，模板中的标签还可以具有这些特殊属性：
-             * 1.data-dojo-attach-point
-             * 2.data-dojo-attach-event
-             * 
-             * data-dojo-attach-point
-             * 在widget的JavaScript中，你可能希望直接引用具有某些html模板的dom节点，在这种情况下，widget将需要
-             * 使用统计访问&lt;span&gt;以更改值。
-             * 你可能认为窗口小部件作者可以在html模板中使用id属性，然后在部件的js中使用dojo.byId()。 但如果
-             * 这样做，在创建了两个或更多个部件实例时，它们都将具有相同的id, 很显然代码会出错。
-             * 相反，你的部件需要执行以下操作：
-             *      1.在部件模板的html中，对于这些变量应该对应的每个节点，需要添加属性：data-dojo-attach-point =&quot;yourVariableNameHere&quot;。
-             *      2.在部件的js代码中使用这些节点的变量(未声明)。在这种情况下将会访问this.counter。
-             * 变量未声明的原因是，当_TemplatedMixin中的代码在上面的步骤1中扫描html，并且它在data-dojo-attach-point
-             * 属性中找到变量时，它会动态地将这些变量添加到窗口小部件类中。
-             * 
-             * data-dojo-attach-event
-             * data-dojo-attach-event将自动从DOM节点上的事件建立连接（在本例中为onclick），以调用窗口小部件中的方法（在本例中为increment（））。
-             * 以下是data-dojo-attach-point和data-dojo-attach-event的示例：
-             **&#x2F;
-            require([
-                &quot;dojo&#x2F;declare&quot;, &quot;dojo&#x2F;parser&quot;,
-                &quot;dijit&#x2F;_WidgetBase&quot;, &quot;dijit&#x2F;_TemplatedMixin&quot;, &quot;dojo&#x2F;domReady!&quot;
-            ], function (declare, parser, _WidgetBase, _TemplatedMixin) {
-                parser.parse();
-                return declare(&quot;FancyCounter&quot;, [dijit._WidgetBase, dijit._TemplatedMixin], {
-                    &#x2F;&#x2F; counter
-                    _i: 0,
-
-                    templateString:
-                        &quot;&lt;div&gt;&quot; +
-                        &quot;&lt;button data-dojo-attach-event=&#39;onclick: increment&#39;&gt;press me&lt;&#x2F;button&gt;&quot; +
-                        &quot;&amp;nbsp; count: &lt;span data-dojo-attach-point=&#39;counter&#39;&gt;0&lt;&#x2F;span&gt;&quot; +
-                        &quot;&lt;&#x2F;div&gt;&quot;,
-
-                    increment: function (evt) {
-                        this.counter.innerHTML = ++this._i;
-                    }
-                });
-
-                &#x2F;**
-                 * containerNode
-                 * 通常在标记中声明的部件将包含一些其他DOM。例如
-                 * &lt;button data-dojo-type=&quot;dijit&#x2F;form&#x2F;Button&quot;&gt;press me&lt;&#x2F;button&gt;
-                 * 
-                 * 如果模板定义了data-dojo-attach-point =&quot;containerNode&quot;，则srcNodeRef中的子节点将被复制到此节点。
-                 * 例如
-                 **&#x2F;
-                require([
-                    &quot;dojo&#x2F;declare&quot;, &quot;dojo&#x2F;parser&quot;,
-                    &quot;dijit&#x2F;_WidgetBase&quot;, &quot;dijit&#x2F;_TemplatedMixin&quot;, &quot;dojo&#x2F;domReady!&quot;
-                ], function (declare, parser, _WidgetBase, _TemplatedMixin) {
-                    parser.parse();
-                    return declare(&quot;MyButton&quot;, [dijit._WidgetBase, dijit._TemplatedMixin], {
-                        templateString:
-                            &quot;&lt;button data-dojo-attach-point=&#39;containerNode&#39; data-dojo-attach-event=&#39;onclick: onClick&#39;&gt;&lt;&#x2F;button&gt;&quot;,
-                        onClick: function (evt) {
-                            alert(&quot;Awesome!!&quot;);
-                        }
-                    });
-                });
-
-                &#x2F;&#x2F; Substitution variables(替代变量)
-                &#x2F;&#x2F; 模板也可以引用替换变量，如$ {title}。 $ {title}引用窗口小部件的title属性。
-                &#x2F;&#x2F; 但是，不推荐这样做，因为它只处理小部件实例化的标题设置。换言之，如果使用替换变量，
-                &#x2F;&#x2F; myWidget.set（&#39;title&#39;，&#39;myNewTitle&#39;）将不起作用。
-
-                &#x2F;&#x2F; 常见的陷阱
-                &#x2F;&#x2F; 1.确保模板中只有一个根节点
-                &#x2F;&#x2F; 2.不要使用注释启动模板（或结束它）（因为这在技术上意味着有两个节点）
-                &#x2F;&#x2F; 3.避免在模板末尾使用&lt;&#x2F; div&gt;
-            });
-        })</code></pre></p>
+<p>除此之外，父级选择器应该是能够被选中的全局样式，如上的 <code>.a</code> ，它应该组件最顶层的父级容器样式，能够被全局样式判定，否则深度选择器是找不到目标样式的。假如组件的样式结构如下：</p>
+<pre class=" language-scss"><code class="language-scss"><span class="token selector">.article-page </span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* 你的命名空间 */</span>
+  <span class="token selector">.el-tag </span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/* element-ui 元素*/</span>
+    <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>那么深度选择器应该从 <code>.a</code> 样式作为父级选择器开始，比我要改变 <code>.c</code> 样式，从以下方式改变是不行的:</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
+    <span class="token selector"><span class="token class">.b</span> /deep/ <span class="token class">.c</span> </span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/* 修改失败，无法找到 .c 元素, 父级元素未知 */</span>
+    <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>正确的做法应该是这样的:</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
+    <span class="token selector"><span class="token class">.a</span> /deep/ <span class="token class">.b</span> /deep/ <span class="token class">.c</span> </span><span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">/* 修改成功 */</span>
+    <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>以上结果基于vue + elementUi测试获得，其它ui未知。欢迎纠错。</p>
 
             </div>
             <hr/>
@@ -678,7 +565,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://www.coderlyc.xyz" class="b-link-green">Leno的个人博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/07/29/dojo学习笔记-模板TemplatedMixin/" class="b-link-green">dojo学习笔记--模板TemplatedMixin</a>
+                    <a href="/2018/12/07/element-ui 在vue中覆盖样式/" class="b-link-green"></a>
                 </p>
             </div>
         </div>
@@ -700,7 +587,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2018-07-29T23-08-58',
+        id: '2018-12-07T20-14-40',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -719,45 +606,33 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">上一篇</div>
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">本篇</div>
             <div class="card">
-                <a href="/2018/07/29/解决VSCode触摸板滑动卡顿问题/">
+                <a href="/2018/12/07/element-ui 在vue中覆盖样式/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="解决VSCode触摸板卡顿问题">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">解决VSCode触摸板卡顿问题</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">Setting.json中增加选项：&quot;window.smoothScrollingWorkaround&quot;: true,
-&quot;window.titleBarStyle&quot;: &quot;native&quo</div>
+                    <div class="summary">element-ui 在vue中覆盖样式vue主张使用scoped关键字来解决css样式的全局污染问题，这样的解决方式明显简单了许多，不过也有一些意外情况，例如想要覆盖一些第三方ui的样式（如elementUi）时，因为大部分的样式都是通过</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/工具/" class="post-category" target="_blank">
-                                    工具
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Leno
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/VSCode/" target="_blank">
-                        <span class="chip bg-color">VSCode</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -766,20 +641,20 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/07/29/dojo学习笔记-创建widget/">
+                <a href="/2018/11/28/探索发现-关于compositionstart、input和compositionend事件去除拼音响应的研究/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="dojo学习笔记--创建widget">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究">
                         
-                        <span class="card-title">dojo学习笔记--创建widget</span>
+                        <span class="card-title">探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">&emsp;&emsp;dijit / _WidgetBase是Dijit包中所有组件的基类，也是Dojo中所有组件的一个基类。通常一个组件也会继承一些属性融合的工具类，例如：dijit._TemplatedMixin。 注意：_Widge</div>
+                    <div class="summary">关于利用compositionstart、input和compositionend事件给input元素即时响应去除拼音阶段响应的发现：compositionstart事件在拼音输入阶段开始触发的事件，compositionend事件在输入拼</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-28
                             </span>
                         <span class="publish-author">
                             
@@ -796,12 +671,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/dojo/" target="_blank">
-                        <span class="chip bg-color">dojo</span>
+                    <a href="/tags/compositionstart/" target="_blank">
+                        <span class="chip bg-color">compositionstart</span>
                     </a>
                     
-                    <a href="/tags/widget/" target="_blank">
-                        <span class="chip bg-color">widget</span>
+                    <a href="/tags/compositionend/" target="_blank">
+                        <span class="chip bg-color">compositionend</span>
                     </a>
                     
                 </div>
