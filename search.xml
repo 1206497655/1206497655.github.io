@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>element-ui在vue中覆盖样式</title>
+      <link href="/2018/12/06/element-ui%20%E5%9C%A8vue%E4%B8%AD%E8%A6%86%E7%9B%96%E6%A0%B7%E5%BC%8F/"/>
+      <url>/2018/12/06/element-ui%20%E5%9C%A8vue%E4%B8%AD%E8%A6%86%E7%9B%96%E6%A0%B7%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<p>vue主张使用scoped关键字来解决css样式的全局污染问题，这样的解决方式明显简单了许多，不过也有一些意外情况，例如想要覆盖一些第三方ui的样式（如elementUi）时，因为大部分的样式都是通过全局样式引入的，在某个页面想进行样式覆盖又存在scoped关键字时显然无法进行覆盖。解决方式有两种：</p><p>1.去掉 <code>scoped</code> 提升样式至全局。但是这样的话需要增加命名空间以解决污染问题。</p><pre class=" language-scss"><code class="language-scss"><span class="token selector">.article-page </span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">/* 你的命名空间 */</span>  <span class="token selector">.el-tag </span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">/* element-ui 元素*/</span>    <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><p>2.使用深度选择器。当你子组件使用了 <code>scoped</code> 但在父组件又想修改子组件的样式可以 通过 <code>&gt;&gt;&gt;</code> 来实现：</p><pre class=" language-css"><code class="language-css"><span class="token selector">&lt;style scoped><span class="token class">.a</span> >>> <span class="token class">.b</span> </span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* ... */</span> <span class="token punctuation">}</span>&lt;/style></code></pre><p>将会编译成：</p><pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.a</span><span class="token attribute">[data-v-f3f3eg9]</span> <span class="token class">.b</span> </span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">/* ... */</span><span class="token punctuation">}</span></code></pre><p>注意：当使用了sass等css预处理语言时， <code>&gt;&gt;&gt;</code> 可能不会生效，此时可以使用 <code>/deep/</code> 替换，它的作用跟 <code>&gt;&gt;&gt;</code> 时一样的。</p><style scoped>.a /deep/ .b { /* ... */ }</style><p>除此之外，父级选择器应该是能够被选中的全局样式，如上的 <code>.a</code> ，它应该组件最顶层的父级容器样式，能够被全局样式判定，否则深度选择器是找不到目标样式的。假如组件的样式结构如下：</p><pre class=" language-scss"><code class="language-scss"><span class="token selector">.article-page </span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">/* 你的命名空间 */</span>  <span class="token selector">.el-tag </span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">/* element-ui 元素*/</span>    <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><p>那么深度选择器应该从 <code>.a</code> 样式作为父级选择器开始，比我要改变 <code>.c</code> 样式，从以下方式改变是不行的:</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">    <span class="token selector"><span class="token class">.b</span> /deep/ <span class="token class">.c</span> </span><span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">/* 修改失败，无法找到 .c 元素, 父级元素未知 */</span>    <span class="token punctuation">}</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre><p>正确的做法应该是这样的:</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">    <span class="token selector"><span class="token class">.a</span> /deep/ <span class="token class">.b</span> /deep/ <span class="token class">.c</span> </span><span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">/* 修改成功 */</span>    <span class="token punctuation">}</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre><p>以上结果基于vue + elementUi测试获得，其它ui未知。欢迎纠错。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> element </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究</title>
       <link href="/2018/11/28/%E6%8E%A2%E7%B4%A2%E5%8F%91%E7%8E%B0-%E5%85%B3%E4%BA%8Ecompositionstart%E3%80%81input%E5%92%8Ccompositionend%E4%BA%8B%E4%BB%B6%E5%8E%BB%E9%99%A4%E6%8B%BC%E9%9F%B3%E5%93%8D%E5%BA%94%E7%9A%84%E7%A0%94%E7%A9%B6/"/>
       <url>/2018/11/28/%E6%8E%A2%E7%B4%A2%E5%8F%91%E7%8E%B0-%E5%85%B3%E4%BA%8Ecompositionstart%E3%80%81input%E5%92%8Ccompositionend%E4%BA%8B%E4%BB%B6%E5%8E%BB%E9%99%A4%E6%8B%BC%E9%9F%B3%E5%93%8D%E5%BA%94%E7%9A%84%E7%A0%94%E7%A9%B6/</url>
@@ -103,29 +126,6 @@
     </entry>
     
     <entry>
-      <title>解决VSCode触摸板卡顿问题</title>
-      <link href="/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/"/>
-      <url>/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<p>Setting.json中增加选项：<br><pre><code>&quot;window.smoothScrollingWorkaround&quot;: true,&quot;window.titleBarStyle&quot;: &quot;native&quot;</code></pre></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 工具 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> VSCode </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>dojo学习笔记--模板TemplatedMixin</title>
       <link href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A8%A1%E6%9D%BFTemplatedMixin/"/>
       <url>/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A8%A1%E6%9D%BFTemplatedMixin/</url>
@@ -145,6 +145,29 @@
             <tag> dojo </tag>
             
             <tag> _TemplatedMixin </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>解决VSCode触摸板卡顿问题</title>
+      <link href="/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/"/>
+      <url>/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>Setting.json中增加选项：<br><pre><code>&quot;window.smoothScrollingWorkaround&quot;: true,&quot;window.titleBarStyle&quot;: &quot;native&quot;</code></pre></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> VSCode </tag>
             
         </tags>
       
@@ -220,29 +243,6 @@
             <tag> dojo </tag>
             
             <tag> declare </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>element-ui在vue中覆盖样式</title>
-      <link href="/2018/07/29/element-ui%20%E5%9C%A8vue%E4%B8%AD%E8%A6%86%E7%9B%96%E6%A0%B7%E5%BC%8F/"/>
-      <url>/2018/07/29/element-ui%20%E5%9C%A8vue%E4%B8%AD%E8%A6%86%E7%9B%96%E6%A0%B7%E5%BC%8F/</url>
-      
-        <content type="html"><![CDATA[<p>vue主张使用scoped关键字来解决css样式的全局污染问题，这样的解决方式明显简单了许多，不过也有一些意外情况，例如想要覆盖一些第三方ui的样式（如elementUi）时，因为大部分的样式都是通过全局样式引入的，在某个页面想进行样式覆盖又存在scoped关键字时显然无法进行覆盖。解决方式有两种：</p><p>1.去掉 <code>scoped</code> 提升样式至全局。但是这样的话需要增加命名空间以解决污染问题。</p><pre class=" language-scss"><code class="language-scss"><span class="token selector">.article-page </span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">/* 你的命名空间 */</span>  <span class="token selector">.el-tag </span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">/* element-ui 元素*/</span>    <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><p>2.使用深度选择器。当你子组件使用了 <code>scoped</code> 但在父组件又想修改子组件的样式可以 通过 <code>&gt;&gt;&gt;</code> 来实现：</p><pre class=" language-css"><code class="language-css"><span class="token selector">&lt;style scoped><span class="token class">.a</span> >>> <span class="token class">.b</span> </span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* ... */</span> <span class="token punctuation">}</span>&lt;/style></code></pre><p>将会编译成：</p><pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.a</span><span class="token attribute">[data-v-f3f3eg9]</span> <span class="token class">.b</span> </span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">/* ... */</span><span class="token punctuation">}</span></code></pre><p>注意：当使用了sass等css预处理语言时， <code>&gt;&gt;&gt;</code> 可能不会生效，此时可以使用 <code>/deep/</code> 替换，它的作用跟 <code>&gt;&gt;&gt;</code> 时一样的。</p><style scoped>.a /deep/ .b { /* ... */ }</style><p>除此之外，父级选择器应该是能够被选中的全局样式，如上的 <code>.a</code> ，它应该组件最顶层的父级容器样式，能够被全局样式判定，否则深度选择器是找不到目标样式的。假如组件的样式结构如下：</p><pre class=" language-scss"><code class="language-scss"><span class="token selector">.article-page </span><span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">/* 你的命名空间 */</span>  <span class="token selector">.el-tag </span><span class="token punctuation">{</span>    <span class="token comment" spellcheck="true">/* element-ui 元素*/</span>    <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><p>那么深度选择器应该从 <code>.a</code> 样式作为父级选择器开始，比我要改变 <code>.c</code> 样式，从以下方式改变是不行的:</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">    <span class="token selector"><span class="token class">.b</span> /deep/ <span class="token class">.c</span> </span><span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">/* 修改失败，无法找到 .c 元素, 父级元素未知 */</span>    <span class="token punctuation">}</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre><p>正确的做法应该是这样的:</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">    <span class="token selector"><span class="token class">.a</span> /deep/ <span class="token class">.b</span> /deep/ <span class="token class">.c</span> </span><span class="token punctuation">{</span>        <span class="token comment" spellcheck="true">/* 修改成功 */</span>    <span class="token punctuation">}</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span></code></pre><p>以上结果基于vue + elementUi测试获得，其它ui未知。欢迎纠错。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> element </tag>
             
         </tags>
       
