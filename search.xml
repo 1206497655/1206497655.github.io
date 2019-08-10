@@ -3,6 +3,312 @@
   
     
     <entry>
+      <title>SVG入门</title>
+      <link href="/2019/08/10/SVG%E5%85%A5%E9%97%A8/"/>
+      <url>/2019/08/10/SVG%E5%85%A5%E9%97%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="SVG入门"><a href="#SVG入门" class="headerlink" title="SVG入门"></a>SVG入门</h1><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h3><ul><li>本章主要介绍一下SVG的技术背景，介绍SVG的使用方法、基本图形以及基本编程接口。</li></ul><h4 id="1-1-SVG"><a href="#1-1-SVG" class="headerlink" title="1.1 SVG"></a>1.1 SVG</h4><ul><li><p>SVG是一个十分庞大的标准规范，SVG1.0推出于1999年，自2003年成为W3C推荐标准，目前最新版为SGV1.1，于2011年成为推荐标准，完整的SVG1.2本来是下一个标准版本，但它又被SVG2.0取代。SVG2.0正在制定当中，它采用了类似CSS3的制定方法，通过若干松散耦合的组件形成一套标准。SVG是XML语言的一种形式，有点类似XHTML，它可以用来绘制矢量图形。</p></li><li><p>W3C标准（1.1）（<a href="http://www.w3.org/TR/SVG11" target="_blank" rel="noopener">http://www.w3.org/TR/SVG11</a>)</p></li><li><p>浏览器支持情况（<a href="http://caniusr.com/#cats=SVG" target="_blank" rel="noopener">http://caniusr.com/#cats=SVG</a>)</p><p>IE 9+</p><p>Chrome 33.0+</p><p>Firefox 28.0+</p><p>Safari 7.0+</p></li></ul><h4 id="1-2-位图与矢量图形"><a href="#1-2-位图与矢量图形" class="headerlink" title="1.2 位图与矢量图形"></a>1.2 位图与矢量图形</h4><p>位图（BMP、PNG、JPG等），基于颜色的描述。位图亦称为点阵图像或绘制图像，是由称作像素（图片元素）的单个点组成的。这些点可以进行不同的排列和染色以构成图样。当放大位图时，可以看见赖以构成整个图像的无数单个方块。扩大位图尺寸的效果是增大单个像素，从而使线条和形状显得参差不齐。然而，如果从稍远的位置观看它，位图图像的颜色和形状又显得是连续的。</p><p>矢量图（SVG、AI等），基于数学描述。矢量图使用直线和曲线来描述图形，这些图形的元素是一些点、线、矩形、多边形、圆和弧线等等，它们都是通过数学公式计算获得的。例如一幅花的矢量图形实际上是由线段形成外框轮廓，由外框的颜色以及外框所封闭的颜色决定花显示出的颜色。由于矢量图形可通过公式计算获得，所以矢量图形文件体积一般较小。矢量图形最大的优点是无论放大、缩小或旋转等不会失真，缺点就是色彩的层次不够丰富，与直接记录色值的位图有较大的差距。</p><p><img src="../../../../img/2019/08/10/1-1 矢量图和位图.png" alt=""></p><h4 id="1-3-简单示例"><a href="#1-3-简单示例" class="headerlink" title="1.3 简单示例"></a>1.3 简单示例</h4><p>代码</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span>     <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token comment" spellcheck="true">&lt;!--脸--></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>90<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#fff000<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>    <span class="token comment" spellcheck="true">&lt;!--眼睛--></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>70<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>80<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>white<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>130<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>80<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>white<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>65<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>75<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>black<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>125<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>75<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>black<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>    <span class="token comment" spellcheck="true">&lt;!--嘴巴--></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M 50 140 A 60 60 0 0 0 150 140<span class="token punctuation">"</span></span>         <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>white<span class="token punctuation">"</span></span> <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>3<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre><p>效果</p><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><circle cx="100" cy="100" r="90" fill="#fff000"/><circle cx="70" cy="80" r="20" fill="white"/><circle cx="130" cy="80" r="20" fill="white"/><circle cx="80" cy="80" r="10" fill="black"/><circle cx="120" cy="80" r="10" fill="black"/><path d="M 50 140 A 60 60 0 0 0 150 140" stroke="white" stroke-width="3" fill="none"/></svg><h4 id="1-4-使用方式"><a href="#1-4-使用方式" class="headerlink" title="1.4 使用方式"></a>1.4 使用方式</h4><p>浏览器直接打开.svg文件</p><p>在HTML中使用 &lt;img&gt; 标签src引用.svg文件</p><p>直接在HTML中使用SVG（像编写写H5标签那样）</p><p>作为CSS背景（background-imge)</p><h3 id="2-SVG的图形和属性"><a href="#2-SVG的图形和属性" class="headerlink" title="2. SVG的图形和属性"></a>2. SVG的图形和属性</h3><ul><li><p>基本图形   &lt;rect&gt;、&lt;circle&gt;、&lt;ellipse&gt;、&lt;line&gt;、&lt;polyline&gt;、&lt;polygon&gt;   </p></li><li><p>基本属性   fill、stroke、stroke-width、transform</p></li></ul><h4 id="2-1-lt-rect-gt-矩形"><a href="#2-1-lt-rect-gt-矩形" class="headerlink" title="2.1 &lt;rect&gt; 矩形"></a>2.1 &lt;rect&gt; 矩形</h4><ul><li><p>x 表示矩形左上角距离原点的x值。</p></li><li><p>y 表示矩形左上角距离原点的y值。</p></li><li><p>width 矩形的宽。</p></li><li><p>height 矩形的高。</p></li><li><p>rx 定义x轴的圆角半径尺寸。</p></li><li><p>ry 定义y轴的圆角半径尺寸。</p></li><li><p>rx、ry只存在某一项时，另一项的值将于该项相等。</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span>           <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span>           <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span>           <span class="token attr-name">rx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span>           <span class="token attr-name">ry</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span>           <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>150<span class="token punctuation">"</span></span>           <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span>           <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span>           <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre></li></ul><h4 id="2-2-lt-circle-gt-圆"><a href="#2-2-lt-circle-gt-圆" class="headerlink" title="2.2 &lt;circle&gt; 圆"></a>2.2 &lt;circle&gt; 圆</h4><ul><li><p>cx 表示圆心到原点的x值。</p></li><li><p>cy 表示圆心到原点的y值。</p></li><li><p>r 表示圆的半径。</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span>             <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>250<span class="token punctuation">"</span></span>             <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60<span class="token punctuation">"</span></span>             <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span>             <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span>             <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>circle</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre></li></ul><h4 id="2-3-lt-ellipse-gt-椭圆"><a href="#2-3-lt-ellipse-gt-椭圆" class="headerlink" title="2.3 &lt;ellipse&gt; 椭圆"></a>2.3 &lt;ellipse&gt; 椭圆</h4><ul><li><p>x 表示矩形左上角距离原点的x值。</p></li><li><p>y 表示矩形左上角距离原点的y值。</p></li><li><p>rx 定义x轴的圆角半径尺寸。</p></li><li><p>ry 定义y轴的圆角半径尺寸。</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ellipse</span>              <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>400<span class="token punctuation">"</span></span>              <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60<span class="token punctuation">"</span></span>              <span class="token attr-name">rx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>70<span class="token punctuation">"</span></span>              <span class="token attr-name">ry</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span>              <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span>              <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ellipse</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre></li></ul><h4 id="2-4-lt-line-gt-直线"><a href="#2-4-lt-line-gt-直线" class="headerlink" title="2.4 &lt;line&gt; 直线"></a>2.4 &lt;line&gt; 直线</h4><ul><li><p>x1 直线开始的点的x值。</p></li><li><p>y1 直线开始的点的y值。</p></li><li><p>x2 直线结束的点的x值。</p></li><li><p>y2 直线结束的点的y值。</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>line</span>           <span class="token attr-name">x1</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span>           <span class="token attr-name">y1</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>120<span class="token punctuation">"</span></span>           <span class="token attr-name">x2</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>160<span class="token punctuation">"</span></span>           <span class="token attr-name">y2</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>220<span class="token punctuation">"</span></span>           <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>line</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre></li></ul><h4 id="2-5-lt-polyline-gt-折线"><a href="#2-5-lt-polyline-gt-折线" class="headerlink" title="2.5 &lt;polyline&gt; 折线"></a>2.5 &lt;polyline&gt; 折线</h4><ul><li><p>points 折线转折点的点集。如points=”x1 y1 x2 y2 x3 y3”</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>polyline</span>               <span class="token attr-name">points</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>250 120                       300 220                      200 220<span class="token punctuation">"</span></span>              <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span>              <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>polyline</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre></li></ul><h4 id="2-6-lt-polygon-gt-多边形"><a href="#2-6-lt-polygon-gt-多边形" class="headerlink" title="2.6 &lt;polygon&gt; 多边形"></a>2.6 &lt;polygon&gt; 多边形</h4><ul><li><p>points 多边形的角所处位置的集合。如points=”x1 y1 x2 y2 x3 y3”</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>polygon</span>              <span class="token attr-name">points</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>250 120                      300 220                     200 220<span class="token punctuation">"</span></span>             <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span>             <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span>             <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>yellow<span class="token punctuation">"</span></span>             <span class="token attr-name">transform</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>translate(150 0)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>polygon</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span></code></pre></li></ul><h4 id="2-7-填充、描边和变换"><a href="#2-7-填充、描边和变换" class="headerlink" title="2.7 填充、描边和变换"></a>2.7 填充、描边和变换</h4><ul><li>fill 填充的颜色 fill=”#ffffff”</li><li>stroke 描边的颜色 stroke =”#000000”</li><li>stroke-width 描边的粗细 stroke-width=”5”</li><li>transform 表示图形坐标与父系坐标变换的值 transform=”translate(150 0)”</li></ul><h3 id="3-基本操作API"><a href="#3-基本操作API" class="headerlink" title="3. 基本操作API"></a>3. 基本操作API</h3><ul><li><p>SVG支持使用ECMAScript对其进行操作，包括动态创建、动态修改属性等。</p></li><li><p>创建图形：document.createElementNS(ns,  tagName) 。SVG元素拥有自己的命名空间，不能使用document.createElement(tagName)创建。</p></li><li>添加图形：element.appendChild(childElement) </li><li>设置属性：element.setAttribute(name,  value) </li><li>获取属性：elememt.getAttribute(name)</li></ul><h3 id="4-实践例子"><a href="#4-实践例子" class="headerlink" title="4.实践例子"></a>4.实践例子</h3><p>下面的代码使用js动态地在id为SVGContainer的div中添加了一个三角形，并设置了它的属性。基本上跟操作html元素没太大区别。</p><pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width, initial-scale<span class="token punctuation">=</span>1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ie<span class="token punctuation">=</span>edge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>测试<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">    <span class="token selector"><span class="token id">#SVGContainer</span> </span><span class="token punctuation">{</span>      <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">400</span><span class="token punctuation">;</span>      <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">400</span><span class="token punctuation">;</span>    <span class="token punctuation">}</span>  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>SVGContainer<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">    <span class="token comment" spellcheck="true">// SVG元素的命名空间</span>    <span class="token keyword">const</span> SVG_NS <span class="token operator">=</span> <span class="token string">"http://www.w3.org/2000/svg"</span>    <span class="token keyword">const</span> div <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'SVGContainer'</span><span class="token punctuation">)</span>    <span class="token keyword">const</span> SVG <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElementNS</span><span class="token punctuation">(</span>SVG_NS<span class="token punctuation">,</span> <span class="token string">'svg'</span><span class="token punctuation">)</span>    div<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>SVG<span class="token punctuation">)</span>    SVG<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'height'</span><span class="token punctuation">,</span> <span class="token string">'200'</span><span class="token punctuation">)</span>    SVG<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'width'</span><span class="token punctuation">,</span> <span class="token string">'200'</span><span class="token punctuation">)</span>    <span class="token keyword">const</span> polygon <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElementNS</span><span class="token punctuation">(</span>SVG_NS<span class="token punctuation">,</span> <span class="token string">'polygon'</span><span class="token punctuation">)</span>    polygon<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'points'</span><span class="token punctuation">,</span> <span class="token string">'150 60 200 160 100 160'</span><span class="token punctuation">)</span>    polygon<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'stroke'</span><span class="token punctuation">,</span> <span class="token string">'red'</span><span class="token punctuation">)</span>    polygon<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'stroke-width'</span><span class="token punctuation">,</span> <span class="token string">'5'</span><span class="token punctuation">)</span>    polygon<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'fill'</span><span class="token punctuation">,</span> <span class="token string">'yellow'</span><span class="token punctuation">)</span>    polygon<span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'transform'</span><span class="token punctuation">,</span> <span class="token string">'translate(-50,0)'</span><span class="token punctuation">)</span>    SVG<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>polygon<span class="token punctuation">)</span>  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre><svg height="200" width="200"><polygon points="150 60 200 160 100 160" stroke="red" stroke-width="5" fill="yellow" transform="translate(-50,0)"/></svg><h3 id="5-本章总结"><a href="#5-本章总结" class="headerlink" title="5.本章总结"></a>5.本章总结</h3><p>本章主要学习了SVG的基本图形元素&lt;rect&gt;、&lt;circle&gt;、&lt;ellipse&gt;、&lt;line&gt;、&lt;polyline&gt;、&lt;polygon&gt;，基本属性fill、stroke、stroke-width、transform和基本四个API。  除此之外还有许多其它各色各样的元素、属性和API，请参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/SVG" target="_blank" rel="noopener">MDN</a>。</p><p>下一章将学习SVG中的坐标系统。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> SVG </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Object.freeze冻结对象的深层理解</title>
+      <link href="/2019/08/03/Object-freeze%E5%86%BB%E7%BB%93%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B7%B1%E5%B1%82%E7%90%86%E8%A7%A3/"/>
+      <url>/2019/08/03/Object-freeze%E5%86%BB%E7%BB%93%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B7%B1%E5%B1%82%E7%90%86%E8%A7%A3/</url>
+      
+        <content type="html"><![CDATA[<p>Object.freeze()冻结对象的深层理解。Vue介绍响应式系统的文档中提到，使用Object.freeze()方法冻结对象，可以使得该对象无法进行更新响应，对系统的性能优化有一定的帮助。在MDN中对Object.freeze()的介绍如下：<br>可以冻结一个对象。一个被冻结的对象再也不能被修改；冻结了一个对象则不能向这个对象添加新的属性，不能删除已有属性，不能修改该对象已有属性的可枚举性、可配置性、可写性，以及不能修改已有属性的值。此外，冻结一个对象后该对象的原型也不能被修改。freeze() 返回和传入的参数相同的对象。<br>具体是怎么做的呢？首先我们需要知道ECMAScript有两种属性：数据属性和可访问器属性（为了表示特性是内部值，规范（ECMA-262）就把它们放到了两对方括号里了，例如 [[Enumerable]]）。<br>数据属性<br>数据属性包含一个数据值的位置。在这个位置可以读取和写入值。数据属性有4个描述其行为的特性：<br>  [[Configurable]] : 表示能否通过 delete 删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为访问器属性。<br>  [[Enumerable]] : 表示能否通过 for-in 循环返回属性。<br>  [[Writable]] : 表示能否修改属性的值。<br>  [[Value]] : 包含这个属性的数据值。读取属性值的时候，从这个位置读；写入属性值时，把新值保存在这个位置。默认值是 undefined。<br>像这样（var obj = new Object(); obj.name = “percy”;）或者像通过对象字面量（var obj = {name: “percy”};）直接在对象上定义的属性，它们的 [[Configurable]]、[[Enumerable]] 和 [[Writable]] 特性默认都被设置为 true，而 [[Value]] 特性被设置为指定的值。<br>可以使用Object.getOwnPropertyDescriptor(object, ‘property’)来查看。例如：<br>  <div align="center"><img src="../../../../img/2019/08/03/1.png"></div> <br><br>访问器属性<br>访问器属性不包含数据值，他们包含一对getter和setter函数（这也是实现vue1.x-vue2.x响应式的关键），不过这两个函数不是必须的。在读取访问器属性时，会调用getter函数，这个函数负责返回有效的值；在写入访问器属性时，会调用setter函数并传入新的值，这个函数负责决定如何处理数据。访问器有如下4个特性：<br>  [[Configurable]]：表示能否通过 delete 删除属性从而重新定义属性，能否修改属性的特性，或者能否把属性修改为数据属性。<br>  [[Enumerable]]：表示能否通过 for-in 循环返回属性。<br>  [[Get]]：在读取属性时调用的函数。默认值为 undefined。<br>  [[Set]]：在写入属性时调用的函数。默认值为 undefined。<br>当调用了Object.freeze()方法冻结对象时，就像MDN描述的那样，冻结了一个对象则不能向这个对象添加新的属性，不能删除已有属性，不能修改该对象已有属性的可枚举性、可配置性、可写性，以及不能修改已有属性的值。也就是数据属性的[[Configurable]]、[[Writable]]特性都被设置为false。就像上述的例子被冻结后：<br>  <div align="center"><img src="../../../../img/2019/08/03/2.png"></div> <br><br>注意，Object.freeze()是一个不可逆的过程，[[Configurable]]也包含了对特性的描述，设置为false后将不能修改属性的任何特性，包[[Configurable]]自身。所以使用时应当确认该数据是否会被再次修改。<br>总结，对象被冻结后是无法做任何修改的，所以vue无法设置这些对象的Setter和Getter函数或其它实现响应式需要的特性，也就实现vue系统的非响应式的对象。不过在确认对象被冻结后，这个设置过程会被直接忽略。<br>以上是我个人的见解，有误的地方请指教~~最后祝大家周末愉快。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>JavaScript高级程序设计之垃圾收集机制</title>
+      <link href="/2019/07/21/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B9%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E6%9C%BA%E5%88%B6/"/>
+      <url>/2019/07/21/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B9%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E6%9C%BA%E5%88%B6/</url>
+      
+        <content type="html"><![CDATA[<p>最近在读《JavaScript高级程序设计(第三版)》，我在大学时有幸接触过一下这本书，但是当时对JS并不是很了解，书中内容大多晦涩难懂，没有工作经<br>验的人几乎很难读懂，现在重新阅读一遍感觉打开了新世界的大门（虽然还没读完）。对于工作了一段时间的我来说，这本书的作用恰到好处，解开了我在工作中遇到的一些谜题以及更加深入理解JS的运行机制。现在挑选部分我个人认为比较有趣的知识分享给大家。<br>1.垃圾收集机制：<br>JavaScript具有自动垃圾收集机制，也就是说，执行环境会负责管理代码执行过程中使用的内存。以前学习的C/C++语言中，程序的内存是需要手动跟踪的，变量使用完毕后若果不手动清空便会残留在内存中，容易造成内存泄漏问题。在JS中几乎不用担心这个问题（当然只是几乎），所需内存的分配以及无用内存的回收完全实现了自动管理。这种垃圾回收机制原理很简单：周期性地找出不再继续使用的变量然后释放其内存。垃圾收集方式一般分为两种，标记清除和引用计数，现在普遍都是标记清除的方式，引用计数基本不见，原因在后。标记清除，最常用的垃圾收集方式。当变量进入环境（例如，在函数中声明一个变量）时，就将这个变量标记为“进入环境”。从逻辑上讲，永远不能释放进入环境的变量，也就是被标记为“进入环境”的变量，因为只要执行流进入相应的环境，就可能会用到它。而当变量离开环境时，则将其标记为“离开环境”。到了周期执行垃圾收集任务时，被标记为“离开环境”的变量将会被收集起来销毁并回收其内存。引用计数方式，其含义是跟踪记录每个值被引用的次数。当声明了一个变量并将一个引用类型值赋给该变量时，则这个值的引用此时就是1。如果同一个值又被赋予给另一个变量，则该值的引用次数加1。相反，如果引用了该值的变量引用了其它值，则该值的引用次减1，当该值的引用此时为0时，意味着该值无法再被访问，等待被周期垃圾收集器收集并释放掉。但是这种方式有一个严重的问题：循环引用。循环引用是指对象A中包含指向对象B的引用，而对象B中也包含一个指向对象A的引用。例如：<br>  <div align="center"><img src="../../../../img/2019/07/21/1.png" width="50%" height="50%"></div> <br><br>在这个例子中，objA与objB通过各自的属性进行相互引用，也就是这两个对象都被引用了2次，并且次数永远都不会是0，那么可想而知，垃圾收集器将无法回收这两个值得内存，若程序中存在大量这种情况或者多次执行该函数就会造成大量内存得不到回收引发其它问题。而标记清除方式则不会存在这个问题，因为函数运行结束时这两个值随即离开了作用域，被标记为“离开环境”。在这个问题出现后，新版的JS标准摒弃了这种方式，在现代浏览器中几乎没有。<br>即使有了这种机制，我们开发人员仍然要注意内存问题，例如在vue组件中，若是常驻组件，则该组件的内的所有数据都不会被自动回收，因为它们永远存在于父组件形成的环境中，所以此时就需要我们去关注组件内的哪些数据，在组件视觉上关闭后重新打开不会再次被使用时，及时的在关闭组件这个周期被将其清空或者直接将组件设计成关闭即destory形式以节约内存。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>控制git_commit时的提交信息格式</title>
+      <link href="/2019/07/06/%E6%8E%A7%E5%88%B6git-commit%E6%97%B6%E7%9A%84%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF%E6%A0%BC%E5%BC%8F/"/>
+      <url>/2019/07/06/%E6%8E%A7%E5%88%B6git-commit%E6%97%B6%E7%9A%84%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF%E6%A0%BC%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<p> 利用husky和commintlint插件控制git commitlint时的提交信息格式。<br>项目里虽然写明了在提交代码时需要表明提交类型，以此来表明此次提交的改动类型，是新增功能还是修改bug还是重构等，但是也有粗心大意的时候。为了杜绝这种情况，项目里就可以增加一种限制来禁止提交不规范的commit messege。安装husky，husky继承了Git下所有的钩子，允许开发者在git钩子下做想做的事情，结合commitlint就可以实现在commit前检查messege的格式，是否符合项目的要求。使用很简单：<br>安装：<br>  <div align="center"><img src="../../../../img/2019/07/06/0.png" width="50%" height="50%"></div> <br><br>  <div align="center"><img src="../../../../img/2019/07/06/1.png" width="50%" height="50%"></div> <br><br>新增文件commitlint.config.js，文件内容如下：<br>  <div align="center"><img src="../../../../img/2019/07/06/2.png" width="50%" height="50%"></div> <br><br>该文件是commitlint的配置文件，可根据项目需求参考官网配置项进行修改。<br>在package.json新增字段：<br>  <div align="center"><img src="../../../../img/2019/07/06/3.png" width="50%" height="50%"></div> <br><br>然后就可以在git的commit-msg钩子限制commit messege的格式了。默认格式为：<br>Type：（两个空格）信息  例如：Add:  新增功能</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>利用vue.mixin减少文件体积</title>
+      <link href="/2019/06/29/%E5%88%A9%E7%94%A8vue-mixin%E5%87%8F%E5%B0%91%E6%96%87%E4%BB%B6%E4%BD%93%E7%A7%AF/"/>
+      <url>/2019/06/29/%E5%88%A9%E7%94%A8vue-mixin%E5%87%8F%E5%B0%91%E6%96%87%E4%BB%B6%E4%BD%93%E7%A7%AF/</url>
+      
+        <content type="html"><![CDATA[<p>Vue.mixin()混入API除了分发 Vue 组件中的可复用功能，还能用来解决单个文件过大的问题。<br>当我们遇到一些逻辑实在是很复杂，需要写很多个方法才能实现的模块又无法拆分组件时，可以使用vue.mixin来解决单个文件过大的问题，把一些相关的逻辑或数据写在独自的mixin.对象内分发出去，减少文件体积从而提升代码可读性。一个混入对象可以包含任意组件选项，如data、created、method等，所有混入对象的选项将被“混合”进入该组件本身的选项。例如：<br>  <div align="center"><img src="../../../../img/2019/06/29/1.png" width="50%" height="50%"></div> <br><br>需要注意的是：在使用模板创建的vue中使用时，mixins选项需写在data选项前。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>js浮点运算陷阱</title>
+      <link href="/2019/06/01/js%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97%E9%99%B7%E9%98%B1/"/>
+      <url>/2019/06/01/js%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97%E9%99%B7%E9%98%B1/</url>
+      
+        <content type="html"><![CDATA[<p>  开发模型管理引擎时遇到传说中的浮点运算陷阱：浮点运算计算结果出现0.000000001 和 0.999999999这样的奇怪结果或误差，例如如 0.1+0.2=0.30000000000000004、1-0.9=0.09999999999999998等，出现这种误差的原因跟JS的储存小数的机制有关，原理比较复杂，有需要的具体可参考这篇文章<a href="https://www.cnblogs.com/sunshq/p/7682109.html。比较简单的解决办法是，使用" target="_blank" rel="noopener">https://www.cnblogs.com/sunshq/p/7682109.html。比较简单的解决办法是，使用</a> toPrecision 凑整并 parseFloat 。例如parseFloat(1.4000000000000001.toPrecision(12)) === 1.4。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>用canvas元素重叠带透明度的照片的方法</title>
+      <link href="/2019/05/11/%E7%94%A8canvas%E5%85%83%E7%B4%A0%E9%87%8D%E5%8F%A0%E5%B8%A6%E9%80%8F%E6%98%8E%E5%BA%A6%E7%9A%84%E7%85%A7%E7%89%87%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+      <url>/2019/05/11/%E7%94%A8canvas%E5%85%83%E7%B4%A0%E9%87%8D%E5%8F%A0%E5%B8%A6%E9%80%8F%E6%98%8E%E5%BA%A6%E7%9A%84%E7%85%A7%E7%89%87%E7%9A%84%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>用canvas元素重叠带透明度的照片的方法：<br>使用canvas重叠两张图片时，若图片带有透明度，使用canvas重叠后不会直接带有透明效果。<br>可以使用canvas. globalAlpha来解决此问题。</p><p>  <div align="center"><img src="../../../../img/2019/05/11/1.png" width="50%" height="50%"></div> <br></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>记录一下elementUI的tree节点过长缺无法横向滚动的问题</title>
+      <link href="/2019/04/05/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8BelementUI%E7%9A%84tree%E8%8A%82%E7%82%B9%E8%BF%87%E9%95%BF%E7%BC%BA%E6%97%A0%E6%B3%95%E6%A8%AA%E5%90%91%E6%BB%9A%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2019/04/05/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8BelementUI%E7%9A%84tree%E8%8A%82%E7%82%B9%E8%BF%87%E9%95%BF%E7%BC%BA%E6%97%A0%E6%B3%95%E6%A8%AA%E5%90%91%E6%BB%9A%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>记录一下elementUI的tree节点过长缺无法横向滚动的问题：<br>在用el-tree做模型管理引擎左侧的模型目录树的时候发现一些UI上的问题，如果装载tree的容器宽度很小（此项目大概为10%屏幕宽度），然而节点较多文字较长时，el-tree无法正常滚动。<br>  <div align="center"><img src="../../../../img/2019/04/05/7.png" width="50%" height="50%"></div> <br></p><p>修复方法：在el-tree组件内部的最外层容器的class样式el-tree中修改样式如下：<br>  <div align="center"><img src="../../../../img/2019/04/05/8.png" width="50%" height="50%"></div> <br></p><p>亲测有效，特此记录。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> element-ui </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Vue项目编译后部署在非网站根目录的解决方案</title>
+      <link href="/2019/04/05/Vue%E9%A1%B9%E7%9B%AE%E7%BC%96%E8%AF%91%E5%90%8E%E9%83%A8%E7%BD%B2%E5%9C%A8%E9%9D%9E%E7%BD%91%E7%AB%99%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+      <url>/2019/04/05/Vue%E9%A1%B9%E7%9B%AE%E7%BC%96%E8%AF%91%E5%90%8E%E9%83%A8%E7%BD%B2%E5%9C%A8%E9%9D%9E%E7%BD%91%E7%AB%99%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+      
+        <content type="html"><![CDATA[<p>Vue项目编译后部署在非网站根目录的解决方案。<br>背景：在公司的网站部署中，项目的项目地址一般都不是网站根目录，而是某个子目录。例如：<br>  <div align="center"><img src="../../../../img/2019/04/05/1.png" width="50%" height="50%"></div> <br></p><p>这样子就得针对子目录做些编译配置，否则在路由跳转或者访问静态资源得时候出错。<br>  <div align="center"><img src="../../../../img/2019/04/05/2.png" width="50%" height="50%"></div> <br></p><p>修改配置文件：<br>  <div align="center"><img src="../../../../img/2019/04/05/3.png" width="50%" height="50%"></div> <br></p><p>修改路由:<br>由于history模式下所有路由都是基于网站根路径的，所以在路由跳转的时候会出现这种错误情况：<br>跳转前路由：<br>  <div align="center"><img src="../../../../img/2019/04/05/4.png" width="50%" height="50%"></div> <br></p><p>跳转目的路由：<br>  <div align="center"><img src="../../../../img/2019/04/05/5.png" width="50%" height="50%"></div> <br></p><p>可以看见跳转后路由以根目录为基准进行跳转，不再以DME子目录为基准，导致路由跳转出错。<br>所以针对这个进行修改，通过location.pathname来决定路由的基准。</p><p>修改tomcat配置：<br>部署后虽然能正常访问，但是刷新后会报路由错误。在网站目录下增加文件夹WEB-INF，里面放置新文件web.xml<br>新文件内容如下：<br>  <div align="center"><img src="../../../../img/2019/04/05/6.png" width="50%" height="50%"></div> <br></p><p>最后大家假期愉快。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vue tomcat </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>关于翻译插件的问题</title>
+      <link href="/2019/03/23/%E5%85%B3%E4%BA%8E%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2019/03/23/%E5%85%B3%E4%BA%8E%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>关于翻译插件的一个问题：在开发临沧一张图专题目录树的时候，出项这样一个问题。写入页面的html代码</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>某某某<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span></code></pre><p>在实施测试的时候，却变成了如下这样</p><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>font</span><span class="token punctuation">></span></span>某某某<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>font</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span></code></pre><p>代码出现了不明标签，经排查，确定是浏览器翻译插件（谷歌翻译）的锅。实施在测试时开启了谷歌翻译翻页了当前页面。如果在浏览器中开启插件对当前开发页面进行了翻译，页面的结构将会被改变。即使当前页面翻译前后都是中文字体 。比如：<br>当前页面结构：<br>  <div align="center"><img src="../../../../img/2019/03/23/1.png" width="50%" height="50%"></div> <br><br>使用翻译插件之后：<br>  <div align="center"><img src="../../../../img/2019/03/23/2.png" width="50%" height="50%"></div> <br><br>可以看到span标签内的纯文本在翻译之后增加了双层的<font>标签，当然这是翻译工具的工作行为。这样带来的问题是获取span标签内的纯文本变得不再简单。解决办法是关闭插件翻译或者使用String.replace()方法对元素取出的innerHTML进行过滤处理。</font></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>地图打印步骤</title>
+      <link href="/2019/03/15/%E5%9C%B0%E5%9B%BE%E6%89%93%E5%8D%B0%E6%AD%A5%E9%AA%A4/"/>
+      <url>/2019/03/15/%E5%9C%B0%E5%9B%BE%E6%89%93%E5%8D%B0%E6%AD%A5%E9%AA%A4/</url>
+      
+        <content type="html"><![CDATA[<p>地图打印步骤：<br>服务器端打印<br>执行对象是 PrintTask，打印的参数是 PrintParameters，通过设置打印模板对象 PrintTemplate，可以对图片的大小，像素，格式等进行设置。示例：在服务器端打印一个中国地图。<br>（1）     初始化PrintTask对象。<br>// printTaksUrl打印服务 async异步或同步<br>Var printTask = new esri.tasks.PrintTask(printTaksUrl, async)；<br>（2）设置打印参数，模板，布局等并进行打印操作<br>function PrintTask () {<br>    var template = new esri.tasks.PrintTemplate();<br>    template.exportOptions = {<br>        width: 850,<br>        height: 650,<br>        dpi: 96<br>    };<br>    template.format = “PDF”; // 设置输出格式<br>    template.layout = “MAP_ONLY”; // 设置排版<br>    template.preserveScale = true;<br>    var params = new esri.tasks.PrintParameters();<br>    params.map = Map;<br>    params.template = template;<br>    PrintMap.execute(params, showRender, ShowError)<br>}<br>（3）获取打印结果<br>function showPrintRes(renderer) {<br>    if(rederer != null) {<br>        window.open(renderer.url);<br>    }<br>}</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> arcgis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>不同坐标系测量面积和距离的不同方法</title>
+      <link href="/2019/03/15/%E4%B8%8D%E5%90%8C%E5%9D%90%E6%A0%87%E7%B3%BB%E6%B5%8B%E9%87%8F%E9%9D%A2%E7%A7%AF%E5%92%8C%E8%B7%9D%E7%A6%BB%E7%9A%84%E4%B8%8D%E5%90%8C%E6%96%B9%E6%B3%95/"/>
+      <url>/2019/03/15/%E4%B8%8D%E5%90%8C%E5%9D%90%E6%A0%87%E7%B3%BB%E6%B5%8B%E9%87%8F%E9%9D%A2%E7%A7%AF%E5%92%8C%E8%B7%9D%E7%A6%BB%E7%9A%84%E4%B8%8D%E5%90%8C%E6%96%B9%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p>不同坐标系测量面积和距离的不同方法</p><p>坐标系主要分为地理坐标系和投影坐标系，根据wkid来区分。不同的坐标系类型测量面积和距离的方法不同，首先是投影坐标系：<br>require([“esri/geometry/geometryEngine”], function(geometryEngine) {<br>    // 测量面积方法<br>    _calArea: function (geometry, areaUnit){ // geometry几何信息 areaUnit面积单位<br>        return geometryEngine.planarArea(geometry, areaUnit)<br>    }<br>    // 测量长度方法<br>    _calLength: function (geometry, lengthUnit) {<br>        return geometryEngine.planarLength(geometry, lengthUnit)<br>    }<br>});<br>再次是地理坐标系：<br>require([“esri/geometry/geodesicUtils”], function(geodesicUtils) {<br>// 测量面积方法<br>    _calArea: function (geometry, areaUnit){ // geometry几何信息 unit单位类型<br>        return geodesicUtils.geodesicAreas((geometry, areaUnit)<br>    }<br>    // 测量长度方法<br>    _calLength: function (geometry, lengthUnit) {<br>        return geodesicLengths.geodesicLengths(geometry, lengthUnit)<br>    }<br>});</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> arcgis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>解决arcgis地图打印无法打印PictureMarkerSymbol</title>
+      <link href="/2019/03/01/%E8%A7%A3%E5%86%B3arcgis%E5%9C%B0%E5%9B%BE%E6%89%93%E5%8D%B0%E6%97%A0%E6%B3%95%E6%89%93%E5%8D%B0PictureMarkerSymbol/"/>
+      <url>/2019/03/01/%E8%A7%A3%E5%86%B3arcgis%E5%9C%B0%E5%9B%BE%E6%89%93%E5%8D%B0%E6%97%A0%E6%B3%95%E6%89%93%E5%8D%B0PictureMarkerSymbol/</url>
+      
+        <content type="html"><![CDATA[<p>解决arcgis地图打印无法打印PictureMarkerSymbol<br>地图打印时无法打印含有PictureMarkerSymbol的图层，改用SimpleMarkerSymbol + SVG的形式可以解决。<br>（PNG/JPG可以通过在线软件转换为SVG，只要要其中的path值）代码：<br>  var path = “M96 278 c-7 -18 -27 -50 -44 -71 -17 -21 -34 -51 -37 -68 -24 -109 95 -183 177 -110 28 25 33 36 33 74 0 36 -7 54 -33 89 -18 23 -41 60 -50 80 -9 21 -20 38 -24 38 -4 0 -14 -15 -22 -32z”; // 原图片转SVG后的path<br>  this.pictureSys = new SimpleMarkerSymbol();<br>  this.pictureSys.setPath(path);<br>  this.pictureSys.setColor(new Color([255, 0, 0, 255]))<br>  this.pictureSys.setOutline(null);<br>  this.pictureSys.setSize(“32”);</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> arcgis </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>常用的解决跨域问题的方法之一：jsonp</title>
+      <link href="/2019/02/22/%E5%B8%B8%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95%E4%B9%8B%E4%B8%80%EF%BC%9Ajsonp/"/>
+      <url>/2019/02/22/%E5%B8%B8%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95%E4%B9%8B%E4%B8%80%EF%BC%9Ajsonp/</url>
+      
+        <content type="html"><![CDATA[<pre><code>常用的解决跨域问题的方法之一：jsonp</code></pre><p>跨域安全限制问题实际上只存在于浏览器端，服务器是不存在跨域问题的。所以代理服务器也是解决跨域问题的方式之一。但由于技术资源限制，本项目只能采用其它解决跨域的方式—-jsonp。<br>浏览器的同源策略限制从一个源加载的文档或脚本与来自另一个源的资源进行交互。如果协议，端口和主机对于两个页面是相同的，则两个页面具有相同的源，否则就是不同源的，无法进行跨域请求，除了以下一些特殊情况。<br>JS中存在一些特殊标签，它们可以不受同源策略限制去访问不同域的资源，例如\<img>标签可以随意展示不同源的图片资源，\<script>标签可以随意使用CDN引入第三方js插件等。利用这个原理，使用<script>标签来实现无其它跨域处理的情况下的跨域请求。当我们触发请求时，添加一个<script>标签，用于发起跨域请求；请求地址后面带一个callback=showData的参数；showData即是回调函数名称，传到后台，后台用于包裹数据。数据返回到前端后，就是showData(result)的形式，因为是script脚本，所以自动调用showData函数，而result就是showData的参数。至此，我们算是跨域把数据请求回来了，但是比较麻烦，需要自己写脚本发起请求，然后写个回调函数处理数据，不是很方便。更方便的方法是使用jQuery的jsonp请求方式，只需要在发起ajax请求时配置dataType为’jsonp’类型，即可自动生成一个回调函数或者以success函数作为回调函数传送给后台，然后获取数据。当然，后台也需要做专门的包裹数据处理。</p></script></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>element-ui隐藏滚动条组件el-scrollbar的使用</title>
+      <link href="/2019/02/15/element-ui%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%BB%84%E4%BB%B6el-scrollbar%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+      <url>/2019/02/15/element-ui%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%BB%84%E4%BB%B6el-scrollbar%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<p>element-UI 隐藏滚动条组件 el-scrollbar 的使用<br>使用方式像普通的 element-UI 组件一样使用<br>接受的props有：<br>native: Boolean  // 如果为true就不显示el的bar，也就是el模拟出来的滚动条，如果为false就显示模拟的滚动条<br>wrapStyle: Object  // 外层盒子的样式<br>wrapClass: Object  // 外层盒子的class<br>viewStyle: Object  // 内层盒子的样式<br>viewClass: Object  // 内层盒子的class<br>noresize: Boolean  // 如果 container 尺寸不会变化，最好设置它可以优化性能<br>tag: {<br>        type: String,<br>        default:  ‘div’<br>}  // 设置容器的标签</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> element-ui </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>vue动态img标签引用图片</title>
+      <link href="/2019/01/25/vue%E5%8A%A8%E6%80%81img%E6%A0%87%E7%AD%BE%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87/"/>
+      <url>/2019/01/25/vue%E5%8A%A8%E6%80%81img%E6%A0%87%E7%AD%BE%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87/</url>
+      
+        <content type="html"><![CDATA[<p>vue 绑定img标签src属性，无法读取路径的问题：<br>在vue开发中使用img的src属性绑定url变量时，经常会出现图片加载失败的问题。这是因为在变量中直接使用相对路径时，vue会把网站根路径作为根目录，而编译后的站点，图片的路径与工程路径是不一样的，webpack打包后工程中静态图片存放在public这个文件夹下，所以会出现找不到该文件的错误。</p><p>比较高质量的解决办法是使用import url from “../../assets/img/EMS.png”来导入图片路径。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> vue </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>测试代码运行时间</title>
+      <link href="/2018/12/21/%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/"/>
+      <url>/2018/12/21/%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/</url>
+      
+        <content type="html"><![CDATA[<ol><li>测试代码运行时间：performance.now()能精确获取当前时间点（千分之一毫秒），能十分方便快捷地测试代码块运行时间。例如：<br>function(){<br> var time1 = performance.now()<br> console.log(‘666’)<br> var time2 = performance.now()<br> console.log(time2 - time1) // 单位ms<br>}</li><li>阻止浏览器的默认drag拖拽：<br>使用mousemove事件设计可移动的元素时，很容易受到darg拖拽事件的影响，解决办法就是在目标移动元素上绑定dragstart事件：function() { return false}，以此来直接阻止drag事件传递。参考<a href="https://javascript.info/mouse-drag-and-drop" target="_blank" rel="noopener">https://javascript.info/mouse-drag-and-drop</a>          </li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>正则表达式匹配固定头尾的字符串</title>
+      <link href="/2018/12/10/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D%E5%9B%BA%E5%AE%9A%E5%A4%B4%E5%B0%BE%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+      <url>/2018/12/10/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D%E5%9B%BA%E5%AE%9A%E5%A4%B4%E5%B0%BE%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
+      
+        <content type="html"><![CDATA[<p>正则表达式匹配固定头尾的字符串</p><p>例如要匹配以下所有数据：<br> (“FA60AFAA-C0C1-4E5A-9B62-23026F3D8EAA”:</p><p>(“6DE3FA9B-EDC9-4CF0-E053-49C8A8C029B0”:</p><p>(“9AB0D392-699C-F693-09CC-1FCC5D2E1934”:</p><p>(“FBEC781C-B552-411C-AF64-6FBA59D42F1D”:</p><p>这数据的共同点都是以<code>(&quot;</code>开头，以<code>&quot;</code>结束，</p><p>所以结构应该为：<code>\(&quot;regex&quot;</code>，其中regex待定。原本以为<code>regex = &#39;*&#39;</code>时能实现匹配，结果不能，查看资料才明白<code>&#39;*&#39;匹配前面的子表达式零次或多次。</code>，也就是说<code>*</code>前面需要一个用来匹配的表达式（现在的情况是匹配<code>&quot;</code>这个符号零次或多次）…</p><p>然后继续查找资料发现<code>\S</code>匹配所有非空白符号，使<code>regex = &#39;[\S]*&#39;的</code>时候实现了我想要的结果，成功匹配出所有类似字符串。最终正则表达式为<code>\(&quot;[\S]*&quot;</code></p><p>如果字符串中出项空白符号时，以上正则表达式将不能匹配，改为这样<code>\(&quot;[\s\S]*&quot;</code>即可。其中<code>\s</code>的意思是’匹配空白符号’</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> regex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>element-ui在vue中覆盖样式</title>
       <link href="/2018/12/06/element-ui%20%E5%9C%A8vue%E4%B8%AD%E8%A6%86%E7%9B%96%E6%A0%B7%E5%BC%8F/"/>
       <url>/2018/12/06/element-ui%20%E5%9C%A8vue%E4%B8%AD%E8%A6%86%E7%9B%96%E6%A0%B7%E5%BC%8F/</url>
@@ -92,9 +398,9 @@
       
         <tags>
             
-            <tag> VSCode </tag>
-            
             <tag> vue </tag>
+            
+            <tag> VSCode </tag>
             
             <tag> 自动格式化 </tag>
             
@@ -360,23 +666,6 @@
             <tag> 原型 </tag>
             
         </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>对于网页相关工作的一些个人看法</title>
-      <link href="/2018/06/12/%E5%AF%B9%E4%BA%8E%E7%BD%91%E9%A1%B5%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%9C%8B%E6%B3%95/"/>
-      <url>/2018/06/12/%E5%AF%B9%E4%BA%8E%E7%BD%91%E9%A1%B5%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%9C%8B%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<p></p><h3>前言</h3><br>&emsp; &emsp;前些天我所在的团队回来了几个毕了业的大师兄，大家聚在一起聊天交流经验时被想从事网页前端工作的几个小师妹问了一些前端方面的问题以及发展情况，交流过后觉得应该写出来，便有了以下的个人看法，希望有误的地方能多多包涵。<a id="more"></a><br><p></p><p></p><h3>正文</h3><br>&emsp; &emsp;听说有师妹想发展网页方面的工作，我大概讲一下这方面吧。做成一个动态网页大概分三个工作：网页设计，前端开发，后端开发,不过在数年以前并不做这样的区分，基本都是由一个人完成，随着前端多样性的发展才逐渐形成现在的局面，但依然有公司要求一个人完成网页所有的开发情况，这种叫全栈开发，开发人员也叫全栈工程师。网页设计偏向设计类，主要负责网页界面设计，美工，动画，交互，业务逻辑等功能的设计等等。而前端的工作就是用代码把这个界面实现出来，要求是基本跟网页设计师设计的保持一致。后端开发负责开发后台系统，通俗的说就是数据库与网页的联动，接收网页传来的数据或者给网页发送数据。网页设计需要掌握PS、FL、FW等设计相关的软件，还要精通前端的代码，HTML、CSS。前端开发除了需要精通上面两种基础之外，还需要精通JavaScrip以及一些基于JS的开发框架，例如jQuery，Vue.js，Angular.js，React.js等，他们与JS的关系大概是C++、C#之于C语言一样，C++、C#是C语言的加强、扩展之后的版本，不同的是C语言是面向过程语言，C++、C#是面向对象语言，而JS与它的其它版本都是面向对象语言。因为我搞的前端这块，所以讲的篇幅较大，我等会另起段落。后端开发又称为后台开发，主要与数据库、服务器打交道。一个网页如果没有后台数据交换，那它就是静态网页，如果有，那它就是动态的。拿我们学校官网做例子，它是动态的，因为它有数据后台，就是那个土豆服务器，存有一个包含我们学生所有信息的数据库。我们登陆官网的时候，需要提交我们的学号和对应的密码，点击提交的时候，这些数据就会传递到服务器的后台处理系统去，这时系统会逐一在数据库中寻找有没有这个对象，密码正不正确，正确的话返回一个代表正确并允许登陆的参数至前端网页，网页根据这个参数作出界面调整，显示登录后的界面，不正确的话则显示密码出错或者密码不正确的界面。这个大动作主要包含四个小动作，传递参数、核查、返回参数、作出界面调整，前三个主要由后台开发，属于后台的工作，最后一个则是前端的工作，但他们又不是绝对独立的，后台和前端需要相互配合才能实现，例如传递的参数应该用什么格式，JSON还是其它，接口应该怎样写等等，都需要合作，相对于单片机硬件和软件的合作开发一样。后端开发需要掌握PHP、JAVA或者其它可以用来写后台的语言，还需要掌握数据库语言，例如MySql，还需要对前端的语言有所了解，方便与前端对接口。<br><br>&emsp; &emsp;下面讲讲前端。前端可以说是近三年来比较热门的职业了，市场需求量比较高,整体工资也是可观的，大概跟嵌入式开发并肩吧，但总的来说还是的看自己的本事吧，人家也不是什么人都要。前端的学习，前面说到，学习前端的基础语言HTML，CSS，JS，这是必须的，学习顺序自然是HTML-&gt;CSS-&gt;JS，通常使用的软件是WebStorm、sublime text、Atom。HTML语言有很多版本，最常用的应该是HTML5（简称H5）和DHTML，其它版本的不多描述，有兴趣的可以自己看一下。HTML语言称为超文本标记语言，属于网页三层中的结构层，它负责确定网页的内容，搭建网页的基本结构，确定标题、文本、图片的层次关系等，CSS称为层叠样式层，属于三层中的表示层，通常用来改变网页的布局、外观等，例如文本的背景颜色、输入框的边框粗细、标题文字的大小、图片的具体位置等等。JS则是行为层，负责网页的动态表现（也有用CSS实现的），人机交互等行为，例如文本框移动、点击图片自动放大、点击提交按钮提交数据等，JS出现的目的是使得人和网页的交互变得更舒服，更方便快捷。打个比方，搭建一个静态网页，就像盖房子一样。用HTML语言来去定房子的大小、客厅的位置房间卫生间的位置，然后搭建地基、砌砖，使其稳定，这是结构层。然后用CSS语言来装修，扇灰贴瓷砖铺地板等等，使其更美观布局更合理，这是表示层，然后用JS语言添加水电、灯、门窗、家电等一些实用、娱乐功能，增加交互体验，这是行为层。值得一提的是，三种层次的代码需要分离，尽量不要写在一起，浏览器的内核决定三种语言是可以写在一起的，只要使用正确的HTML元素标识出来，但这种做法并不提倡。因为这样显得代码混乱，维护起来的成本会增加，所以一般采用三层分离，即单独的写成三个文件，然后使用类似函数调用的方式调用。分离的效果要做到即使去掉表示层和行为层，文档的内容也依然可以访问，因为“内容才是一切”。而且网页的行为层 (JS) 与其结构 (HTML) 是彼此互不干扰的，不能混杂在一起。还要给行为层“预留退路”，要考虑到如果你的用户禁用了 Javascript 会怎样？是不是网页还可以正常运作。<br><br>&emsp; &emsp;说这些可能有点复杂，不过说都说了我就不删了，以后在学习的时候，再回来看看你就明白了。学习JS，需要拥有面向对象编程的思想，不了解的问问那些师兄或者百度百度吧，不然我写的太长了哈哈。然后是响应式设计和自适应式设计的思想，网页的大小是自己设定的，元素的布局也是确定的，有时候一个网页会在不同的场所被打开，或者是手机上或者是PAD上或者是电脑上，能浏览网页的终端有大有小，如果你的网页设计这针对一种终端设计，例如15.6英寸的笔记本电脑，使用的固定像素大小的元素，那这个网页在其它终端，例如4.7英寸的iPone 6S，它显示的可能就不全面甚至变形，因为笔记本的横向像素有1368个，而iPhone 6S的的横向像素只有750个，所以可能会出现页面显示不完整的情况。这时候有两种解决办法，使用自适应设计和响应式设计。自适应设计的元素大小不再固定，而是使用百分比来替代，这样无论在什么设备上，页面都会根据屏幕大小来重新计算、渲染元素的大小，使得页面能完整显示。但是这样的弊端是，无论在多大多小的屏幕都采用百分比的计算方式，容易导致出现元素过大或者过小的情况，造成视觉上的怪异。响应式设计则完美的解决了这个问题，直接根据屏幕的大小来设定不一样的界面，通过css媒体查询针对不同的屏幕尺寸区间设定不同的规则等等。<br><br>&emsp; &emsp;还有浏览器的兼容，听说大多开发前端的都死在了浏览器兼容这块，因为市面上的浏览器实在是太多了，虽然内核也就来来去去的那几个，Trident（微软IE）、Webkit(谷歌Chrome、苹果Safari)、Gecko(火狐FireFox)、Presto(Opera)，但是因为部分内核开源的缘故，出现了各式各样的浏览器，针对国内，就有被视为业界毒瘤的360浏览器、UC浏览器、搜狗浏览器等。而我的建议是，首先用谷歌浏览器和火狐浏览器练习开发和兼容，因为这是世界上占用率最高以及内核被使用率最高的两款浏览器。感觉说了些复杂的东西，这篇文章说不定以后你们看回来还有用。<br><br>&emsp; &emsp;一时半会是说不完的，任何一个方面都可以说很久，前端的魅力就在于它发展的飞快，JS框架层出不穷，新知识也不断增加。前端的学习，首先掌握HTML，CSS，这两者都是比较简单的，在这时候学习自适应设计和响应式设计，然后学习JS，到了中期学习jQuery或者zepto，es6语法，基础打扎实了，发展框架，学习Vue.js，Angular.js、React.js等,至少熟练掌握其中一个，学习模板开发，学习Less、Sass等CSS的加强版，同时了解一下什么是MVC、MVVM设计模式。前端，基础还是容易学的，但是深入难，其实我也只是个菜鸟而已。最后，学习的话一定要多做开发，动手实操，自己构思一个项目出来并实现，例如播放器什么的。写纸上都是假的，写进脑子才有用。然后推荐一个学习网站，慕课网。想必不用我说大家也知道它的厉害之处了哈哈。然后给大家一个简单的例子看看，因为时间比较匆忙我没写JS层，先感受一下H5和CSS吧。直接看后缀名来判断文件类型。双击直接打开index.html文件，出现排版乱的话就用chrome打开吧。然后尝试删除CSS文件夹看看是什么情况。哇，为什么我写论文没这么能吹。 <p></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
       
     </entry>
     

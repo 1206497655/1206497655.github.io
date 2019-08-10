@@ -5,8 +5,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="element-ui在vue中覆盖样式, Leno的个人博客">
-    <meta name="description" content="vue主张使用scoped关键字来解决css样式的全局污染问题，这样的解决方式明显简单了许多，不过也有一些意外情况，例如想要覆盖一些第三方ui的样式（如elementUi）时，因为大部分的样式都是通过全局样式引入的，在某个页面想进行样式覆盖">
+    <meta name="keywords" content="控制git_commit时的提交信息格式, Leno的个人博客">
+    <meta name="description" content=" 利用husky和commintlint插件控制git commitlint时的提交信息格式。项目里虽然写明了在提交代码时需要表明提交类型，以此来表明此次提交的改动类型，是新增功能还是修改bug还是重构等，但是也有粗心大意的时候。为了杜绝这">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>element-ui在vue中覆盖样式 | Leno的个人博客</title>
+    <title>控制git_commit时的提交信息格式 | Leno的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -252,13 +252,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        element-ui在vue中覆盖样式
+                        控制git_commit时的提交信息格式
                     </div>
                 </div>
             </div>
@@ -369,81 +369,24 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/element/" target="_blank">
-                    <span class="chip bg-color">element</span>
+                <a href="/tags/git/" target="_blank">
+                    <span class="chip bg-color">git</span>
                 </a>
                 
             </div>
             
             <div class="post-info">
                 
-                <span class="post-cate">
-                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                    
-                    <a href="/categories/前端/" class="post-category" target="_blank">
-                        前端
-                    </a>
-                    
-                </span>
-                
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-07-29
+                    <i class="fa fa-clock-o fa-fw"></i>2019-07-06
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>vue主张使用scoped关键字来解决css样式的全局污染问题，这样的解决方式明显简单了许多，不过也有一些意外情况，例如想要覆盖一些第三方ui的样式（如elementUi）时，因为大部分的样式都是通过全局样式引入的，在某个页面想进行样式覆盖又存在scoped关键字时显然无法进行覆盖。解决方式有两种：</p>
-<p>1.去掉 <code>scoped</code> 提升样式至全局。但是这样的话需要增加命名空间以解决污染问题。</p>
-<pre class=" language-scss"><code class="language-scss"><span class="token selector">.article-page </span><span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">/* 你的命名空间 */</span>
-  <span class="token selector">.el-tag </span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">/* element-ui 元素*/</span>
-    <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>2.使用深度选择器。当你子组件使用了 <code>scoped</code> 但在父组件又想修改子组件的样式可以 通过 <code>&gt;&gt;&gt;</code> 来实现：</p>
-<pre class=" language-css"><code class="language-css"><span class="token selector">&lt;style scoped>
-<span class="token class">.a</span> >>> <span class="token class">.b</span> </span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* ... */</span> <span class="token punctuation">}</span>
-&lt;/style>
-</code></pre>
-<p>将会编译成：</p>
-<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.a</span><span class="token attribute">[data-v-f3f3eg9]</span> <span class="token class">.b</span> </span><span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">/* ... */</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>注意：当使用了sass等css预处理语言时， <code>&gt;&gt;&gt;</code> 可能不会生效，此时可以使用 <code>/deep/</code> 替换，它的作用跟 <code>&gt;&gt;&gt;</code> 时一样的。</p>
-<style scoped>
-.a /deep/ .b { /* ... */ }
-</style>
-
-<p>除此之外，父级选择器应该是能够被选中的全局样式，如上的 <code>.a</code> ，它应该组件最顶层的父级容器样式，能够被全局样式判定，否则深度选择器是找不到目标样式的。假如组件的样式结构如下：</p>
-<pre class=" language-scss"><code class="language-scss"><span class="token selector">.article-page </span><span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">/* 你的命名空间 */</span>
-  <span class="token selector">.el-tag </span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">/* element-ui 元素*/</span>
-    <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>那么深度选择器应该从 <code>.a</code> 样式作为父级选择器开始，比我要改变 <code>.c</code> 样式，从以下方式改变是不行的:</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
-    <span class="token selector"><span class="token class">.b</span> /deep/ <span class="token class">.c</span> </span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">/* 修改失败，无法找到 .c 元素, 父级元素未知 */</span>
-    <span class="token punctuation">}</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-</code></pre>
-<p>正确的做法应该是这样的:</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
-    <span class="token selector"><span class="token class">.a</span> /deep/ <span class="token class">.b</span> /deep/ <span class="token class">.c</span> </span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">/* 修改成功 */</span>
-    <span class="token punctuation">}</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-</code></pre>
-<p>以上结果基于vue + elementUi测试获得，其它ui未知。欢迎纠错。</p>
+                <p> 利用husky和commintlint插件控制git commitlint时的提交信息格式。<br>项目里虽然写明了在提交代码时需要表明提交类型，以此来表明此次提交的改动类型，是新增功能还是修改bug还是重构等，但是也有粗心大意的时候。为了杜绝这种情况，项目里就可以增加一种限制来禁止提交不规范的commit messege。安装husky，husky继承了Git下所有的钩子，允许开发者在git钩子下做想做的事情，结合commitlint就可以实现在commit前检查messege的格式，是否符合项目的要求。使用很简单：<br>安装：<br>  <div align="center"><img src="../../../../img/2019/07/06/0.png" width="50%" height="50%"></div> <br><br>  <div align="center"><img src="../../../../img/2019/07/06/1.png" width="50%" height="50%"></div> <br><br>新增文件commitlint.config.js，文件内容如下：<br>  <div align="center"><img src="../../../../img/2019/07/06/2.png" width="50%" height="50%"></div> <br><br>该文件是commitlint的配置文件，可根据项目需求参考官网配置项进行修改。<br>在package.json新增字段：<br>  <div align="center"><img src="../../../../img/2019/07/06/3.png" width="50%" height="50%"></div> <br><br>然后就可以在git的commit-msg钩子限制commit messege的格式了。默认格式为：<br>Type：（两个空格）信息  例如：Add:  新增功能</p>
 
             </div>
             <hr/>
@@ -535,7 +478,7 @@
     <div id="rewardModal" class="modal">
         <div class="modal-content">
             <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">如果你愿意，就请我喝杯咖啡吧</h4>
+            <h4 class="reward-title">如果你愿意，请我喝杯咖啡吧</h4>
             <div class="reward-content">
                 <div class="reward-tabs">
                     <ul class="tabs">
@@ -543,7 +486,7 @@
                         <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
                     </ul>
                     <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
                     </div>
                     <div id="alipay">
                         <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
@@ -582,7 +525,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://www.coderlyc.xyz" class="b-link-green">Leno的个人博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/07/29/element-ui 在vue中覆盖样式/" class="b-link-green">element-ui在vue中覆盖样式</a>
+                    <a href="/2019/07/06/控制git-commit时的提交信息格式/" class="b-link-green">控制git_commit时的提交信息格式</a>
                 </p>
             </div>
         </div>
@@ -604,7 +547,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2018-07-29T22-27-34',
+        id: '2019-07-06T19-07-21',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -626,29 +569,25 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/07/29/dojo学习笔记-创建类的工具declare/">
+                <a href="/2019/07/21/JavaScript高级程序设计之垃圾收集机制/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="dojo学习笔记--创建类的工具declare">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="JavaScript高级程序设计之垃圾收集机制">
                         
-                        <span class="card-title">dojo学习笔记--创建类的工具declare</span>
+                        <span class="card-title">JavaScript高级程序设计之垃圾收集机制</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">&emsp;&emsp;declare(className,superclass,props) 是创建类的基础，es6之前js并不支持创建类，没有关键词class和extends.declare允许开发者实现多继承，从而创建灵活的有弹性的代</div>
+                    <div class="summary">最近在读《JavaScript高级程序设计(第三版)》，我在大学时有幸接触过一下这本书，但是当时对JS并不是很了解，书中内容大多晦涩难懂，没有工作经验的人几乎很难读懂，现在重新阅读一遍感觉打开了新世界的大门（虽然还没读完）。对于工作了一段时</div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-29
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-21
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/前端/" class="post-category" target="_blank">
-                                    前端
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Leno
                             
                         </span>
                     </div>
@@ -656,12 +595,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/dojo/" target="_blank">
-                        <span class="chip bg-color">dojo</span>
-                    </a>
-                    
-                    <a href="/tags/declare/" target="_blank">
-                        <span class="chip bg-color">declare</span>
+                    <a href="/tags/js/" target="_blank">
+                        <span class="chip bg-color">js</span>
                     </a>
                     
                 </div>
@@ -673,29 +608,25 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/07/29/dojo学习笔记-通用工具lang/">
+                <a href="/2019/06/29/利用vue-mixin减少文件体积/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="dojo学习笔记--通用工具lang">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="利用vue.mixin减少文件体积">
                         
-                        <span class="card-title">dojo学习笔记--通用工具lang</span>
+                        <span class="card-title">利用vue.mixin减少文件体积</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">&emsp;&emsp;dojo/base/lang模块是一个通用工具模块，主要提供以下的工具函数require([&#39;dojo&#39;, &#39;dojo&#x2F;_base&#x2F;lang&#39;, &#39;dojo</div>
+                    <div class="summary">Vue.mixin()混入API除了分发 Vue 组件中的可复用功能，还能用来解决单个文件过大的问题。当我们遇到一些逻辑实在是很复杂，需要写很多个方法才能实现的模块又无法拆分组件时，可以使用vue.mixin来解决单个文件过大的问题，把一些</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-29
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/前端/" class="post-category" target="_blank">
-                                    前端
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Leno
                             
                         </span>
                     </div>
@@ -703,12 +634,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/dojo/" target="_blank">
-                        <span class="chip bg-color">dojo</span>
-                    </a>
-                    
-                    <a href="/tags/lang/" target="_blank">
-                        <span class="chip bg-color">lang</span>
+                    <a href="/tags/vue/" target="_blank">
+                        <span class="chip bg-color">vue</span>
                     </a>
                     
                 </div>

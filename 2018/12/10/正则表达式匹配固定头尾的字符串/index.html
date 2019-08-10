@@ -5,8 +5,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Leno的个人博客">
-    <meta name="description" content="element-ui 在vue中覆盖样式vue主张使用scoped关键字来解决css样式的全局污染问题，这样的解决方式明显简单了许多，不过也有一些意外情况，例如想要覆盖一些第三方ui的样式（如elementUi）时，因为大部分的样式都是通过">
+    <meta name="keywords" content="正则表达式匹配固定头尾的字符串, Leno的个人博客">
+    <meta name="description" content="正则表达式匹配固定头尾的字符串
+例如要匹配以下所有数据： (“FA60AFAA-C0C1-4E5A-9B62-23026F3D8EAA”:
+(“6DE3FA9B-EDC9-4CF0-E053-49C8A8C029B0”:
+(“9AB0D39">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +17,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Leno的个人博客</title>
+    <title>正则表达式匹配固定头尾的字符串 | Leno的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -258,7 +261,7 @@
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        
+                        正则表达式匹配固定头尾的字符串
                     </div>
                 </div>
             </div>
@@ -367,66 +370,34 @@
     <div class="card">
         <div class="card-content article-info">
             
+            <div class="article-tag">
+                
+                <a href="/tags/regex/" target="_blank">
+                    <span class="chip bg-color">regex</span>
+                </a>
+                
+            </div>
+            
             <div class="post-info">
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-12-07
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-10
                 </span>
             </div>
         </div>
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="element-ui-在vue中覆盖样式"><a href="#element-ui-在vue中覆盖样式" class="headerlink" title="element-ui 在vue中覆盖样式"></a>element-ui 在vue中覆盖样式</h2><p>vue主张使用scoped关键字来解决css样式的全局污染问题，这样的解决方式明显简单了许多，不过也有一些意外情况，例如想要覆盖一些第三方ui的样式（如elementUi）时，因为大部分的样式都是通过全局样式引入的，在某个页面想进行样式覆盖又存在scoped关键字时显然无法进行覆盖。解决方式有两种：</p>
-<p>1.去掉 <code>scoped</code> 提升样式至全局。但是这样的话需要增加命名空间以解决污染问题。</p>
-<pre class=" language-scss"><code class="language-scss"><span class="token selector">.article-page </span><span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">/* 你的命名空间 */</span>
-  <span class="token selector">.el-tag </span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">/* element-ui 元素*/</span>
-    <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>2.使用深度选择器。当你子组件使用了 <code>scoped</code> 但在父组件又想修改子组件的样式可以 通过 <code>&gt;&gt;&gt;</code> 来实现：</p>
-<pre class=" language-css"><code class="language-css"><span class="token selector">&lt;style scoped>
-<span class="token class">.a</span> >>> <span class="token class">.b</span> </span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* ... */</span> <span class="token punctuation">}</span>
-&lt;/style>
-</code></pre>
-<p>将会编译成：</p>
-<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.a</span><span class="token attribute">[data-v-f3f3eg9]</span> <span class="token class">.b</span> </span><span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">/* ... */</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>注意：当使用了sass等css预处理语言时， <code>&gt;&gt;&gt;</code> 可能不会生效，此时可以使用 <code>/deep/</code> 替换，它的作用跟 <code>&gt;&gt;&gt;</code> 时一样的。</p>
-<style scoped>
-.a /deep/ .b { /* ... */ }
-</style>
-
-<p>除此之外，父级选择器应该是能够被选中的全局样式，如上的 <code>.a</code> ，它应该组件最顶层的父级容器样式，能够被全局样式判定，否则深度选择器是找不到目标样式的。假如组件的样式结构如下：</p>
-<pre class=" language-scss"><code class="language-scss"><span class="token selector">.article-page </span><span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">/* 你的命名空间 */</span>
-  <span class="token selector">.el-tag </span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">/* element-ui 元素*/</span>
-    <span class="token property">margin-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>那么深度选择器应该从 <code>.a</code> 样式作为父级选择器开始，比我要改变 <code>.c</code> 样式，从以下方式改变是不行的:</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
-    <span class="token selector"><span class="token class">.b</span> /deep/ <span class="token class">.c</span> </span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">/* 修改失败，无法找到 .c 元素, 父级元素未知 */</span>
-    <span class="token punctuation">}</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-</code></pre>
-<p>正确的做法应该是这样的:</p>
-<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scss<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style language-css">
-    <span class="token selector"><span class="token class">.a</span> /deep/ <span class="token class">.b</span> /deep/ <span class="token class">.c</span> </span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">/* 修改成功 */</span>
-    <span class="token punctuation">}</span>
-</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
-</code></pre>
-<p>以上结果基于vue + elementUi测试获得，其它ui未知。欢迎纠错。</p>
+                <p>正则表达式匹配固定头尾的字符串</p>
+<p>例如要匹配以下所有数据：<br> (“FA60AFAA-C0C1-4E5A-9B62-23026F3D8EAA”:</p>
+<p>(“6DE3FA9B-EDC9-4CF0-E053-49C8A8C029B0”:</p>
+<p>(“9AB0D392-699C-F693-09CC-1FCC5D2E1934”:</p>
+<p>(“FBEC781C-B552-411C-AF64-6FBA59D42F1D”:</p>
+<p>这数据的共同点都是以<code>(&quot;</code>开头，以<code>&quot;</code>结束，</p>
+<p>所以结构应该为：<code>\(&quot;regex&quot;</code>，其中regex待定。原本以为<code>regex = &#39;*&#39;</code>时能实现匹配，结果不能，查看资料才明白<code>&#39;*&#39;匹配前面的子表达式零次或多次。</code>，也就是说<code>*</code>前面需要一个用来匹配的表达式（现在的情况是匹配<code>&quot;</code>这个符号零次或多次）…</p>
+<p>然后继续查找资料发现<code>\S</code>匹配所有非空白符号，使<code>regex = &#39;[\S]*&#39;的</code>时候实现了我想要的结果，成功匹配出所有类似字符串。最终正则表达式为<code>\(&quot;[\S]*&quot;</code></p>
+<p>如果字符串中出项空白符号时，以上正则表达式将不能匹配，改为这样<code>\(&quot;[\s\S]*&quot;</code>即可。其中<code>\s</code>的意思是’匹配空白符号’</p>
 
             </div>
             <hr/>
@@ -518,7 +489,7 @@
     <div id="rewardModal" class="modal">
         <div class="modal-content">
             <a class="close"><i class="fa fa-close"></i></a>
-            <h4 class="reward-title">如果你愿意，就请我喝杯咖啡吧</h4>
+            <h4 class="reward-title">如果你愿意，请我喝杯咖啡吧</h4>
             <div class="reward-content">
                 <div class="reward-tabs">
                     <ul class="tabs">
@@ -526,7 +497,7 @@
                         <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
                     </ul>
                     <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
                     </div>
                     <div id="alipay">
                         <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
@@ -565,7 +536,7 @@
                     <span class="reprint-tip">转载请注明: </span>
                     <a href="http://www.coderlyc.xyz" class="b-link-green">Leno的个人博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/12/07/element-ui 在vue中覆盖样式/" class="b-link-green"></a>
+                    <a href="/2018/12/10/正则表达式匹配固定头尾的字符串/" class="b-link-green">正则表达式匹配固定头尾的字符串</a>
                 </p>
             </div>
         </div>
@@ -587,7 +558,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2018-12-07T20-14-40',
+        id: '2018-12-10T21-27-01',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -606,24 +577,25 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">本篇</div>
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">上一篇</div>
             <div class="card">
-                <a href="/2018/12/07/element-ui 在vue中覆盖样式/">
+                <a href="/2018/12/21/测试代码运行时间/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="测试代码运行时间">
                         
-                        <span class="card-title"></span>
+                        <span class="card-title">测试代码运行时间</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">element-ui 在vue中覆盖样式vue主张使用scoped关键字来解决css样式的全局污染问题，这样的解决方式明显简单了许多，不过也有一些意外情况，例如想要覆盖一些第三方ui的样式（如elementUi）时，因为大部分的样式都是通过</div>
+                    <div class="summary">
+测试代码运行时间：performance.now()能精确获取当前时间点（千分之一毫秒），能十分方便快捷地测试代码块运行时间。例如：function(){ var time1 = performance.now() console.log</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-07
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-21
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -632,7 +604,14 @@
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/js/" target="_blank">
+                        <span class="chip bg-color">js</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -641,20 +620,20 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">下一篇</div>
             <div class="card">
-                <a href="/2018/11/28/探索发现-关于compositionstart、input和compositionend事件去除拼音响应的研究/">
+                <a href="/2018/12/06/element-ui 在vue中覆盖样式/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="element-ui在vue中覆盖样式">
                         
-                        <span class="card-title">探索发现--关于compositionstart、input和compositionend事件去除拼音响应的研究</span>
+                        <span class="card-title">element-ui在vue中覆盖样式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">关于利用compositionstart、input和compositionend事件给input元素即时响应去除拼音阶段响应的发现：compositionstart事件在拼音输入阶段开始触发的事件，compositionend事件在输入拼</div>
+                    <div class="summary">vue主张使用scoped关键字来解决css样式的全局污染问题，这样的解决方式明显简单了许多，不过也有一些意外情况，例如想要覆盖一些第三方ui的样式（如elementUi）时，因为大部分的样式都是通过全局样式引入的，在某个页面想进行样式覆盖</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-28
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-06
                             </span>
                         <span class="publish-author">
                             
@@ -671,12 +650,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/compositionstart/" target="_blank">
-                        <span class="chip bg-color">compositionstart</span>
-                    </a>
-                    
-                    <a href="/tags/compositionend/" target="_blank">
-                        <span class="chip bg-color">compositionend</span>
+                    <a href="/tags/element/" target="_blank">
+                        <span class="chip bg-color">element</span>
                     </a>
                     
                 </div>

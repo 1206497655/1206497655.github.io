@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.coderlyc.xyz/"/>
-  <updated>2018-12-08T03:10:54.518Z</updated>
+  <updated>2019-08-10T15:11:15.748Z</updated>
   <id>http://www.coderlyc.xyz/</id>
   
   <author>
@@ -15,6 +15,444 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SVG入门</title>
+    <link href="http://www.coderlyc.xyz/2019/08/10/SVG%E5%85%A5%E9%97%A8/"/>
+    <id>http://www.coderlyc.xyz/2019/08/10/SVG入门/</id>
+    <published>2019-08-10T12:23:23.000Z</published>
+    <updated>2019-08-10T15:11:15.748Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;SVG入门&quot;&gt;&lt;a href=&quot;#SVG入门&quot; class=&quot;headerlink&quot; title=&quot;SVG入门&quot;&gt;&lt;/a&gt;SVG入门&lt;/h1&gt;&lt;h3 id=&quot;1-简介&quot;&gt;&lt;a href=&quot;#1-简介&quot; class=&quot;headerlink&quot; title=&quot;1.
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SVG" scheme="http://www.coderlyc.xyz/tags/SVG/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Object.freeze冻结对象的深层理解</title>
+    <link href="http://www.coderlyc.xyz/2019/08/03/Object-freeze%E5%86%BB%E7%BB%93%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B7%B1%E5%B1%82%E7%90%86%E8%A7%A3/"/>
+    <id>http://www.coderlyc.xyz/2019/08/03/Object-freeze冻结对象的深层理解/</id>
+    <published>2019-08-03T14:18:27.000Z</published>
+    <updated>2019-08-10T14:22:13.492Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Object.freeze()冻结对象的深层理解。Vue介绍响应式系统的文档中提到，使用Object.freeze()方法冻结对象，可以使得该对象无法进行更新响应，对系统的性能优化有一定的帮助。在MDN中对Object.freeze()的介绍如下：&lt;br&gt;可以冻结一个对象。
+        
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://www.coderlyc.xyz/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript高级程序设计之垃圾收集机制</title>
+    <link href="http://www.coderlyc.xyz/2019/07/21/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B9%8B%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E6%9C%BA%E5%88%B6/"/>
+    <id>http://www.coderlyc.xyz/2019/07/21/JavaScript高级程序设计之垃圾收集机制/</id>
+    <published>2019-07-21T14:17:16.000Z</published>
+    <updated>2019-08-10T14:17:11.567Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近在读《JavaScript高级程序设计(第三版)》，我在大学时有幸接触过一下这本书，但是当时对JS并不是很了解，书中内容大多晦涩难懂，没有工作经&lt;br&gt;验的人几乎很难读懂，现在重新阅读一遍感觉打开了新世界的大门（虽然还没读完）。对于工作了一段时间的我来说，这本书的作用恰
+        
+      
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://www.coderlyc.xyz/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>控制git_commit时的提交信息格式</title>
+    <link href="http://www.coderlyc.xyz/2019/07/06/%E6%8E%A7%E5%88%B6git-commit%E6%97%B6%E7%9A%84%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF%E6%A0%BC%E5%BC%8F/"/>
+    <id>http://www.coderlyc.xyz/2019/07/06/控制git-commit时的提交信息格式/</id>
+    <published>2019-07-06T11:07:21.000Z</published>
+    <updated>2019-08-10T14:10:29.694Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt; 利用husky和commintlint插件控制git
+        
+      
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://www.coderlyc.xyz/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用vue.mixin减少文件体积</title>
+    <link href="http://www.coderlyc.xyz/2019/06/29/%E5%88%A9%E7%94%A8vue-mixin%E5%87%8F%E5%B0%91%E6%96%87%E4%BB%B6%E4%BD%93%E7%A7%AF/"/>
+    <id>http://www.coderlyc.xyz/2019/06/29/利用vue-mixin减少文件体积/</id>
+    <published>2019-06-29T08:45:03.000Z</published>
+    <updated>2019-08-10T14:05:03.904Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Vue.mixin()混入API除了分发 Vue
+        
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://www.coderlyc.xyz/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js浮点运算陷阱</title>
+    <link href="http://www.coderlyc.xyz/2019/06/01/js%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97%E9%99%B7%E9%98%B1/"/>
+    <id>http://www.coderlyc.xyz/2019/06/01/js浮点运算陷阱/</id>
+    <published>2019-06-01T13:01:51.000Z</published>
+    <updated>2019-08-10T14:02:38.096Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;  开发模型管理引擎时遇到传说中的浮点运算陷阱：浮点运算计算结果出现0.000000001 和 0.999999999这样的奇怪结果或误差，例如如
+        
+      
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://www.coderlyc.xyz/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用canvas元素重叠带透明度的照片的方法</title>
+    <link href="http://www.coderlyc.xyz/2019/05/11/%E7%94%A8canvas%E5%85%83%E7%B4%A0%E9%87%8D%E5%8F%A0%E5%B8%A6%E9%80%8F%E6%98%8E%E5%BA%A6%E7%9A%84%E7%85%A7%E7%89%87%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>http://www.coderlyc.xyz/2019/05/11/用canvas元素重叠带透明度的照片的方法/</id>
+    <published>2019-05-11T07:59:22.000Z</published>
+    <updated>2019-08-10T14:01:07.745Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;用canvas元素重叠带透明度的照片的方法：&lt;br&gt;使用canvas重叠两张图片时，若图片带有透明度，使用canvas重叠后不会直接带有透明效果。&lt;br&gt;可以使用canvas. globalAlpha来解决此问题。&lt;/p&gt;
+&lt;p&gt;  &lt;div
+        
+      
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://www.coderlyc.xyz/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记录一下elementUI的tree节点过长缺无法横向滚动的问题</title>
+    <link href="http://www.coderlyc.xyz/2019/04/05/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8BelementUI%E7%9A%84tree%E8%8A%82%E7%82%B9%E8%BF%87%E9%95%BF%E7%BC%BA%E6%97%A0%E6%B3%95%E6%A8%AA%E5%90%91%E6%BB%9A%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://www.coderlyc.xyz/2019/04/05/记录一下elementUI的tree节点过长缺无法横向滚动的问题/</id>
+    <published>2019-04-05T06:07:09.000Z</published>
+    <updated>2019-08-10T13:58:38.108Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;记录一下elementUI的tree节点过长缺无法横向滚动的问题：&lt;br&gt;在用el-tree做模型管理引擎左侧的模型目录树的时候发现一些UI上的问题，如果装载tree的容器宽度很小（此项目大概为10%屏幕宽度），然而节点较多文字较长时，el-tree无法正常滚动。&lt;br&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="element-ui" scheme="http://www.coderlyc.xyz/tags/element-ui/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue项目编译后部署在非网站根目录的解决方案</title>
+    <link href="http://www.coderlyc.xyz/2019/04/05/Vue%E9%A1%B9%E7%9B%AE%E7%BC%96%E8%AF%91%E5%90%8E%E9%83%A8%E7%BD%B2%E5%9C%A8%E9%9D%9E%E7%BD%91%E7%AB%99%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://www.coderlyc.xyz/2019/04/05/Vue项目编译后部署在非网站根目录的解决方案/</id>
+    <published>2019-04-05T03:52:50.000Z</published>
+    <updated>2019-08-10T13:56:25.148Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Vue项目编译后部署在非网站根目录的解决方案。&lt;br&gt;背景：在公司的网站部署中，项目的项目地址一般都不是网站根目录，而是某个子目录。例如：&lt;br&gt;  &lt;div align=&quot;center&quot;&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="vue tomcat" scheme="http://www.coderlyc.xyz/tags/vue-tomcat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于翻译插件的问题</title>
+    <link href="http://www.coderlyc.xyz/2019/03/23/%E5%85%B3%E4%BA%8E%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://www.coderlyc.xyz/2019/03/23/关于翻译插件的问题/</id>
+    <published>2019-03-23T10:23:53.000Z</published>
+    <updated>2019-08-10T13:52:01.185Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;关于翻译插件的一个问题：在开发临沧一张图专题目录树的时候，出项这样一个问题。写入页面的html代码&lt;/p&gt;
+&lt;pre class=&quot; language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token
+        
+      
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://www.coderlyc.xyz/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>地图打印步骤</title>
+    <link href="http://www.coderlyc.xyz/2019/03/15/%E5%9C%B0%E5%9B%BE%E6%89%93%E5%8D%B0%E6%AD%A5%E9%AA%A4/"/>
+    <id>http://www.coderlyc.xyz/2019/03/15/地图打印步骤/</id>
+    <published>2019-03-15T13:42:34.000Z</published>
+    <updated>2019-08-10T13:43:07.310Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;地图打印步骤：&lt;br&gt;服务器端打印&lt;br&gt;执行对象是 PrintTask，打印的参数是 PrintParameters，通过设置打印模板对象 PrintTemplate，可以对图片的大小，像素，格式等进行设置。示例：在服务器端打印一个中国地图。&lt;br&gt;（1）    
+        
+      
+    
+    </summary>
+    
+    
+      <category term="arcgis" scheme="http://www.coderlyc.xyz/tags/arcgis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不同坐标系测量面积和距离的不同方法</title>
+    <link href="http://www.coderlyc.xyz/2019/03/15/%E4%B8%8D%E5%90%8C%E5%9D%90%E6%A0%87%E7%B3%BB%E6%B5%8B%E9%87%8F%E9%9D%A2%E7%A7%AF%E5%92%8C%E8%B7%9D%E7%A6%BB%E7%9A%84%E4%B8%8D%E5%90%8C%E6%96%B9%E6%B3%95/"/>
+    <id>http://www.coderlyc.xyz/2019/03/15/不同坐标系测量面积和距离的不同方法/</id>
+    <published>2019-03-15T12:41:42.000Z</published>
+    <updated>2019-08-10T13:42:16.139Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;不同坐标系测量面积和距离的不同方法&lt;/p&gt;
+&lt;p&gt;坐标系主要分为地理坐标系和投影坐标系，根据wkid来区分。不同的坐标系类型测量面积和距离的方法不同，首先是投影坐标系：&lt;br&gt;require([“esri/geometry/geometryEngine”],
+        
+      
+    
+    </summary>
+    
+    
+      <category term="arcgis" scheme="http://www.coderlyc.xyz/tags/arcgis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决arcgis地图打印无法打印PictureMarkerSymbol</title>
+    <link href="http://www.coderlyc.xyz/2019/03/01/%E8%A7%A3%E5%86%B3arcgis%E5%9C%B0%E5%9B%BE%E6%89%93%E5%8D%B0%E6%97%A0%E6%B3%95%E6%89%93%E5%8D%B0PictureMarkerSymbol/"/>
+    <id>http://www.coderlyc.xyz/2019/03/01/解决arcgis地图打印无法打印PictureMarkerSymbol/</id>
+    <published>2019-03-01T03:30:40.000Z</published>
+    <updated>2019-08-10T13:41:09.767Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;解决arcgis地图打印无法打印PictureMarkerSymbol&lt;br&gt;地图打印时无法打印含有PictureMarkerSymbol的图层，改用SimpleMarkerSymbol +
+        
+      
+    
+    </summary>
+    
+    
+      <category term="arcgis" scheme="http://www.coderlyc.xyz/tags/arcgis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用的解决跨域问题的方法之一：jsonp</title>
+    <link href="http://www.coderlyc.xyz/2019/02/22/%E5%B8%B8%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95%E4%B9%8B%E4%B8%80%EF%BC%9Ajsonp/"/>
+    <id>http://www.coderlyc.xyz/2019/02/22/常用的解决跨域问题的方法之一：jsonp/</id>
+    <published>2019-02-22T06:30:17.000Z</published>
+    <updated>2019-08-10T13:45:10.130Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;pre&gt;&lt;code&gt;常用的解决跨域问题的方法之一：jsonp
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;跨域安全限制问题实际上只存在于浏览器端，服务器是不存在跨域问题的。所以代理服务器也是解决跨域问题的方式之一。但由于技术资源限制，本项目只能采用其它解决跨域的方式—-jsonp。&lt;br&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://www.coderlyc.xyz/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>element-ui隐藏滚动条组件el-scrollbar的使用</title>
+    <link href="http://www.coderlyc.xyz/2019/02/15/element-ui%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%BB%84%E4%BB%B6el-scrollbar%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://www.coderlyc.xyz/2019/02/15/element-ui隐藏滚动条组件el-scrollbar的使用/</id>
+    <published>2019-02-15T12:05:36.000Z</published>
+    <updated>2019-08-10T13:38:16.169Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;element-UI 隐藏滚动条组件 el-scrollbar 的使用&lt;br&gt;使用方式像普通的 element-UI 组件一样使用&lt;br&gt;接受的props有：&lt;br&gt;native: Boolean  //
+        
+      
+    
+    </summary>
+    
+    
+      <category term="element-ui" scheme="http://www.coderlyc.xyz/tags/element-ui/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue动态img标签引用图片</title>
+    <link href="http://www.coderlyc.xyz/2019/01/25/vue%E5%8A%A8%E6%80%81img%E6%A0%87%E7%AD%BE%E5%BC%95%E7%94%A8%E5%9B%BE%E7%89%87/"/>
+    <id>http://www.coderlyc.xyz/2019/01/25/vue动态img标签引用图片/</id>
+    <published>2019-01-25T07:34:16.000Z</published>
+    <updated>2019-08-10T13:38:28.188Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;vue
+        
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://www.coderlyc.xyz/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>测试代码运行时间</title>
+    <link href="http://www.coderlyc.xyz/2018/12/21/%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/"/>
+    <id>http://www.coderlyc.xyz/2018/12/21/测试代码运行时间/</id>
+    <published>2018-12-21T12:05:58.000Z</published>
+    <updated>2019-08-10T13:24:59.343Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;ol&gt;
+&lt;li&gt;测试代码运行时间：performance.now()能精确获取当前时间点（千分之一毫秒），能十分方便快捷地测试代码块运行时间。例如：&lt;br&gt;function(){&lt;br&gt; var time1 = performance.now()&lt;br&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://www.coderlyc.xyz/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>正则表达式匹配固定头尾的字符串</title>
+    <link href="http://www.coderlyc.xyz/2018/12/10/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D%E5%9B%BA%E5%AE%9A%E5%A4%B4%E5%B0%BE%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>http://www.coderlyc.xyz/2018/12/10/正则表达式匹配固定头尾的字符串/</id>
+    <published>2018-12-10T13:27:01.000Z</published>
+    <updated>2019-08-10T13:28:18.957Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;正则表达式匹配固定头尾的字符串&lt;/p&gt;
+&lt;p&gt;例如要匹配以下所有数据：&lt;br&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="regex" scheme="http://www.coderlyc.xyz/tags/regex/"/>
+    
+  </entry>
   
   <entry>
     <title>element-ui在vue中覆盖样式</title>
@@ -61,331 +499,6 @@
       <category term="compositionstart" scheme="http://www.coderlyc.xyz/tags/compositionstart/"/>
     
       <category term="compositionend" scheme="http://www.coderlyc.xyz/tags/compositionend/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决高度设置为auto时无法过渡的情况</title>
-    <link href="http://www.coderlyc.xyz/2018/11/28/%E8%A7%A3%E5%86%B3%E9%AB%98%E5%BA%A6%E8%AE%BE%E7%BD%AE%E4%B8%BAauto%E6%97%B6%E6%97%A0%E6%B3%95%E8%BF%87%E6%B8%A1%E7%9A%84%E6%83%85%E5%86%B5/"/>
-    <id>http://www.coderlyc.xyz/2018/11/28/解决高度设置为auto时无法过渡的情况/</id>
-    <published>2018-11-28T02:40:58.000Z</published>
-    <updated>2018-11-29T11:35:45.249Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;css高度过渡(从0过渡至过渡为auto情况),transition过渡只能从一个明确的属性值过渡至另一个明确的属性值,不能从任意一个不确定值过渡至一个确定值,这样是不起作用的,例如常见的&lt;strong&gt;height: 0&lt;/strong&gt;过渡至&lt;strong&gt;height: auto&lt;/strong&gt;.解决办法:&lt;br&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://www.coderlyc.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="css" scheme="http://www.coderlyc.xyz/tags/css/"/>
-    
-      <category term="高度过渡" scheme="http://www.coderlyc.xyz/tags/%E9%AB%98%E5%BA%A6%E8%BF%87%E6%B8%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设置VSCode下Vue代码自动格式化</title>
-    <link href="http://www.coderlyc.xyz/2018/11/28/%E8%AE%BE%E7%BD%AEVSCode%E4%B8%8BVue%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96/"/>
-    <id>http://www.coderlyc.xyz/2018/11/28/设置VSCode下Vue代码自动格式化/</id>
-    <published>2018-11-28T02:35:46.000Z</published>
-    <updated>2018-11-29T11:35:51.907Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;安装Vetur插件，打开VSCode下的setting.json，加入如下配置:&lt;br&gt;
-    
-    </summary>
-    
-      <category term="工具" scheme="http://www.coderlyc.xyz/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="VSCode" scheme="http://www.coderlyc.xyz/tags/VSCode/"/>
-    
-      <category term="vue" scheme="http://www.coderlyc.xyz/tags/vue/"/>
-    
-      <category term="自动格式化" scheme="http://www.coderlyc.xyz/tags/%E8%87%AA%E5%8A%A8%E6%A0%BC%E5%BC%8F%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git的日常工作流程总结</title>
-    <link href="http://www.coderlyc.xyz/2018/11/28/git%E7%9A%84%E6%97%A5%E5%B8%B8%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E6%80%BB%E7%BB%93/"/>
-    <id>http://www.coderlyc.xyz/2018/11/28/git的日常工作流程总结/</id>
-    <published>2018-11-28T02:23:48.000Z</published>
-    <updated>2018-11-29T11:32:13.858Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;总结了一下在团队开发种自己日常使用的一下git操作以及流程：&lt;br&gt;
-    
-    </summary>
-    
-      <category term="工具" scheme="http://www.coderlyc.xyz/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="git" scheme="http://www.coderlyc.xyz/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决VSCode触摸板卡顿问题</title>
-    <link href="http://www.coderlyc.xyz/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.coderlyc.xyz/2018/07/29/解决VSCode触摸板滑动卡顿问题/</id>
-    <published>2018-07-29T15:08:58.000Z</published>
-    <updated>2018-11-29T13:08:23.302Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;Setting.json中增加选项：&lt;br&gt;&lt;pre&gt;&lt;code&gt;&amp;quot;window.smoothScrollingWorkaround&amp;quot;: true,
-&amp;quot;window.titleBarStyle&amp;quot;:
-        
-      
-    
-    </summary>
-    
-      <category term="工具" scheme="http://www.coderlyc.xyz/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="VSCode" scheme="http://www.coderlyc.xyz/tags/VSCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>dojo学习笔记--模板TemplatedMixin</title>
-    <link href="http://www.coderlyc.xyz/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A8%A1%E6%9D%BFTemplatedMixin/"/>
-    <id>http://www.coderlyc.xyz/2018/07/29/dojo学习笔记-模板TemplatedMixin/</id>
-    <published>2018-07-29T15:08:58.000Z</published>
-    <updated>2018-11-29T11:31:44.480Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;_TemplatedMixin(params,srcNodeRef) 用于模板实例化的部件的混合
-    
-    </summary>
-    
-      <category term="前端" scheme="http://www.coderlyc.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="dojo" scheme="http://www.coderlyc.xyz/tags/dojo/"/>
-    
-      <category term="_TemplatedMixin" scheme="http://www.coderlyc.xyz/tags/TemplatedMixin/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>dojo学习笔记--创建widget</title>
-    <link href="http://www.coderlyc.xyz/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9B%E5%BB%BAwidget/"/>
-    <id>http://www.coderlyc.xyz/2018/07/29/dojo学习笔记-创建widget/</id>
-    <published>2018-07-29T15:03:51.000Z</published>
-    <updated>2018-11-29T11:31:24.146Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;dijit / _WidgetBase是Dijit包中所有组件的基类，也是Dojo中所有组件的一个基类。通常一个组件也会继承一些属性融合的工具类，例如：dijit._TemplatedMixin。 注意：_WidgetBase名字中的下划线表示它是一个基类，不可直接使用，而不是表示它是一个私有的类。
-    
-    </summary>
-    
-      <category term="前端" scheme="http://www.coderlyc.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="dojo" scheme="http://www.coderlyc.xyz/tags/dojo/"/>
-    
-      <category term="widget" scheme="http://www.coderlyc.xyz/tags/widget/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>dojo学习笔记--Deferred对象</title>
-    <link href="http://www.coderlyc.xyz/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Deferred%E5%AF%B9%E8%B1%A1/"/>
-    <id>http://www.coderlyc.xyz/2018/07/29/dojo学习笔记-Deferred对象/</id>
-    <published>2018-07-29T14:59:26.000Z</published>
-    <updated>2018-11-29T11:30:54.458Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;dojo.Deferred管理异步线程（回调）之间的通信。 dojo.Deferred封装了一系列回调以响应可能尚未可用的值。 所有dojo.xhr*函数都使用此类(Deferred)，其他许多函数也是如此，例如dojo.io.script。
-    
-    </summary>
-    
-      <category term="前端" scheme="http://www.coderlyc.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="dojo" scheme="http://www.coderlyc.xyz/tags/dojo/"/>
-    
-      <category term="Deferred" scheme="http://www.coderlyc.xyz/tags/Deferred/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>dojo学习笔记--创建类的工具declare</title>
-    <link href="http://www.coderlyc.xyz/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9B%E5%BB%BA%E7%B1%BB%E7%9A%84%E5%B7%A5%E5%85%B7declare/"/>
-    <id>http://www.coderlyc.xyz/2018/07/29/dojo学习笔记-创建类的工具declare/</id>
-    <published>2018-07-29T14:43:26.000Z</published>
-    <updated>2018-11-29T11:31:31.288Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;declare(className,superclass,props) 是创建类的基础，es6之前js并不支持创建类，没有关键词class和extends.declare允许开发者实现多继承，从而创建灵活的有弹性的代码，避免重复写代码。
-    
-    </summary>
-    
-      <category term="前端" scheme="http://www.coderlyc.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="dojo" scheme="http://www.coderlyc.xyz/tags/dojo/"/>
-    
-      <category term="declare" scheme="http://www.coderlyc.xyz/tags/declare/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>dojo学习笔记--通用工具lang</title>
-    <link href="http://www.coderlyc.xyz/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%80%9A%E7%94%A8%E5%B7%A5%E5%85%B7lang/"/>
-    <id>http://www.coderlyc.xyz/2018/07/29/dojo学习笔记-通用工具lang/</id>
-    <published>2018-07-29T14:27:34.000Z</published>
-    <updated>2018-11-29T11:31:56.703Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;dojo/base/lang模块是一个通用工具模块，主要提供以下的工具函数&lt;br&gt;
-    
-    </summary>
-    
-      <category term="前端" scheme="http://www.coderlyc.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="dojo" scheme="http://www.coderlyc.xyz/tags/dojo/"/>
-    
-      <category term="lang" scheme="http://www.coderlyc.xyz/tags/lang/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>dojo学习笔记--事件绑定on()</title>
-    <link href="http://www.coderlyc.xyz/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9Aon/"/>
-    <id>http://www.coderlyc.xyz/2018/07/29/dojo学习笔记-事件绑定on/</id>
-    <published>2018-07-29T14:12:26.000Z</published>
-    <updated>2018-11-29T11:31:32.600Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;on() 方法在元素上绑定事件，需要引用包dojo/on，通过on方法实现。
-    
-    </summary>
-    
-      <category term="前端" scheme="http://www.coderlyc.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="dojo" scheme="http://www.coderlyc.xyz/tags/dojo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决windows下命令执行出错:无法将&#39;hexo&#39;项识别为 cmdlet、函数、脚本文件或可运行程序的名称。</title>
-    <link href="http://www.coderlyc.xyz/2018/07/07/%E8%A7%A3%E5%86%B3windows%E4%B8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%87%BA%E9%94%99-%E6%97%A0%E6%B3%95%E5%B0%86-hexo-%E9%A1%B9%E8%AF%86%E5%88%AB%E4%B8%BA-cmdlet%E3%80%81%E5%87%BD%E6%95%B0%E3%80%81%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6%E6%88%96%E5%8F%AF%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%90%8D%E7%A7%B0%E3%80%82/"/>
-    <id>http://www.coderlyc.xyz/2018/07/07/解决windows下命令执行出错-无法将-hexo-项识别为-cmdlet、函数、脚本文件或可运行程序的名称。/</id>
-    <published>2018-07-07T14:32:33.000Z</published>
-    <updated>2018-11-29T11:35:30.358Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;hexo : 无法将“hexo”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次。
-    
-    </summary>
-    
-      <category term="工具" scheme="http://www.coderlyc.xyz/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>JS实战笔记--实现tree组件</title>
-    <link href="http://www.coderlyc.xyz/2018/07/01/JS%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0-%E5%AE%9E%E7%8E%B0tree%E7%BB%84%E4%BB%B6/"/>
-    <id>http://www.coderlyc.xyz/2018/07/01/JS实战笔记-实现tree组件/</id>
-    <published>2018-07-01T14:00:59.000Z</published>
-    <updated>2018-11-29T11:32:46.630Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; &amp;emsp;&amp;emsp;前些天去面试，被要求用原生JS实现一个能遍历数组生成树状展开列表(其实不知道是不是这样表述)的tree组件，花了我不少的时间和精力，看来自己的实战能力确实是不够，不过后来还是做出来了
-    
-    </summary>
-    
-      <category term="前端" scheme="http://www.coderlyc.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="JavaScript" scheme="http://www.coderlyc.xyz/tags/JavaScript/"/>
-    
-      <category term="组件" scheme="http://www.coderlyc.xyz/tags/%E7%BB%84%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS学习笔记--原型和原型继承</title>
-    <link href="http://www.coderlyc.xyz/2018/06/12/JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF/"/>
-    <id>http://www.coderlyc.xyz/2018/06/12/JS学习笔记-原型和原型继承/</id>
-    <published>2018-06-12T04:00:46.000Z</published>
-    <updated>2018-11-29T11:32:31.013Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt; &amp;emsp;&amp;emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。
-    
-    </summary>
-    
-      <category term="前端" scheme="http://www.coderlyc.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="JavaScript" scheme="http://www.coderlyc.xyz/tags/JavaScript/"/>
-    
-      <category term="原型" scheme="http://www.coderlyc.xyz/tags/%E5%8E%9F%E5%9E%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>对于网页相关工作的一些个人看法</title>
-    <link href="http://www.coderlyc.xyz/2018/06/12/%E5%AF%B9%E4%BA%8E%E7%BD%91%E9%A1%B5%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%AA%E4%BA%BA%E7%9C%8B%E6%B3%95/"/>
-    <id>http://www.coderlyc.xyz/2018/06/12/对于网页相关工作的一些个人看法/</id>
-    <published>2018-06-12T02:16:04.000Z</published>
-    <updated>2018-11-29T11:34:40.784Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;/p&gt;&lt;h3&gt;前言&lt;/h3&gt;&lt;br&gt;&amp;emsp; &amp;emsp;前些天我所在的团队回来了几个毕了业的大师兄，大家聚在一起聊天交流经验时被想从事网页前端工作的几个小师妹问了一些前端方面的问题以及发展情况，交流过后觉得应该写出来，便有了以下的个人看法，希望有误的地方能多多包涵。
-    
-    </summary>
-    
-      <category term="前端" scheme="http://www.coderlyc.xyz/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>我的个人博客- -诞生</title>
-    <link href="http://www.coderlyc.xyz/2018/06/10/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E8%AF%9E%E7%94%9F/"/>
-    <id>http://www.coderlyc.xyz/2018/06/10/我的个人博客-诞生/</id>
-    <published>2018-06-10T01:17:45.000Z</published>
-    <updated>2018-11-29T11:34:51.625Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;嗨！大家好，和大家打个招呼！我是Leno，我是一名普通本科毕业生，写这篇博客为止我还没有工作，希望从事web前端开发。
-    
-    </summary>
-    
-      <category term="杂谈" scheme="http://www.coderlyc.xyz/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="blog" scheme="http://www.coderlyc.xyz/tags/blog/"/>
-    
-      <category term="hexo" scheme="http://www.coderlyc.xyz/tags/hexo/"/>
     
   </entry>
   
