@@ -432,6 +432,29 @@
     </entry>
     
     <entry>
+      <title>解决VSCode触摸板卡顿问题</title>
+      <link href="/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/"/>
+      <url>/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>Setting.json中增加选项：<br><pre><code>&quot;window.smoothScrollingWorkaround&quot;: true,&quot;window.titleBarStyle&quot;: &quot;native&quot;</code></pre></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> VSCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>dojo学习笔记--模板TemplatedMixin</title>
       <link href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A8%A1%E6%9D%BFTemplatedMixin/"/>
       <url>/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A8%A1%E6%9D%BFTemplatedMixin/</url>
@@ -451,29 +474,6 @@
             <tag> dojo </tag>
             
             <tag> _TemplatedMixin </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
-      <title>解决VSCode触摸板卡顿问题</title>
-      <link href="/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/"/>
-      <url>/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<p>Setting.json中增加选项：<br><pre><code>&quot;window.smoothScrollingWorkaround&quot;: true,&quot;window.titleBarStyle&quot;: &quot;native&quot;</code></pre></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 工具 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> VSCode </tag>
             
         </tags>
       
