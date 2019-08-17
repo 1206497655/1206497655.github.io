@@ -1,0 +1,892 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="SVG中的坐标系统, Leno的个人博客">
+    <meta name="description" content="SVG中的坐标系统1. SVG的世界、视野、视窗的概念1.1 世界创建了一个SVG，就是创建了一个世界，这个世界是无形的也是无穷大的（其实很多2D绘图都是如此），而SVG的内容就是世界的定义，例如SVG内有多少曲线，在哪里，什么颜色，都是在">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>SVG中的坐标系统 | Leno的个人博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Leno的个人博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Leno的个人博客</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        SVG中的坐标系统
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/SVG/" target="_blank">
+                                <span class="chip bg-color">SVG</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-08-17
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="SVG中的坐标系统"><a href="#SVG中的坐标系统" class="headerlink" title="SVG中的坐标系统"></a>SVG中的坐标系统</h1><h3 id="1-SVG的世界、视野、视窗的概念"><a href="#1-SVG的世界、视野、视窗的概念" class="headerlink" title="1. SVG的世界、视野、视窗的概念"></a>1. SVG的世界、视野、视窗的概念</h3><h4 id="1-1-世界"><a href="#1-1-世界" class="headerlink" title="1.1 世界"></a>1.1 世界</h4><p>创建了一个SVG，就是创建了一个世界，这个世界是无形的也是无穷大的（其实很多2D绘图都是如此），而SVG的内容就是世界的定义，例如SVG内有多少曲线，在哪里，什么颜色，都是在定义这个世界，想像一下有一块无穷大的画布，你在上面所画的事物。世界是客观存在的，无法确定它在哪有多大，但是定义了内容，内容就是确定的。</p>
+<div style="margin: 0 auto;height: 380px;width:380px;border:1px solid #333333;position: relative;padding:10px;"><br>    <span style="font-size: 20px;color:red">世界</span><br></div>
+
+<h4 id="1-2-视野"><a href="#1-2-视野" class="headerlink" title="1.2 视野"></a>1.2 视野</h4><p>就是我们能看到部分。世界是客观的，而视野是主观的，可以人为控制视野的大小、观察的位置。而在SVG中，就是通过Viewbox来控制视野。</p>
+<div style="margin: 0 auto;height: 380px;width:380px;border:1px solid #333333;position: relative;padding:10px;"><br>    <span style="font-size: 20px;color:red">世界</span><br>    <div style="margin: 0 auto;height: 180px;width:180px;border:1px solid #333333;position: relative;padding:10px; background:#46fb0461;"><br>        <span style="font-size: 20px;color:green;">视野</span><br>    </div><br></div>
+
+<h4 id="1-3-视窗"><a href="#1-3-视窗" class="headerlink" title="1.3 视窗"></a>1.3 视窗</h4><p>SVG可以指定一个宽和高属性，来表示SVG文件渲染的区域大小，这个大小也可以使用样式来定义。而这个区域，就是视窗（Viewbox），而视窗实际上就是浏览器划给SVG渲染内容的区域。视窗控制着视野，一般情况下，视窗在世界的位置和大小就是视野的位置和大小，用于观察世界的内容。</p>
+<div style="margin: 0 auto;height: 380px;width:380px;border:1px solid #333333;position: relative;padding:10px;"><br>    <span style="font-size: 20px;color:red">世界</span><br>    <div style="margin: 0 auto;height: 180px;width:180px;border:1px solid #333333;position: relative;padding:10px; background:#0433fb61;"><br>        <span style="font-size: 20px;color:blue;">视窗</span><br>    </div><br></div><br>### 2. SVG中的图形分组<br><br>首先我们在一幅宽为400px、高为300px的画布上，画一个简单的锤子，锤子的构成主要由两个矩形组成，分别为锤子主体（上方较宽的）以及锤子握柄（下方较长的）。主体的属性为：距离画布原点X轴值为50、Y轴值为50，宽100高50，红色边框，无填充；握柄的属性为：距离画布原点X轴值为90、Y轴值为100，宽20高120, 红色边框，无填充（一边情况下涉及大小位置的属性值默认单位为px）。<br><br><div style="border:1px solid #333333"><br>    <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect x="50" y="50" width="100" height="50" stroke="red" fill="none"/><rect x="90" y="100" width="20" height="120" stroke="red" fill="none"/><br/></svg><br></div>
+
+
+<p>锤子的代码如下：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>400<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>300<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>90<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>120<span class="token punctuation">"</span></span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>现在我要要把锤子往右移动100px，往下移动20px，改为蓝色。我们可以这样做，没错就是对每个矩形的属性逐个进行修改。</p>
+<div style="border:1px solid #333333"><br>    <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><rect x="150" y="70" width="100" height="50" stroke="blue" fill="none"/><rect x="190" y="120" width="20" height="120" stroke="blue" fill="none"/><br/></svg><br></div>
+
+<p>此时锤子代码如下：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>400<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>300<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>150<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>70<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>blue<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>190<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>120<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>120<span class="token punctuation">"</span></span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>blue<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>这样虽然可以实现，但是如果画的不是锤子这种相对简单的图形，而是房子呢？很显然，这样子改的工作量将会变得巨大。回到前面，上面的需求只是要对锤子的整体进行修改，而不是改其中一点细节，既然如此，有什么办法将其当作一个整体来进行修改？答案就是&lt;g&gt;标签。下面的示例锤子中两个矩形被&lt;g&gt;标签包裹起来，并且该标签设置了蓝色边框和无填充，可以看到的是，即使锤子内的两个矩形&lt;react&gt;标签没有设置边和填充，但是依然与上一个例子保持一致，这是因为他们从父元素g处得到了属性继承，如此一来就实现了需求中的锤子整体改为蓝色。</p>
+<div style="border:1px solid #333333"><br>    <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><g stroke="blue" fill="none"><rect x="50" y="50" width="100" height="50"/><rect x="90" y="100" width="20" height="120"/></g><br/></svg><br></div>
+
+<p>此时锤子代码如下：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>400<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>300<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    &lt;g stroke="blue "fill="none">
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>90<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>120<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>g</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>然后我们重新对锤子实现往右移动100px、往下移动20px的需求，我们在&lt;g&gt;标签增加<code>transform</code>的属性，并设置其值为<code>translate(100, 20)</code>，效果如下图：</p>
+<div style="border:1px solid #333333"><br>    <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300"><g stroke="blue" fill="none" transform="translate(100, 20)"><rect x="50" y="50" width="100" height="50"/><rect x="90" y="100" width="20" height="120"/></g><br/></svg><br></div>
+
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>400<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>300<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    &lt;g stroke="blue "fill="none" transform="translate(100, 20)">
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>90<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>120<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>g</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>很显然，我们实现了与上上图一样的效果，达成了移动的需求。使用&lt;g&gt;标签的话，就毋须逐个修改图形属性来完成整体效果了，省下不少工作。</p>
+<h3 id="3-坐标系统概述"><a href="#3-坐标系统概述" class="headerlink" title="3. 坐标系统概述"></a>3. 坐标系统概述</h3><p>SVG使用的坐标系统是笛卡尔坐标系统，作用是为图形提供统一的定位基准，但与常见数学上的笛卡尔坐标系不同的是，SVG中的笛卡尔坐标系Y轴正方向是向下的，如果换用角度来定义，SVG中的笛卡尔坐标系正角方向是逆时针方向的。见图：</p>
+<div style="border:1px solid #333333"><br>    <svg xmlns="http://www.w3.org/2000/svg" width="600" height="320"><text x="10" y="20">SVG中的笛卡尔坐标系</text><g fill="none" transform="translate(50, 10)"><text x="160" y="170" fill="#333">(0, 0)</text><path stroke="black" d="M0,150 H300 M300,145 V155 M300,155 L310,150 L300,145" fill="#333"/><text x="320" y="150" fill="red">X</text><path stroke="black" d="M150,0 V300 M145,300 H155 M155,300 L150,310 L145,300" fill="#333"/><text x="170" y="300" fill="blue">Y</text><path stroke="black" d="M200,150 A50,50,90,0,1,160,200 M160,205 V195 L150,200 L160,205"/></g><br/></svg><br></div>
+
+<div style="border:1px solid #333333"><br>    <svg xmlns="http://www.w3.org/2000/svg" width="600" height="320"><text x="10" y="20">数学中的笛卡尔坐标系</text><g fill="none" transform="translate(50, 20)"><text x="160" y="170" fill="#333">(0, 0)</text><path stroke="black" d="M0,150 H300 M300,145 V155 M300,155 L310,150 L300,145" fill="#333"/><text x="320" y="150" fill="red">X</text><path stroke="black" d="M150,0 V300 M145,0 H155 M155,0 L150,-10 L145,0" fill="#333"/><text x="170" y="0" fill="blue">Y</text><path stroke="black" d="M200,150 A50,50,90,0,0,160,100 M160,95 V105 L150,100 L160,95"/></g><br/></svg><br></div>
+
+<p>简单理解就是把数学上的笛卡尔坐标系统上下翻转，因为传统的屏幕阅读模式都是自左往右、自上往下的，所以一般情况下屏幕坐上角是像素排列的起点，往右侧和下方进行排列，对应所以SVG的坐标系统方向需要与之对应，X轴正方向向右，Y轴正方向往下，而角的正方向就是自X往Y，相对现实世界来说就是逆时针方向。</p>
+<h3 id="4-四个坐标系"><a href="#4-四个坐标系" class="headerlink" title="4. 四个坐标系"></a>4. 四个坐标系</h3><p>SVG常见的坐标系有四个，分别是用户坐标系、自身坐标系、前驱坐标系、参考坐标系。</p>
+<h4 id="4-1-用户坐标系"><a href="#4-1-用户坐标系" class="headerlink" title="4.1 用户坐标系"></a>4.1 用户坐标系</h4><p>用户坐标系，指的是世界的坐标系。前面提到，世界是无穷的，所以用户坐标系也是无穷的，我们并不知道它的起点在哪。因为世界是一切的起点，所以用户坐标系也是其它坐标系的起点，用户坐标系也称为原始坐标系。前面提到Viewbox，就是用来观察用户坐标系的某一区域。</p>
+<h4 id="4-2-自身坐标系"><a href="#4-2-自身坐标系" class="headerlink" title="4.2 自身坐标系"></a>4.2 自身坐标系</h4><p>自身坐标系就是每个分组或者每个图形自身携带有的坐标系，这个坐标系用于给图形定义⾃己的形状。⽐如 x, y 坐标以及宽高，都是基于⾃身坐标系进行定义的。 如下图，在SVG中创建了一个rect矩形元素，以及模拟出的坐标系，注意：模拟出的x轴和y轴只是为了演示效果，我们只需关心实际意义。</p>
+<div style="border:1px solid #333333position:relative"><br>    <span style="color:green;display:block">世界</span><br>    <svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" style="margin-left:100px;"><!--模拟坐标系--><g transform="translate(10, 10)"><!--X轴--><path stroke="red" d="M0,0 H300 M300,-5 V5 L310,0 L300,-5" fill="red"/><!--Y轴--><path stroke="red" d="M0,0 V300 M-5,300 H5 L0,310 L-5,300" fill="red"/></g><rect x="10" y="10" width="100" height="50" fill="red"/><br/></svg><br></div>
+
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">border</span><span class="token punctuation">:</span><span class="token number">1</span>px solid #<span class="token property">333333position</span><span class="token punctuation">:</span>relative</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">color</span><span class="token punctuation">:</span>green<span class="token punctuation">;</span><span class="token property">display</span><span class="token punctuation">:</span>block</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>600<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>320<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-left</span><span class="token punctuation">:</span><span class="token number">100</span>px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--模拟坐标系 不用关心这里--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>g</span> <span class="token attr-name">transform</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>translate(10, 10)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token comment" spellcheck="true">&lt;!--X轴--></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M0,0 H300 M300,-5 V5 L310,0 L300,-5<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">></span></span>
+            <span class="token comment" spellcheck="true">&lt;!--Y轴--></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M0,0 V300 M-5,300 H5 L0,310 L-5,300<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>g</span><span class="token punctuation">></span></span>
+         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>然后对矩形进行左移50px、下移50px，并增大1倍。</p>
+<div style="border:1px solid #333333position:relative"><br>    <span style="color:green;display:block">世界</span><br>    <svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" style="margin-left:100px;"><!--模拟坐标系--><g transform="translate(10, 10)"><!--X轴--><path stroke="red" d="M0,0 H300 M300,-5 V5 L310,0 L300,-5" fill="red"/><!--Y轴--><path stroke="red" d="M0,0 V300 M-5,300 H5 L0,310 L-5,300" fill="red"/></g><rect x="60" y="60" width="200" height="100" fill="red"/><br/></svg><br></div>
+
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">border</span><span class="token punctuation">:</span><span class="token number">1</span>px solid #<span class="token property">333333position</span><span class="token punctuation">:</span>relative</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">color</span><span class="token punctuation">:</span>green<span class="token punctuation">;</span><span class="token property">display</span><span class="token punctuation">:</span>block</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>世界<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>600<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>320<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-left</span><span class="token punctuation">:</span><span class="token number">100</span>px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--模拟坐标系  不用关心这里--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>g</span> <span class="token attr-name">transform</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>translate(10, 10)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token comment" spellcheck="true">&lt;!--X轴--></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M0,0 H300 M300,-5 V5 L310,0 L300,-5<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">></span></span>
+            <span class="token comment" spellcheck="true">&lt;!--Y轴--></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M0,0 V300 M-5,300 H5 L0,310 L-5,300<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>g</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<h4 id="4-3-前驱坐标系"><a href="#4-3-前驱坐标系" class="headerlink" title="4.3 前驱坐标系"></a>4.3 前驱坐标系</h4><p>前驱坐标系，就是父容器坐标系。拿上面的例子来说，&lt;rect&gt;标签的父容器就是SVG，也就是说&lt;rect&gt;标签的前驱坐标系就是用户坐标系。如果&lt;rect&gt;标签的父容器是&lt;g&gt;标签，那&lt;rect&gt;标签的前驱坐标系就是&lt;g&gt;标签的自身坐标系。如下图，&lt;rect&gt;标签的自身坐标系相对前驱坐标系做了右下移动30px的变换。</p>
+<div style="border:1px solid #333333position:relative"><br>    <span style="color:green;display:block">世界</span><br>    <svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" style="margin-left:100px;"><!--模拟坐标系 不用关心--><text x="0" y="20" fill="red">g的自身坐标系</text><g transform="translate(10, 30)"><!--X轴--><path stroke="red" d="M0,0 H300 M300,-5 V5 L310,0 L300,-5" fill="red"/><!--Y轴--><path stroke="red" d="M0,0 V300 M-5,300 H5 L0,310 L-5,300" fill="red"/><!--模拟坐标系  不用关心--><g transform="translate(30, 30)"><!--X轴--><path stroke="green" d="M0,0 H300 M300,-5 V5 L310,0 L300,-5" fill="green"/><!--Y轴--><path stroke="green" d="M0,0 V300 M-5,300 H5 L0,310 L-5,300" fill="green"/></g><text x="5" y="20" fill="green">rect的自身坐标系</text><rect x="80" y="80" width="200" height="100" fill="green"/></g><br/></svg><br></div>
+
+<h4 id="4-4-参考坐标系"><a href="#4-4-参考坐标系" class="headerlink" title="4.4 参考坐标系"></a>4.4 参考坐标系</h4><p>参考坐标系是不确定的，它可以是任何一个坐标系。拿上面的矩形举例，如果我需要相对用户坐标系来计算当前矩形的宽度、高度以及位置，那么当前矩形的参考坐标系就是用户坐标系，就好像中学时代学习的相对运动中的运动参照物一样。</p>
+<h3 id="5-坐标变换"><a href="#5-坐标变换" class="headerlink" title="5. 坐标变换"></a>5. 坐标变换</h3><p>坐标变换就是从一个坐标系变换到另一个坐标系的描述过程，其变换过程是线性的。例如4.3前驱坐标系中，rect的自身坐标系经由它的前驱坐标系（也就是父容器g的自身坐标系）经过<code>transform=&quot;translate(30, 30)</code>的变换而来，这个变换的意思就是向右平移30个单位和向下平移30个单位。</p>
+<h4 id="5-1-transform属性"><a href="#5-1-transform属性" class="headerlink" title="5.1 transform属性"></a>5.1 transform属性</h4><p> transform属性：定义前驱坐标系到⾃自⾝身坐标系的线性变换。</p>
+<p>方法有：</p>
+<ul>
+<li><p>translate(&lt;tx&gt;,&lt;ty&gt;) 平移，表示相对前驱进行简单平移。</p>
+</li>
+<li><p>scale(&lt;sx&gt;,&lt;sy&gt;) 缩放, 表示相对前驱进行X轴和Y轴的缩放，&lt;sy&gt;可缺省，缺省时默认值为&lt;sx&gt;。</p>
+</li>
+<li>rotate(&lt;deg&gt;) 旋转，表示相对前驱进行旋转。</li>
+<li>skewX(&lt;deg&gt;)  斜切，表示相对前驱沿x轴的度数的偏斜变换。</li>
+<li>skewY(&lt;deg&gt;)  斜切，表示相对前驱沿Y轴的度数的偏斜变换。</li>
+<li>matrix(&lt;a&gt;,&lt;b&gt;,&lt;c&gt;,&lt;d&gt;,&lt;e&gt;,&lt;f&gt;) 矩阵变换，表示相对前驱按照矩阵参数进行复杂变换。前面数者皆可用此方法实现，只不过相对于此方法，前者更容易理解。</li>
+</ul>
+<h4 id="5-2-变换方程与矩阵"><a href="#5-2-变换方程与矩阵" class="headerlink" title="5.2 变换方程与矩阵"></a>5.2 变换方程与矩阵</h4><p>前面所有的变换都可以用数学来描述为一个线性变换方程：<br>$$<br>X’ = aX + cY + e\\<br>Y’ = bX + dY + f<br>$$<br>而方程的六个参数 a, b, c, d, e, f，可以简记为矩阵的形式。如下：<br>$$<br>\begin{matrix}<br>   a &amp; c &amp; e \\<br>   b &amp; d &amp; f \\<br>   0 &amp; 0 &amp; 1<br>  \end{matrix}<br>$$<br>而这个参数矩阵，就是matrix(&lt;a&gt;,&lt;b&gt;,&lt;c&gt;,&lt;d&gt;,&lt;e&gt;,&lt;f&gt;)中对应的参数。</p>
+<p><strong>translate</strong>：前面的<code>transform=&quot;translate(30, 30)&quot;</code>用方程表示就是：<br>$$<br>X’ = 1X + 0Y + 30\\<br>Y’ = 0X + 1Y + 30<br>$$<br>得出参数矩阵为：<br>$$<br>\begin{matrix}<br>   1 &amp; 0 &amp; 30 \\<br>   0 &amp; 1 &amp; 30 \\<br>   0 &amp; 0 &amp; 1<br>  \end{matrix}<br>$$<br><strong>scale</strong>：如果基于4.2章节中第二个矩形使用scale()方法对坐标系进行缩放，例如:</p>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="160" style="margin-left:100px;"><!--模拟坐标系--><g transform="scale(0.5, 0.5)"><!--X轴--><path stroke="red" d="M0,0 H300 M300,-5 V5 L310,0 L300,-5" fill="red"/><!--Y轴--><path stroke="red" d="M0,0 V300 M-5,300 H5 L0,310 L-5,300" fill="red"/></g><rect x="60" y="60" width="200" height="100" fill="red" transform="scale(0.5, 0.5)"/></svg>
+
+
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>600<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>160<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-left</span><span class="token punctuation">:</span><span class="token number">100</span>px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token comment" spellcheck="true">&lt;!--模拟坐标轴--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>g</span> <span class="token attr-name">transform</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scale(0.5, 0.5)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token comment" spellcheck="true">&lt;!--X轴--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M0,0 H300 M300,-5 V5 L310,0 L300,-5<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">></span></span><span class="token comment" spellcheck="true">&lt;!--Y轴--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M0,0 V300 M-5,300 H5 L0,310 L-5,300<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>g</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">transform</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>scale(0.5, 0.5)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>上面的例子中对矩形使用了以下<code>transform=&quot;scale(0.5, 0.5)&quot;</code>变换，意思即是对矩形缩小(0.5，0.5)倍。这个描述方程为：<br>$$<br>X’ = 0.5X + 0Y + 0\\<br>Y’ = 0X + 0.5Y + 0<br>$$<br>参数矩阵即是：<br>$$<br>\begin{matrix}<br>   0.5 &amp; 0 &amp; 0 \\<br>   0 &amp; 0.5 &amp; 0 \\<br>   0 &amp; 0 &amp; 1<br>  \end{matrix}<br>$$<br><strong>rotate</strong>：接着如果我们对4.2章节中第二个矩形进行rotate()旋转：</p>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" style="margin-left:100px;"><!--模拟坐标系--><g transform="translate(220,0)rotate(45)"><!--X轴--><path stroke="red" d="M0,0 H300 M300,-5 V5 L310,0 L300,-5" fill="red"/><!--Y轴--><path stroke="red" d="M0,0 V300 M-5,300 H5 L0,310 L-5,300" fill="red"/></g><rect x="60" y="60" width="200" height="100" fill="red" transform="translate(200,0)rotate(45)"/></svg>
+
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>600<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>300<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-left</span><span class="token punctuation">:</span><span class="token number">100</span>px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!--模拟坐标系--></span>
+    <span class="token comment" spellcheck="true">&lt;!--请忽略平移--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>g</span> <span class="token attr-name">transform</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>translate(220,0)rotate(45)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--X轴--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M0,0 H300 M300,-5 V5 L310,0 L300,-5<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--Y轴--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M0,0 V300 M-5,300 H5 L0,310 L-5,300<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>g</span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!--请忽略平移--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">transform</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>translate(200,0)rotate(45)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>旋转的计算公式则与前面两者不同，旋转需要使用极坐标的公式进行变换矩阵的求值（θ为rotate的参数值）：</p>
+<p>使用极坐标系表示方程为：<br>$$<br>X=r⋅cosα\\<br>Y=r⋅sinα \tag1<br>$$<br>旋转θ度之后：<br>$$<br>X’=r⋅cos(α+θ)\\<br>Y’=r⋅sin(α+θ) \tag2<br>$$<br>把(1)式逃入(2)式，经过一顿中学知识（三角函数）简化后，得出的线性方程为：<br>$$<br>X’=cosθX−sinθY + 0\\<br>Y’=sinθX+cosθY + 0<br>$$<br>也就可以得到以上变换的变换矩阵为<br>$$<br>\begin{matrix}<br>   cos45 &amp; −sin45 &amp; 0 \\<br>   sin45 &amp; cos45 &amp; 0 \\<br>   0 &amp; 0 &amp; 1<br>  \end{matrix}<br>$$<br><strong>skewX</strong>：斜切也需要用到极坐标计算，但是斜切使用的是tanθ。首先看一下斜切的效果，我们仍然基于4.2章节中第二个矩形进行斜切：</p>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" style="margin-left:100px;"><!--模拟坐标系  不用关心这里--><g transform="skewX(45)"><!--X轴--><path stroke="red" d="M0,0 H300 M300,-5 V5 L310,0 L300,-5" fill="red"/><!--Y轴--><path stroke="red" d="M0,0 V300 M-5,300 H5 L0,310 L-5,300" fill="red"/></g><rect x="60" y="60" width="200" height="100" fill="red" transform="skewX(45)"/></svg>
+
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>600<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>320<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">margin-left</span><span class="token punctuation">:</span><span class="token number">100</span>px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment" spellcheck="true">&lt;!--模拟坐标系  不用关心这里--></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>g</span> <span class="token attr-name">transform</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>skewX(45)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--X轴--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M0,0 H300 M300,-5 V5 L310,0 L300,-5<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--Y轴--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M0,0 V300 M-5,300 H5 L0,310 L-5,300<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>g</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>60<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>red<span class="token punctuation">"</span></span> <span class="token attr-name">transform</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>skewX(45)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>斜切(X)的计算公式为:<br>$$<br>X’=r⋅tan(α+θ)\\<br>Y’=Y<br>$$<br>化简得：<br>$$<br>X’=X+tanθY\\<br>Y’=Y<br>$$<br>则变换矩阵为：<br>$$<br>\begin{matrix}<br>   1 &amp; tanθ &amp; 0 \\<br>   0 &amp; 1 &amp; 0 \\<br>   0 &amp; 0 &amp; 1<br>  \end{matrix}<br>$$<br><strong>skewY</strong>：同理可得变换矩阵为：<br>$$<br>\begin{matrix}<br>   1 &amp; 0 &amp; 0 \\<br>   tanθ  &amp; 1 &amp; 0 \\<br>   0 &amp; 0 &amp; 1<br>  \end{matrix}<br>$$<br>以上就是对所有基础变换的具体计算过程的理解，最终都可以将其计算得出变换矩阵套入matrix()方法中，然而matrix()并不只是为了实现以上的基础变换，而是可以用来进行更高级更自由的变换，比如镜像对称效果matrix(0, -1, -1, 0, 0, 0)。</p>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" style="margin-left:100px;"><!--模拟坐标系  不用关心这里--><!--请忽略平移，因为镜像对称后已经跳出viewbox视窗--><g transform="translate(320,310)matrix(0, -1, -1, 0, 0, 0)"><!--X轴--><path stroke="red" d="M0,0 H300 M300,-5 V5 L310,0 L300,-5" fill="red"/><!--Y轴--><path stroke="red" d="M0,0 V300 M-5,300 H5 L0,310 L-5,300" fill="red"/></g><!--请忽略平移，因为镜像对称后已经跳出viewbox视窗--><rect x="60" y="60" width="200" height="100" fill="red" transform="translate(320,310)matrix(0, -1, -1, 0, 0, 0)"/></svg>
+
+<h3 id="6-坐标观察"><a href="#6-坐标观察" class="headerlink" title="6. 坐标观察"></a>6. 坐标观察</h3><p>我们可以观察某个坐标系中的元素在参考坐标系中的坐标，这种行为称之为坐标观察。SVG中所有元素都提供了以下四个方法来进行坐标观察：</p>
+<ul>
+<li>getBBox() 获得当前元素所占的矩形区域。</li>
+<li>getCTM() 获得视窗坐标系到当前元素⾃身坐标系的变换矩阵。</li>
+<li>getScreenCTM()  获得浏览器坐标系到当前元素⾃身坐标系的变换矩阵。</li>
+<li>getTransformToElement() 获得从指定元素的⾃身坐标系到当前元素的⾃身坐标系的变换矩阵。</li>
+</ul>
+<h3 id="7-本章小结"><a href="#7-本章小结" class="headerlink" title="7.本章小结"></a>7.本章小结</h3><p>本章主要学些了SVG坐标系统中的世界、视野、视窗的概念，四个坐标系以及他们之间的关系，自身坐标系与前驱坐标系的变换理解等知识。其中坐标变换尤为重要，理解了坐标变换，就相当于在SVG坐标世界中获得了导航仪。另外值得一提的是，CSS中的transform变换计算基本上与SVG是一致的。</p>
+
+            </div>
+            <hr/>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《SVG中的坐标系统》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/17/SVG中的坐标系统/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                Leno
+            </a> 采用
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2019-08-17T21-43-13',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/08/17/SVG中的坐标系统/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="SVG中的坐标系统">
+                        
+                        <span class="card-title">SVG中的坐标系统</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            SVG中的坐标系统1. SVG的世界、视野、视窗的概念1.1 世界创建了一个SVG，就是创建了一个世界，这个世界是无形的也是无穷大的（其实很多2D绘图都是如此），而SVG的内容就是世界的定义，例如SVG内有多少曲线，在哪里，什么颜色，都是在
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Leno
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SVG/" target="_blank">
+                        <span class="chip bg-color">SVG</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/08/10/SVG入门/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="SVG入门">
+                        
+                        <span class="card-title">SVG入门</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            SVG入门1. 简介
+本章主要介绍一下SVG的技术背景，介绍SVG的使用方法、基本图形以及基本编程接口。
+
+1.1 SVG
+SVG是一个十分庞大的标准规范，SVG1.0推出于1999年，自2003年成为W3C推荐标准，目前最新版为SGV1.
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Leno
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/SVG/" target="_blank">
+                        <span class="chip bg-color">SVG</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
