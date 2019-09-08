@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.coderlyc.xyz/"/>
-  <updated>2019-08-24T17:53:39.771Z</updated>
+  <updated>2019-09-08T03:36:04.243Z</updated>
   <id>http://www.coderlyc.xyz/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SVG Path</title>
+    <link href="http://www.coderlyc.xyz/2019/09/08/SVG-Path/"/>
+    <id>http://www.coderlyc.xyz/2019/09/08/SVG-Path/</id>
+    <published>2019-09-08T03:18:35.000Z</published>
+    <updated>2019-09-08T03:36:04.243Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;SVG-path&quot;&gt;&lt;a href=&quot;#SVG-path&quot; class=&quot;headerlink&quot; title=&quot;SVG path&quot;&gt;&lt;/a&gt;SVG path&lt;/h2&gt;&lt;h3 id=&quot;1-Path概述&quot;&gt;&lt;a href=&quot;#1-Path概述&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SVG" scheme="http://www.coderlyc.xyz/tags/SVG/"/>
+    
+  </entry>
   
   <entry>
     <title>element-ui table组件自定义滚动条</title>
@@ -475,31 +499,6 @@
     
     
       <category term="vue" scheme="http://www.coderlyc.xyz/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>测试代码运行时间</title>
-    <link href="http://www.coderlyc.xyz/2018/12/21/%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/"/>
-    <id>http://www.coderlyc.xyz/2018/12/21/测试代码运行时间/</id>
-    <published>2018-12-21T12:05:58.000Z</published>
-    <updated>2019-08-10T13:24:59.343Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;ol&gt;
-&lt;li&gt;测试代码运行时间：performance.now()能精确获取当前时间点（千分之一毫秒），能十分方便快捷地测试代码块运行时间。例如：&lt;br&gt;function(){&lt;br&gt; var time1 = performance.now()&lt;br&gt;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="js" scheme="http://www.coderlyc.xyz/tags/js/"/>
     
   </entry>
   
