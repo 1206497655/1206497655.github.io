@@ -496,7 +496,7 @@
 <svg width="600px" height="200px" version="1.1" xmlns="http://www.w3.org/2000/svg"><text x="10" y="90">A</text><text x="170" y="90">B</text><text x="430" y="90">C</text><text x="500" y="90">D</text><text x="245" y="20">Q1</text><text x="265" y="190">Q2</text><circle cx="200" cy="100" r="3" fill="black"/><circle cx="400" cy="100" r="3" fill="black"/><circle cx="240" cy="20" r="3" fill="black"/><circle cx="260" cy="190" r="3" fill="black"/><path d="M10,100 L200,100 C240,20, 260,190,400,100 L500,100" stroke="black" fill="green" stroke-width="1" fill-opacity="0.5"/><br/></svg>
 
 <p>简而言之，上述三次曲线中终点为C(400, 100)，控制点分别为Q1(240, 20)、Q2(260, 190)。以上就是三次贝塞尔曲线的粗略原理和在SVG中的应用方式。</p>
-<p>而<code>S/s (x2,y2,x,y)+</code>命令与二次贝塞尔曲线的<code>T/t</code>命令是类似的，如果他前一个命令是<code>C/c</code>或<code>S/s</code>命令，则它的第一个控制点会被假设成前一个命令曲线的第二个控制点的中心对称点，而参数中（x2， y2）作为第二个控制点、（x，y）作为结束点，如下，点S1是点Q2控制点关于点C的中心对称点。如果S命令单独使用，前面没有C或S命令，那画笔当前位置点将作为第一个控制点（将与起始点重合）。</p>
+<p>而<code>S/s (x2,y2,x,y)+</code>命令与二次贝塞尔曲线的<code>T/t</code>命令是类似的，如果他前一个命令是<code>C/c</code>或<code>S/s</code>命令，则它的第一个控制点会被假设成前一个命令曲线的第二个控制点的中心对称点，而参数中（x2， y2）作为第二个控制点、（x，y）作为结束点，如下，点S1是点Q2控制点关于点C的中心对称点。如果S命令单独使用，前面没有C或S命令，那画笔当前位置点将作为第一个控制点（将与起始点）重合。</p>
 <svg width="700px" height="200px" version="1.1" xmlns="http://www.w3.org/2000/svg"><text x="10" y="90">A</text><text x="170" y="90">B</text><text x="430" y="90">C</text><text x="500" y="90">D</text><text x="245" y="20">Q1</text><text x="265" y="190">Q2</text><text x="545" y="20">S1</text><text x="565" y="180">S2</text><circle cx="200" cy="100" r="3" fill="black"/><circle cx="400" cy="100" r="3" fill="black"/><circle cx="240" cy="20" r="3" fill="black"/><circle cx="260" cy="190" r="3" fill="black"/><circle cx="540" cy="10" r="3" fill="black"/><circle cx="560" cy="180" r="3" fill="black"/><path d="M10,100 L200,100 C240,20,260,190,400,100 S560,180, 600,100 L700,100" stroke="black" fill="green" stroke-width="1" fill-opacity="0.5"/><br/></svg>
 
 <h4 id="4-4-小结"><a href="#4-4-小结" class="headerlink" title="4.4 小结"></a>4.4 小结</h4><p>path命令相当自由灵活，可以描绘任意的段。但尽管如此，如果不是创建动态的svg元素，还是建议使用svg编辑器来绘制复杂的path元素。</p>
@@ -598,30 +598,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/08/SVG-Path/">
+                <a href="/2019/09/20/SVG的文本/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="SVG Path">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="SVG的文本">
                         
-                        <span class="card-title">SVG Path</span>
+                        <span class="card-title">SVG的文本</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SVG path1. Path概述&lt;path&gt;元素是所有SVG基本形状中最强大的元素，它可以创建线条、曲线、弧线，甚至能用来画图。&lt;path&gt;元素由属性以及属性的参数组组成。而其中定义了形状的属性为d，属性d的值是一
+                            SVG text0. 前言人类的交流，是通过文字语言来交流的，所以光靠SVG图形是难以意会的。SVG支持文本，但它是有限的，实际上SVG是把文本信息当作图形来渲染处理，不像css那样支持排版，如果需要对文本进行排版（例如换行），则需要手动计
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-08
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-20
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -630,7 +629,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
