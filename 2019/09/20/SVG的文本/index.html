@@ -412,7 +412,7 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>text</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">dx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">dy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>简单文本<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>text</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
 </code></pre>
-<p>设置text元素dx=”10”、dy=”10”后，肉眼可以观察到文本整体往下和往右偏移了10个单位。所以dx、dy属性控制文本的偏移。有趣的是，dx、dy接受一个数列，数列按照文本的顺序逐个应用到文本的每个字体上。如下所示：</p>
+<p>设置text元素dx=”10”、dy=”10”后，肉眼可以观察到文本整体往下和往右偏移了10个单位。所以dx、dy属性控制文本的偏移。有趣的是，dx、dy接受一个数列，数列按照文本的顺序逐个应用到文本的每个字符上。如下所示：</p>
 <svg xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" x="0" y="0" width="20" height="20" patternunits="userSpaceOnUse"><path stroke="#c0c0c0" fill="none" d="M0,0 H20 V20"/></pattern></defs><rect width="800" height="400" fill="url(#grid)"/><text x="20" y="20" dx="10 10 10 10" dy="10 10 10 10">简单文本</text></svg>
 
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -446,7 +446,7 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>text</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
 </code></pre>
-<h3 id="2-2-渲染原理"><a href="#2-2-渲染原理" class="headerlink" title="2.2 渲染原理"></a>2.2 渲染原理</h3><p>结合图解来简单了解下textPath元素的渲染原理。</p>
+<h4 id="2-2-渲染原理"><a href="#2-2-渲染原理" class="headerlink" title="2.2 渲染原理"></a>2.2 渲染原理</h4><p>结合图解来简单了解下textPath元素的渲染原理。</p>
 <p><img src="../../../../img/2019/9/21/textPath1.png" alt=""></p>
 <p>首先，准备一条path和两个等待渲染的字符x和g。</p>
 <p><img src="../../../../img/2019/9/21/textPath2.png" alt=""></p>
