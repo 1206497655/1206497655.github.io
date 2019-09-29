@@ -389,7 +389,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
 </code></pre>
 <p>上述例子在(0,0创建了一个三角形。属性clip-path引用了一个带单个circle元素的&lt;clipPath&gt;元素。它内部的这个圆形把与三角形重叠的部分涂成红色。注意，clipPath元素经常放在一个defs元素内。</p>
-<p>然而，该circle不会被绘制。它的象素数据将用来确定：圆形的哪些像素需要最终呈现出来。因为矩形只覆盖了圆形的上半部分，所以下半部分将消失了。</p>
+<p>然而，该circle不会被绘制。它的象素数据将用来确定：圆形的哪些像素需要最终呈现出来。</p>
 <p>从概念上讲，一个剪切路径等同于为引用元素设置一个自定义的可视区域。所以，它会影响一个元素呈现出来的样子，但不会影响这个元素固有的几何形状。如上述例子，三角形始终保持着它的形态。需要注意的是，在不设置裁剪区域<code>clip-path=&quot;url(#myClip)&quot;</code>时，此处实际上是一个红色三角形。</p>
 <p>默认情况下，一个形状，其被剪切掉的区域（不可见的区域）是不响应鼠标事件的。举个例子，如果一个半径为10的圆形被剪切成半径为5的圆形，那么这个圆在半径为5以外的区域是不能接收“click”事件的。</p>
 <h3 id="3-lt-mask-gt-标签创建蒙版"><a href="#3-lt-mask-gt-标签创建蒙版" class="headerlink" title="3. &lt;mask&gt; - 标签创建蒙版"></a>3. &lt;mask&gt; - 标签创建蒙版</h3><p>在SVG中，你可以指定一个透明的遮罩层和当前对象合成，形成背景。透明遮罩层可以是任何其他图形对象或者<g>元素。mask元素用于定义这样的遮罩元素。属性mask用来引用一个遮罩元素。</g></p>
