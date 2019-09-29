@@ -478,7 +478,7 @@
 <p>&lt;path d=”M10,100 L200,100 Q200,50,300,100 L500,100” /&gt;</p>
 <svg width="600px" height="200px" version="1.1" xmlns="http://www.w3.org/2000/svg"><text x="10" y="90">A</text><text x="170" y="90">B</text><text x="430" y="90">C</text><text x="500" y="90">D</text><text x="205" y="50">Q</text><circle cx="200" cy="100" r="3" fill="black"/><circle cx="400" cy="100" r="3" fill="black"/><circle cx="200" cy="50" r="3" fill="black"/><path d="M10,100 L200,100 Q200,50,400,100 L500,100" stroke="black" fill="green" stroke-width="1" fill-opacity="0.5"/><br/></svg>
 
-<p>此例子描述了一段由<code>AB</code>直线段、<code>BC</code>曲线段、<code>CD</code>直线段组成的路径。曲中<code>BC</code>就是上述的二次贝塞尔曲线，该曲线的起点为B(200, 100)，结束点为C(400, 100)，并且存在一点Q(200, 50)。所以点C对应的命令<code>Q/q</code>中参数（x, y），也就是说<code>x/y</code>决定了贝塞尔曲线的终点。而点B是曲线的控制点，控制点描述的是曲线起始点的斜率，曲线上各个点的斜率，是从起点斜率到终点斜率的渐变过程，请结合GIF图意会。通过改变控制点位置来改变曲线的曲率，取得想要的曲线形状。如下</p>
+<p>此例子描述了一段由<code>AB</code>直线段、<code>BC</code>曲线段、<code>CD</code>直线段组成的路径。曲中<code>BC</code>就是上述的二次贝塞尔曲线，该曲线的起点为B(200, 100)，结束点为C(400, 100)，并且存在一点Q(200, 50)。所以点C对应的命令<code>Q/q</code>中参数（x, y），也就是说<code>x/y</code>决定了贝塞尔曲线的终点。而点Q是曲线的控制点，控制点描述的是曲线起始点的斜率，曲线上各个点的斜率，是从起点斜率到终点斜率的渐变过程，请结合GIF图意会。通过改变控制点位置来改变曲线的曲率，取得想要的曲线形状。如下</p>
 <p>&lt;path d=”M10,100 L200,100 Q240,20,300,100 L500,100” /&gt;</p>
 <svg width="600px" height="200px" version="1.1" xmlns="http://www.w3.org/2000/svg"><text x="10" y="90">A</text><text x="170" y="90">B</text><text x="430" y="90">C</text><text x="500" y="90">D</text><text x="245" y="20">Q</text><circle cx="200" cy="100" r="3" fill="black"/><circle cx="400" cy="100" r="3" fill="black"/><circle cx="240" cy="20" r="3" fill="black"/><path d="M10,100 L200,100 Q240,20,400,100 L500,100" stroke="black" fill="green" stroke-width="1" fill-opacity="0.5"/><br/></svg>
 
