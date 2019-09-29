@@ -469,7 +469,7 @@
 <p>text-anchor: 文本与所给点的对齐方式 （开头、中间、末尾对齐）。</p>
 <p>startOffset: 起始点的偏移值（%）。</p>
 <p>下面是方便理解粗略可交互例子：</p>
-<p> <form id="ctrl"><br>    <label for="x">x:</label><br>    <input ctrl="x" name="x" type="range" value="0" min="-200" max="200"><br>    <br><br>    <label for="y">y:</label><br>    <input ctrl="y" name="y" type="range" value="0" min="-200" max="200"><br>    <br><br>    <label for="dx">dx:</label><br>    <input ctrl="dx" name="dx" type="range" value="0" min="-200" max="200"><br>    <br><br>    <label for="dy">dy:</label><br>    <input ctrl="dy" name="dy" type="range" value="0" min="-200" max="200"><br>    <br><br>    <label for="text-anchor">text-anchor:</label><br>    <select name="text-anchor" ctrl="text-anchor"><br>      <option value="start" selected>start</option><br>      <option value="middle">middle</option><br>      <option value="end" selected>end</option><br>    </select><br>    <br><br>    <label for="startOffset">startOffset:</label><br>    <input name="startOffset" ctrl="startOffset" type="range" value="0" min="0" max="100"><br>    <br><br>    <button type="reset">Reset</button><br>  </form><br>  <div class="svg-conatiner"><br>    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><path id="path" d="M100,200 Q200,100,300,200 T500,200" stroke="rgb(0,255,0)" fill="none"/><text id="text" style="font-size: 24px"><textpath xlink:href="#path">Upside down in Englise!</textpath><br/></text><br/></svg><br></div></p>
+<p> <form id="ctrl"><br>    <label for="x">x:</label><br>    <input ctrl="x" name="x" type="range" value="0" min="-200" max="200"><br>    <br><br>    <label for="y">y:</label><br>    <input ctrl="y" name="y" type="range" value="0" min="-200" max="200"><br>    <br><br>    <label for="dx">dx:</label><br>    <input ctrl="dx" name="dx" type="range" value="0" min="-200" max="200"><br>    <br><br>    <label for="dy">dy:</label><br>    <input ctrl="dy" name="dy" type="range" value="0" min="-200" max="200"><br>    <br><br>    <label for="text-anchor">text-anchor:</label><br>    <select name="text-anchor" ctrl="text-anchor"><br>      <option value="start" selected>start</option><br>      <option value="middle">middle</option><br>      <option value="end">end</option><br>    </select><br>    <br><br>    <label for="startOffset">startOffset:</label><br>    <input name="startOffset" ctrl="startOffset" type="range" value="0" min="0" max="100"><br>    <br><br>    <button type="reset">Reset</button><br>  </form><br>  <div class="svg-conatiner"><br>    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><path id="path" d="M100,200 Q200,100,300,200 T500,200" stroke="rgb(0,255,0)" fill="none"/><text id="text" style="font-size: 24px"><textpath xlink:href="#path">Upside down in Englise!</textpath><br/></text><br/></svg><br></div></p>
 <script>
 var ctrl = document.getElementById('ctrl')
 var text = document.getElementById('text')
@@ -535,7 +535,7 @@ var list = document.querySelectorAll('#ctrl *[ctrl]');
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text-anchor<span class="token punctuation">"</span></span> <span class="token attr-name">ctrl</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text-anchor<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>start<span class="token punctuation">"</span></span> <span class="token attr-name">selected</span><span class="token punctuation">></span></span>start<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>middle<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>middle<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>end<span class="token punctuation">"</span></span> <span class="token attr-name">selected</span><span class="token punctuation">></span></span>end<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>end<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>end<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span> <span class="token punctuation">/></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>startOffset<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>startOffset:<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
@@ -676,30 +676,29 @@ var list = document.querySelectorAll('#ctrl *[ctrl]');
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/20/SVG的文本/">
+                <a href="/2019/09/28/SVG的图形引用、裁剪和蒙版/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="SVG的文本">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="SVG的图形引用、裁剪和蒙版">
                         
-                        <span class="card-title">SVG的文本</span>
+                        <span class="card-title">SVG的图形引用、裁剪和蒙版</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            SVG text0. 前言人类的交流，是通过文字语言来交流的，所以光靠SVG图形是难以意会的。SVG支持文本，但它是有限的，实际上SVG是把文本信息当作图形来渲染处理，不像css那样支持排版，如果需要对文本进行排版（例如换行），则需要手动计
+                            SVG的图形引用、裁剪和蒙版1.&lt;use&gt; - 标签创建图形引用use元素在SVG文档内取得目标节点，并在别的地方复制它们。它的效果等同于这些节点被深克隆到一个不可见的DOM中，然后将其粘贴到use元素的位置，很像HTML5中
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-20
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-28
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -708,7 +707,6 @@ var list = document.querySelectorAll('#ctrl *[ctrl]');
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
