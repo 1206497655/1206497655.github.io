@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.coderlyc.xyz/"/>
-  <updated>2019-09-29T03:16:36.274Z</updated>
+  <updated>2019-10-13T03:47:57.799Z</updated>
   <id>http://www.coderlyc.xyz/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SVG动画</title>
+    <link href="http://www.coderlyc.xyz/2019/10/12/SVG%E5%8A%A8%E7%94%BB/"/>
+    <id>http://www.coderlyc.xyz/2019/10/12/SVG动画/</id>
+    <published>2019-10-12T11:21:56.000Z</published>
+    <updated>2019-10-13T03:47:57.799Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;SVG的动画&quot;&gt;&lt;a href=&quot;#SVG的动画&quot; class=&quot;headerlink&quot; title=&quot;SVG的动画&quot;&gt;&lt;/a&gt;SVG的动画&lt;/h2&gt;&lt;h3 id=&quot;1-动画原理&quot;&gt;&lt;a href=&quot;#1-动画原理&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SVG" scheme="http://www.coderlyc.xyz/tags/SVG/"/>
+    
+      <category term="SMIL" scheme="http://www.coderlyc.xyz/tags/SMIL/"/>
+    
+  </entry>
   
   <entry>
     <title>SVG的图形引用、裁剪和蒙版</title>
@@ -474,31 +500,6 @@
     
     
       <category term="arcgis" scheme="http://www.coderlyc.xyz/tags/arcgis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用的解决跨域问题的方法之一：jsonp</title>
-    <link href="http://www.coderlyc.xyz/2019/02/22/%E5%B8%B8%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95%E4%B9%8B%E4%B8%80%EF%BC%9Ajsonp/"/>
-    <id>http://www.coderlyc.xyz/2019/02/22/常用的解决跨域问题的方法之一：jsonp/</id>
-    <published>2019-02-22T06:30:17.000Z</published>
-    <updated>2019-08-10T13:45:10.130Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;pre&gt;&lt;code&gt;常用的解决跨域问题的方法之一：jsonp
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;跨域安全限制问题实际上只存在于浏览器端，服务器是不存在跨域问题的。所以代理服务器也是解决跨域问题的方式之一。但由于技术资源限制，本项目只能采用其它解决跨域的方式—-jsonp。&lt;br&gt;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="js" scheme="http://www.coderlyc.xyz/tags/js/"/>
     
   </entry>
   
