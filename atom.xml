@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.coderlyc.xyz/"/>
-  <updated>2019-10-13T03:47:57.799Z</updated>
+  <updated>2019-10-18T05:18:30.284Z</updated>
   <id>http://www.coderlyc.xyz/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SVG简单总结</title>
+    <link href="http://www.coderlyc.xyz/2019/10/18/SVG%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.coderlyc.xyz/2019/10/18/SVG简单总结/</id>
+    <published>2019-10-18T12:23:22.000Z</published>
+    <updated>2019-10-18T05:18:30.284Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;简单总结&quot;&gt;&lt;a href=&quot;#简单总结&quot; class=&quot;headerlink&quot; title=&quot;简单总结&quot;&gt;&lt;/a&gt;简单总结&lt;/h2&gt;&lt;h3 id=&quot;1-回顾知识点&quot;&gt;&lt;a href=&quot;#1-回顾知识点&quot; class=&quot;headerlink&quot; title=&quot;1.
+        
+      
+    
+    </summary>
+    
+    
+      <category term="SVG" scheme="http://www.coderlyc.xyz/tags/SVG/"/>
+    
+  </entry>
   
   <entry>
     <title>SVG动画</title>
@@ -469,30 +493,6 @@
         
           &lt;p&gt;不同坐标系测量面积和距离的不同方法&lt;/p&gt;
 &lt;p&gt;坐标系主要分为地理坐标系和投影坐标系，根据wkid来区分。不同的坐标系类型测量面积和距离的方法不同，首先是投影坐标系：&lt;br&gt;require([“esri/geometry/geometryEngine”],
-        
-      
-    
-    </summary>
-    
-    
-      <category term="arcgis" scheme="http://www.coderlyc.xyz/tags/arcgis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决arcgis地图打印无法打印PictureMarkerSymbol</title>
-    <link href="http://www.coderlyc.xyz/2019/03/01/%E8%A7%A3%E5%86%B3arcgis%E5%9C%B0%E5%9B%BE%E6%89%93%E5%8D%B0%E6%97%A0%E6%B3%95%E6%89%93%E5%8D%B0PictureMarkerSymbol/"/>
-    <id>http://www.coderlyc.xyz/2019/03/01/解决arcgis地图打印无法打印PictureMarkerSymbol/</id>
-    <published>2019-03-01T03:30:40.000Z</published>
-    <updated>2019-08-10T13:41:09.767Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;解决arcgis地图打印无法打印PictureMarkerSymbol&lt;br&gt;地图打印时无法打印含有PictureMarkerSymbol的图层，改用SimpleMarkerSymbol +
         
       
     
