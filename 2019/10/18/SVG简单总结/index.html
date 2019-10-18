@@ -366,7 +366,7 @@ SVG大大小小共有150+个元素，想要全部掌握需要一定的时间成�
 <li><a href="http://www.coderlyc.xyz/2019/10/12/SVG%E5%8A%A8%E7%94%BB/">动画</a></li>
 </ul>
 <p>SVG大大小小共有150+个元素，想要全部掌握需要一定的时间成本，但是掌握了前面我们学习过的内容，就能够大致地让我们知道SVG的运作原理以及基本用法，遇到使用SVG技术做渲染的场景就会比较容易理解，也能编写简易的可视化表达图形，下面来应用我们学习过的知识来编写一些综合实例。</p>
-<h4 id="1-1-loading状态图标"><a href="#1-1-loading状态图标" class="headerlink" title="1.1 loading状态图标"></a>1.1 loading状态图标</h4><p>loading状态可以说是非常常见的需求，带有动画效果的loading状态通常通过gif图片、icon+CSS3或者SVG图标实现。gif图片的缺点是显而易见的，会增加网络请求。icon+CSS3虽然没有网络请求，但是只能是单色图标。而SVG就没有这些缺点了，甚至还可以通过代码自己设计想要的图标模样。下面是一个简单的多色旋转图标，用到的技术是SVG基础图形+渐变效果+动画，如下:</p>
+<h3 id="2-应用例子"><a href="#2-应用例子" class="headerlink" title="2.  应用例子"></a>2.  应用例子</h3><h4 id="2-1-loading状态图标"><a href="#2-1-loading状态图标" class="headerlink" title="2.1 loading状态图标"></a>2.1 loading状态图标</h4><p>loading状态可以说是非常常见的需求，带有动画效果的loading状态通常通过gif图片、icon+CSS3或者SVG图标实现。gif图片的缺点是显而易见的，会增加网络请求。icon+CSS3虽然没有网络请求，但是只能是单色图标。而SVG就没有这些缺点了，甚至还可以通过代码自己设计想要的图标模样。下面是一个简单的多色旋转图标，用到的技术是SVG基础图形+渐变效果+动画，如下:</p>
 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewbox="-25 -25 50 50"><defs><lineargradient id="grad" x1="0" y1="0" x2="1" y2="1"><stop class="stop1" offset="0" stop-color="#1497fc"/><stop class="stop2" offset="0.5" stop-color="#a469be"/><stop class="stop3" offset="1" stop-color="#ff8c00"/></lineargradient></defs><circle cx="0" cy="0" r="15" stroke="url(#grad)" stroke-width="6" fill="none"/><animatetransform attributename="transform" begin="0s" dur="1s" type="rotate" from="0 0 0" to="360 0 0" repeatcount="indefinite"><br/></animatetransform></svg>
 
 <pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>-25 -25 50 50<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -382,7 +382,7 @@ SVG大大小小共有150+个元素，想要全部掌握需要一定的时间成�
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>circle</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
 </code></pre>
-<h4 id="1-2-饼图"><a href="#1-2-饼图" class="headerlink" title="1.2 饼图"></a>1.2 饼图</h4><p>饼图是最常见的图表类组件之一，通过SVG技术我们也可以设计出自己想要的饼图，下面是用SVG Path元素绘制的一个简单饼图，关键点在于如何计算扇区弧线的末端点：</p>
+<h4 id="2-2-饼图"><a href="#2-2-饼图" class="headerlink" title="2.2 饼图"></a>2.2 饼图</h4><p>饼图是最常见的图表类组件之一，通过SVG技术我们也可以设计出自己想要的饼图，下面是用SVG Path元素绘制的一个简单饼图，关键点在于如何计算扇区弧线的末端点：</p>
 <p><div class="pie-container" id="pieContainer" style="position: relative;width: 400px;height: 400px;"></div></p>
 <script>
 const Pie = function (node) {
@@ -610,7 +610,7 @@ pie.setData(datas, pie)
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
 </code></pre>
-<h4 id="1-3-力导向图"><a href="#1-3-力导向图" class="headerlink" title="1.3 力导向图"></a>1.3 力导向图</h4><p>力导向图通常用来表示关系。下面是一个每个点之间具有两两关联关系的力导向图，每个点的位置随机给定，然后通过每秒60次的频率更新节点位置，经过一定时间的平衡后呈现位一个规则多边形的图形（SVG的SMIL动画在此并不适用，本例使用脚本来实现动画效果）。本例的关键在于如何更新节点位置使其动画效果较好并且能够达到平衡规则状态，答案便是弹簧模型。物体在被多个弹簧牵引初期，会处于一个晃动的状态，随着时间的推移动能逐渐磨损而达到一个平衡静止的状态。本例算法的实现可能比较复杂，通过本例主要明白一个道理就行，那就是使用SVG绘图确实十分简便。</p>
+<h4 id="2-3-力导向图"><a href="#2-3-力导向图" class="headerlink" title="2.3 力导向图"></a>2.3 力导向图</h4><p>力导向图通常用来表示关系。下面是一个每个点之间具有两两关联关系的力导向图，每个点的位置随机给定，然后通过每秒60次的频率更新节点位置，经过一定时间的平衡后呈现位一个规则多边形的图形（SVG的SMIL动画在此并不适用，本例使用脚本来实现动画效果）。本例的关键在于如何更新节点位置使其动画效果较好并且能够达到平衡规则状态，答案便是弹簧模型。物体在被多个弹簧牵引初期，会处于一个晃动的状态，随着时间的推移动能逐渐磨损而达到一个平衡静止的状态。本例算法的实现可能比较复杂。</p>
 <p>弹簧模型:</p>
 <svg xmlns="http://www.w3.org/2000/svg" width="400px" height="250px"><path d="M50,50 L200,150,100,200 Z" fill="none" stroke="gray"/><circle cx="50" cy="50" r="20" fill="#af5587"/><circle cx="200" cy="150" r="30" fill="#0f5587"/><circle cx="100" cy="200" r="40" fill="#5ff587"/></svg>
 
