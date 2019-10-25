@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.coderlyc.xyz/"/>
-  <updated>2019-10-18T06:06:18.951Z</updated>
+  <updated>2019-10-25T07:32:08.336Z</updated>
   <id>http://www.coderlyc.xyz/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在VUE项目中使用TypeScript--实践</title>
+    <link href="http://www.coderlyc.xyz/2019/10/25/%E5%9C%A8VUE%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8TypeScript-%E5%AE%9E%E8%B7%B5/"/>
+    <id>http://www.coderlyc.xyz/2019/10/25/在VUE项目中使用TypeScript-实践/</id>
+    <published>2019-10-25T14:08:15.000Z</published>
+    <updated>2019-10-25T07:32:08.336Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;在VUE项目中使用TypeScript–实践&quot;&gt;&lt;a href=&quot;#在VUE项目中使用TypeScript–实践&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="TypeScript" scheme="http://www.coderlyc.xyz/tags/TypeScript/"/>
+    
+  </entry>
   
   <entry>
     <title>SVG简单总结</title>
@@ -468,31 +492,6 @@
         
         
           &lt;p&gt;地图打印步骤：&lt;br&gt;服务器端打印&lt;br&gt;执行对象是 PrintTask，打印的参数是 PrintParameters，通过设置打印模板对象 PrintTemplate，可以对图片的大小，像素，格式等进行设置。示例：在服务器端打印一个中国地图。&lt;br&gt;（1）    
-        
-      
-    
-    </summary>
-    
-    
-      <category term="arcgis" scheme="http://www.coderlyc.xyz/tags/arcgis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>不同坐标系测量面积和距离的不同方法</title>
-    <link href="http://www.coderlyc.xyz/2019/03/15/%E4%B8%8D%E5%90%8C%E5%9D%90%E6%A0%87%E7%B3%BB%E6%B5%8B%E9%87%8F%E9%9D%A2%E7%A7%AF%E5%92%8C%E8%B7%9D%E7%A6%BB%E7%9A%84%E4%B8%8D%E5%90%8C%E6%96%B9%E6%B3%95/"/>
-    <id>http://www.coderlyc.xyz/2019/03/15/不同坐标系测量面积和距离的不同方法/</id>
-    <published>2019-03-15T12:41:42.000Z</published>
-    <updated>2019-08-10T13:42:16.139Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;不同坐标系测量面积和距离的不同方法&lt;/p&gt;
-&lt;p&gt;坐标系主要分为地理坐标系和投影坐标系，根据wkid来区分。不同的坐标系类型测量面积和距离的方法不同，首先是投影坐标系：&lt;br&gt;require([“esri/geometry/geometryEngine”],
         
       
     
