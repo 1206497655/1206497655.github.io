@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.coderlyc.xyz/"/>
-  <updated>2019-10-25T07:32:08.336Z</updated>
+  <updated>2019-11-27T13:42:21.491Z</updated>
   <id>http://www.coderlyc.xyz/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决windows中Arcmap 10.6卡顿问题</title>
+    <link href="http://www.coderlyc.xyz/2019/11/27/%E8%A7%A3%E5%86%B3windows%E4%B8%ADArcmap-10-6%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/"/>
+    <id>http://www.coderlyc.xyz/2019/11/27/解决windows中Arcmap-10-6卡顿问题/</id>
+    <published>2019-11-27T13:36:59.000Z</published>
+    <updated>2019-11-27T13:42:21.491Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;解决在windows中Arcmap-10-6卡顿问题&quot;&gt;&lt;a href=&quot;#解决在windows中Arcmap-10-6卡顿问题&quot; class=&quot;headerlink&quot; title=&quot;解决在windows中Arcmap
+        
+      
+    
+    </summary>
+    
+    
+      <category term="arcmap" scheme="http://www.coderlyc.xyz/tags/arcmap/"/>
+    
+      <category term="卡顿" scheme="http://www.coderlyc.xyz/tags/%E5%8D%A1%E9%A1%BF/"/>
+    
+  </entry>
   
   <entry>
     <title>在VUE项目中使用TypeScript--实践</title>
@@ -475,30 +501,6 @@
     
     
       <category term="js" scheme="http://www.coderlyc.xyz/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>地图打印步骤</title>
-    <link href="http://www.coderlyc.xyz/2019/03/15/%E5%9C%B0%E5%9B%BE%E6%89%93%E5%8D%B0%E6%AD%A5%E9%AA%A4/"/>
-    <id>http://www.coderlyc.xyz/2019/03/15/地图打印步骤/</id>
-    <published>2019-03-15T13:42:34.000Z</published>
-    <updated>2019-08-10T13:43:07.310Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;地图打印步骤：&lt;br&gt;服务器端打印&lt;br&gt;执行对象是 PrintTask，打印的参数是 PrintParameters，通过设置打印模板对象 PrintTemplate，可以对图片的大小，像素，格式等进行设置。示例：在服务器端打印一个中国地图。&lt;br&gt;（1）    
-        
-      
-    
-    </summary>
-    
-    
-      <category term="arcgis" scheme="http://www.coderlyc.xyz/tags/arcgis/"/>
     
   </entry>
   

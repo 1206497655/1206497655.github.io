@@ -3,6 +3,25 @@
   
     
     <entry>
+      <title>解决windows中Arcmap 10.6卡顿问题</title>
+      <link href="/2019/11/27/%E8%A7%A3%E5%86%B3windows%E4%B8%ADArcmap-10-6%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/"/>
+      <url>/2019/11/27/%E8%A7%A3%E5%86%B3windows%E4%B8%ADArcmap-10-6%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h2 id="解决在windows中Arcmap-10-6卡顿问题"><a href="#解决在windows中Arcmap-10-6卡顿问题" class="headerlink" title="解决在windows中Arcmap 10.6卡顿问题"></a>解决在windows中Arcmap 10.6卡顿问题</h2><p>windows 10系统中，Arcmap 10.6在进行地图移动、缩放等操作时有明显的卡顿掉帧，看起来非常不爽，不知道同学们有没有遇到过。如下（GIF图录制完成后播放被加快使其看起来比较流畅，实际播放时间应乘以2倍左右）：</p><p><img src="../../../../img/2019/11/27/N卡.gif" alt=""></p><p>稍加思索了一下，可能是遇到<code>N黑</code>了。打开NVIDIA控制面板-管理3D设置-程序设置，查看arcmap使用的图形处理器：</p><p><img src="../../../../img/2019/11/27/自动选择默认独显.png" alt=""></p><p>可见，笔者此处自动选择了NVIDIA（英伟达） GPU，我们将其修改为集成显卡：</p><p><img src="../../../../img/2019/11/27/集显设置.png" alt=""></p><p>再来测试一下卡顿情况（同样GIF图被加快播放了）：</p><p><img src="../../../../img/2019/11/27/集显.gif" alt=""></p><p>可见，设置为集成显卡后反而得到了更流畅的效果。由于GIF录制软件的缺陷，无法按正常速度播放，arcmap不支持实时显示帧率（又不是游戏），根据我的经验，应该相差20帧左右。可能有两个原因，原因一：arcmap属于<code>N黑</code>类软件，也就是并没有得到针对N卡的显卡优化。原因二：arcmap是专业软件，而笔者的N卡是游戏显卡，不是专业显卡。如果你碰巧遇到这个问题，可以尝试一下以上做法。没有<code>NVIDIA控制面板</code>的可以在应用商店中搜索 <code>NVIDIA Control Panel</code>。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> arcmap </tag>
+            
+            <tag> 卡顿 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>在VUE项目中使用TypeScript--实践</title>
       <link href="/2019/10/25/%E5%9C%A8VUE%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8TypeScript-%E5%AE%9E%E8%B7%B5/"/>
       <url>/2019/10/25/%E5%9C%A8VUE%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8TypeScript-%E5%AE%9E%E8%B7%B5/</url>
@@ -589,29 +608,6 @@
     </entry>
     
     <entry>
-      <title>解决VSCode触摸板卡顿问题</title>
-      <link href="/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/"/>
-      <url>/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<p>Setting.json中增加选项：<br><pre><code>&quot;window.smoothScrollingWorkaround&quot;: true,&quot;window.titleBarStyle&quot;: &quot;native&quot;</code></pre></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 工具 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> VSCode </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>dojo学习笔记--模板TemplatedMixin</title>
       <link href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A8%A1%E6%9D%BFTemplatedMixin/"/>
       <url>/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A8%A1%E6%9D%BFTemplatedMixin/</url>
@@ -631,6 +627,29 @@
             <tag> dojo </tag>
             
             <tag> _TemplatedMixin </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>解决VSCode触摸板卡顿问题</title>
+      <link href="/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/"/>
+      <url>/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>Setting.json中增加选项：<br><pre><code>&quot;window.smoothScrollingWorkaround&quot;: true,&quot;window.titleBarStyle&quot;: &quot;native&quot;</code></pre></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> VSCode </tag>
             
         </tags>
       
