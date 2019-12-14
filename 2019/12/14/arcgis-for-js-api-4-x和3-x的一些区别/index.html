@@ -379,7 +379,7 @@
     map<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>layer<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// adds the layer to the map</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>（3）从ArcGIS API for JavaScript的4.5版开始，该API中的所有 renderers, symbols, 和symbol layers普遍支持<strong>Autocasting support</strong>特性，意味着无需使用<code>require()</code> 和<code>define()</code> 模块加载器加载需要使用的类至当前域中 ，使代码得到大大的简化。实名点赞，不得不说旧有的写法实在是太繁琐了。举例：</p>
+<p>（3）从ArcGIS API for JavaScript的4.5版开始，该API中的所有 renderers, symbols, 和symbol layers普遍支持<strong>Autocasting support</strong>特性，意味着无需使用<code>require()</code> 和<code>define()</code> 模块加载器加载需要使用的类至当前域中 ，使代码得到大大的简化。举例：</p>
 <p>4.5以前（包括3.x），为<strong>FeatureLayer</strong>创建<strong>SimpleRenderer</strong>需要五个api类：</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
   <span class="token string">"esri/Color"</span><span class="token punctuation">,</span>
@@ -438,6 +438,7 @@
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
+<p>实名点赞，相比之下，不得不说旧有的写法实在是太繁琐了。</p>
 
             </div>
             <hr/>
