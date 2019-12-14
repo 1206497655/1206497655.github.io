@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.coderlyc.xyz/"/>
-  <updated>2019-11-27T13:42:21.491Z</updated>
+  <updated>2019-12-14T14:26:21.489Z</updated>
   <id>http://www.coderlyc.xyz/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>arcgis for js api 4.x和3.x的一些区别</title>
+    <link href="http://www.coderlyc.xyz/2019/12/14/arcgis-for-js-api-4-x%E5%92%8C3-x%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8C%BA%E5%88%AB/"/>
+    <id>http://www.coderlyc.xyz/2019/12/14/arcgis-for-js-api-4-x和3-x的一些区别/</id>
+    <published>2019-12-14T14:25:53.000Z</published>
+    <updated>2019-12-14T14:26:21.489Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;arcgis-for-js-api-4-x-和-3-x的一些区别&quot;&gt;&lt;a href=&quot;#arcgis-for-js-api-4-x-和-3-x的一些区别&quot; class=&quot;headerlink&quot; title=&quot;arcgis for js api 4.x 和
+        
+      
+    
+    </summary>
+    
+    
+      <category term="arcgis.js" scheme="http://www.coderlyc.xyz/tags/arcgis-js/"/>
+    
+  </entry>
   
   <entry>
     <title>解决windows中Arcmap 10.6卡顿问题</title>
@@ -476,31 +500,6 @@
     
     
       <category term="vue tomcat" scheme="http://www.coderlyc.xyz/tags/vue-tomcat/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于翻译插件的问题</title>
-    <link href="http://www.coderlyc.xyz/2019/03/23/%E5%85%B3%E4%BA%8E%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.coderlyc.xyz/2019/03/23/关于翻译插件的问题/</id>
-    <published>2019-03-23T10:23:53.000Z</published>
-    <updated>2019-08-10T13:52:01.185Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;关于翻译插件的一个问题：在开发临沧一张图专题目录树的时候，出项这样一个问题。写入页面的html代码&lt;/p&gt;
-&lt;pre class=&quot; language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token
-        
-      
-    
-    </summary>
-    
-    
-      <category term="js" scheme="http://www.coderlyc.xyz/tags/js/"/>
     
   </entry>
   
