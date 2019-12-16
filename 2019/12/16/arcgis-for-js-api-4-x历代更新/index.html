@@ -4,8 +4,24 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="arcgis for js api 4.x和3.x的一些区别, Leno的个人博客">
-    <meta name="description" content="arcgis for js api 4.x 和 3.x的一些区别(不定时更新)（1） 4.x 为了支持3D功能，在原有的3.x版Map基础上，把地图本体和容器拆分出来，而在容器层面上使用MapView 和 SceneView来区分2D和3D">
+    <meta name="keywords" content="arcgis for js api 4.x历代更新, Leno的个人博客">
+    <meta name="description" content="Arcgis for js api 4.x历代更新
+4.13
+4.12
+4.11
+4.10
+4.9
+4.8
+4.7
+4.6
+4.5
+4.4
+4.3
+4.2
+4.1
+4.0
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +29,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>arcgis for js api 4.x和3.x的一些区别 | Leno的个人博客</title>
+    <title>arcgis for js api 4.x历代更新 | Leno的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -197,13 +213,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        arcgis for js api 4.x和3.x的一些区别
+                        arcgis for js api 4.x历代更新
                     </div>
                 </div>
             </div>
@@ -329,7 +345,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-14
+                    2019-12-16
                 </div>
 
                 
@@ -345,100 +361,22 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="arcgis-for-js-api-4-x-和-3-x的一些区别-不定时更新"><a href="#arcgis-for-js-api-4-x-和-3-x的一些区别-不定时更新" class="headerlink" title="arcgis for js api 4.x 和 3.x的一些区别(不定时更新)"></a>arcgis for js api 4.x 和 3.x的一些区别(不定时更新)</h2><p>（1） 4.x 为了支持3D功能，在原有的3.x版Map基础上，把地图本体和容器拆分出来，而在容器层面上使用<strong>MapView</strong> 和 <strong>SceneView</strong>来区分2D和3D视图。在4.x版本中一个渲染一个地图方式如下：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    basemap<span class="token punctuation">:</span> <span class="token string">"streets"</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-
-<span class="token comment" spellcheck="true">// 2D 视图</span>
-<span class="token keyword">var</span> view <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MapView</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    container<span class="token punctuation">:</span> <span class="token string">"viewDiv"</span><span class="token punctuation">,</span>
-    map<span class="token punctuation">:</span> map 
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// 3D 视图</span>
-<span class="token keyword">var</span> view <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SceneView</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    container<span class="token punctuation">:</span> <span class="token string">"viewDiv"</span><span class="token punctuation">,</span>
-    map<span class="token punctuation">:</span> map
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>3.x 如下：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token string">"map"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    basemap<span class="token punctuation">:</span> <span class="token string">"topo"</span><span class="token punctuation">,</span>
-    center<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">122.45</span><span class="token punctuation">,</span> <span class="token number">37.75</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    zoom<span class="token punctuation">:</span> <span class="token number">13</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p>（2）3.x 的ArcGISDynamicMapServiceLayer不再使用，在4.x中使用MapImageLayer替代。</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"esri/layers/MapImageLayer"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>MapImageLayer<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// points to the states layer in a service storing U.S. census data</span>
-    <span class="token keyword">var</span> layer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MapImageLayer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        url<span class="token punctuation">:</span> <span class="token string">"https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer"</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    map<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>layer<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// adds the layer to the map</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>（3）从ArcGIS API for JavaScript的4.5版开始，该API中的所有 renderers, symbols, 和symbol layers普遍支持<strong>Autocasting support</strong>特性，意味着无需使用<code>require()</code> 和<code>define()</code> 模块加载器加载需要使用的类至当前域中 ，使代码得到大大的简化。举例：</p>
-<p>4.5以前（包括3.x），为<strong>FeatureLayer</strong>创建<strong>SimpleRenderer</strong>需要五个api类：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-  <span class="token string">"esri/Color"</span><span class="token punctuation">,</span>
-  <span class="token string">"esri/symbols/SimpleLineSymbol"</span><span class="token punctuation">,</span>
-  <span class="token string">"esri/symbols/SimpleMarkerSymbol"</span><span class="token punctuation">,</span>
-  <span class="token string">"esri/renderers/SimpleRenderer"</span><span class="token punctuation">,</span>
-  <span class="token string">"esri/layers/FeatureLayer"</span><span class="token punctuation">,</span>
-<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>
-  Color<span class="token punctuation">,</span> SimpleLineSymbol<span class="token punctuation">,</span> SimpleMarkerSymbol<span class="token punctuation">,</span> SimpleRenderer<span class="token punctuation">,</span> FeatureLayer
-<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-  <span class="token keyword">var</span> layerURL <span class="token operator">=</span> <span class="token string">"https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/WorldCities/FeatureServer/0"</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">var</span> orangeColor <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Color</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">var</span> blackColor <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Color</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">var</span> symbol <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleLineSymbol</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    style<span class="token punctuation">:</span> <span class="token string">"dash-dot"</span><span class="token punctuation">,</span>
-    color<span class="token punctuation">:</span> blackColor
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">var</span> diamondSymbol <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleMarkerSymbol</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    style<span class="token punctuation">:</span> <span class="token string">"diamond"</span><span class="token punctuation">,</span>
-    color<span class="token punctuation">:</span> orangeColor<span class="token punctuation">,</span>
-    outline<span class="token punctuation">:</span> symbol
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">var</span> renderer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleRenderer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    symbol<span class="token punctuation">:</span> diamondSymbol
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">var</span> layer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FeatureLayer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    url<span class="token punctuation">:</span> layerURL<span class="token punctuation">,</span>
-    renderer<span class="token punctuation">:</span> renderer
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>而4.5以及4.5后为<strong>FeatureLayer</strong>创建<strong>SimpleRenderer</strong>只需要像配置项那样传递参数，而后通过<code>autocasting to construct</code>特性，ArcGIS API for JavaScript将采用传递给构造函数中属性的值并在内部实例化键入的对象：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token string">"esri/layers/FeatureLayer"</span> <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>FeatureLayer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-
-    <span class="token keyword">var</span> layerURL <span class="token operator">=</span> <span class="token string">"https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/WorldCities/FeatureServer/0"</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">var</span> layer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FeatureLayer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        url<span class="token punctuation">:</span> layerURL<span class="token punctuation">,</span>
-        renderer<span class="token punctuation">:</span> <span class="token punctuation">{</span>                        <span class="token comment" spellcheck="true">// autocasts as new SimpleRenderer()</span>
-            symbol<span class="token punctuation">:</span> <span class="token punctuation">{</span>                        <span class="token comment" spellcheck="true">// autocasts as new SimpleMarkerSymbol()</span>
-                type<span class="token punctuation">:</span> <span class="token string">"simple-marker"</span><span class="token punctuation">,</span>
-                style<span class="token punctuation">:</span> <span class="token string">"diamond"</span><span class="token punctuation">,</span>
-                color<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token number">255</span><span class="token punctuation">,</span> <span class="token number">128</span><span class="token punctuation">,</span> <span class="token number">45</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>       <span class="token comment" spellcheck="true">// autocasts as new Color()</span>
-                outline<span class="token punctuation">:</span> <span class="token punctuation">{</span>                     <span class="token comment" spellcheck="true">// autocasts as new SimpleLineSymbol()</span>
-                    style<span class="token punctuation">:</span> <span class="token string">"dash-dot"</span><span class="token punctuation">,</span>
-                    color<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token punctuation">]</span>           <span class="token comment" spellcheck="true">// autocasts as new Color()</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>实名点赞，相比之下，不得不说旧有的写法实在是太繁琐了。</p>
+                <h2 id="Arcgis-for-js-api-4-x历代更新"><a href="#Arcgis-for-js-api-4-x历代更新" class="headerlink" title="Arcgis for js api 4.x历代更新"></a>Arcgis for js api 4.x历代更新</h2><ul>
+<li><a href="https://www.esri.com/arcgis-blog/products/js-api-arcgis/announcements/whats-new-in-arcgis-api-for-javascript-october-2019/" target="_blank" rel="noopener">4.13</a></li>
+<li><a href="https://www.esri.com/arcgis-blog/products/js-api-arcgis/announcements/whats-new-in-arcgis-api-for-javascript-july-2019/" target="_blank" rel="noopener">4.12</a></li>
+<li><a href="https://www.esri.com/arcgis-blog/products/js-api-arcgis/announcements/whats-new-in-arcgis-api-for-javascript-4-11-march-2019/" target="_blank" rel="noopener">4.11</a></li>
+<li><a href="https://www.esri.com/arcgis-blog/products/js-api-arcgis/announcements/whats-new-in-arcgis-api-for-javascript-4-10-december-2018/" target="_blank" rel="noopener">4.10</a></li>
+<li><a href="https://www.esri.com/arcgis-blog/products/js-api-arcgis/announcements/jsapi-4-9/" target="_blank" rel="noopener">4.9</a></li>
+<li><a href="https://www.esri.com/arcgis-blog/products/js-api-arcgis/announcements/jsapi-4-8/" target="_blank" rel="noopener">4.8</a></li>
+<li><a href="https://www.esri.com/arcgis-blog/products/js-api-arcgis/announcements/arcgis-api-for-javascript-versions-4-7-and-3-24-released/" target="_blank" rel="noopener">4.7</a></li>
+<li><a href="https://www.esri.com/arcgis-blog/products/announcements/announcements/arcgis-api-for-javascript-versions-4-6-and-3-23-released/" target="_blank" rel="noopener">4.6</a></li>
+<li><a href="https://www.esri.com/arcgis-blog/products/announcements/announcements/arcgis-api-for-javascript-versions-4-5-and-3-22-released/" target="_blank" rel="noopener">4.5</a></li>
+<li><a href="https://www.esri.com/arcgis-blog/products/announcements/announcements/arcgis-api-for-javascript-versions-4-4-and-3-21-are-here/" target="_blank" rel="noopener">4.4</a></li>
+<li><a href="https://www.esri.com/arcgis-blog/products/announcements/announcements/arcgis-api-for-javascript-4-3-and-3-20-released/" target="_blank" rel="noopener">4.3</a></li>
+<li><a href="https://www.esri.com/arcgis-blog/products/announcements/announcements/arcgis-api-for-javascript-4-2-released/" target="_blank" rel="noopener">4.2</a></li>
+<li><a href="https://www.esri.com/arcgis-blog/products/announcements/announcements/arcgis-api-for-javascript-4-1-released/" target="_blank" rel="noopener">4.1</a></li>
+<li><a href="https://www.esri.com/arcgis-blog/products/announcements/announcements/its-here-arcgis-api-for-javascript-4-0-released/" target="_blank" rel="noopener">4.0</a></li>
+</ul>
 
             </div>
             <hr/>
@@ -473,9 +411,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《arcgis for js api 4.x和3.x的一些区别》
+                    《arcgis for js api 4.x历代更新》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/14/arcgis-for-js-api-4-x和3-x的一些区别/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/16/arcgis-for-js-api-4-x历代更新/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Leno
             </a> 采用
@@ -516,7 +454,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2019-12-14T22-25-53',
+        id: '2019-12-16T20-24-52',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -537,9 +475,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/12/16/arcgis-for-js-api-4-x历代更新/">
                     <div class="card-image">
@@ -573,9 +512,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -584,6 +523,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -602,24 +542,24 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/27/解决windows中Arcmap-10-6卡顿问题/">
+                <a href="/2019/12/14/arcgis-for-js-api-4-x和3-x的一些区别/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="解决windows中Arcmap 10.6卡顿问题">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="arcgis for js api 4.x和3.x的一些区别">
                         
-                        <span class="card-title">解决windows中Arcmap 10.6卡顿问题</span>
+                        <span class="card-title">arcgis for js api 4.x和3.x的一些区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            解决在windows中Arcmap 10.6卡顿问题windows 10系统中，Arcmap 10.6在进行地图移动、缩放等操作时有明显的卡顿掉帧，看起来非常不爽，不知道同学们有没有遇到过。如下（GIF图录制完成后播放被加快使其看起来比较流
+                            arcgis for js api 4.x 和 3.x的一些区别(不定时更新)（1） 4.x 为了支持3D功能，在原有的3.x版Map基础上，把地图本体和容器拆分出来，而在容器层面上使用MapView 和 SceneView来区分2D和3D
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-27
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-14
                             </span>
                         <span class="publish-author">
                             
@@ -632,12 +572,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/arcmap/" target="_blank">
-                        <span class="chip bg-color">arcmap</span>
-                    </a>
-                    
-                    <a href="/tags/卡顿/" target="_blank">
-                        <span class="chip bg-color">卡顿</span>
+                    <a href="/tags/arcgis-js/" target="_blank">
+                        <span class="chip bg-color">arcgis.js</span>
                     </a>
                     
                 </div>
