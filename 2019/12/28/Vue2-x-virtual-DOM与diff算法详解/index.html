@@ -739,7 +739,7 @@
 <span class="token punctuation">}</span>
 </code></pre>
 <p>简单概括下，循环结束时，如果是因为<code>oS&gt;oE</code>结束的，表明newCh中存在有新加入的vnode，需要执行addVnodes操作（创建对应的真实dom至父节点中），相反，如果是因为<code>nS&gt;nE</code>结束的，表明newCh中删除了某些vnode，则需要执行removeVnodes操作（从父节点中删除vnode对应的节点）。到这里diff就正式结束了，是不是很有意思呢？</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>一开始认为diff算法非常高大上，难以理解，但是潜心研究下去发现一切都是js。另外值得吐槽的是，无论我的节点是动态节点还是静态节点，只要数据一更新，所有的节点都会被递归diff一遍，不得不说也是一个不妙的情况，理应是仅仅对动态节点进行diff的，怪不得vue3.0会对diff算法进行大刀阔斧的改动。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>此次研究收获还是挺大的。不过值得吐槽的是，无论我的节点是动态节点还是静态节点，只要数据一更新，所有的节点都会被递归diff一遍，不得不说也是一个不妙的情况，理应是仅仅对动态节点进行diff的。怪不得vue3.0会对diff算法进行大刀阔斧的改动。</p>
 <p>另外，<a href="https://www.processon.com" target="_blank" rel="noopener">这个网站</a>画流程图真心好用。</p>
 
             </div>
