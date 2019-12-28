@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.coderlyc.xyz/"/>
-  <updated>2019-12-16T12:50:42.719Z</updated>
+  <updated>2019-12-28T17:08:15.262Z</updated>
   <id>http://www.coderlyc.xyz/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue2.x virtual DOM与diff算法详解</title>
+    <link href="http://www.coderlyc.xyz/2019/12/28/Vue2-x-virtual-DOM%E4%B8%8Ediff%E7%AE%97%E6%B3%95%E8%AF%A6%E8%A7%A3/"/>
+    <id>http://www.coderlyc.xyz/2019/12/28/Vue2-x-virtual-DOM与diff算法详解/</id>
+    <published>2019-12-28T05:43:21.000Z</published>
+    <updated>2019-12-28T17:08:15.262Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Vue-virtual-DOM与diff算法详解&quot;&gt;&lt;a href=&quot;#Vue-virtual-DOM与diff算法详解&quot; class=&quot;headerlink&quot; title=&quot;Vue virtual DOM与diff算法详解&quot;&gt;&lt;/a&gt;Vue virtual
+        
+      
+    
+    </summary>
+    
+    
+      <category term="VUE" scheme="http://www.coderlyc.xyz/tags/VUE/"/>
+    
+      <category term="Diff" scheme="http://www.coderlyc.xyz/tags/Diff/"/>
+    
+  </entry>
   
   <entry>
     <title>arcgis for js api 4.x历代更新</title>
@@ -476,30 +502,6 @@
     
     
       <category term="js" scheme="http://www.coderlyc.xyz/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记录一下elementUI的tree节点过长缺无法横向滚动的问题</title>
-    <link href="http://www.coderlyc.xyz/2019/04/05/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8BelementUI%E7%9A%84tree%E8%8A%82%E7%82%B9%E8%BF%87%E9%95%BF%E7%BC%BA%E6%97%A0%E6%B3%95%E6%A8%AA%E5%90%91%E6%BB%9A%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://www.coderlyc.xyz/2019/04/05/记录一下elementUI的tree节点过长缺无法横向滚动的问题/</id>
-    <published>2019-04-05T06:07:09.000Z</published>
-    <updated>2019-08-10T13:58:38.108Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;记录一下elementUI的tree节点过长缺无法横向滚动的问题：&lt;br&gt;在用el-tree做模型管理引擎左侧的模型目录树的时候发现一些UI上的问题，如果装载tree的容器宽度很小（此项目大概为10%屏幕宽度），然而节点较多文字较长时，el-tree无法正常滚动。&lt;br&gt;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="element-ui" scheme="http://www.coderlyc.xyz/tags/element-ui/"/>
     
   </entry>
   
