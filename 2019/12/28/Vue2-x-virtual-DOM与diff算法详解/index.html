@@ -593,7 +593,7 @@
 <p>在path()方法中，确定oldVnode与vnode都指向同一个节点后，patchVnode开始对oldVnode与vnode做了以下这几件事：</p>
 <ul>
 <li>如果vnode没有任何修改，直接return</li>
-<li>如果cnode有数据要更新，并且vnode允许patch，则对真实节点进行更新。</li>
+<li>如果vnode有数据要更新，并且vnode允许patch，则对真实节点进行更新。</li>
 <li>如果真实节点是文本节点且文本得到更新，则直接更新真实节点的文本节点。</li>
 <li>如果vnode.text不存在（表明真实节点不是文本节点），则再根据进行情况细分，情况一：如果oldVnode与vnode都有子节点并且不相同，则执行<code>updateChildren</code>；情况二：如果仅vnode有子节点，则直接把子节点挂载至真实节点；情况三：如果仅仅只有oldVnode有子节点，则直接把真实节点的子节点删除；情况四：如果仅vnode有text，则直接把text设置至真实节点。</li>
 </ul>
