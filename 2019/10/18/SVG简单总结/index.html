@@ -38,7 +38,7 @@ SVG大大小小共有150+个元素，想要全部掌握需要一定的时间成�
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -367,7 +367,7 @@ SVG大大小小共有150+个元素，想要全部掌握需要一定的时间成�
 </ul>
 <p>SVG大大小小共有150+个元素，想要全部掌握需要一定的时间成本，但是掌握了前面我们学习过的内容，就能够大致地让我们知道SVG的运作原理以及基本用法，遇到使用SVG技术做渲染的场景就会比较容易理解，也能编写简易的可视化表达图形，下面来应用我们学习过的知识来编写一些综合实例。</p>
 <h3 id="2-应用例子"><a href="#2-应用例子" class="headerlink" title="2.  应用例子"></a>2.  应用例子</h3><h4 id="2-1-loading状态图标"><a href="#2-1-loading状态图标" class="headerlink" title="2.1 loading状态图标"></a>2.1 loading状态图标</h4><p>loading状态可以说是非常常见的需求，带有动画效果的loading状态通常通过gif图片、icon+CSS3或者SVG图标实现。gif图片的缺点是显而易见的，会增加网络请求。icon+CSS3虽然没有网络请求，但是只能是单色图标。而SVG就没有这些缺点了，甚至还可以通过代码自己设计想要的图标模样。下面是一个简单的多色旋转图标，用到的技术是SVG基础图形+渐变效果+动画，如下:</p>
-<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewbox="-25 -25 50 50"><defs><lineargradient id="grad" x1="0" y1="0" x2="1" y2="1"><stop class="stop1" offset="0" stop-color="#1497fc"/><stop class="stop2" offset="0.5" stop-color="#a469be"/><stop class="stop3" offset="1" stop-color="#ff8c00"/></lineargradient></defs><circle cx="0" cy="0" r="15" stroke="url(#grad)" stroke-width="6" fill="none"/><animatetransform attributename="transform" begin="0s" dur="1s" type="rotate" from="0 0 0" to="360 0 0" repeatcount="indefinite"><br/></animatetransform></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="-25 -25 50 50"><defs><linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"><stop class="stop1" offset="0" stop-color="#1497fc"/><stop class="stop2" offset="0.5" stop-color="#a469be"/><stop class="stop3" offset="1" stop-color="#ff8c00"/></linearGradient></defs><circle cx="0" cy="0" r="15" stroke="url(#grad)" stroke-width="6" fill="none"><animateTransform attributeName="transform" begin="0s" dur="1s" type="rotate" from="0 0 0" to="360 0 0" repeatCount="indefinite"/></circle><br></svg>
 
 <pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>-25 -25 50 50<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>defs</span><span class="token punctuation">></span></span>
@@ -612,7 +612,7 @@ pie.setData(datas)
 </code></pre>
 <h4 id="2-3-力导向图"><a href="#2-3-力导向图" class="headerlink" title="2.3 力导向图"></a>2.3 力导向图</h4><p>力导向图通常用来表示关系。下面是一个每个点之间具有两两关联关系的力导向图，每个点的位置随机给定，然后通过每秒60次的频率更新节点位置，经过一定时间的平衡后呈现位一个规则多边形的图形（SVG的SMIL动画在此并不适用，本例使用脚本来实现动画效果）。本例的关键在于如何更新节点位置使其动画效果较好并且能够达到平衡规则状态，答案便是弹簧模型。物体在被多个弹簧牵引初期，会处于一个晃动的状态，随着时间的推移动能逐渐磨损而达到一个平衡静止的状态。本例算法的实现可能比较复杂。</p>
 <p>弹簧模型:</p>
-<svg xmlns="http://www.w3.org/2000/svg" width="400px" height="250px"><path d="M50,50 L200,150,100,200 Z" fill="none" stroke="gray"/><circle cx="50" cy="50" r="20" fill="#af5587"/><circle cx="200" cy="150" r="30" fill="#0f5587"/><circle cx="100" cy="200" r="40" fill="#5ff587"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="400px" height="250px"><path d="M50,50 L200,150,100,200 Z" fill="none" stroke="gray"></path><circle cx="50" cy="50" r="20" fill="#af5587"></circle><circle cx="200" cy="150" r="30" fill="#0f5587"></circle><circle cx="100" cy="200" r="40" fill="#5ff587"></circle></svg>
 
 <ul>
 <li>物体受弹簧力公式: <code>Fi = k·x</code> 其中k表示弹簧系数，x表示弹簧长度变化的值。</li>
@@ -1040,7 +1040,7 @@ graph.setData(data)
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -1051,11 +1051,11 @@ graph.setData(data)
                   property="dct:title" rel="dct:type">
                     《SVG简单总结》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/18/SVG简单总结/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/18/SVG%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Leno
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -1117,7 +1117,7 @@ graph.setData(data)
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/10/25/在VUE项目中使用TypeScript-实践/">
+                <a href="/2019/10/25/%E5%9C%A8VUE%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8TypeScript-%E5%AE%9E%E8%B7%B5/">
                     <div class="card-image">
                         
                         
@@ -1163,7 +1163,7 @@ graph.setData(data)
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/12/SVG动画/">
+                <a href="/2019/10/12/SVG%E5%8A%A8%E7%94%BB/">
                     <div class="card-image">
                         
                         

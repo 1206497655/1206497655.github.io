@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -318,7 +318,7 @@
                                 <span class="chip bg-color">JavaScript</span>
                             </a>
                         
-                            <a href="/tags/组件/" target="_blank">
+                            <a href="/tags/%E7%BB%84%E4%BB%B6/" target="_blank">
                                 <span class="chip bg-color">组件</span>
                             </a>
                         
@@ -330,7 +330,7 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/前端/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
                                 前端
                             </a>
                         
@@ -358,40 +358,40 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p> &emsp;&emsp;前些天去面试，被要求用原生JS实现一个能遍历数组生成树状展开列表(其实不知道是不是这样表述)的tree组件，花了我不少的时间和精力，看来自己的实战能力确实是不够，不过后来还是做出来了<a id="more"></a>，效果不敢说如何，直接上图<br>&gt;<img src="../../../../img/7/1/效果.JPG" alt="avatar"><br>&gt;<br>  &emsp;&emsp;这个组件的开发环境为windows10 + webStorm2017 + chrome67 + webpack + babel，使用ES6和原生JS开发，未做浏览器兼容。能够实现遍历多重数组并把数组的title属性转换为li标签的内容文本，把数组的id属性转换为li标签的id属性，具有展开和折叠的动画效果，鼠标移入移出时背景色改变的动画效果，以及双击列表打印当前列表信息{title:”….”,id:”…”}等。这里直接上组件的代码，代码中已有完整注释，组件中使用得比较多的技巧有递归遍历、事件代理、三元运算，<a href="https://github.com/1206497655/tree" target="_blank" rel="noopener">点击这里</a>查看完整项目。<br><pre><code>function Tree(obj) {
-    const valueArr = Object.values(obj);
-    this.baseNode = valueArr[0];
-    this.treeData = valueArr[1];
-    this.dblclick = valueArr[2];
+                <p> &emsp;&emsp;前些天去面试，被要求用原生JS实现一个能遍历数组生成树状展开列表(其实不知道是不是这样表述)的tree组件，花了我不少的时间和精力，看来自己的实战能力确实是不够，不过后来还是做出来了<a id="more"></a>，效果不敢说如何，直接上图<br/>&gt;<img src="../../../../img/7/1/效果.JPG" alt="avatar"><br/>&gt;<br>  &emsp;&emsp;这个组件的开发环境为windows10 + webStorm2017 + chrome67 + webpack + babel，使用ES6和原生JS开发，未做浏览器兼容。能够实现遍历多重数组并把数组的title属性转换为li标签的内容文本，把数组的id属性转换为li标签的id属性，具有展开和折叠的动画效果，鼠标移入移出时背景色改变的动画效果，以及双击列表打印当前列表信息{title:”….”,id:”…”}等。这里直接上组件的代码，代码中已有完整注释，组件中使用得比较多的技巧有递归遍历、事件代理、三元运算，<a href="https://github.com/1206497655/tree" target="_blank" rel="noopener">点击这里</a>查看完整项目。<br><pre><code>function Tree(obj) {
+    const valueArr &#x3D; Object.values(obj);
+    this.baseNode &#x3D; valueArr[0];
+    this.treeData &#x3D; valueArr[1];
+    this.dblclick &#x3D; valueArr[2];
 }
 
 &#x2F;*******************************
 * 递归遍历数组生成树状列表方法 *
 ********************************&#x2F;
-Tree.prototype.initArrayTree = function(data){
-        let tree = &#39;&lt;ul class=&quot;ulTree&quot; id=&quot;tree-container&quot;&gt;&#39;;
+Tree.prototype.initArrayTree &#x3D; function(data){
+        let tree &#x3D; &#39;&lt;ul class&#x3D;&quot;ulTree&quot; id&#x3D;&quot;tree-container&quot;&gt;&#39;;
             for (const i in data) {
                 if(data.hasOwnProperty(i)){
-                    tree += `&lt;li id=${data[i].id} class=&quot;liTree&quot; &gt;${data[i].title}`;
+                    tree +&#x3D; &#96;&lt;li id&#x3D;${data[i].id} class&#x3D;&quot;liTree&quot; &gt;${data[i].title}&#96;;
                     if (data[i].children) {
-                        tree += this.initArrayTree(data[i].children);
+                        tree +&#x3D; this.initArrayTree(data[i].children);
                     }
-                    tree += `&lt;&#x2F;li&gt;`;
+                    tree +&#x3D; &#96;&lt;&#x2F;li&gt;&#96;;
                 }
             }
-        tree += &#39;&lt;&#x2F;ul&gt;&#39;;
+        tree +&#x3D; &#39;&lt;&#x2F;ul&gt;&#39;;
         return tree
 };
 
 &#x2F;**********************************
  * 递归获取数组内元素的总长度方法 *
  **********************************&#x2F;
-Tree.prototype.getArrayLength = function (data){
-    let arrLength = data.length;
+Tree.prototype.getArrayLength &#x3D; function (data){
+    let arrLength &#x3D; data.length;
     for (const i in data) {
         if(data.hasOwnProperty(i)){
             if (data[i].children) {
-                arrLength += this.getArrayLength(data[i].children);
+                arrLength +&#x3D; this.getArrayLength(data[i].children);
             }
         }
     }
@@ -401,21 +401,21 @@ Tree.prototype.getArrayLength = function (data){
 &#x2F;*************************************************************
  * 递归获取元素的所有后代元素，转换为普通数组，此方法暂未用到*
  *************************************************************&#x2F;
-Tree.prototype.getChildNode = function(node){
+Tree.prototype.getChildNode &#x3D; function(node){
     &#x2F;** 先找到子结点 **&#x2F;
-    let allLiNodes = [];
-    let nodeList = node.childNodes;
+    let allLiNodes &#x3D; [];
+    let nodeList &#x3D; node.childNodes;
     &#x2F;** 把NodeList对象转换为Array对象 **&#x2F;
-    for(let i=0, len = nodeList.length; i &lt; len; i++){
+    for(let i&#x3D;0, len &#x3D; nodeList.length; i &lt; len; i++){
         allLiNodes.push(nodeList[i]);
     }
-    for(let i = 0;i &lt; nodeList.length;i++){
+    for(let i &#x3D; 0;i &lt; nodeList.length;i++){
         &#x2F;**************************************************************************
          * childNode获取到到的节点包含了各种类型的节点                            *
          * 但是我们只需要元素节点  通过nodeType去判断当前的这个节点是不是元素节点 *
          * ************************************************************************&#x2F;
-        if(nodeList[i].nodeType === 1){
-            allLiNodes = allLiNodes.concat(this.getChildNode(nodeList[i]));
+        if(nodeList[i].nodeType &#x3D;&#x3D;&#x3D; 1){
+            allLiNodes &#x3D; allLiNodes.concat(this.getChildNode(nodeList[i]));
         }
     }
     return allLiNodes;
@@ -424,22 +424,22 @@ Tree.prototype.getChildNode = function(node){
 &#x2F;**************************
  * 可操作树状列表生成方法 *
  **************************&#x2F;
-Tree.prototype.createTree = function () {
-    const data = this.treeData;
-    const node = this.baseNode;
-    const click = this.dblclick;
+Tree.prototype.createTree &#x3D; function () {
+    const data &#x3D; this.treeData;
+    const node &#x3D; this.baseNode;
+    const click &#x3D; this.dblclick;
 
     &#x2F;** 消除单击双击冲突用到的定时器 **&#x2F;
-    let TimeFn = null;
+    let TimeFn &#x3D; null;
 
     &#x2F;** 获取数组元素总个数，设置maxHeight值时会用到 **&#x2F;
-    const dataLength = this.getArrayLength(data);
+    const dataLength &#x3D; this.getArrayLength(data);
 
     &#x2F;** 获取树状列表 **&#x2F;
-    const treeBody=  this.initArrayTree(data);
+    const treeBody&#x3D;  this.initArrayTree(data);
 
     &#x2F;** 使用DIV包裹起来 **&#x2F;
-    node.innerHTML = `&lt;div style=&quot;width: 180px; border: 1px solid black; height: auto&quot;&gt;${treeBody}&lt;&#x2F;div&gt;`;
+    node.innerHTML &#x3D; &#96;&lt;div style&#x3D;&quot;width: 180px; border: 1px solid black; height: auto&quot;&gt;${treeBody}&lt;&#x2F;div&gt;&#96;;
 
     &#x2F;** 通过class类添加通用样式样式 **&#x2F;
     document.styleSheets[0].addRule(&#39;.ulTree&#39;, &#39;background-color: white;margin: 0;&#39;);
@@ -448,35 +448,35 @@ Tree.prototype.createTree = function () {
     document.styleSheets[0].addRule(&#39;.arrow-expend&#39;, &#39;border:5px solid transparent; border-top:5px solid #000;margin-left:10px;overflow:hidden;height:0;width:0;display:inline-block;&#39;);
 
     &#x2F;** 循环添加组件中ul的样式 **&#x2F;
-    const ul = document.getElementsByClassName(&#39;ulTree&#39;);
-    for (let i=0;i&lt;ul.length;i++){
-        ul[i].style.cssText = i &gt; 0 ? &#39;padding-left: 20px;&#39;: &#39;&#39;
+    const ul &#x3D; document.getElementsByClassName(&#39;ulTree&#39;);
+    for (let i&#x3D;0;i&lt;ul.length;i++){
+        ul[i].style.cssText &#x3D; i &gt; 0 ? &#39;padding-left: 20px;&#39;: &#39;&#39;
     }
 
     &#x2F;** 箭头图标 **&#x2F;
-    const arrow = &#39;&lt;span class=&quot;arrow&quot;&gt;&lt;&#x2F;span&gt;&#39;;
+    const arrow &#x3D; &#39;&lt;span class&#x3D;&quot;arrow&quot;&gt;&lt;&#x2F;span&gt;&#39;;
 
     &#x2F;** 循环添加组件中li标签的样式 **&#x2F;
-    const li = document.getElementsByClassName(&#39;liTree&#39;);
+    const li &#x3D; document.getElementsByClassName(&#39;liTree&#39;);
     &#x2F;** 无法通过getElementsByClassName获得的对象动态修改className **&#x2F;
     &#x2F;** 决定列表是否应该隐藏，当列表的父元素的父元素为最外层的DIV时不隐藏 **&#x2F;
-    for(let i=0; i&lt;li.length; i++){
-        li[i].style.cssText = li[i].parentNode.parentNode.nodeName === &#39;DIV&#39;? &#39;&#39; : &#39;max-height:0;overflow:hidden&#39;;
+    for(let i&#x3D;0; i&lt;li.length; i++){
+        li[i].style.cssText &#x3D; li[i].parentNode.parentNode.nodeName &#x3D;&#x3D;&#x3D; &#39;DIV&#39;? &#39;&#39; : &#39;max-height:0;overflow:hidden&#39;;
         console.log(li[i].className);
 
         &#x2F;** 当列表元素可展开时添加箭头图标 **&#x2F;
         li[i].childNodes.length &gt; 1 ?
-            li[i].innerHTML = arrow + li[i].innerHTML:
-            li[i].style.textIndent = &#39;20px&#39;;
+            li[i].innerHTML &#x3D; arrow + li[i].innerHTML:
+            li[i].style.textIndent &#x3D; &#39;20px&#39;;
     }
 
     &#x2F;*********************************************
      *  监听li元素绑定鼠标移入事件，改变背景颜色 *
      *********************************************&#x2F;
     node.addEventListener(&#39;mouseover&#39;,function (e) {
-        const target=e.target;
-        if(target.nodeName === &quot;LI&quot;){
-            e.target.style.backgroundColor = &#39;#4D7FFF&#39;;
+        const target&#x3D;e.target;
+        if(target.nodeName &#x3D;&#x3D;&#x3D; &quot;LI&quot;){
+            e.target.style.backgroundColor &#x3D; &#39;#4D7FFF&#39;;
         }
     });
 
@@ -484,9 +484,9 @@ Tree.prototype.createTree = function () {
      * 监听li元素绑定鼠标移出事件，改变背景颜色 *
      ********************************************&#x2F;
     node.addEventListener(&#39;mouseout&#39;,function (e) {
-        const target=e.target;
-        if(target.nodeName === &quot;LI&quot;){
-            e.target.style.backgroundColor = &#39;#ffffff&#39;;
+        const target&#x3D;e.target;
+        if(target.nodeName &#x3D;&#x3D;&#x3D; &quot;LI&quot;){
+            e.target.style.backgroundColor &#x3D; &#39;#ffffff&#39;;
         }
     });
 
@@ -497,14 +497,14 @@ Tree.prototype.createTree = function () {
         &#x2F;** 每次点击清理定时器，消除与双击的冲突 **&#x2F;
         clearTimeout(TimeFn);
         &#x2F;** 200ms内鼠标不点击第二次时执行function **&#x2F;
-        TimeFn = setTimeout(function(){
-            const target = e.target;
+        TimeFn &#x3D; setTimeout(function(){
+            const target &#x3D; e.target;
             &#x2F;** 保证仅点击的元素为li时才生效操作 **&#x2F;
-            if(target.nodeName === &#39;LI&#39;){
+            if(target.nodeName &#x3D;&#x3D;&#x3D; &#39;LI&#39;){
                 &#x2F;** 保证仅点击的元素含有span子元素时才生效操作，改变箭头图标 **&#x2F;
-                if(target.childNodes[0].nodeName === &#39;SPAN&#39;){
-                    const _temp = target.childNodes[0];
-                    _temp.className = _temp.className === &#39;arrow&#39; ? &#39;arrow-expend&#39; : &#39;arrow&#39;;
+                if(target.childNodes[0].nodeName &#x3D;&#x3D;&#x3D; &#39;SPAN&#39;){
+                    const _temp &#x3D; target.childNodes[0];
+                    _temp.className &#x3D; _temp.className &#x3D;&#x3D;&#x3D; &#39;arrow&#39; ? &#39;arrow-expend&#39; : &#39;arrow&#39;;
                 }
 
                 &#x2F;*****************************************************************************
@@ -513,16 +513,16 @@ Tree.prototype.createTree = function () {
                  *  将无法实现动画，因为浏览器无法从auto值进行过渡                           *
                  *****************************************************************************&#x2F;
                 &#x2F;** 不含有子元素时，不进行操作 **&#x2F;
-                if (target.children.length === 0) {
+                if (target.children.length &#x3D;&#x3D;&#x3D; 0) {
                     return false
                 } else {
-                    const temp_node = target.childNodes[2];
-                    target.style.height = &#39;auto&#39;;
-                    for (let i = 0; i&lt;temp_node.childNodes.length;i++){
-                        const temp_style = temp_node.childNodes[i].style;
-                        temp_style.maxHeight =
-                            temp_style.maxHeight === &#39;0px&#39; ?
-                                `${30*(temp_node.childNodes.length + dataLength)}px`:
+                    const temp_node &#x3D; target.childNodes[2];
+                    target.style.height &#x3D; &#39;auto&#39;;
+                    for (let i &#x3D; 0; i&lt;temp_node.childNodes.length;i++){
+                        const temp_style &#x3D; temp_node.childNodes[i].style;
+                        temp_style.maxHeight &#x3D;
+                            temp_style.maxHeight &#x3D;&#x3D;&#x3D; &#39;0px&#39; ?
+                                &#96;${30*(temp_node.childNodes.length + dataLength)}px&#96;:
                                 &#39;0px&#39;;
                     }
                 }
@@ -535,14 +535,14 @@ Tree.prototype.createTree = function () {
      ****************************&#x2F;
     node.addEventListener(&#39;dblclick&#39;,function (e) {
         clearTimeout(TimeFn);
-        const target = e.target;
+        const target &#x3D; e.target;
         &#x2F;** 保证仅点击的元素为li时才生效操作 **&#x2F;
-        if(target.nodeName === &#39;LI&#39;){
+        if(target.nodeName &#x3D;&#x3D;&#x3D; &#39;LI&#39;){
             &#x2F;** 打印点击元素的内容和ID。当前元素存在两种情况，有span节点和无span节点，
              * 有span节点时文本节点位于当前元素子节点的第二位，无span节点时则位于第一位 **&#x2F;
-            const data =  target.childNodes[0].nodeName === &#39;SPAN&#39; ?
-                `{title:${target.childNodes[1].textContent},id:${target.id}}`:
-                `{title:${target.childNodes[0].textContent},id:${target.id}}`;
+            const data &#x3D;  target.childNodes[0].nodeName &#x3D;&#x3D;&#x3D; &#39;SPAN&#39; ?
+                &#96;{title:${target.childNodes[1].textContent},id:${target.id}}&#96;:
+                &#96;{title:${target.childNodes[0].textContent},id:${target.id}}&#96;;
             click(&#39;dblclick&#39;, data);
         }
     });
@@ -574,7 +574,7 @@ export default Tree</code></pre></p>
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -585,11 +585,11 @@ export default Tree</code></pre></p>
                   property="dct:title" rel="dct:type">
                     《JS实战笔记--实现tree组件》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/07/01/JS实战笔记-实现tree组件/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/07/01/JS%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0-%E5%AE%9E%E7%8E%B0tree%E7%BB%84%E4%BB%B6/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Leno
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -651,7 +651,7 @@ export default Tree</code></pre></p>
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/07/07/解决windows下命令执行出错-无法将-hexo-项识别为-cmdlet、函数、脚本文件或可运行程序的名称。/">
+                <a href="/2018/07/07/%E8%A7%A3%E5%86%B3windows%E4%B8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E5%87%BA%E9%94%99-%E6%97%A0%E6%B3%95%E5%B0%86-hexo-%E9%A1%B9%E8%AF%86%E5%88%AB%E4%B8%BA-cmdlet%E3%80%81%E5%87%BD%E6%95%B0%E3%80%81%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6%E6%88%96%E5%8F%AF%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%90%8D%E7%A7%B0%E3%80%82/">
                     <div class="card-image">
                         
                         
@@ -674,7 +674,7 @@ export default Tree</code></pre></p>
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/工具/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category" target="_blank">
                                     工具
                                 </a>
                             
@@ -692,7 +692,7 @@ export default Tree</code></pre></p>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/06/12/JS学习笔记-原型和原型继承/">
+                <a href="/2018/06/12/JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF/">
                     <div class="card-image">
                         
                         
@@ -715,7 +715,7 @@ export default Tree</code></pre></p>
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/前端/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
                                     前端
                                 </a>
                             
@@ -730,7 +730,7 @@ export default Tree</code></pre></p>
                         <span class="chip bg-color">JavaScript</span>
                     </a>
                     
-                    <a href="/tags/原型/" target="_blank">
+                    <a href="/tags/%E5%8E%9F%E5%9E%8B/" target="_blank">
                         <span class="chip bg-color">原型</span>
                     </a>
                     

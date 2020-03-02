@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -330,7 +330,7 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/前端/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
                                 前端
                             </a>
                         
@@ -366,7 +366,7 @@
             &#39;dojo&#x2F;domReady!&#39;
         ], function (dom, declare, _WidgetBase, _TemplatedMixin) {
             &#x2F;&#x2F; 用法
-            var foo = new _TemplatedMixin(params, srcNodeRef);
+            var foo &#x3D; new _TemplatedMixin(params, srcNodeRef);
 
             &#x2F;&#x2F; 属性
             &#x2F;&#x2F; attachScope：附加点和事件将作用于的对象。 默认为&#39;this&#39;。
@@ -437,7 +437,7 @@
              * 你可能认为窗口小部件作者可以在html模板中使用id属性，然后在部件的js中使用dojo.byId()。 但如果
              * 这样做，在创建了两个或更多个部件实例时，它们都将具有相同的id, 很显然代码会出错。
              * 相反，你的部件需要执行以下操作：
-             *      1.在部件模板的html中，对于这些变量应该对应的每个节点，需要添加属性：data-dojo-attach-point =&quot;yourVariableNameHere&quot;。
+             *      1.在部件模板的html中，对于这些变量应该对应的每个节点，需要添加属性：data-dojo-attach-point &#x3D;&quot;yourVariableNameHere&quot;。
              *      2.在部件的js代码中使用这些节点的变量(未声明)。在这种情况下将会访问this.counter。
              * 变量未声明的原因是，当_TemplatedMixin中的代码在上面的步骤1中扫描html，并且它在data-dojo-attach-point
              * 属性中找到变量时，它会动态地将这些变量添加到窗口小部件类中。
@@ -457,21 +457,21 @@
 
                     templateString:
                         &quot;&lt;div&gt;&quot; +
-                        &quot;&lt;button data-dojo-attach-event=&#39;onclick: increment&#39;&gt;press me&lt;&#x2F;button&gt;&quot; +
-                        &quot;&amp;nbsp; count: &lt;span data-dojo-attach-point=&#39;counter&#39;&gt;0&lt;&#x2F;span&gt;&quot; +
+                        &quot;&lt;button data-dojo-attach-event&#x3D;&#39;onclick: increment&#39;&gt;press me&lt;&#x2F;button&gt;&quot; +
+                        &quot;&amp;nbsp; count: &lt;span data-dojo-attach-point&#x3D;&#39;counter&#39;&gt;0&lt;&#x2F;span&gt;&quot; +
                         &quot;&lt;&#x2F;div&gt;&quot;,
 
                     increment: function (evt) {
-                        this.counter.innerHTML = ++this._i;
+                        this.counter.innerHTML &#x3D; ++this._i;
                     }
                 });
 
                 &#x2F;**
                  * containerNode
                  * 通常在标记中声明的部件将包含一些其他DOM。例如
-                 * &lt;button data-dojo-type=&quot;dijit&#x2F;form&#x2F;Button&quot;&gt;press me&lt;&#x2F;button&gt;
+                 * &lt;button data-dojo-type&#x3D;&quot;dijit&#x2F;form&#x2F;Button&quot;&gt;press me&lt;&#x2F;button&gt;
                  * 
-                 * 如果模板定义了data-dojo-attach-point =&quot;containerNode&quot;，则srcNodeRef中的子节点将被复制到此节点。
+                 * 如果模板定义了data-dojo-attach-point &#x3D;&quot;containerNode&quot;，则srcNodeRef中的子节点将被复制到此节点。
                  * 例如
                  **&#x2F;
                 require([
@@ -481,7 +481,7 @@
                     parser.parse();
                     return declare(&quot;MyButton&quot;, [dijit._WidgetBase, dijit._TemplatedMixin], {
                         templateString:
-                            &quot;&lt;button data-dojo-attach-point=&#39;containerNode&#39; data-dojo-attach-event=&#39;onclick: onClick&#39;&gt;&lt;&#x2F;button&gt;&quot;,
+                            &quot;&lt;button data-dojo-attach-point&#x3D;&#39;containerNode&#39; data-dojo-attach-event&#x3D;&#39;onclick: onClick&#39;&gt;&lt;&#x2F;button&gt;&quot;,
                         onClick: function (evt) {
                             alert(&quot;Awesome!!&quot;);
                         }
@@ -524,7 +524,7 @@
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -535,11 +535,11 @@
                   property="dct:title" rel="dct:type">
                     《dojo学习笔记--模板TemplatedMixin》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/07/29/dojo学习笔记-模板TemplatedMixin/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A8%A1%E6%9D%BFTemplatedMixin/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Leno
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -601,62 +601,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/11/28/git的日常工作流程总结/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="git的日常工作流程总结">
-                        
-                        <span class="card-title">git的日常工作流程总结</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            总结了一下在团队开发种自己日常使用的一下git操作以及流程：&#x2F;&#x2F; 去自己的工作分支
-$ git checkout work
-
-&#x2F;&#x2F; 工作
-&#x2F;&#x2F; ....
-
-&#x2F;&#x2F;
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-28
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/工具/" class="post-category" target="_blank">
-                                    工具
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/git/" target="_blank">
-                        <span class="chip bg-color">git</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2018/07/29/解决VSCode触摸板滑动卡顿问题/">
+                <a href="/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
@@ -673,14 +618,14 @@ $ git checkout work
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-29
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/工具/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category" target="_blank">
                                     工具
                                 </a>
                             
@@ -693,6 +638,59 @@ $ git checkout work
                     
                     <a href="/tags/VSCode/" target="_blank">
                         <span class="chip bg-color">VSCode</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9B%E5%BB%BAwidget/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="dojo学习笔记--创建widget">
+                        
+                        <span class="card-title">dojo学习笔记--创建widget</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            &emsp;&emsp;dijit / _WidgetBase是Dijit包中所有组件的基类，也是Dojo中所有组件的一个基类。通常一个组件也会继承一些属性融合的工具类，例如：dijit._TemplatedMixin。 注意：_Widge
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/dojo/" target="_blank">
+                        <span class="chip bg-color">dojo</span>
+                    </a>
+                    
+                    <a href="/tags/widget/" target="_blank">
+                        <span class="chip bg-color">widget</span>
                     </a>
                     
                 </div>

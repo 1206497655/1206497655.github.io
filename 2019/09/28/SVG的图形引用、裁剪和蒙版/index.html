@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -347,7 +347,7 @@
             <div id="articleContent">
                 <h3 id="SVG的图形引用、裁剪和蒙版"><a href="#SVG的图形引用、裁剪和蒙版" class="headerlink" title="SVG的图形引用、裁剪和蒙版"></a>SVG的图形引用、裁剪和蒙版</h3><h3 id="1--lt-use-gt-标签创建图形引用"><a href="#1--lt-use-gt-标签创建图形引用" class="headerlink" title="1.&lt;use&gt; - 标签创建图形引用"></a>1.&lt;use&gt; - 标签创建图形引用</h3><p>use元素在SVG文档内取得目标节点，并在别的地方复制它们。它的效果等同于这些节点被深克隆到一个不可见的DOM中，然后将其粘贴到use元素的位置，很像HTML5中的克隆模板元素。因为克隆的节点是不可见的，所以当使用CSS样式化一个use元素以及它的隐藏的后代元素的时候，必须小心注意。隐藏的、克隆的DOM不能保证继承CSS属性，除非你明文设置使用CSS继承。出于安全原因，一些浏览器可能在use元素上应用同源策略，还有可能拒绝载入xlink:href属性内的跨源URI。</p>
 <p>用法: &lt;use xlink:href=”#id”&gt;</p>
-<svg width="500px" height="200px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style>.classA{ fill:red }</style><defs><g id="Port"><circle style="fill:inherit" r="10"/></g></defs><text y="15">black</text><use x="50" y="10" xlink:href="#Port"/><text y="35">red</text><use x="50" y="30" xlink:href="#Port" class="classA"/><text y="55">blue</text><use x="50" y="50" xlink:href="#Port" style="fill:blue"/></svg>
+<svg width="500px" height="200px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style>.classA{ fill:red }</style><defs><g id="Port"><circle style="fill:inherit" r="10"/></g></defs><text y="15">black</text><use x="50" y="10" xlink:href="#Port" /><text y="35">red</text><use x="50" y="30" xlink:href="#Port" class="classA"/><text y="55">blue</text><use x="50" y="50" xlink:href="#Port" style="fill:blue"/></svg>
 
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>500px<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200px<span class="token punctuation">"</span></span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xlink</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/1999/xlink<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
@@ -369,7 +369,7 @@
 <h3 id="2-lt-clipPath-gt-标签裁切图形"><a href="#2-lt-clipPath-gt-标签裁切图形" class="headerlink" title="2. &lt;clipPath&gt; - 标签裁切图形"></a>2. &lt;clipPath&gt; - 标签裁切图形</h3><p>clipPath元素指定可绘制区域，从概念上来说，当绘制的图形超出了剪切路径所指定的区域，超出区域的部分将不会被绘制，即达到了裁剪的效果。使用方法：通过<code>clip-path</code>属性来使用/引用剪切路径。</p>
 <p>用法: &lt;clipPath&gt;&lt;!– 标签 –&gt;&lt;/clipPath&gt;</p>
 <p>​      clip-path=”url(#myClip)”</p>
-<svg width="500px" height="200px" viewbox="0 0 100 100"><style>@keyframes animation {from {r: 0} to {r: 60px}} #myClip circle {animation: animation 15s infinite;}</style><clippath id="myClip"><!--三角形外的所有东西都会被裁剪掉，因此不可见。--><circle cx="8" cy="35" r="35"/></clippath><!-- 作为引用元素的三角形 --><path id="heart" d="M0,0 L-50,50 H50, L0,0"/><!--只有位于三角形内的那一部分红色圆形是可见的；随着圆变大，它将逐渐变为一个红色三角形。--><use clip-path="url(#myClip)" xlink:href="#heart" fill="red"/></svg>
+<svg width="500px" height="200px" viewBox="0 0 100 100"><style>@keyframes animation {from {r: 0} to {r: 60px}} #myClip circle {animation: animation 15s infinite;}</style><clipPath id="myClip"><!--三角形外的所有东西都会被裁剪掉，因此不可见。--><circle cx="8" cy="35" r="35" /></clipPath><!-- 作为引用元素的三角形 --><path id="heart" d="M0,0 L-50,50 H50, L0,0" /><!--只有位于三角形内的那一部分红色圆形是可见的；随着圆变大，它将逐渐变为一个红色三角形。--><use clip-path="url(#myClip)" xlink:href="#heart" fill="red" /></svg>
 
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>500px<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200px<span class="token punctuation">"</span></span> <span class="token attr-name">viewBox</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0 0 100 100<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
@@ -392,11 +392,11 @@
 <p>然而，该circle不会被绘制。它的象素数据将用来确定：圆形的哪些像素需要最终呈现出来。</p>
 <p>从概念上讲，一个剪切路径等同于为引用元素设置一个自定义的可视区域。所以，它会影响一个元素呈现出来的样子，但不会影响这个元素固有的几何形状。如上述例子，三角形始终保持着它的形态。需要注意的是，在不设置裁剪区域<code>clip-path=&quot;url(#myClip)&quot;</code>时，此处实际上是一个红色三角形。</p>
 <p>默认情况下，一个形状，其被剪切掉的区域（不可见的区域）是不响应鼠标事件的。举个例子，如果一个半径为10的圆形被剪切成半径为5的圆形，那么这个圆在半径为5以外的区域是不能接收“click”事件的。</p>
-<h3 id="3-lt-mask-gt-标签创建蒙版"><a href="#3-lt-mask-gt-标签创建蒙版" class="headerlink" title="3. &lt;mask&gt; - 标签创建蒙版"></a>3. &lt;mask&gt; - 标签创建蒙版</h3><p>在SVG中，你可以指定一个透明的遮罩层和当前对象合成，形成背景。透明遮罩层可以是任何其他图形对象或者<g>元素。mask元素用于定义这样的遮罩元素。属性mask用来引用一个遮罩元素。</g></p>
+<h3 id="3-lt-mask-gt-标签创建蒙版"><a href="#3-lt-mask-gt-标签创建蒙版" class="headerlink" title="3. &lt;mask&gt; - 标签创建蒙版"></a>3. &lt;mask&gt; - 标签创建蒙版</h3><p>在SVG中，你可以指定一个透明的遮罩层和当前对象合成，形成背景。透明遮罩层可以是任何其他图形对象或者<g>元素。mask元素用于定义这样的遮罩元素。属性mask用来引用一个遮罩元素。</p>
 <p>遮罩的效果最令人印象深刻的是表现为一个渐变。如果你想要让一个元素淡出，你可以利用遮罩效果实现这一点。</p>
 <p>用法: &lt;mask&gt;&lt;!– 标签 –&gt;&lt;/mask&gt;</p>
 <p>​      mask=”url(#myMask)”</p>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><lineargradient id="Gradient"><stop offset="0" stop-color="white" stop-opacity="0"/><stop offset="1" stop-color="white" stop-opacity="1"/></lineargradient><mask id="Mask"><rect x="0" y="0" width="200" height="200" fill="url(#Gradient)"/></mask></defs><rect x="0" y="0" width="200" height="200" fill="blue"/><rect x="0" y="0" width="200" height="200" fill="red" mask="url(#Mask)"/><br/></svg>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><linearGradient id="Gradient"><stop offset="0" stop-color="white" stop-opacity="0" /><stop offset="1" stop-color="white" stop-opacity="1" /></linearGradient><mask id="Mask"><rect x="0" y="0" width="200" height="200" fill="url(#Gradient)"  /></mask></defs><rect x="0" y="0" width="200" height="200" fill="blue" /><rect x="0" y="0" width="200" height="200" fill="red" mask="url(#Mask)"/><br></svg>
 
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">version</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1.1<span class="token punctuation">"</span></span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xlink</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/1999/xlink<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>defs</span><span class="token punctuation">></span></span>
@@ -438,7 +438,7 @@
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -449,11 +449,11 @@
                   property="dct:title" rel="dct:type">
                     《SVG的图形引用、裁剪和蒙版》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/28/SVG的图形引用、裁剪和蒙版/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/28/SVG%E7%9A%84%E5%9B%BE%E5%BD%A2%E5%BC%95%E7%94%A8%E3%80%81%E8%A3%81%E5%89%AA%E5%92%8C%E8%92%99%E7%89%88/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Leno
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -515,7 +515,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/10/12/SVG动画/">
+                <a href="/2019/10/12/SVG%E5%8A%A8%E7%94%BB/">
                     <div class="card-image">
                         
                         
@@ -564,7 +564,7 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/20/SVG的文本/">
+                <a href="/2019/09/20/SVG%E7%9A%84%E6%96%87%E6%9C%AC/">
                     <div class="card-image">
                         
                         

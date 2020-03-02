@@ -30,7 +30,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -347,13 +347,13 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Vue项目编译后部署在非网站根目录的解决方案。<br>背景：在公司的网站部署中，项目的项目地址一般都不是网站根目录，而是某个子目录。例如：<br>  <div align="center"><img src="../../../../img/2019/04/05/1.png" width="50%" height="50%"></div> <br></p>
-<p>这样子就得针对子目录做些编译配置，否则在路由跳转或者访问静态资源得时候出错。<br>  <div align="center"><img src="../../../../img/2019/04/05/2.png" width="50%" height="50%"></div> <br></p>
-<p>修改配置文件：<br>  <div align="center"><img src="../../../../img/2019/04/05/3.png" width="50%" height="50%"></div> <br></p>
-<p>修改路由:<br>由于history模式下所有路由都是基于网站根路径的，所以在路由跳转的时候会出现这种错误情况：<br>跳转前路由：<br>  <div align="center"><img src="../../../../img/2019/04/05/4.png" width="50%" height="50%"></div> <br></p>
-<p>跳转目的路由：<br>  <div align="center"><img src="../../../../img/2019/04/05/5.png" width="50%" height="50%"></div> <br></p>
+                <p>Vue项目编译后部署在非网站根目录的解决方案。<br>背景：在公司的网站部署中，项目的项目地址一般都不是网站根目录，而是某个子目录。例如：<br>  <div align=center><img src="../../../../img/2019/04/05/1.png" width = "50%" height = "50%" ></div> <br/></p>
+<p>这样子就得针对子目录做些编译配置，否则在路由跳转或者访问静态资源得时候出错。<br>  <div align=center><img src="../../../../img/2019/04/05/2.png" width = "50%" height = "50%" ></div> <br/></p>
+<p>修改配置文件：<br>  <div align=center><img src="../../../../img/2019/04/05/3.png" width = "50%" height = "50%" ></div> <br/></p>
+<p>修改路由:<br>由于history模式下所有路由都是基于网站根路径的，所以在路由跳转的时候会出现这种错误情况：<br>跳转前路由：<br>  <div align=center><img src="../../../../img/2019/04/05/4.png" width = "50%" height = "50%" ></div> <br/></p>
+<p>跳转目的路由：<br>  <div align=center><img src="../../../../img/2019/04/05/5.png" width = "50%" height = "50%" ></div> <br/></p>
 <p>可以看见跳转后路由以根目录为基准进行跳转，不再以DME子目录为基准，导致路由跳转出错。<br>所以针对这个进行修改，通过location.pathname来决定路由的基准。</p>
-<p>修改tomcat配置：<br>部署后虽然能正常访问，但是刷新后会报路由错误。在网站目录下增加文件夹WEB-INF，里面放置新文件web.xml<br>新文件内容如下：<br>  <div align="center"><img src="../../../../img/2019/04/05/6.png" width="50%" height="50%"></div> <br></p>
+<p>修改tomcat配置：<br>部署后虽然能正常访问，但是刷新后会报路由错误。在网站目录下增加文件夹WEB-INF，里面放置新文件web.xml<br>新文件内容如下：<br>  <div align=center><img src="../../../../img/2019/04/05/6.png" width = "50%" height = "50%" ></div> <br/></p>
 <p>最后大家假期愉快。</p>
 
             </div>
@@ -380,7 +380,7 @@
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -391,11 +391,11 @@
                   property="dct:title" rel="dct:type">
                     《Vue项目编译后部署在非网站根目录的解决方案》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/04/05/Vue项目编译后部署在非网站根目录的解决方案/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/04/05/Vue%E9%A1%B9%E7%9B%AE%E7%BC%96%E8%AF%91%E5%90%8E%E9%83%A8%E7%BD%B2%E5%9C%A8%E9%9D%9E%E7%BD%91%E7%AB%99%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Leno
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -457,7 +457,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/04/05/记录一下elementUI的tree节点过长缺无法横向滚动的问题/">
+                <a href="/2019/04/05/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8BelementUI%E7%9A%84tree%E8%8A%82%E7%82%B9%E8%BF%87%E9%95%BF%E7%BC%BA%E6%97%A0%E6%B3%95%E6%A8%AA%E5%90%91%E6%BB%9A%E5%8A%A8%E7%9A%84%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
@@ -502,7 +502,7 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/03/23/关于翻译插件的问题/">
+                <a href="/2019/03/23/%E5%85%B3%E4%BA%8E%E7%BF%BB%E8%AF%91%E6%8F%92%E4%BB%B6%E7%9A%84%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         

@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -330,7 +330,7 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/前端/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
                                 前端
                             </a>
                         
@@ -373,16 +373,16 @@
                     console.log(&quot;命名类&quot;);
                 }
             })
-            var per = new mynamespace.Person();
+            var per &#x3D; new mynamespace.Person();
             per.method();
             &#x2F;&#x2F; 匿名类  需要变量名去接收
-            var Person = declare(null, {
+            var Person &#x3D; declare(null, {
                 &#x2F;&#x2F; Custom properties and methods here
                 method: function () {
                     console.log(&quot;匿名类&quot;);
                 }
             })
-            var per = new Person();
+            var per &#x3D; new Person();
             per.method();
 
             &#x2F;&#x2F; SuperClass(超类)，继承的优先级从左至右依次升高，若果出现重复属性或方法时，
@@ -393,7 +393,7 @@
             declare(&quot;myClass&quot;, null, {
                 text: &quot;不继承&quot;
             });
-            var myInst = new myClass();
+            var myInst &#x3D; new myClass();
             console.log(myInst);
             console.log(myInst.text);
 
@@ -402,7 +402,7 @@
             declare(&quot;mySubClass&quot;, myClass, {
                 text: &quot;单继承&quot;
             });
-            var myInst = new mySubClass();
+            var myInst &#x3D; new mySubClass();
             console.log(myInst);
             console.log(myInst.text)
 
@@ -420,12 +420,12 @@
                 num3: &quot;3&quot;,
                 prop: &quot;c&quot;
             });
-            var Obj = {
+            var Obj &#x3D; {
                 num4: &quot;4&quot;,
                 prop: &quot;d&quot;
             }
             declare(&quot;myMultiSubClass&quot;, [myFirstClass, mySecondClass, myThirdClass], Obj);
-            var myInst = new myMultiSubClass();
+            var myInst &#x3D; new myMultiSubClass();
             console.log(myInst);
             console.log(myInst.num1 + myInst.num2 + myInst.num3 + myInst.num4 + &quot;,&quot; + myInst.prop);
             &#x2F;* 
@@ -465,7 +465,7 @@
                     console.log(&quot;I was clicked!&quot;);
                 }
             })
-            var myButton = new newButton({}, &quot;declare&quot;).startup();
+            var myButton &#x3D; new newButton({}, &quot;declare&quot;).startup();
 
             &#x2F;&#x2F; 构造函数 constructor
             &#x2F;&#x2F; 类中特别的一个方法就是constructor方法，constructor方法会在类的实例化时触发，在
@@ -479,35 +479,35 @@
                     declare.safeMixin(this, args);&#x2F;&#x2F;将传入的参数混入到实例对象中
                 }
             })
-            var myInst = new Twitter();
+            var myInst &#x3D; new Twitter();
             console.log(myInst.username);&#x2F;&#x2F;输出defaultUser
             &#x2F;&#x2F;创建并传入一个对象
-            var myInst = new Twitter({
+            var myInst &#x3D; new Twitter({
                 username: &quot;Sparrow&quot;
             });
             console.log(myInst.username);&#x2F;&#x2F;输出Sparrow
 
             &#x2F;&#x2F; 如果继承的原型中属性指向Object或者Array，创建的实例将会指向同一个值。下面来探讨一
             &#x2F;&#x2F; 种数据被意外修改的情况
-            var arr = [1, 2, 3, 4];
+            var arr &#x3D; [1, 2, 3, 4];
             declare(&quot;myClass&quot;, null, {
                 num: arr,
                 prop: &quot;aaa&quot;
             });
-            var myInst1 = new myClass();
-            var myInst2 = new myClass();
+            var myInst1 &#x3D; new myClass();
+            var myInst2 &#x3D; new myClass();
 
-            myInst1.prop = &quot;bbb&quot;; &#x2F;&#x2F;修改num属性
+            myInst1.prop &#x3D; &quot;bbb&quot;; &#x2F;&#x2F;修改num属性
             console.log(myInst1.prop); &#x2F;&#x2F; bbb
             console.log(myInst2.prop); &#x2F;&#x2F; aaa
             &#x2F;&#x2F; 此时实际上时给myInst新增了一个prop属性，并没有操作原型链中的prop属性，所以myInst2.prop并没有被修改
 
-            myInst1.__proto__.prop = &quot;bbb&quot;;
+            myInst1.__proto__.prop &#x3D; &quot;bbb&quot;;
             console.log(myInst1.prop); &#x2F;&#x2F; bbb
             console.log(myInst2.prop); &#x2F;&#x2F; bbb
             &#x2F;&#x2F; 操作原型链时，其他实例也会受到影响，这种情况一般不会发生
 
-            myInst1.num = [4, 5, 6, 7];
+            myInst1.num &#x3D; [4, 5, 6, 7];
             console.log(myInst1.num); &#x2F;&#x2F; [4,5,6,7]
             console.log(myInst2.num); &#x2F;&#x2F; [1,2,3,4]
             &#x2F;&#x2F; 此时实际上时给myInst新增了一个num属性，并没有操作原型链中的num属性，所以myInst2.num并没有被修改
@@ -523,31 +523,31 @@
             &#x2F;&#x2F; 过实践得出这说法不完全可靠。
             console.log(&quot;-------------使用构造函数改造--------------&quot;)
             &#x2F;&#x2F;情况1
-            var arr2 = [1, 2, 3, 4];
+            var arr2 &#x3D; [1, 2, 3, 4];
             declare(&quot;myClass&quot;, null, {
                 numArr: null,
                 prop: null,
                 constructor: function (arr) {
-                    this.numArr = arr;
-                    this.prop = &quot;aaa&quot;;
+                    this.numArr &#x3D; arr;
+                    this.prop &#x3D; &quot;aaa&quot;;
                 }
             });
-            var myInst1 = new myClass([1, 2, 3, 4]);
-            var myInst2 = new myClass([1, 2, 3, 4]);
+            var myInst1 &#x3D; new myClass([1, 2, 3, 4]);
+            var myInst2 &#x3D; new myClass([1, 2, 3, 4]);
             &#x2F;&#x2F;push一个5进myInst1.num
             myInst1.numArr.push(5);
             console.log(myInst1.numArr); &#x2F;&#x2F; [1, 2, 3, 4, 5]
             console.log(myInst2.numArr); &#x2F;&#x2F; [1, 2, 3, 4]
             &#x2F;&#x2F; 如果使用传参的方式进行初始化，并且是匿名数组，那么改变myInst1时并不会对myInst2造成影响
 
-            var myInst1 = new myClass(arr2);
-            var myInst2 = new myClass(arr2);
+            var myInst1 &#x3D; new myClass(arr2);
+            var myInst2 &#x3D; new myClass(arr2);
             &#x2F;&#x2F;push一个5进myInst1.num
             myInst1.numArr.push(5);
             console.log(myInst1.numArr); &#x2F;&#x2F; [1, 2, 3, 4, 5]
             console.log(myInst2.numArr); &#x2F;&#x2F; [1, 2, 3, 4，5]
             &#x2F;&#x2F; 如果使用传递的参数不是匿名数组，那么同样会出现误改数据的情况
-            &#x2F;&#x2F; 原因很简单，无论怎样初始化，数组类型的引用特性是不会改变的，&quot;this.numArr = arr2&quot;只是起
+            &#x2F;&#x2F; 原因很简单，无论怎样初始化，数组类型的引用特性是不会改变的，&quot;this.numArr &#x3D; arr2&quot;只是起
             &#x2F;&#x2F; 到一个把numArr指向arr2的作用，无论this的对象是谁。可以了解一下浅拷贝和引用类型的特性
             &#x2F;&#x2F; 便可知道。若果要使用共享的数据而不希望出现误改，根本的解决办法是使用深度拷贝，把arr2的值
             &#x2F;&#x2F; 完完整整的拷贝过来而不是使用指针。但这样的一个缺点就是当arr或者obj占用空间很大时，使用
@@ -556,12 +556,12 @@
                 numArr: null,
                 prop: null,
                 constructor: function (arr) {
-                    this.numArr = lang.clone(arr);&#x2F;&#x2F;clone()是dojo&#x2F;_base&#x2F;lang的一个深度拷贝工具。
-                    this.prop = &quot;aaa&quot;;
+                    this.numArr &#x3D; lang.clone(arr);&#x2F;&#x2F;clone()是dojo&#x2F;_base&#x2F;lang的一个深度拷贝工具。
+                    this.prop &#x3D; &quot;aaa&quot;;
                 }
             });
-            var myInst1 = new myClass(arr2);
-            var myInst2 = new myClass(arr2);
+            var myInst1 &#x3D; new myClass(arr2);
+            var myInst2 &#x3D; new myClass(arr2);
             &#x2F;&#x2F;push一个5进myInst1.num
             myInst1.numArr.push(5);
             console.log(myInst1.numArr); &#x2F;&#x2F; [1, 2, 3, 4, 5]
@@ -570,19 +570,19 @@
             &#x2F;&#x2F; this.inherited() 虽然重写一个方法确实有用， 但每一个类的的构造函数都应该执行它继承链中的
             &#x2F;&#x2F; 父类构造函数，以保持它原始的功能。 这样this.inherited(arguments)语句就派上用场了。  
             &#x2F;&#x2F; this.inherited(arguments)语句调用父类的同名方法。 
-            var A = declare(null, {
+            var A &#x3D; declare(null, {
                 myMethod: function () {
                     console.log(&quot;Hello!&quot;);
                 }
             });
-            var B = declare(A, {
+            var B &#x3D; declare(A, {
                 myMethod: function () {
                     &#x2F;&#x2F; 调用父类A中同名的方法
                     this.inherited(arguments); &#x2F;&#x2F; arguments指的就是在父类A中定义的myMethod
                     console.log(&quot;World!&quot;);
                 }
             });
-            var myB = new B();
+            var myB &#x3D; new B();
             myB.myMethod();
             &#x2F;&#x2F;      Hello!
             &#x2F;&#x2F;      World!
@@ -612,7 +612,7 @@
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -623,11 +623,11 @@
                   property="dct:title" rel="dct:type">
                     《dojo学习笔记--创建类的工具declare》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/07/29/dojo学习笔记-创建类的工具declare/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9B%E5%BB%BA%E7%B1%BB%E7%9A%84%E5%B7%A5%E5%85%B7declare/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Leno
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -689,7 +689,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/07/29/dojo学习笔记-Deferred对象/">
+                <a href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Deferred%E5%AF%B9%E8%B1%A1/">
                     <div class="card-image">
                         
                         
@@ -712,7 +712,7 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/前端/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
                                     前端
                                 </a>
                             
@@ -742,7 +742,7 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/07/29/dojo学习笔记-通用工具lang/">
+                <a href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%80%9A%E7%94%A8%E5%B7%A5%E5%85%B7lang/">
                     <div class="card-image">
                         
                         
@@ -765,7 +765,7 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/前端/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
                                     前端
                                 </a>
                             

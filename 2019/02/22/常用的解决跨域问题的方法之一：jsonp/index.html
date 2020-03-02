@@ -29,7 +29,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -348,7 +348,7 @@
             <div id="articleContent">
                 <pre><code>常用的解决跨域问题的方法之一：jsonp
 </code></pre><p>跨域安全限制问题实际上只存在于浏览器端，服务器是不存在跨域问题的。所以代理服务器也是解决跨域问题的方式之一。但由于技术资源限制，本项目只能采用其它解决跨域的方式—-jsonp。<br>浏览器的同源策略限制从一个源加载的文档或脚本与来自另一个源的资源进行交互。如果协议，端口和主机对于两个页面是相同的，则两个页面具有相同的源，否则就是不同源的，无法进行跨域请求，除了以下一些特殊情况。<br>JS中存在一些特殊标签，它们可以不受同源策略限制去访问不同域的资源，例如\<img>标签可以随意展示不同源的图片资源，\<script>标签可以随意使用CDN引入第三方js插件等。利用这个原理，使用<script>标签来实现无其它跨域处理的情况下的跨域请求。当我们触发请求时，添加一个<script>标签，用于发起跨域请求；请求地址后面带一个callback=showData的参数；showData即是回调函数名称，传到后台，后台用于包裹数据。数据返回到前端后，就是showData(result)的形式，因为是script脚本，所以自动调用showData函数，而result就是showData的参数。至此，我们算是跨域把数据请求回来了，但是比较麻烦，需要自己写脚本发起请求，然后写个回调函数处理数据，不是很方便。更方便的方法是使用jQuery的jsonp请求方式，只需要在发起ajax请求时配置dataType为’jsonp’类型，即可自动生成一个回调函数或者以success函数作为回调函数传送给后台，然后获取数据。当然，后台也需要做专门的包裹数据处理。</p>
-</script></p>
+
             </div>
             <hr/>
 
@@ -373,7 +373,7 @@
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -384,11 +384,11 @@
                   property="dct:title" rel="dct:type">
                     《常用的解决跨域问题的方法之一：jsonp》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/02/22/常用的解决跨域问题的方法之一：jsonp/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/02/22/%E5%B8%B8%E7%94%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95%E4%B9%8B%E4%B8%80%EF%BC%9Ajsonp/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Leno
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -450,7 +450,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/03/01/解决arcgis地图打印无法打印PictureMarkerSymbol/">
+                <a href="/2019/03/01/%E8%A7%A3%E5%86%B3arcgis%E5%9C%B0%E5%9B%BE%E6%89%93%E5%8D%B0%E6%97%A0%E6%B3%95%E6%89%93%E5%8D%B0PictureMarkerSymbol/">
                     <div class="card-image">
                         
                         
@@ -495,7 +495,7 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/02/15/element-ui隐藏滚动条组件el-scrollbar的使用/">
+                <a href="/2019/02/15/element-ui%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%BB%84%E4%BB%B6el-scrollbar%E7%9A%84%E4%BD%BF%E7%94%A8/">
                     <div class="card-image">
                         
                         

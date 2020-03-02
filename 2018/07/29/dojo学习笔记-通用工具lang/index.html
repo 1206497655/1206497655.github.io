@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -330,7 +330,7 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/前端/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
                                 前端
                             </a>
                         
@@ -370,20 +370,20 @@
         *&#x2F;
         &#x2F;&#x2F;实例
         console.log(&#39;------------------------- lang.clone -----------------------------&#39;)
-        var Obj1 = {
+        var Obj1 &#x3D; {
             firstName: &#39;李&#39;,
             lastName: &#39;小龙&#39;
         }
-        var Obj2 = lang.clone(Obj1);
+        var Obj2 &#x3D; lang.clone(Obj1);
         console.log(Obj2);
-        Obj2.firstName = &#39;张&#39;;
-        Obj2.lastName = &#39;学友&#39;;
+        Obj2.firstName &#x3D; &#39;张&#39;;
+        Obj2.lastName &#x3D; &#39;学友&#39;;
         console.log(Obj2);
         console.log(Obj1);&#x2F;&#x2F;修改Obj2后Obj1并未受到影响，因为是深拷贝
-        var node = dom.byId(&#39;someNode&#39;);
-        var newNode = lang.clone(node);
+        var node &#x3D; dom.byId(&#39;someNode&#39;);
+        var newNode &#x3D; lang.clone(node);
         &#x2F;&#x2F;attr.set给newNode添加属性&quot;id:someNewId&quot;
-        var newNode = attr.set(newNode, &quot;id&quot;, &quot;someNewId&quot;);
+        var newNode &#x3D; attr.set(newNode, &quot;id&quot;, &quot;someNewId&quot;);
         &#x2F;&#x2F;把newNode插在node节点之前，两者为兄弟节点
         dojo.place(newNode, node, &quot;before&quot;);
 
@@ -400,28 +400,28 @@
         *&#x2F;
         &#x2F;&#x2F;创建实例
         console.log(&#39;------------------------- lang.delegate -----------------------------&#39;);
-        var anOldObject = { bar: &quot;baz&quot; };
+        var anOldObject &#x3D; { bar: &quot;baz&quot; };
         &#x2F;&#x2F; 创建anNewObject对象作为anOldObject对象的代理对象，并且增加thud:&#39;xyzzy&#39;属性。
-        var anNewObject = lang.delegate(anOldObject, { thud: &quot;xyzzy&quot; });
+        var anNewObject &#x3D; lang.delegate(anOldObject, { thud: &quot;xyzzy&quot; });
         console.log(anNewObject);
-        console.log(anNewObject.bar === &quot;baz&quot;);&#x2F;&#x2F; true
+        console.log(anNewObject.bar &#x3D;&#x3D;&#x3D; &quot;baz&quot;);&#x2F;&#x2F; true
         &#x2F;&#x2F; 关键 增加thud属性时并没有影响anOldObject对象，这就是代理的作用，希望给对象新增方法或属性
         &#x2F;&#x2F; 进行下一步操作,然而不想改变原有对象的前提下，可以使用delegate()方法实现
-        console.log(anOldObject.thud === &quot;xyzzy&quot;); &#x2F;&#x2F; false
-        console.log(anNewObject.thud === &quot;xyzzy&quot;); &#x2F;&#x2F; true 
-        anOldObject.bar = &quot;thonk&quot;;
-        console.log(anNewObject.bar === &quot;thonk&quot;); &#x2F;&#x2F; true
+        console.log(anOldObject.thud &#x3D;&#x3D;&#x3D; &quot;xyzzy&quot;); &#x2F;&#x2F; false
+        console.log(anNewObject.thud &#x3D;&#x3D;&#x3D; &quot;xyzzy&quot;); &#x2F;&#x2F; true 
+        anOldObject.bar &#x3D; &quot;thonk&quot;;
+        console.log(anNewObject.bar &#x3D;&#x3D;&#x3D; &quot;thonk&quot;); &#x2F;&#x2F; true
         &#x2F;&#x2F; 源码
         delegate: (function () {
             &#x2F;&#x2F; 临时构造函数
             function TMP() { }
             &#x2F;&#x2F; 返回一个匿名函数，该函数其实就是dojo.delegate函数
             return function (obj, props) {
-                TMP.prototype = obj;
-                var tmp = new TMP();
+                TMP.prototype &#x3D; obj;
+                var tmp &#x3D; new TMP();
                 &#x2F;&#x2F; 虽然TMP.prototype重新置为null，但是tmp对象已经创建出来了，其[[prototype]]属性已经指向了obj，
                 &#x2F;&#x2F; 所以通过tmp对象可以访问到obj对象中的属性
-                TMP.prototype = null;
+                TMP.prototype &#x3D; null;
                 &#x2F;&#x2F; 如果props存在，则将props混入tmp对象中，所以tmp对象中就有了props对象的所有属性
                 if (props) {
                     d._mixin(tmp, props);
@@ -444,7 +444,7 @@
         &#x2F;&#x2F;实例
         &#x2F;&#x2F; define an object
         console.log(&#39;------------------------- lang.exists -----------------------------&#39;)
-        var foo = {
+        var foo &#x3D; {
             bar: {}
         };
         &#x2F;&#x2F; 从全局作用域判断属性是否存在
@@ -468,7 +468,7 @@
         &#x2F;&#x2F;实例
         console.log(&#39;------------------------- lang.extend -----------------------------&#39;)
         function per(name) {
-            this.name = name;
+            this.name &#x3D; name;
         };
         lang.extend(per, {
             prop: &quot;穷的只剩下钱&quot;,
@@ -476,7 +476,7 @@
                 console.log(&quot;除了赚钱什么也不会&quot;)
             }
         })
-        var Obj = new per(&quot;股民巴菲特&quot;);
+        var Obj &#x3D; new per(&quot;股民巴菲特&quot;);
         console.log(Obj.name);
         console.log(Obj.prop);
         Obj.method();
@@ -498,8 +498,8 @@
         *&#x2F;
         console.log(&#39;------------------------- lang.getObject -----------------------------&#39;)
         &#x2F;&#x2F; 定义一个全局变量
-        var bar = {}
-        obj = {
+        var bar &#x3D; {}
+        obj &#x3D; {
             bar: &quot;Russia 2018&quot;,
             &#x2F;&#x2F; bar: bar
         };
@@ -509,7 +509,7 @@
         lang.getObject(&quot;obj.baz.baz.baz.baz.baz&quot;, true); &#x2F;&#x2F; 每一个不存在的baz都相应的被创建，并且返回至obj。 
         console.log(obj);
         &#x2F;*
-            obj = {
+            obj &#x3D; {
                 bar: &quot;Russia 2018&quot;,
                 buz: {
                     buz: {
@@ -525,7 +525,7 @@
             }
         *&#x2F;
         &#x2F;&#x2F; 定义一个非全局变量
-        var _obj = {
+        var _obj &#x3D; {
             bar: &quot;Russia 2018&quot;
         };
         &#x2F;&#x2F; 指定从foo对象中获取bar
@@ -545,7 +545,7 @@
 
         console.log(&#39;------------------------- lang.hitch -----------------------------&#39;)
         &#x2F;&#x2F;定义一个对象student
-        var Student = {
+        var Student &#x3D; {
             college: &quot;MIT&quot;,
             getCollege: function () {
                 &#x2F;&#x2F;我们希望它能返回Student对象的college属性，即希望this指向Student本身
@@ -562,23 +562,23 @@
         printCollege(dojo.hitch(Student, &quot;getCollege&quot;));&#x2F;&#x2F;&quot;College: MIT&quot;
 
         &#x2F;&#x2F;源码
-        dojo._hitchArgs = function (scope, method &#x2F;*,...*&#x2F;) {
+        dojo._hitchArgs &#x3D; function (scope, method &#x2F;*,...*&#x2F;) {
             &#x2F;&#x2F;排除第一个和第二个参数后转成一个数组，其实就是将method后面的参数作为目标函数的参数，转成一个数组
-            var pre = dojo._toArray(arguments, 2);
+            var pre &#x3D; dojo._toArray(arguments, 2);
             &#x2F;&#x2F;method是否是字符串类型
-            var named = dojo.isString(method);
+            var named &#x3D; dojo.isString(method);
             &#x2F;&#x2F;返回一个新函数
             return function () {
                 &#x2F;&#x2F;将这个新函数的的arguments转成数组，注意上下这两个arguments对象是不同的，上一个是属于dojo_hitchArgs函数，下一个是属性于返回的新函数的
-                var args = dojo._toArray(arguments);
+                var args &#x3D; dojo._toArray(arguments);
                 &#x2F;&#x2F;取出目标函数，如果scope不存在，则函数为window[method]
-                var f = named ? (scope || dojo.global)[method] : method;
+                var f &#x3D; named ? (scope || dojo.global)[method] : method;
                 &#x2F;&#x2F;将两个参数数组进行连接，形成完整参数数组，这就是为什么通过hitch函数，参数可以分两次传递的原因
                 &#x2F;&#x2F;这个新函数的返回值就是目标函数执行的返回值，只是this变量进行了替换
                 return f &amp;&amp; f.apply(scope || this, pre.concat(args)); &#x2F;&#x2F; mixed
             }; &#x2F;&#x2F; Function
         };
-        hitch = function (&#x2F;*Object*&#x2F;scope, &#x2F;*Function|String*&#x2F;method &#x2F;*,...*&#x2F;) {
+        hitch &#x3D; function (&#x2F;*Object*&#x2F;scope, &#x2F;*Function|String*&#x2F;method &#x2F;*,...*&#x2F;) {
             &#x2F;&#x2F;scope就是用于替换this变量的对象；method可以是一个字符串，或者是一个函数，用于指明替换哪个函数的this变量
 
             if (arguments.length &gt; 2) {
@@ -587,14 +587,14 @@
             }
             &#x2F;&#x2F;如果method未指定
             if (!method) {
-                method = scope;
-                scope = null;
+                method &#x3D; scope;
+                scope &#x3D; null;
             }
             &#x2F;&#x2F;如果method是字符串类型
             if (dojo.isString(method)) {
                 &#x2F;&#x2F;如果scope不存在则，scope为全局对象，即window
-                scope = scope || d.global;
-                if (!scope[method]) { throw ([&#39;dojo.hitch: scope[&quot;&#39;, method, &#39;&quot;] is null (scope=&quot;&#39;, scope, &#39;&quot;)&#39;].join(&#39;&#39;)); }
+                scope &#x3D; scope || d.global;
+                if (!scope[method]) { throw ([&#39;dojo.hitch: scope[&quot;&#39;, method, &#39;&quot;] is null (scope&#x3D;&quot;&#39;, scope, &#39;&quot;)&#39;].join(&#39;&#39;)); }
                 &#x2F;&#x2F;返回一个新函数，该函数调用scope[method]函数，并使this指向scope
                 return function () { return scope[method].apply(scope, arguments || []); }; &#x2F;&#x2F; Function
             }
@@ -618,18 +618,18 @@
         &#x2F;&#x2F;引入lang工具
         console.log(&#39;--------------------------lang.mixin------------------------------&#39;)
         &#x2F;&#x2F; 定义一个被指向的对象
-        var lastName = {
+        var lastName &#x3D; {
             lastName: &quot;小龙&quot;
         };
         &#x2F;&#x2F; 定义一个主要对象
-        var Obj1 = {
+        var Obj1 &#x3D; {
             &#x2F;&#x2F;这个属性直接赋值
             firstName: &quot;李&quot;,
             &#x2F;&#x2F;这个属性指向一个对象
             lastName: lastName
         }
         &#x2F;&#x2F;使用mixin复制Obj1给Obj2
-        var Obj2 = lang.mixin({
+        var Obj2 &#x3D; lang.mixin({
             firstName: &quot;哈？&quot;
         }, Obj1);
         &#x2F;&#x2F;查看Obj2的打印情况，输出&quot;李小龙&quot;，目标对象的firstName属性被覆盖
@@ -637,8 +637,8 @@
         &#x2F;&#x2F;查看Obj1的打印情况，输出&quot;李小龙&quot;
         console.log(Obj1.firstName + Obj1.lastName.lastName);
         &#x2F;&#x2F;修改Obj2
-        Obj2.firstName = &quot;张&quot;;
-        Obj2.lastName.lastName = &quot;学友&quot;;
+        Obj2.firstName &#x3D; &quot;张&quot;;
+        Obj2.lastName.lastName &#x3D; &quot;学友&quot;;
         &#x2F;&#x2F;查看Obj2的打印情况，输出&quot;张学友&quot;
         console.log(Obj2.firstName + Obj2.lastName.lastName);
         &#x2F;&#x2F;查看Obj1的打印情况，输出&quot;李学友&quot;??名字在Obj2修改的时候，Obj1的也跟着变化，因为指向的都是同一个值。这就是引用的特性
@@ -655,47 +655,47 @@
             &#x2F;&#x2F; ...
         });
         &#x2F;&#x2F; create an instance of the class and configure it
-        var b = new acme.Base({ quip: &quot;That&#39;s what it does!&quot; });
+        var b &#x3D; new acme.Base({ quip: &quot;That&#39;s what it does!&quot; });
         console.log(b.quip);
 
         &#x2F;&#x2F;源码
-        mixin = function (&#x2F;*Object*&#x2F;obj, &#x2F;*Object...*&#x2F;props) {
-            if (!obj) { obj = {}; }	&#x2F;&#x2F;如果obj目标对象不存在，则赋予一个空对象，防止异常
-            for (var i = 1, l = arguments.length; i &lt; l; i++) {	&#x2F;&#x2F;遍历混入源对象，注意索引从1开始，因为需要排除obj目标对象
+        mixin &#x3D; function (&#x2F;*Object*&#x2F;obj, &#x2F;*Object...*&#x2F;props) {
+            if (!obj) { obj &#x3D; {}; }	&#x2F;&#x2F;如果obj目标对象不存在，则赋予一个空对象，防止异常
+            for (var i &#x3D; 1, l &#x3D; arguments.length; i &lt; l; i++) {	&#x2F;&#x2F;遍历混入源对象，注意索引从1开始，因为需要排除obj目标对象
                 d._mixin(obj, arguments[i]);&#x2F;&#x2F;调用真正实现混入的_mixin函数
             }
             &#x2F;&#x2F;返回原来的目标对象
             return obj; &#x2F;&#x2F; Object
         }
-        var extraNames, extraLen, empty = {};
+        var extraNames, extraLen, empty &#x3D; {};
         &#x2F;&#x2F;如果toString(覆盖从Object继承的toString)不能在for..in循环中遍历到，则extraNames为undefined，如果能则赋值为空列表
-        for (var i in { toString: 1 }) { extraNames = []; break; }
+        for (var i in { toString: 1 }) { extraNames &#x3D; []; break; }
         &#x2F;&#x2F;如果extraNames存在则dojo._extraNames会等于extraNames，即是一个空列表
         &#x2F;&#x2F;如果extraNames为undefined，则dojo._extraNames为[&quot;hasOwnProperty&quot;, &quot;valueOf&quot;, &quot;isPrototypeOf&quot;, &quot;propertyIsEnumerable&quot;, &quot;toLocaleString&quot;, &quot;toString&quot;, &quot;constructor&quot;]
-        dojo._extraNames = extraNames = extraNames || [&quot;hasOwnProperty&quot;, &quot;valueOf&quot;, &quot;isPrototypeOf&quot;,
+        dojo._extraNames &#x3D; extraNames &#x3D; extraNames || [&quot;hasOwnProperty&quot;, &quot;valueOf&quot;, &quot;isPrototypeOf&quot;,
             &quot;propertyIsEnumerable&quot;, &quot;toLocaleString&quot;, &quot;toString&quot;, &quot;constructor&quot;];
-        extraLen = extraNames.length;&#x2F;&#x2F;获取长度
-        dojo._mixin = function (&#x2F;*Object*&#x2F; target, &#x2F;*Object*&#x2F; source) {
+        extraLen &#x3D; extraNames.length;&#x2F;&#x2F;获取长度
+        dojo._mixin &#x3D; function (&#x2F;*Object*&#x2F; target, &#x2F;*Object*&#x2F; source) {
             var name, s, i;
             &#x2F;&#x2F;遍历源对象中的属性
             for (name in source) {
                 &#x2F;&#x2F;在混入的时候需要排除从Object继承而来的属性，除非源对象重新定义了从Object继承而来的属性
-                s = source[name];&#x2F;&#x2F;取出属性值
+                s &#x3D; source[name];&#x2F;&#x2F;取出属性值
                 &#x2F;&#x2F;成立条件有：
                 &#x2F;&#x2F;1. 目标对象中不存在源对象中的某个属性
                 &#x2F;&#x2F;2. 目标对象与源对象属性值不相等并且 (该属性不是从Object继承而来或者源对象重新定义了从Object继承而来的属性)
-                if (!(name in target) || (target[name] !== s &amp;&amp; (!(name in empty) || empty[name] !== s))) {
+                if (!(name in target) || (target[name] !&#x3D;&#x3D; s &amp;&amp; (!(name in empty) || empty[name] !&#x3D;&#x3D; s))) {
                     &#x2F;&#x2F;将源对象属性值赋给目标对象
-                    target[name] = s;
+                    target[name] &#x3D; s;
                 }
             }
             &#x2F;&#x2F; IE doesn&#39;t recognize some custom functions in for..in	有些版本的IE对于重新定义从Object继承来而的属性不能识别，所以需要重新判断一次
             if (extraLen &amp;&amp; source) {
-                for (i = 0; i &lt; extraLen; ++i) {
-                    name = extraNames[i];
-                    s = source[name];
-                    if (!(name in target) || (target[name] !== s &amp;&amp; (!(name in empty) || empty[name] !== s))) {
-                        target[name] = s;
+                for (i &#x3D; 0; i &lt; extraLen; ++i) {
+                    name &#x3D; extraNames[i];
+                    s &#x3D; source[name];
+                    if (!(name in target) || (target[name] !&#x3D;&#x3D; s &amp;&amp; (!(name in empty) || empty[name] !&#x3D;&#x3D; s))) {
+                        target[name] &#x3D; s;
                     }
                 }
             }
@@ -713,14 +713,14 @@
         console.log(&#39;--------------------------lang.partial------------------------------&#39;)
         &#x2F;&#x2F; 实例
         console.log(&quot;请在左侧点击按钮查看效果&quot;)
-        var myClick = function (presetValue, event) {
+        var myClick &#x3D; function (presetValue, event) {
             dojo.place(&quot;&lt;p&gt;&quot; + presetValue + &quot;&lt;&#x2F;p&gt;&quot;, &quot;appendLocation&quot;);
         };
         dojo.connect(dom.byId(&quot;myButton&quot;), &quot;click&quot;, lang.partial(myClick, &quot;This is preset text!&quot;));
 
         &#x2F;&#x2F; 源码
-        partial = function (&#x2F;*Function|String*&#x2F;method &#x2F;*, ...*&#x2F;) {
-            var arr = [null];
+        partial &#x3D; function (&#x2F;*Function|String*&#x2F;method &#x2F;*, ...*&#x2F;) {
+            var arr &#x3D; [null];
             &#x2F;&#x2F;将scope置为null
             return lang.hitch.apply(dojo, arr.concat(lang._toArray(arguments))); &#x2F;&#x2F; Function
         };
@@ -739,7 +739,7 @@
         *&#x2F;
         &#x2F;&#x2F;实例
         console.log(&#39;--------------------------lang.replace------------------------------&#39;)
-        var output = dojo.replace(
+        var output &#x3D; dojo.replace(
             &#x2F;&#x2F; 被处理的字符串模板
             &quot;Hello, {name.first} {name.last} AKA {nick}!&quot;,
             &#x2F;&#x2F; 替换内容
@@ -769,7 +769,7 @@
         *&#x2F;
         &#x2F;&#x2F;实例
         console.log(&#39;--------------------------lang.setObject------------------------------&#39;)
-        var family = {
+        var family &#x3D; {
             father: &quot;父亲&quot;,
             mother: &quot;母亲&quot;
         }
@@ -787,7 +787,7 @@
         *&#x2F;
         &#x2F;&#x2F;实例
         console.log(&#39;--------------------------lang.trim------------------------------&#39;)
-        var word = &quot;   What&#39;s your name? Thor  &quot;;
+        var word &#x3D; &quot;   What&#39;s your name? Thor  &quot;;
         console.log(&quot;|&quot; + word + &quot;|&quot;);
         console.log(&quot;|&quot; + lang.trim(word) + &quot;|&quot;);
         &#x2F;&#x2F;不能去除字符串内空格\
@@ -847,7 +847,7 @@
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -858,11 +858,11 @@
                   property="dct:title" rel="dct:type">
                     《dojo学习笔记--通用工具lang》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/07/29/dojo学习笔记-通用工具lang/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E9%80%9A%E7%94%A8%E5%B7%A5%E5%85%B7lang/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Leno
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -924,7 +924,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/07/29/dojo学习笔记-创建类的工具declare/">
+                <a href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9B%E5%BB%BA%E7%B1%BB%E7%9A%84%E5%B7%A5%E5%85%B7declare/">
                     <div class="card-image">
                         
                         
@@ -947,7 +947,7 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/前端/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
                                     前端
                                 </a>
                             
@@ -977,7 +977,7 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/07/29/dojo学习笔记-事件绑定on/">
+                <a href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9Aon/">
                     <div class="card-image">
                         
                         
@@ -1000,7 +1000,7 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/前端/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
                                     前端
                                 </a>
                             

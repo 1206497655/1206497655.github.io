@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.coderlyc.xyz/"/>
-  <updated>2019-12-30T09:25:08.695Z</updated>
+  <updated>2020-03-02T02:55:58.187Z</updated>
   <id>http://www.coderlyc.xyz/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WEB安全之HTTP与HTTPS</title>
+    <link href="http://www.coderlyc.xyz/2020/02/22/WEB%E5%AE%89%E5%85%A8%E4%B9%8BHTTP%E4%B8%8EHTTPS/"/>
+    <id>http://www.coderlyc.xyz/2020/02/22/WEB安全之HTTP与HTTPS/</id>
+    <published>2020-02-22T02:53:47.000Z</published>
+    <updated>2020-03-02T02:55:58.187Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;HTTP与HTTPS&quot;&gt;&lt;a href=&quot;#HTTP与HTTPS&quot; class=&quot;headerlink&quot; title=&quot;HTTP与HTTPS&quot;&gt;&lt;/a&gt;HTTP与HTTPS&lt;/h2&gt;&lt;h3 id=&quot;HTTP&quot;&gt;&lt;a href=&quot;#HTTP&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Vue2.x virtual DOM与diff算法详解</title>
@@ -470,31 +492,6 @@
         
         
           &lt;p&gt;  开发模型管理引擎时遇到传说中的浮点运算陷阱：浮点运算计算结果出现0.000000001 和 0.999999999这样的奇怪结果或误差，例如如
-        
-      
-    
-    </summary>
-    
-    
-      <category term="js" scheme="http://www.coderlyc.xyz/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用canvas元素重叠带透明度的照片的方法</title>
-    <link href="http://www.coderlyc.xyz/2019/05/11/%E7%94%A8canvas%E5%85%83%E7%B4%A0%E9%87%8D%E5%8F%A0%E5%B8%A6%E9%80%8F%E6%98%8E%E5%BA%A6%E7%9A%84%E7%85%A7%E7%89%87%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>http://www.coderlyc.xyz/2019/05/11/用canvas元素重叠带透明度的照片的方法/</id>
-    <published>2019-05-11T07:59:22.000Z</published>
-    <updated>2019-08-10T14:01:07.745Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;用canvas元素重叠带透明度的照片的方法：&lt;br&gt;使用canvas重叠两张图片时，若图片带有透明度，使用canvas重叠后不会直接带有透明效果。&lt;br&gt;可以使用canvas. globalAlpha来解决此问题。&lt;/p&gt;
-&lt;p&gt;  &lt;div
         
       
     

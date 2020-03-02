@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -353,7 +353,7 @@
 <li>style 属性 - 设置样式</li>
 </ul>
 <p>接下来通过实例来了解以上属性。首先观察x、y属性。</p>
-<svg xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" x="0" y="0" width="20" height="20" patternunits="userSpaceOnUse"><path stroke="#c0c0c0" fill="none" d="M0,0 H20 V20"/></pattern></defs><rect width="800" height="400" fill="url(#grid)"/><text x="20" y="20">简单文本</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path stroke="#c0c0c0" fill="none" d="M0,0 H20 V20"></path></pattern></defs><rect width="800" height="400" fill="url(#grid)"></rect><text x="20" y="20">简单文本</text></svg>
 
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token comment" spellcheck="true">&lt;!-- 绘制栅格 --></span>
@@ -368,7 +368,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
 </code></pre>
 <p>以上代码通过&lt;pattern&gt;元素绘制了栅格，每个格子的大小是20X20，方便进行定位和观察。然后定义了一个text元素，位置为（20，20），所以x、y决定了文本元素的位置。然后，仔细观察画布，text元素的左下角位置才是（20，20），所以可以得出text元素的基准点为元素的左下角？其实不然。我们通过style属性设置css样式，再来观察一下。</p>
-<svg xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" x="0" y="0" width="20" height="20" patternunits="userSpaceOnUse"><path stroke="#c0c0c0" fill="none" d="M0,0 H20 V20"/></pattern></defs><rect width="800" height="400" fill="url(#grid)"/><text x="100" y="100" style="font-size: 50px">简单文本</text><path d="M100,0 V200, M0,100 H200" stroke="red"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path stroke="#c0c0c0" fill="none" d="M0,0 H20 V20"></path></pattern></defs><rect width="800" height="400" fill="url(#grid)"></rect><text x="100" y="100" style="font-size: 50px">简单文本</text><path d="M100,0 V200, M0,100 H200" stroke="red"></path></svg>
 
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>defs</span><span class="token punctuation">></span></span>
@@ -383,7 +383,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
 </code></pre>
 <p>仔细观察一下就能发现，文本并没有以左下角为基准往点（100，100）进行对齐，而是稍微往下一点。这里涉及到基准线问题。（baseline，css中也有类似的概念）</p>
-<svg xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" x="0" y="0" width="20" height="20" patternunits="userSpaceOnUse"><path stroke="#c0c0c0" fill="none" d="M0,0 H20 V20"/></pattern></defs><rect width="800" height="400" fill="url(#grid)"/><text x="100" y="100" style="font-size: 50px">T 文本</text><path d="M100,0 V200, M0,100 H200" stroke="red"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path stroke="#c0c0c0" fill="none" d="M0,0 H20 V20"></path></pattern></defs><rect width="800" height="400" fill="url(#grid)"></rect><text x="100" y="100" style="font-size: 50px">T 文本</text><path d="M100,0 V200, M0,100 H200" stroke="red"></path></svg>
 
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>defs</span><span class="token punctuation">></span></span>
@@ -399,7 +399,7 @@
 </code></pre>
 <p>如果文本文字是英文字母，则是正常的左下角对齐。出现这种情况的原因是，汉字字体在被设计时由于某种原因，没有以文本基线（图中红色的横线）为最底线进行设计，从而导致的对齐问题。当然这是默认状态，通过css <code>dominant-baseline</code>属性我们可以对其进行修改以达到想要的排版效果。</p>
 <p>接着观察dx、dy属性。</p>
-<svg xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" x="0" y="0" width="20" height="20" patternunits="userSpaceOnUse"><path stroke="#c0c0c0" fill="none" d="M0,0 H20 V20"/></pattern></defs><rect width="800" height="400" fill="url(#grid)"/><text x="20" y="20" dx="10" dy="10">简单文本</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path stroke="#c0c0c0" fill="none" d="M0,0 H20 V20"></path></pattern></defs><rect width="800" height="400" fill="url(#grid)"></rect><text x="20" y="20" dx="10" dy="10">简单文本</text></svg>
 
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>defs</span><span class="token punctuation">></span></span>
@@ -413,7 +413,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
 </code></pre>
 <p>设置text元素dx=”10”、dy=”10”后，肉眼可以观察到文本整体往下和往右偏移了10个单位。所以dx、dy属性控制文本的偏移。有趣的是，dx、dy接受一个数列，数列按照文本的顺序逐个应用到文本的每个字符上。如下所示：</p>
-<svg xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" x="0" y="0" width="20" height="20" patternunits="userSpaceOnUse"><path stroke="#c0c0c0" fill="none" d="M0,0 H20 V20"/></pattern></defs><rect width="800" height="400" fill="url(#grid)"/><text x="20" y="20" dx="10 10 10 10" dy="10 10 10 10">简单文本</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path stroke="#c0c0c0" fill="none" d="M0,0 H20 V20"></path></pattern></defs><rect width="800" height="400" fill="url(#grid)"></rect><text x="20" y="20" dx="10 10 10 10" dy="10 10 10 10">简单文本</text></svg>
 
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>defs</span><span class="token punctuation">></span></span>
@@ -437,7 +437,7 @@
 </code></pre>
 <p>&lt;tspan&gt;标签同样拥有x、y、dx、dy、style属性，与&lt;text&gt;标签不无二致，因此不再赘述。</p>
 <h3 id="2--lt-textPath-gt-让文本在指定路径上排列"><a href="#2--lt-textPath-gt-让文本在指定路径上排列" class="headerlink" title="2.&lt;textPath&gt;让文本在指定路径上排列"></a>2.&lt;textPath&gt;让文本在指定路径上排列</h3><h4 id="2-1-使用方法"><a href="#2-1-使用方法" class="headerlink" title="2.1 使用方法"></a>2.1 使用方法</h4><p>简单地说，该元素利用它的<code>xlink:href</code>属性取得一个任意路径，把字符对齐到路径，于是字体会环绕路径、顺着路径走。使用如下：</p>
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><path id="path" d="M100,200 Q200,100,300,200 T500,200" stroke="rgb(0,255,0)" fill="none"/><text style="font-size: 24px"><textpath xlink:href="#path">这个文本先上去了，又下来了。Upside down in Englise!</textpath></text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><path id="path" d="M100,200 Q200,100,300,200 T500,200" stroke="rgb(0,255,0)" fill="none"/><text style="font-size: 24px"><textPath xlink:href="#path">这个文本先上去了，又下来了。Upside down in Englise!</textPath></text></svg>
 
 <pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2000/svg<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>800<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>400<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>path<span class="token punctuation">"</span></span> <span class="token attr-name">d</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>M100,200 Q200,100,300,200 T500,200<span class="token punctuation">"</span></span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>rgb(0,255,0)<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>none<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
@@ -469,7 +469,7 @@
 <p>text-anchor: 文本与所给点的对齐方式 （开头、中间、末尾对齐）。</p>
 <p>startOffset: 起始点的偏移值（%）。</p>
 <p>下面是方便理解粗略可交互例子：</p>
-<p> <form id="ctrl"><br>    <label for="x">x:</label><br>    <input ctrl="x" name="x" type="range" value="0" min="-200" max="200"><br>    <br><br>    <label for="y">y:</label><br>    <input ctrl="y" name="y" type="range" value="0" min="-200" max="200"><br>    <br><br>    <label for="dx">dx:</label><br>    <input ctrl="dx" name="dx" type="range" value="0" min="-200" max="200"><br>    <br><br>    <label for="dy">dy:</label><br>    <input ctrl="dy" name="dy" type="range" value="0" min="-200" max="200"><br>    <br><br>    <label for="text-anchor">text-anchor:</label><br>    <select name="text-anchor" ctrl="text-anchor"><br>      <option value="start" selected>start</option><br>      <option value="middle">middle</option><br>      <option value="end">end</option><br>    </select><br>    <br><br>    <label for="startOffset">startOffset:</label><br>    <input name="startOffset" ctrl="startOffset" type="range" value="0" min="0" max="100"><br>    <br><br>    <button type="reset">Reset</button><br>  </form><br>  <div class="svg-conatiner"><br>    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><path id="path" d="M100,200 Q200,100,300,200 T500,200" stroke="rgb(0,255,0)" fill="none"/><text id="text" style="font-size: 24px"><textpath xlink:href="#path">Upside down in Englise!</textpath><br/></text><br/></svg><br></div></p>
+<p> <form id="ctrl"><br>    <label for="x">x:</label><br>    <input ctrl="x" name="x" type="range" value="0" min="-200" max="200"><br>    <br /><br>    <label for="y">y:</label><br>    <input ctrl="y" name="y" type="range" value="0" min="-200" max="200"><br>    <br /><br>    <label for="dx">dx:</label><br>    <input ctrl="dx" name="dx" type="range" value="0" min="-200" max="200"><br>    <br /><br>    <label for="dy">dy:</label><br>    <input ctrl="dy" name="dy" type="range" value="0" min="-200" max="200"><br>    <br /><br>    <label for="text-anchor">text-anchor:</label><br>    <select name="text-anchor" ctrl="text-anchor"><br>      <option value="start" selected>start</option><br>      <option value="middle">middle</option><br>      <option value="end">end</option><br>    </select><br>    <br /><br>    <label for="startOffset">startOffset:</label><br>    <input name="startOffset" ctrl="startOffset" type="range" value="0" min="0" max="100"><br>    <br /><br>    <button type="reset">Reset</button><br>  </form><br>  <div class="svg-conatiner"><br>    <svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><path id="path" d="M100,200 Q200,100,300,200 T500,200" stroke="rgb(0,255,0)" fill="none" /><text id="text" style="font-size: 24px"><textPath xlink:href="#path">Upside down in Englise!</textPath><br></text><br></svg><br></div></p>
 <script>
 var ctrl = document.getElementById('ctrl')
 var text = document.getElementById('text')
@@ -603,7 +603,7 @@ var list = document.querySelectorAll('#ctrl *[ctrl]');
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -614,11 +614,11 @@ var list = document.querySelectorAll('#ctrl *[ctrl]');
                   property="dct:title" rel="dct:type">
                     《SVG的文本》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/20/SVG的文本/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/20/SVG%E7%9A%84%E6%96%87%E6%9C%AC/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Leno
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -680,7 +680,7 @@ var list = document.querySelectorAll('#ctrl *[ctrl]');
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/09/28/SVG的图形引用、裁剪和蒙版/">
+                <a href="/2019/09/28/SVG%E7%9A%84%E5%9B%BE%E5%BD%A2%E5%BC%95%E7%94%A8%E3%80%81%E8%A3%81%E5%89%AA%E5%92%8C%E8%92%99%E7%89%88/">
                     <div class="card-image">
                         
                         

@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -318,7 +318,7 @@
                                 <span class="chip bg-color">JavaScript</span>
                             </a>
                         
-                            <a href="/tags/原型/" target="_blank">
+                            <a href="/tags/%E5%8E%9F%E5%9E%8B/" target="_blank">
                                 <span class="chip bg-color">原型</span>
                             </a>
                         
@@ -330,7 +330,7 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/前端/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
                                 前端
                             </a>
                         
@@ -358,7 +358,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p> &emsp;&emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。<a id="more"></a><br><br> &emsp;&emsp;在js中原型主要分为prototype(显式原型)、_proto_(隐式原型)。_proto_是每一个对象都具有的属性，而prototype是函数对象Function才具有的属性。他们之间具有一个直接的指向关系：_proto_指向构造函数的prototype，意思就是构造函数Function.prototype的所有属性和方法都可以让_proto_\查询和使用。当试图得到一个对象的某个属性时，如果这个对象本身没有这个属性，那么会去它的_proto_(即它的构造函数的Function.prototype中寻找)。<br><br> &emsp;&emsp;下面举个例子</p>
+                <p> &emsp;&emsp;相信许多人和我一样弄不清楚原型的概念，原型究竟是个什么东西？现在结合笔者所学的知识以及笔记，谈谈笔者对原型的理解。<a id="more"></a><br/><br> &emsp;&emsp;在js中原型主要分为prototype(显式原型)、_proto_(隐式原型)。_proto_是每一个对象都具有的属性，而prototype是函数对象Function才具有的属性。他们之间具有一个直接的指向关系：_proto_指向构造函数的prototype，意思就是构造函数Function.prototype的所有属性和方法都可以让_proto_\查询和使用。当试图得到一个对象的某个属性时，如果这个对象本身没有这个属性，那么会去它的_proto_(即它的构造函数的Function.prototype中寻找)。<br/><br> &emsp;&emsp;下面举个例子</p>
 <pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//构造函数</span>
 <span class="token keyword">function</span> <span class="token function">Foo</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
@@ -377,8 +377,8 @@ f<span class="token punctuation">.</span><span class="token function">printName<
 f<span class="token punctuation">.</span><span class="token function">alertName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>&emsp;&emsp;在上述例子中，printName方法属于f对象本身的方法而不是构造函数Foo的方法，所以调用f.printName方法时，控制台输出</p>
-<p><div align="center"><img src="/img/6/12/consoleLog.JPG"></div> <br><br>但是当调用f.alertName方法时，浏览器同样弹出了警告框</p>
-<p><div align="center"><img src="/img/6/12/alert.JPG"></div> <br><br>这是为什么呢？这就是笔者所说的，_proto_指向问题，当调用对象自身没有的属性和方法时，js解释器会根据当前对象的_proto_指向的构造函数Foo.prototype中去寻找有无该属性或方法，如果有便返回执行，如果没有便报undefined错误。而这个其实就是我们常说的原型继承。<br>&emsp;&emsp;有趣的是，Foo.prototype其实也是一个普通对象(js万物皆对象)，那么它必然也存在有_proto_和prototype以及它们之间的指向问题，Foo.prototype_proto_究竟指向谁？这个问题留给大家思考。</p>
+<p><div align=center><img src="/img/6/12/consoleLog.JPG"></div> <br/><br>但是当调用f.alertName方法时，浏览器同样弹出了警告框</p>
+<p><div align=center><img src="/img/6/12/alert.JPG"></div> <br/><br>这是为什么呢？这就是笔者所说的，_proto_指向问题，当调用对象自身没有的属性和方法时，js解释器会根据当前对象的_proto_指向的构造函数Foo.prototype中去寻找有无该属性或方法，如果有便返回执行，如果没有便报undefined错误。而这个其实就是我们常说的原型继承。<br/>&emsp;&emsp;有趣的是，Foo.prototype其实也是一个普通对象(js万物皆对象)，那么它必然也存在有_proto_和prototype以及它们之间的指向问题，Foo.prototype_proto_究竟指向谁？这个问题留给大家思考。</p>
 
             </div>
             <hr/>
@@ -404,7 +404,7 @@ f<span class="token punctuation">.</span><span class="token function">alertName<
         </p>
         
             <div class="center-align">
-                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                     <img alt=""
                          style="border-width:0"
                          src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
@@ -415,11 +415,11 @@ f<span class="token punctuation">.</span><span class="token function">alertName<
                   property="dct:title" rel="dct:type">
                     《JS学习笔记--原型和原型继承》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/06/12/JS学习笔记-原型和原型继承/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/06/12/JS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Leno
             </a> 采用
-            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
                 知识共享署名 4.0 国际许可协议
             </a>进行许可。
         
@@ -481,7 +481,7 @@ f<span class="token punctuation">.</span><span class="token function">alertName<
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/07/01/JS实战笔记-实现tree组件/">
+                <a href="/2018/07/01/JS%E5%AE%9E%E6%88%98%E7%AC%94%E8%AE%B0-%E5%AE%9E%E7%8E%B0tree%E7%BB%84%E4%BB%B6/">
                     <div class="card-image">
                         
                         
@@ -504,7 +504,7 @@ f<span class="token punctuation">.</span><span class="token function">alertName<
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/前端/" class="post-category" target="_blank">
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
                                     前端
                                 </a>
                             
@@ -519,7 +519,7 @@ f<span class="token punctuation">.</span><span class="token function">alertName<
                         <span class="chip bg-color">JavaScript</span>
                     </a>
                     
-                    <a href="/tags/组件/" target="_blank">
+                    <a href="/tags/%E7%BB%84%E4%BB%B6/" target="_blank">
                         <span class="chip bg-color">组件</span>
                     </a>
                     
@@ -534,7 +534,7 @@ f<span class="token punctuation">.</span><span class="token function">alertName<
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/06/10/我的个人博客-诞生/">
+                <a href="/2018/06/10/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2-%E8%AF%9E%E7%94%9F/">
                     <div class="card-image">
                         
                         
@@ -557,7 +557,7 @@ f<span class="token punctuation">.</span><span class="token function">alertName<
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/杂谈/" class="post-category" target="_blank">
+                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category" target="_blank">
                                     杂谈
                                 </a>
                             
