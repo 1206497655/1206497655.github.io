@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.coderlyc.xyz/"/>
-  <updated>2020-03-02T02:55:58.187Z</updated>
+  <updated>2020-03-02T03:25:14.386Z</updated>
   <id>http://www.coderlyc.xyz/</id>
   
   <author>
@@ -18,10 +18,32 @@
   
   <entry>
     <title>WEB安全之HTTP与HTTPS</title>
+    <link href="http://www.coderlyc.xyz/2020/02/22/bc/"/>
+    <id>http://www.coderlyc.xyz/2020/02/22/bc/</id>
+    <published>2020-02-22T02:53:47.000Z</published>
+    <updated>2020-03-02T03:25:14.386Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;HTTP与HTTPS&quot;&gt;&lt;a href=&quot;#HTTP与HTTPS&quot; class=&quot;headerlink&quot; title=&quot;HTTP与HTTPS&quot;&gt;&lt;/a&gt;HTTP与HTTPS&lt;/h2&gt;&lt;h3 id=&quot;HTTP&quot;&gt;&lt;a href=&quot;#HTTP&quot;
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>WEB安全之HTTP与HTTPS</title>
     <link href="http://www.coderlyc.xyz/2020/02/22/WEB%E5%AE%89%E5%85%A8%E4%B9%8BHTTP%E4%B8%8EHTTPS/"/>
     <id>http://www.coderlyc.xyz/2020/02/22/WEB安全之HTTP与HTTPS/</id>
     <published>2020-02-22T02:53:47.000Z</published>
-    <updated>2020-03-02T02:55:58.187Z</updated>
+    <updated>2020-03-02T03:26:06.845Z</updated>
     
     <summary type="html">
     
@@ -475,30 +497,6 @@
     
     
       <category term="vue" scheme="http://www.coderlyc.xyz/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js浮点运算陷阱</title>
-    <link href="http://www.coderlyc.xyz/2019/06/01/js%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97%E9%99%B7%E9%98%B1/"/>
-    <id>http://www.coderlyc.xyz/2019/06/01/js浮点运算陷阱/</id>
-    <published>2019-06-01T13:01:51.000Z</published>
-    <updated>2019-08-10T14:02:38.096Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;  开发模型管理引擎时遇到传说中的浮点运算陷阱：浮点运算计算结果出现0.000000001 和 0.999999999这样的奇怪结果或误差，例如如
-        
-      
-    
-    </summary>
-    
-    
-      <category term="js" scheme="http://www.coderlyc.xyz/tags/js/"/>
     
   </entry>
   

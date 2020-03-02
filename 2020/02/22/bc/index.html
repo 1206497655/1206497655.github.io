@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="dojo学习笔记--创建widget, Leno的个人博客">
-    <meta name="description" content="&amp;emsp;&amp;emsp;dijit / _WidgetBase是Dijit包中所有组件的基类，也是Dojo中所有组件的一个基类。通常一个组件也会继承一些属性融合的工具类，例如：dijit._TemplatedMixin。 注意：_Widge">
+    <meta name="keywords" content="WEB安全之HTTP与HTTPS, Leno的个人博客">
+    <meta name="description" content="HTTP与HTTPSHTTPHTTP，全称HyperText Transfer Protocol，中文名称超文本传输协议，传统的web站点都是建立在HTTP协议基础上进行通信的，我们访问某些站点时，首先通过该协议传输生成网页的基础文件如.h">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>dojo学习笔记--创建widget | Leno的个人博客</title>
+    <title>WEB安全之HTTP与HTTPS | Leno的个人博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -197,13 +197,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        dojo学习笔记--创建widget
+                        WEB安全之HTTP与HTTPS
                     </div>
                 </div>
             </div>
@@ -312,29 +312,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/dojo/" target="_blank">
-                                <span class="chip bg-color">dojo</span>
-                            </a>
-                        
-                            <a href="/tags/widget/" target="_blank">
-                                <span class="chip bg-color">widget</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
-                                前端
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -342,7 +325,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-07-29
+                    2020-02-22
                 </div>
 
                 
@@ -358,201 +341,67 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>&emsp;&emsp;dijit / _WidgetBase是Dijit包中所有组件的基类，也是Dojo中所有组件的一个基类。通常一个组件也会继承一些属性融合的工具类，例如：dijit._TemplatedMixin。 注意：_WidgetBase名字中的下划线表示它是一个基类，不可直接使用，而不是表示它是一个私有的类。<a id="more"></a>_WidgetBase是一个不可以直接使用的基类，需要继承。一般在创建dojo自定义组件时，继承来自_WidgetBase基类的属性和方法，它的作用是赋予自定义组件一些常用些属性，给你的组件创建生命周期以及提供一些操作组件的API。<br><pre><code>require([
-            &quot;dojo&quot;,
-            &#39;dojo&#x2F;dom&#39;,
-            &#39;dojo&#x2F;_base&#x2F;declare&#39;,
-            &#39;dijit&#x2F;_WidgetBase&#39;,
-            &#39;dijit&#x2F;form&#x2F;TextBox&#39;,
-            &#39;dijit&#x2F;form&#x2F;Button&#39;,
-            &#39;demo&#x2F;test&#39;,
-            &#39;dijit&#x2F;Dialog&#39;,
-            &#39;dojo&#x2F;on&#39;,
-            &#39;dojo&#x2F;domReady!&#39;
-        ], function (dojo, dom, declare, WidgetBase, TextBox, Button, test, Dialog, on) {
-            &#x2F;&#x2F; 用法
-            &#x2F;&#x2F; Dojo中所有的组件通过调用dojo.declare()继承_WidgetBase，然后根据组件的生命周期定义大量的方法。
-            declare(&quot;MyWidget&quot;, WidgetBase, {
-                &#x2F;&#x2F;do something
-            });
+                <h2 id="HTTP与HTTPS"><a href="#HTTP与HTTPS" class="headerlink" title="HTTP与HTTPS"></a>HTTP与HTTPS</h2><h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><p>HTTP，全称HyperText Transfer Protocol，中文名称超文本传输协议，传统的web站点都是建立在HTTP协议基础上进行通信的，我们访问某些站点时，首先通过该协议传输生成网页的基础文件如.html、.css、.js等等，除此以外，还可以传输图片等其他格式文件。而这一切又需要建立在网络的基础上。通常使用的网络（包括互联网）是在TCP/IP协议族的基础上运作的，而HTTP属于TCP/IP协议族内部的一个子集。</p>
+<h3 id="TCP-IP"><a href="#TCP-IP" class="headerlink" title="TCP/IP"></a>TCP/IP</h3><p>简单回顾一下计算机基础知识，何为TCP/IP协议族。计算机与网络设备进行相互通信，首先双方要基于同一种方法。比如，如何探测到通信目标、由哪一边先发起通信、使用哪种语言进行通信、怎样结束通信等规则都需要事先确定。不同的硬件、操作系统之间的通信，所有的这一切都需要一种规则。而我们就把这种规则称为协议（protocol）。</p>
+<p><img src="../../../../img/WEB安全/HTTP与HTTPS/TCP、IP是互联网相关的各类协议族的总称.png" alt=""></p>
+<h4 align = "center">图1.TCP/IP是互联网相关的各类协议族的总称</h4>
 
-            &#x2F;&#x2F; 部分属性
-            &#x2F;&#x2F; id: 标识微件的String类型的唯一值
-            &#x2F;&#x2F; lang: 很少使用的String值，可以重写Dojo默认的locale
-            &#x2F;&#x2F; dir: 用于双向支持
-            &#x2F;&#x2F; class: 部件domNode的html样式
-            &#x2F;&#x2F; style: 部件domNode的style属性
-            &#x2F;&#x2F; title: 一般表示原生提示的html title属性
-            &#x2F;&#x2F; baseClass：部件的根CSS样式
-            &#x2F;&#x2F; srcNodeRef: 部件在部件化之前的原始Dom 节点，如果有的话。注意这个属性与部件的类型有关(如基于模板的微件)，并且在postCreate之后可能会被丢弃。
-            &#x2F;&#x2F; tooltip：widget 根节点上的 class, 用来创建指示 widget 状态(State)的 css classes
+<p>协议中存在各式各样的内容。从电缆的规格到IP地址的选定方法、寻找异地用户的方法、双方建立通信的顺序，以及Web页面显示需要处理的步骤，等等。像这样把与互联网相关联的协议集合起来总称为TCP/IP。</p>
+<p>TCP/IP协议族里重要的一点就是分层，从上到下分为应用层、传输层、网络层、链路层。各层的作用如下：</p>
+<ul>
+<li><strong>应用层</strong>  应用层决定了向用户提供应用服务时通信的活动。TCP/IP协议族内预存了各类通用的应用服务。比如，FTP（File Transfer Protocol，文件传输协议）和DNS（Domain Name System，域名系统）服务就是其中两类。最常见的HTTP协议也处于该层。</li>
+<li><strong>传输层</strong>  传输层对上层应用层，提供处于网络连接中的两台计算机之间的数据传输。在传输层有两个性质不同的协议：TCP（Transmission Control Protocol，传输控制协议）和UDP（User Data Protocol，用户数据报协议）。</li>
+<li><strong>网络层</strong>  网络层用来处理在网络上流动的数据包。数据包是网络传输的最小数据单位。该层规定了通过怎样的路径（所谓的传输路线）到达对方计算机，并把数据包传送给对方。与对方计算机之间通过多台计算机或网络设备进行传输时，网络层所起的作用就是在众多的选项内选择一条传输路线。</li>
+<li><strong>链路层</strong>  用来处理连接网络的硬件部分。包括控制操作系统、硬件的设备驱动、NIC（NetworkInterface Card，网络适配器，即网卡），及光纤等物理可见部分（还包括连接器等一切传输媒介）。硬件上的范畴均在链路层的作用范围之内。</li>
+</ul>
+<p><strong>TCP/IP通讯传输流动：</strong></p>
+<p><img src="../../../../img/WEB安全/HTTP与HTTPS/TCP、IP通讯传输流动.png" alt=""></p>
+<h4 align = "center">图2.TCP/IP通讯传输流动</h4>
 
-            &#x2F;&#x2F; 部分方法
-            &#x2F;**
-            * defer(fcn,delay) 包装到setTimeout以避免在销毁原始窗口小部件后执行delay函数。 使用remove方法返回一个对象句柄。
-            * @param: fcn
-            *         类型: Function
-            *         描述：   参考函数。
-            * @param：delay
-            *         类型：Number
-            *         描述：延迟时间，默认为0。
-            *&#x2F;
+<p>无论时从服务器发起通讯还是从客户端发起通讯都必须遵循以上的数据流动原则：假如从客户端发起通讯，数据则从应用层-&gt;传输层-&gt;网络层-&gt;链路层-&gt;链路层-&gt;网络层-&gt;传输层-&gt;应用层这样传输，并且每向下经过一层便会封装包裹该层的首部信息，每向上一层消去该层的首部信息，层层校验防止出错。</p>
+<h3 id="HTTP存在的问题"><a href="#HTTP存在的问题" class="headerlink" title="HTTP存在的问题"></a>HTTP存在的问题</h3><p>HTTP本身是比较简单方便的协议，而简单协议带来的缺点就是安全问题，主要是以下三点：</p>
+<ul>
+<li>通信使用明文（不加密），内容可能会被窃听。由于HTTP本身不具备加密的功能，所以也无法做到对通信整体进行加密。即，HTTP报文使用明文方式发送。</li>
+<li>不验证通信方的身份，因此有可能遭遇伪装。HTTP协议中的请求和响应不会对通信方进行确认。也就是说存在“服务器是否就是发送请求中URI真正指定的主机，返回的响应是否真的返回到实际提出请求的客户端”等类似问题。</li>
+<li>无法证明报文的完整性，所以有可能已遭篡改。在报文的传输过程中，必须经过物理介质传输（量子通信除外），就无法避免被外界篡改的可能。由于HTTP协议无法证明通信的报文完整性，因此，在请求或响应送出之后直到对方接收之前的这段时间内，即使请求或响应的内容遭到篡改，也没有办法获悉。虽然有部分办法能够确定报文完整性的方，但事实上不完全可靠，其中常用的是MD5和SHA-1等散列值校验的方法，以及用来确认文件的数字签名方法，但是有谁又能保证MD5、SHA-1计算得到的散列值不被中途篡改呢。</li>
+</ul>
+<h3 id="HTTP-加密-认证-完整性保护-HTTPS"><a href="#HTTP-加密-认证-完整性保护-HTTPS" class="headerlink" title="HTTP+加密+认证+完整性保护=HTTPS"></a>HTTP+加密+认证+完整性保护=HTTPS</h3><p>为了统一解决上述这些问题，需要在HTTP上再加入加密处理和认证等机制。人们把添加了加密及认证机制的HTTP称为HTTPS（HTTP Secure）。HTTPS并非是新的协议，而是身披SSL外壳的HTTP，只是把HTTP通信接口部分用SSL（Secure Socket Layer）和TLS（Transport Layer Security，TSL是以SSL为原型开发的协议，有时会统一称该协议为SSL。）协议代替而已。所以从层级间通信来说，就由HTTP直接和TCP通信演变为HTTP直接与SSL通信，再由SSL与TCP通信而已。</p>
+<p><img src="../../../../img/WEB安全/HTTP与HTTPS/HTTP与HTTPS.png" alt=""></p>
+<h4 align = "center">图3.HTTP与HTTPS</h4>
 
-            &#x2F;&#x2F; constructor（构造方法）
-            &#x2F;&#x2F; 在根据传入参数初始化组件之前，构造方法就会被调用。所以说，在构造方法中你可以进行数组初始化等操作。
+<p>加入了SSL协议之后，HTTP就有了加密、认证和完整性保护这些功能。SSL协议是独立的协议，不仅HTTP可以使用，其他运行在应用层的FTP、SMTP和Telnet等协议均可配合SSL协议使用。</p>
+<p>SSL协议采用一种叫做公开密钥加密的加密处理方式。近代的加密方法中加密算法是公开的，而密钥却是保密的。通过这种方式得以保持加密方法的安全性。加密和解密都会用到密钥。没有密钥就无法对密码解密，反过来说，任何人只要持有密钥就能解密了。如果密钥被攻击者获得，那加密也就失去了意义。</p>
+<p>通常密钥的形式有两种，对称密钥和非对称密钥。对称密钥又称为共享密钥，是指加密和解密都公用一把密钥的加密方式。既然是共用密钥，那么就必须由一方生成，共享给另一方，共享就不可避免的要在网络上传输，在网络上传输就无法保证密钥不会被窃取，无法保证密钥不被窃取就相当于无法保证加密的完全安全性。而非对称密钥就很好的解决了这个问题，非对称密钥又称为公开密钥加密，由一把公开密钥和私有密钥组成，公开密钥可以随意公开，任何人都可以获得。使用公开密钥加密的方式，发送密文的发送方使用接收方的公开密钥进行加密，接收方接收到密文后，使用私有密钥进行解锁。这样一来，就可以避免私有密钥的网络传输，不被窃取。单独靠公开密钥和密文解密是非常难，解密过程就是在对离散对数进行求值，这并非轻而易举就能办到。</p>
+<p><img src="../../../../img/WEB安全/HTTP与HTTPS/非对称加密.png" alt=""></p>
+<h4 align = "center">图4.非对称加密</h4>
 
-            &#x2F;&#x2F; buildRendering（渲染组件）
-            &#x2F;&#x2F; dijit._TemplatedMixin提供buildRendering实现你想要实现的组件。此方法执行后，模板会被加载、节点会被创建、事件也会被绑定，最终的结果就是完成节点的展示。如果你没有混入类dijit._TemplateMinxin（通常OOTB dijit会去做），而且希望自己去渲染组件（例如：简化一个组件，或者更换系统模板），你就可以在这个方法中实现。
-            &#x2F;&#x2F; API中描述：构造组件的UI，并应用到this.domNode。大多数需要重写这个方法的组件都需要继承类dijit._TemplateMinxin。
+<p>HTTPS采用混合加密方式，先是通过公开密钥加密的方式交换共享加密的密钥，把密钥安全地共享给对方。之后的通信就通过共享加密进行密文通信，这样做优势在于能充分发挥两种加密方式的优点：公开加密没有传输层面被窃取的可能、共享加密消耗的资源比公开加密要低。</p>
+<p><img src="../../../../img/WEB安全/HTTP与HTTPS/混合加密机制.png" alt=""></p>
+<h4 align = "center">图5.混合加密机制</h4>
 
-            &#x2F;&#x2F; setters are called（执行setXXX方法）
-            &#x2F;&#x2F; 类中定义的_setXXX方法会在此时被执行，不管在构造函数中或者为non-null non-blank non-zero类型数据设定默认值，这个方法都会执行。
+<h3 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h3><p>虽然共享加密方式的安全性得到了保证，但是如何保证公开加密的安全性？怎么保证接收到的公开加密公有密钥是货真价实的密钥，不被掉包呢？为了解决这个问题，人们提出了数字证书这一概念。在使用HTTPS协议前，服务器运营人员先向数字证书认证机构（CA,Certificate Authority）和其相关机关申请公开密钥证书，认证机构在接收到申请并判明申请者身份后，会对已申请的公开密钥做数字签名，然后分配这个已签名的公开密钥，并将该公开密钥放入公钥证书后绑定在一起发送给申请者，申请者即运营人员将其布置进服务器中。当有人访问该服务器时，服务器首先把公钥证书以公开加密方式发送至客户端，客户端接收到公钥证书后使用与之绑定的公钥密钥，对证书上的数字签名进行验证，一旦验证通过即说明该证书是准确、安全和值得信赖的。但是怎么把证书安全地转交给运营人员又成了一个问题，因此多数浏览器厂商在开发浏览器时，会首先把常用认证机构的公有密钥预先植入，这样申请者申请证书时安全性便得到保证。</p>
+<p><img src="../../../../img/WEB安全/HTTP与HTTPS/公钥证书认证及其使用.png" alt=""></p>
+<h4 align = "center">图6.公钥证书认证及其使用</h4>
 
-            &#x2F;&#x2F; postCreate（创建组件）
-            &#x2F;&#x2F; 这个方法是一个组件创建成功的关键步骤，这个组件已经被渲染（注意：如果是容器，那么容器内的组件还未被渲染），并且此组件还未依附到一个DOM节点上，所以在这个方法中你不能进行任何布局相关的计算。
-            &#x2F;&#x2F; API描述：在组件片创建之后执行，但是不一定已经添加到HTML文档中（通过placeAt()指定依附节点），这个方法不包括管理大小和位置的任何计算。
+<p>证书除了能判明服务器是否安全，还能用来确认运行服务器背后的公司是否是合法合规、真实存在的。拥有这个特性的证书就是EV SSL证书（Extended Validation SSLCertificate）。EV SSL证书是基于国际标准的认证指导方针颁发的证书。其严格规定了对运营组织是否真实的确认方针，因此，通过认证的Web网站能够获得更高的认可度。持有该证书的WEB网站一般在地址栏有一些显眼的标志，例如地址栏是绿色的或者有个锁头一样的标志。</p>
+<p>不但服务器能拥有数字证书，客户端同样能，其获取方式与服务器证书如出一辙。但是，客户端证书的获取需要支付一定的费用，所以一般情况下比较少用。</p>
+<p>除了上述具有公信力的认证证书，还有一种自签名证书，这种证书通常有自由认证机构颁发，不过在互联网上无法使用，不具备公信力。如果你想自由生成证书，则OpenSSL这套开源程序能够帮助你。</p>
+<h3 id="HTTPS的通讯机制"><a href="#HTTPS的通讯机制" class="headerlink" title="HTTPS的通讯机制"></a>HTTPS的通讯机制</h3><p><img src="../../../../img/WEB安全/HTTP与HTTPS/HTTPS的安全通信机制.png" alt=""></p>
+<h4 align = "center">图7.HTTPS的安全通信机制</h4>
 
-            &#x2F;&#x2F; startup()
-            &#x2F;&#x2F; 如果你确认所有的子组件已经完成解析、创建，你就可以调用startup()方法。这个方法通常用于布局相关的的组件，例如：BorderContainer。如果组件需要通过JS进行布局计算，那么就可以在startup()中调用resize()方法进行布局处理。
-            &#x2F;&#x2F; API描述：在组件片已经添加到文档之后执行，并且所有相关的组件已经执行完postCreate()方法。注意：startup()方法可能在组件隐藏的时候被调用，例如：一个隐藏状态的对话框dijit&#x2F;Dialog，或者一个隐藏状态的Tab页dijit&#x2F;layout&#x2F;TabContainer，对于这些组件，如果你想重新布局，最好将相关代码放到resize()方法中，并且继承dijit&#x2F;layout&#x2F;_LayoutWidget，当组件显示的时候，resize()方法就会被调用。
-            &#x2F;&#x2F; 例子
-            var button &#x3D; new Button({
-                label: &#39;Button2&#39;,
-                onClick: function () { console.log(&quot;Button2 Clicked.&quot;); }
-            }, &quot;btn2&quot;);
-            button.startup();
-
-            &#x2F;**
-            * destroy(preserveDom) 此方法可以进行销毁数据，一般父类都会自动的调用此方法销毁对象，但不包括对象的后代。
-            * @param: preserveDom
-            *         类型：Boolean
-            *         描述：如果为true，则此方法将仅保留原始DOM结构。 注意：这不适用于_TemplatedMixin小部件
-            *&#x2F;
-            &#x2F;&#x2F;例子
-            var widget &#x3D; new TextBox({ name: &quot;firstname&quot; }, &quot;inputId&quot;);
-            widget.destroy();
-            dijit.byId(&quot;dijitId&quot;).destroy();
-
-            &#x2F;**
-            * destroyDescendants(preserveDom) 递归销毁这个小部件及其后代的子节点
-            * @param: preserveDom
-            *         类型：Boolean
-            *         描述：如果为true，则preserveDom属性将传递给所有后代窗口小部件的.destroy（）方法。 不适用于_Templated小部件。
-            *&#x2F;
-
-            &#x2F;**
-            * destroyRecursive(preserveDom) 销毁此小部件及其后代
-            * @param: preserveDom
-            *         类型：Boolean
-            *         描述：如果为true，则此方法将使原始DOM结构独立于后代Widgets。 注意：这不适用于dijit._TemplatedMixin小部件。
-            *&#x2F;
-
-            &#x2F;**
-            * destroyRendering(preserveDom) 销毁与此窗口小部件关联的DOM节点。
-            * @param: preserveDom
-            *         类型：Boolean
-            *         描述：如果为true，则此方法将在销毁期间单独保留原始DOM结构。 注意：这不适用于_TemplatedMixin小部件。
-            *&#x2F;
-
-            &#x2F;**
-            * get(name) 从小部件获取某个属性的值。
-            * @param: name
-            *         类型：undefined
-            *         描述：要获取值的属性名。
-            *&#x2F;
-
-            &#x2F;**
-            * getChildren()  返回包含此部件的所有直接子部件的简单数组，不会返回所有后代，而只是直接返回子项，无法使用foreach遍历。
-            *&#x2F;
-
-            &#x2F;**
-            * getParent() 返回部件的父部件。
-            *&#x2F;
-
-            &#x2F;**
-            * isFocusable() 如果此部件当前可以聚焦则返回true，否则返回false
-            *&#x2F;
-
-            &#x2F;**
-            * placeAt(reference,position) 根据标准domConstruct.place（）约定将此部件放在DOM中的某个位置。
-            * @param: reference
-            *         类型：String | DomNode | DocumentFragment | dijit&#x2F;_WidgetBase
-            *         描述：窗口小部件，DOMNode，DocumentFragment，部件或DOMNode的ID
-            * @param: position
-            *         类型：String | Int
-            *         描述：可选的
-            *               如果引用是窗口小部件（或窗口小部件的id），并且该窗口小部件具有“.addChild”方法，则会调用它将此窗口小部件实例传递到该方法，并提供传递的可选位置索引。 在这种情况下，position（如果指定）应该是一个整数。
-            *               如果引用是DOMNode（或id匹配DOMNode而不是小部件），则position参数可以是数字索引或字符串“first”，“last”，“before”或“after”，与dojo &#x2F; dom相同-construct::地方（）。
-            *&#x2F;
-            &#x2F;&#x2F; Example 1
-            &#x2F;&#x2F; create a Button with no srcNodeRef, and place it in the body:
-            var button &#x3D; new Button({ label: &quot;click&quot; }).placeAt(win.body());
-            &#x2F;&#x2F; now, &#39;button&#39; is still the widget reference to the newly created button
-            button.on(&quot;click&quot;, function (e) { console.log(&#39;click&#39;); });
-            &#x2F;&#x2F; Example 2
-            &#x2F;&#x2F; create a button out of a node with id&#x3D;&quot;src&quot; and append it to id&#x3D;&quot;wrapper&quot;:
-            var button &#x3D; new Button({}, &quot;src&quot;).placeAt(&quot;wrapper&quot;);
-            &#x2F;&#x2F; Example 3
-            &#x2F;&#x2F; place a new button as the first element of some div
-            var button &#x3D; new Button({ label: &quot;click&quot; }).placeAt(&quot;wrapper&quot;, &quot;first&quot;);
-            &#x2F;&#x2F; Example 4
-            &#x2F;&#x2F; create a contentpane and add it to a TabContainer
-            var tc &#x3D; dijit.byId(&quot;myTabs&quot;);
-            new ContentPane({ href: &quot;foo.html&quot;, title: &quot;Wow!&quot; }).placeAt(tc);
-
-            &#x2F;**
-            * set(name,value) 设置部件某个属性。
-            * @param: name
-            *         类型：undefined
-            *         描述：要设置的属性名。
-            * @param: value
-            *         类型：undefined
-            *         描述：要设置的属性值。
-            *&#x2F;
-
-            &#x2F;**
-            * toString() 返回表示窗口小部件的字符串。
-            *&#x2F;
-
-            &#x2F;**
-            * watch(name,callback) 检测属性是否变更。
-            * @param: name
-            *         类型：String
-            *         描述：可选。表示要监视的属性。如果省略，将监视所有属性
-            * @param: callback
-            *         类型：Function
-            *         描述：属性更改时要执行的函数。 
-            *&#x2F;
-
-            &#x2F;&#x2F;事件
-            &#x2F;**
-            * onBlur() 当部件因为焦点移动到其外部或者用户在其外部的某处单击或者窗口小部件被隐藏而停止“活动”时调用。
-            *&#x2F;
-            &#x2F;&#x2F; Example 1
-            var btn &#x3D; new Button();
-            &#x2F;&#x2F; when &#x2F;my&#x2F;topic is published, this button changes its label to
-            &#x2F;&#x2F; be the parameter of the topic.
-            btn.subscribe(&quot;&#x2F;my&#x2F;topic&quot;, function (v) {
-                this.set(&quot;label&quot;, v);
-            });
-            &#x2F;**
-            * onFocus() 当部件因为它或其内部的窗口小部件具有焦点或者最近被单击而开始“活动”时调用。
-            *&#x2F;
-            &#x2F;&#x2F; Example 1
-            var btn &#x3D; new Button();
-            &#x2F;&#x2F; when &#x2F;my&#x2F;topic is published, this button changes its label to
-            &#x2F;&#x2F; be the parameter of the topic.
-            btn.subscribe(&quot;&#x2F;my&#x2F;topic&quot;, function (v) {
-                this.set(&quot;label&quot;, v);
-            });
-
-            &#x2F;&#x2F;widget例子
-            var te &#x3D; new test({}, &quot;base&quot;);
-
-            setTimeout(() &#x3D;&gt; {
-                te.destroy(true);
-            }, 1000);
-        })</code></pre></p>
+<p>步骤1： 客户端通过发送Client Hello报文开始SSL通信。报文中包含客户端支持的SSL的指定版本、加密组件（Cipher Suite）列表（所使用的加密算法及密钥长度等）。</p>
+<p>步骤2： 服务器可进行SSL通信时，会以Server Hello报文作为应答。和客户端一样，在报文中包含SSL版本以及加密组件。服务器的加密组件内容是从接收到的客户端加密组件内筛选出来的。</p>
+<p>步骤3： 之后服务器发送Certificate报文。报文中包含公开密钥证书。</p>
+<p>步骤4： 最后服务器发送Server Hello Done报文通知客户端，最初阶段的SSL握手协商部分结束。</p>
+<p>步骤5: SSL第一次握手结束之后，客户端以Client Key Exchange报文作为回应。报文中包含通信加密中使用的一种被称为Pre-master secret的随机密码串。该报文已用步骤3中的公开密钥进行加密。</p>
+<p>步骤6： 接着客户端继续发送Change Cipher Spec报文。该报文会提示服务器，在此报文之后的通信会采用Pre-master secret密钥加密。</p>
+<p>步骤7： 客户端发送Finished报文。该报文包含连接至今全部报文的整体校验值。这次握手协商是否能够成功，要以服务器是否能够正确解密该报文作为判定标准。</p>
+<p>步骤8： 服务器同样发送Change Cipher Spec报文。</p>
+<p>步骤9： 服务器同样发送Finished报文。</p>
+<p>步骤10： 服务器和客户端的Finished报文交换完毕之后，SSL连接就算建立完成。当然，通信会受到SSL的保护。从此处开始进行应用层协议的通信，即发送HTTP请求。</p>
+<p>步骤11： 应用层协议通信，即发送HTTP响应。步骤12： 最后由客户端断开连接。断开连接时，发送close_notify报文。上图做了一些省略，这步之后再发送TCP FIN报文来关闭与TCP的通信。</p>
+<p>在以上流程中，应用层发送数据时会附加一种叫做MAC（Message Authentication Code）的报文摘要。MAC能够查知报文是否遭到篡改，从而保护报文的完整性。</p>
+<h3 id="HTTPS的一些缺点"><a href="#HTTPS的一些缺点" class="headerlink" title="HTTPS的一些缺点"></a>HTTPS的一些缺点</h3><p>HTTPS固然能大幅提升安全性，但是带来的代价便是资源的消耗，运行算法加密和解密需要一定的CPU运算力和内存，访问量越大的网站需要付出的硬件资源越大。一般来说，只会在传输重要信息时才使用HTTPS协议，例如用户账号密码、银行卡号密码等等，而其它时候直接使用HTTP协议进行通信，这样就能在尽可能保证服务器资源合理的情况下保证信息安全。</p>
 
             </div>
             <hr/>
@@ -587,9 +436,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《dojo学习笔记--创建widget》
+                    《WEB安全之HTTP与HTTPS》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%88%9B%E5%BB%BAwidget/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/02/22/bc/" property="cc:attributionName"
                rel="cc:attributionURL">
                 Leno
             </a> 采用
@@ -630,7 +479,7 @@
         repo: '',
         owner: '',
         admin: null,
-        id: '2018-07-29T23-03-51',
+        id: '2020-02-22T10-53-47',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -651,50 +500,39 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">
+                <a href="/2020/02/22/bc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="解决VSCode触摸板卡顿问题">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="WEB安全之HTTP与HTTPS">
                         
-                        <span class="card-title">解决VSCode触摸板卡顿问题</span>
+                        <span class="card-title">WEB安全之HTTP与HTTPS</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Setting.json中增加选项：&quot;window.smoothScrollingWorkaround&quot;: true,
-&quot;window.titleBarStyle&quot;: &quot;native&quo
+                            HTTP与HTTPSHTTPHTTP，全称HyperText Transfer Protocol，中文名称超文本传输协议，传统的web站点都是建立在HTTP协议基础上进行通信的，我们访问某些站点时，首先通过该协议传输生成网页的基础文件如.h
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-22
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category" target="_blank">
-                                    工具
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Leno
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/VSCode/" target="_blank">
-                        <span class="chip bg-color">VSCode</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -705,48 +543,32 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-Deferred%E5%AF%B9%E8%B1%A1/">
+                <a href="/2020/02/22/WEB%E5%AE%89%E5%85%A8%E4%B9%8BHTTP%E4%B8%8EHTTPS/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="dojo学习笔记--Deferred对象">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="WEB安全之HTTP与HTTPS">
                         
-                        <span class="card-title">dojo学习笔记--Deferred对象</span>
+                        <span class="card-title">WEB安全之HTTP与HTTPS</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            &emsp;&emsp;dojo.Deferred管理异步线程（回调）之间的通信。 dojo.Deferred封装了一系列回调以响应可能尚未可用的值。 所有dojo.xhr*函数都使用此类(Deferred)，其他许多函数也是如此，例如do
+                            HTTP与HTTPSHTTPHTTP，全称HyperText Transfer Protocol，中文名称超文本传输协议，传统的web站点都是建立在HTTP协议基础上进行通信的，我们访问某些站点时，首先通过该协议传输生成网页的基础文件如.h
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-07-29
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
-                                    前端
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Leno
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/dojo/" target="_blank">
-                        <span class="chip bg-color">dojo</span>
-                    </a>
-                    
-                    <a href="/tags/Deferred/" target="_blank">
-                        <span class="chip bg-color">Deferred</span>
-                    </a>
-                    
                 </div>
                 
             </div>
