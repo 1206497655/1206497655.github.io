@@ -119,7 +119,7 @@
         <div class="logo-name">Leno的个人博客</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            Hello World
             
         </div>
     </div>
@@ -358,37 +358,38 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>&emsp;&emsp;dijit / _WidgetBase是Dijit包中所有组件的基类，也是Dojo中所有组件的一个基类。通常一个组件也会继承一些属性融合的工具类，例如：dijit._TemplatedMixin。 注意：_WidgetBase名字中的下划线表示它是一个基类，不可直接使用，而不是表示它是一个私有的类。<a id="more"></a>_WidgetBase是一个不可以直接使用的基类，需要继承。一般在创建dojo自定义组件时，继承来自_WidgetBase基类的属性和方法，它的作用是赋予自定义组件一些常用些属性，给你的组件创建生命周期以及提供一些操作组件的API。<br><pre><code>require([
-            &quot;dojo&quot;,
-            &#39;dojo&#x2F;dom&#39;,
-            &#39;dojo&#x2F;_base&#x2F;declare&#39;,
-            &#39;dijit&#x2F;_WidgetBase&#39;,
-            &#39;dijit&#x2F;form&#x2F;TextBox&#39;,
-            &#39;dijit&#x2F;form&#x2F;Button&#39;,
-            &#39;demo&#x2F;test&#39;,
-            &#39;dijit&#x2F;Dialog&#39;,
-            &#39;dojo&#x2F;on&#39;,
-            &#39;dojo&#x2F;domReady!&#39;
-        ], function (dojo, dom, declare, WidgetBase, TextBox, Button, test, Dialog, on) {
-            &#x2F;&#x2F; 用法
-            &#x2F;&#x2F; Dojo中所有的组件通过调用dojo.declare()继承_WidgetBase，然后根据组件的生命周期定义大量的方法。
-            declare(&quot;MyWidget&quot;, WidgetBase, {
-                &#x2F;&#x2F;do something
-            });
+                <p>&emsp;&emsp;dijit / _WidgetBase是Dijit包中所有组件的基类，也是Dojo中所有组件的一个基类。通常一个组件也会继承一些属性融合的工具类，例如：dijit._TemplatedMixin。 注意：_WidgetBase名字中的下划线表示它是一个基类，不可直接使用，而不是表示它是一个私有的类。<a id="more"></a>_WidgetBase是一个不可以直接使用的基类，需要继承。一般在创建dojo自定义组件时，继承来自_WidgetBase基类的属性和方法，它的作用是赋予自定义组件一些常用些属性，给你的组件创建生命周期以及提供一些操作组件的API。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">require</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+            <span class="token string">"dojo"</span><span class="token punctuation">,</span>
+            <span class="token string">'dojo/dom'</span><span class="token punctuation">,</span>
+            <span class="token string">'dojo/_base/declare'</span><span class="token punctuation">,</span>
+            <span class="token string">'dijit/_WidgetBase'</span><span class="token punctuation">,</span>
+            <span class="token string">'dijit/form/TextBox'</span><span class="token punctuation">,</span>
+            <span class="token string">'dijit/form/Button'</span><span class="token punctuation">,</span>
+            <span class="token string">'demo/test'</span><span class="token punctuation">,</span>
+            <span class="token string">'dijit/Dialog'</span><span class="token punctuation">,</span>
+            <span class="token string">'dojo/on'</span><span class="token punctuation">,</span>
+            <span class="token string">'dojo/domReady!'</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>dojo<span class="token punctuation">,</span> dom<span class="token punctuation">,</span> declare<span class="token punctuation">,</span> WidgetBase<span class="token punctuation">,</span> TextBox<span class="token punctuation">,</span> Button<span class="token punctuation">,</span> test<span class="token punctuation">,</span> Dialog<span class="token punctuation">,</span> on<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// 用法</span>
+            <span class="token comment" spellcheck="true">// Dojo中所有的组件通过调用dojo.declare()继承_WidgetBase，然后根据组件的生命周期定义大量的方法。</span>
+            <span class="token function">declare</span><span class="token punctuation">(</span><span class="token string">"MyWidget"</span><span class="token punctuation">,</span> WidgetBase<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//do something</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-            &#x2F;&#x2F; 部分属性
-            &#x2F;&#x2F; id: 标识微件的String类型的唯一值
-            &#x2F;&#x2F; lang: 很少使用的String值，可以重写Dojo默认的locale
-            &#x2F;&#x2F; dir: 用于双向支持
-            &#x2F;&#x2F; class: 部件domNode的html样式
-            &#x2F;&#x2F; style: 部件domNode的style属性
-            &#x2F;&#x2F; title: 一般表示原生提示的html title属性
-            &#x2F;&#x2F; baseClass：部件的根CSS样式
-            &#x2F;&#x2F; srcNodeRef: 部件在部件化之前的原始Dom 节点，如果有的话。注意这个属性与部件的类型有关(如基于模板的微件)，并且在postCreate之后可能会被丢弃。
-            &#x2F;&#x2F; tooltip：widget 根节点上的 class, 用来创建指示 widget 状态(State)的 css classes
+            <span class="token comment" spellcheck="true">// 部分属性</span>
+            <span class="token comment" spellcheck="true">// id: 标识微件的String类型的唯一值</span>
+            <span class="token comment" spellcheck="true">// lang: 很少使用的String值，可以重写Dojo默认的locale</span>
+            <span class="token comment" spellcheck="true">// dir: 用于双向支持</span>
+            <span class="token comment" spellcheck="true">// class: 部件domNode的html样式</span>
+            <span class="token comment" spellcheck="true">// style: 部件domNode的style属性</span>
+            <span class="token comment" spellcheck="true">// title: 一般表示原生提示的html title属性</span>
+            <span class="token comment" spellcheck="true">// baseClass：部件的根CSS样式</span>
+            <span class="token comment" spellcheck="true">// srcNodeRef: 部件在部件化之前的原始Dom 节点，如果有的话。注意这个属性与部件的类型有关(如基于模板的微件)，并且在postCreate之后可能会被丢弃。</span>
+            <span class="token comment" spellcheck="true">// tooltip：widget 根节点上的 class, 用来创建指示 widget 状态(State)的 css classes</span>
 
-            &#x2F;&#x2F; 部分方法
-            &#x2F;**
+            <span class="token comment" spellcheck="true">// 部分方法</span>
+            <span class="token comment" spellcheck="true">/**
             * defer(fcn,delay) 包装到setTimeout以避免在销毁原始窗口小部件后执行delay函数。 使用remove方法返回一个对象句柄。
             * @param: fcn
             *         类型: Function
@@ -396,111 +397,111 @@
             * @param：delay
             *         类型：Number
             *         描述：延迟时间，默认为0。
-            *&#x2F;
+            */</span>
 
-            &#x2F;&#x2F; constructor（构造方法）
-            &#x2F;&#x2F; 在根据传入参数初始化组件之前，构造方法就会被调用。所以说，在构造方法中你可以进行数组初始化等操作。
+            <span class="token comment" spellcheck="true">// constructor（构造方法）</span>
+            <span class="token comment" spellcheck="true">// 在根据传入参数初始化组件之前，构造方法就会被调用。所以说，在构造方法中你可以进行数组初始化等操作。</span>
 
-            &#x2F;&#x2F; buildRendering（渲染组件）
-            &#x2F;&#x2F; dijit._TemplatedMixin提供buildRendering实现你想要实现的组件。此方法执行后，模板会被加载、节点会被创建、事件也会被绑定，最终的结果就是完成节点的展示。如果你没有混入类dijit._TemplateMinxin（通常OOTB dijit会去做），而且希望自己去渲染组件（例如：简化一个组件，或者更换系统模板），你就可以在这个方法中实现。
-            &#x2F;&#x2F; API中描述：构造组件的UI，并应用到this.domNode。大多数需要重写这个方法的组件都需要继承类dijit._TemplateMinxin。
+            <span class="token comment" spellcheck="true">// buildRendering（渲染组件）</span>
+            <span class="token comment" spellcheck="true">// dijit._TemplatedMixin提供buildRendering实现你想要实现的组件。此方法执行后，模板会被加载、节点会被创建、事件也会被绑定，最终的结果就是完成节点的展示。如果你没有混入类dijit._TemplateMinxin（通常OOTB dijit会去做），而且希望自己去渲染组件（例如：简化一个组件，或者更换系统模板），你就可以在这个方法中实现。</span>
+            <span class="token comment" spellcheck="true">// API中描述：构造组件的UI，并应用到this.domNode。大多数需要重写这个方法的组件都需要继承类dijit._TemplateMinxin。</span>
 
-            &#x2F;&#x2F; setters are called（执行setXXX方法）
-            &#x2F;&#x2F; 类中定义的_setXXX方法会在此时被执行，不管在构造函数中或者为non-null non-blank non-zero类型数据设定默认值，这个方法都会执行。
+            <span class="token comment" spellcheck="true">// setters are called（执行setXXX方法）</span>
+            <span class="token comment" spellcheck="true">// 类中定义的_setXXX方法会在此时被执行，不管在构造函数中或者为non-null non-blank non-zero类型数据设定默认值，这个方法都会执行。</span>
 
-            &#x2F;&#x2F; postCreate（创建组件）
-            &#x2F;&#x2F; 这个方法是一个组件创建成功的关键步骤，这个组件已经被渲染（注意：如果是容器，那么容器内的组件还未被渲染），并且此组件还未依附到一个DOM节点上，所以在这个方法中你不能进行任何布局相关的计算。
-            &#x2F;&#x2F; API描述：在组件片创建之后执行，但是不一定已经添加到HTML文档中（通过placeAt()指定依附节点），这个方法不包括管理大小和位置的任何计算。
+            <span class="token comment" spellcheck="true">// postCreate（创建组件）</span>
+            <span class="token comment" spellcheck="true">// 这个方法是一个组件创建成功的关键步骤，这个组件已经被渲染（注意：如果是容器，那么容器内的组件还未被渲染），并且此组件还未依附到一个DOM节点上，所以在这个方法中你不能进行任何布局相关的计算。</span>
+            <span class="token comment" spellcheck="true">// API描述：在组件片创建之后执行，但是不一定已经添加到HTML文档中（通过placeAt()指定依附节点），这个方法不包括管理大小和位置的任何计算。</span>
 
-            &#x2F;&#x2F; startup()
-            &#x2F;&#x2F; 如果你确认所有的子组件已经完成解析、创建，你就可以调用startup()方法。这个方法通常用于布局相关的的组件，例如：BorderContainer。如果组件需要通过JS进行布局计算，那么就可以在startup()中调用resize()方法进行布局处理。
-            &#x2F;&#x2F; API描述：在组件片已经添加到文档之后执行，并且所有相关的组件已经执行完postCreate()方法。注意：startup()方法可能在组件隐藏的时候被调用，例如：一个隐藏状态的对话框dijit&#x2F;Dialog，或者一个隐藏状态的Tab页dijit&#x2F;layout&#x2F;TabContainer，对于这些组件，如果你想重新布局，最好将相关代码放到resize()方法中，并且继承dijit&#x2F;layout&#x2F;_LayoutWidget，当组件显示的时候，resize()方法就会被调用。
-            &#x2F;&#x2F; 例子
-            var button &#x3D; new Button({
-                label: &#39;Button2&#39;,
-                onClick: function () { console.log(&quot;Button2 Clicked.&quot;); }
-            }, &quot;btn2&quot;);
-            button.startup();
+            <span class="token comment" spellcheck="true">// startup()</span>
+            <span class="token comment" spellcheck="true">// 如果你确认所有的子组件已经完成解析、创建，你就可以调用startup()方法。这个方法通常用于布局相关的的组件，例如：BorderContainer。如果组件需要通过JS进行布局计算，那么就可以在startup()中调用resize()方法进行布局处理。</span>
+            <span class="token comment" spellcheck="true">// API描述：在组件片已经添加到文档之后执行，并且所有相关的组件已经执行完postCreate()方法。注意：startup()方法可能在组件隐藏的时候被调用，例如：一个隐藏状态的对话框dijit/Dialog，或者一个隐藏状态的Tab页dijit/layout/TabContainer，对于这些组件，如果你想重新布局，最好将相关代码放到resize()方法中，并且继承dijit/layout/_LayoutWidget，当组件显示的时候，resize()方法就会被调用。</span>
+            <span class="token comment" spellcheck="true">// 例子</span>
+            <span class="token keyword">var</span> button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                label<span class="token punctuation">:</span> <span class="token string">'Button2'</span><span class="token punctuation">,</span>
+                onClick<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Button2 Clicked."</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"btn2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            button<span class="token punctuation">.</span><span class="token function">startup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-            &#x2F;**
+            <span class="token comment" spellcheck="true">/**
             * destroy(preserveDom) 此方法可以进行销毁数据，一般父类都会自动的调用此方法销毁对象，但不包括对象的后代。
             * @param: preserveDom
             *         类型：Boolean
             *         描述：如果为true，则此方法将仅保留原始DOM结构。 注意：这不适用于_TemplatedMixin小部件
-            *&#x2F;
-            &#x2F;&#x2F;例子
-            var widget &#x3D; new TextBox({ name: &quot;firstname&quot; }, &quot;inputId&quot;);
-            widget.destroy();
-            dijit.byId(&quot;dijitId&quot;).destroy();
+            */</span>
+            <span class="token comment" spellcheck="true">//例子</span>
+            <span class="token keyword">var</span> widget <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TextBox</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">"firstname"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"inputId"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            widget<span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            dijit<span class="token punctuation">.</span><span class="token function">byId</span><span class="token punctuation">(</span><span class="token string">"dijitId"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-            &#x2F;**
+            <span class="token comment" spellcheck="true">/**
             * destroyDescendants(preserveDom) 递归销毁这个小部件及其后代的子节点
             * @param: preserveDom
             *         类型：Boolean
             *         描述：如果为true，则preserveDom属性将传递给所有后代窗口小部件的.destroy（）方法。 不适用于_Templated小部件。
-            *&#x2F;
+            */</span>
 
-            &#x2F;**
+            <span class="token comment" spellcheck="true">/**
             * destroyRecursive(preserveDom) 销毁此小部件及其后代
             * @param: preserveDom
             *         类型：Boolean
             *         描述：如果为true，则此方法将使原始DOM结构独立于后代Widgets。 注意：这不适用于dijit._TemplatedMixin小部件。
-            *&#x2F;
+            */</span>
 
-            &#x2F;**
+            <span class="token comment" spellcheck="true">/**
             * destroyRendering(preserveDom) 销毁与此窗口小部件关联的DOM节点。
             * @param: preserveDom
             *         类型：Boolean
             *         描述：如果为true，则此方法将在销毁期间单独保留原始DOM结构。 注意：这不适用于_TemplatedMixin小部件。
-            *&#x2F;
+            */</span>
 
-            &#x2F;**
+            <span class="token comment" spellcheck="true">/**
             * get(name) 从小部件获取某个属性的值。
             * @param: name
             *         类型：undefined
             *         描述：要获取值的属性名。
-            *&#x2F;
+            */</span>
 
-            &#x2F;**
+            <span class="token comment" spellcheck="true">/**
             * getChildren()  返回包含此部件的所有直接子部件的简单数组，不会返回所有后代，而只是直接返回子项，无法使用foreach遍历。
-            *&#x2F;
+            */</span>
 
-            &#x2F;**
+            <span class="token comment" spellcheck="true">/**
             * getParent() 返回部件的父部件。
-            *&#x2F;
+            */</span>
 
-            &#x2F;**
+            <span class="token comment" spellcheck="true">/**
             * isFocusable() 如果此部件当前可以聚焦则返回true，否则返回false
-            *&#x2F;
+            */</span>
 
-            &#x2F;**
+            <span class="token comment" spellcheck="true">/**
             * placeAt(reference,position) 根据标准domConstruct.place（）约定将此部件放在DOM中的某个位置。
             * @param: reference
-            *         类型：String | DomNode | DocumentFragment | dijit&#x2F;_WidgetBase
+            *         类型：String | DomNode | DocumentFragment | dijit/_WidgetBase
             *         描述：窗口小部件，DOMNode，DocumentFragment，部件或DOMNode的ID
             * @param: position
             *         类型：String | Int
             *         描述：可选的
             *               如果引用是窗口小部件（或窗口小部件的id），并且该窗口小部件具有“.addChild”方法，则会调用它将此窗口小部件实例传递到该方法，并提供传递的可选位置索引。 在这种情况下，position（如果指定）应该是一个整数。
-            *               如果引用是DOMNode（或id匹配DOMNode而不是小部件），则position参数可以是数字索引或字符串“first”，“last”，“before”或“after”，与dojo &#x2F; dom相同-construct::地方（）。
-            *&#x2F;
-            &#x2F;&#x2F; Example 1
-            &#x2F;&#x2F; create a Button with no srcNodeRef, and place it in the body:
-            var button &#x3D; new Button({ label: &quot;click&quot; }).placeAt(win.body());
-            &#x2F;&#x2F; now, &#39;button&#39; is still the widget reference to the newly created button
-            button.on(&quot;click&quot;, function (e) { console.log(&#39;click&#39;); });
-            &#x2F;&#x2F; Example 2
-            &#x2F;&#x2F; create a button out of a node with id&#x3D;&quot;src&quot; and append it to id&#x3D;&quot;wrapper&quot;:
-            var button &#x3D; new Button({}, &quot;src&quot;).placeAt(&quot;wrapper&quot;);
-            &#x2F;&#x2F; Example 3
-            &#x2F;&#x2F; place a new button as the first element of some div
-            var button &#x3D; new Button({ label: &quot;click&quot; }).placeAt(&quot;wrapper&quot;, &quot;first&quot;);
-            &#x2F;&#x2F; Example 4
-            &#x2F;&#x2F; create a contentpane and add it to a TabContainer
-            var tc &#x3D; dijit.byId(&quot;myTabs&quot;);
-            new ContentPane({ href: &quot;foo.html&quot;, title: &quot;Wow!&quot; }).placeAt(tc);
+            *               如果引用是DOMNode（或id匹配DOMNode而不是小部件），则position参数可以是数字索引或字符串“first”，“last”，“before”或“after”，与dojo / dom相同-construct::地方（）。
+            */</span>
+            <span class="token comment" spellcheck="true">// Example 1</span>
+            <span class="token comment" spellcheck="true">// create a Button with no srcNodeRef, and place it in the body:</span>
+            <span class="token keyword">var</span> button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> label<span class="token punctuation">:</span> <span class="token string">"click"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">placeAt</span><span class="token punctuation">(</span>win<span class="token punctuation">.</span><span class="token function">body</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// now, 'button' is still the widget reference to the newly created button</span>
+            button<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// Example 2</span>
+            <span class="token comment" spellcheck="true">// create a button out of a node with id="src" and append it to id="wrapper":</span>
+            <span class="token keyword">var</span> button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"src"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">placeAt</span><span class="token punctuation">(</span><span class="token string">"wrapper"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// Example 3</span>
+            <span class="token comment" spellcheck="true">// place a new button as the first element of some div</span>
+            <span class="token keyword">var</span> button <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">{</span> label<span class="token punctuation">:</span> <span class="token string">"click"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">placeAt</span><span class="token punctuation">(</span><span class="token string">"wrapper"</span><span class="token punctuation">,</span> <span class="token string">"first"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// Example 4</span>
+            <span class="token comment" spellcheck="true">// create a contentpane and add it to a TabContainer</span>
+            <span class="token keyword">var</span> tc <span class="token operator">=</span> dijit<span class="token punctuation">.</span><span class="token function">byId</span><span class="token punctuation">(</span><span class="token string">"myTabs"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">new</span> <span class="token class-name">ContentPane</span><span class="token punctuation">(</span><span class="token punctuation">{</span> href<span class="token punctuation">:</span> <span class="token string">"foo.html"</span><span class="token punctuation">,</span> title<span class="token punctuation">:</span> <span class="token string">"Wow!"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">placeAt</span><span class="token punctuation">(</span>tc<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-            &#x2F;**
+            <span class="token comment" spellcheck="true">/**
             * set(name,value) 设置部件某个属性。
             * @param: name
             *         类型：undefined
@@ -508,13 +509,13 @@
             * @param: value
             *         类型：undefined
             *         描述：要设置的属性值。
-            *&#x2F;
+            */</span>
 
-            &#x2F;**
+            <span class="token comment" spellcheck="true">/**
             * toString() 返回表示窗口小部件的字符串。
-            *&#x2F;
+            */</span>
 
-            &#x2F;**
+            <span class="token comment" spellcheck="true">/**
             * watch(name,callback) 检测属性是否变更。
             * @param: name
             *         类型：String
@@ -522,37 +523,38 @@
             * @param: callback
             *         类型：Function
             *         描述：属性更改时要执行的函数。 
-            *&#x2F;
+            */</span>
 
-            &#x2F;&#x2F;事件
-            &#x2F;**
+            <span class="token comment" spellcheck="true">//事件</span>
+            <span class="token comment" spellcheck="true">/**
             * onBlur() 当部件因为焦点移动到其外部或者用户在其外部的某处单击或者窗口小部件被隐藏而停止“活动”时调用。
-            *&#x2F;
-            &#x2F;&#x2F; Example 1
-            var btn &#x3D; new Button();
-            &#x2F;&#x2F; when &#x2F;my&#x2F;topic is published, this button changes its label to
-            &#x2F;&#x2F; be the parameter of the topic.
-            btn.subscribe(&quot;&#x2F;my&#x2F;topic&quot;, function (v) {
-                this.set(&quot;label&quot;, v);
-            });
-            &#x2F;**
+            */</span>
+            <span class="token comment" spellcheck="true">// Example 1</span>
+            <span class="token keyword">var</span> btn <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// when /my/topic is published, this button changes its label to</span>
+            <span class="token comment" spellcheck="true">// be the parameter of the topic.</span>
+            btn<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token string">"/my/topic"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">"label"</span><span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">/**
             * onFocus() 当部件因为它或其内部的窗口小部件具有焦点或者最近被单击而开始“活动”时调用。
-            *&#x2F;
-            &#x2F;&#x2F; Example 1
-            var btn &#x3D; new Button();
-            &#x2F;&#x2F; when &#x2F;my&#x2F;topic is published, this button changes its label to
-            &#x2F;&#x2F; be the parameter of the topic.
-            btn.subscribe(&quot;&#x2F;my&#x2F;topic&quot;, function (v) {
-                this.set(&quot;label&quot;, v);
-            });
+            */</span>
+            <span class="token comment" spellcheck="true">// Example 1</span>
+            <span class="token keyword">var</span> btn <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Button</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">// when /my/topic is published, this button changes its label to</span>
+            <span class="token comment" spellcheck="true">// be the parameter of the topic.</span>
+            btn<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token string">"/my/topic"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span><span class="token string">"label"</span><span class="token punctuation">,</span> v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-            &#x2F;&#x2F;widget例子
-            var te &#x3D; new test({}, &quot;base&quot;);
+            <span class="token comment" spellcheck="true">//widget例子</span>
+            <span class="token keyword">var</span> te <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">test</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token string">"base"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-            setTimeout(() &#x3D;&gt; {
-                te.destroy(true);
-            }, 1000);
-        })</code></pre></p>
+            <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                te<span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -655,20 +657,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2018/07/29/%E8%A7%A3%E5%86%B3VSCode%E8%A7%A6%E6%91%B8%E6%9D%BF%E6%BB%91%E5%8A%A8%E5%8D%A1%E9%A1%BF%E9%97%AE%E9%A2%98/">
+                <a href="/2018/07/29/dojo%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E6%A8%A1%E6%9D%BFTemplatedMixin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="解决VSCode触摸板卡顿问题">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="dojo学习笔记--模板TemplatedMixin">
                         
-                        <span class="card-title">解决VSCode触摸板卡顿问题</span>
+                        <span class="card-title">dojo学习笔记--模板TemplatedMixin</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Setting.json中增加选项：&quot;window.smoothScrollingWorkaround&quot;: true,
-&quot;window.titleBarStyle&quot;: &quot;native&quo
+                            &emsp;&emsp;_TemplatedMixin(params,srcNodeRef) 用于模板实例化的部件的混合&emsp;&emsp;on方法不需要前缀。包括三个参数。@param: params&emsp;&emsp;类型：Ob
                         
                     </div>
                     <div class="publish-info">
@@ -679,8 +680,8 @@
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category" target="_blank">
-                                    工具
+                            <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category" target="_blank">
+                                    前端
                                 </a>
                             
                             
@@ -690,8 +691,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/VSCode/" target="_blank">
-                        <span class="chip bg-color">VSCode</span>
+                    <a href="/tags/dojo/" target="_blank">
+                        <span class="chip bg-color">dojo</span>
+                    </a>
+                    
+                    <a href="/tags/TemplatedMixin/" target="_blank">
+                        <span class="chip bg-color">_TemplatedMixin</span>
                     </a>
                     
                 </div>
