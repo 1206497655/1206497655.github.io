@@ -1,0 +1,875 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="WEB安全之SQL注入攻击, Leno的个人博客">
+    <meta name="description" content="SQL注入攻击简介SQL注入攻击是黑客对数据库进行攻击的常用手段之一，不论是在WEB领域还是其它领域。攻击发生的原因依然是信任问题，开发人员信任用户输入，未对用户输入进行合法性检查，使应用程序存在安全隐患。譬如最常见的搜索功能，用户输入一段">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>WEB安全之SQL注入攻击 | Leno的个人博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Leno的个人博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Leno的个人博客</div>
+        <div class="logo-desc">
+            
+            Hello World
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        WEB安全之SQL注入攻击
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-04-16
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="SQL注入攻击"><a href="#SQL注入攻击" class="headerlink" title="SQL注入攻击"></a>SQL注入攻击</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>SQL注入攻击是黑客对数据库进行攻击的常用手段之一，不论是在WEB领域还是其它领域。攻击发生的原因依然是信任问题，开发人员信任用户输入，未对用户输入进行合法性检查，使应用程序存在安全隐患。譬如最常见的搜索功能，用户输入一段信息至后台进行数据库查询，当用户输入的信息中含有SQL语句时而后台未做安全检查时，该语句可能会被直接执行，这就是SQL Injection。</p>
+<p>SQL注入攻击是从正常的WWW端口访问，而且表面看起来与一般的Web页面访问没什么区别，所以市面的防火墙都不会对SQL注入发出警报，如果管理员没查看日志的习惯，可能被入侵很长时间都不会发觉。但是，SQL注入的手法相当灵活，在注入的时候会碰到很多意外的情况，需要构造巧妙的SQL语句，从而成功获取想要的数据或者操作。</p>
+<p>注入攻击的本质，是把用户输入的数据当做代码执行。这里有两个关键条件，第一个是用户能够控制输入；第二个是原本程序要执行的代码，拼接了用户输入的数据。</p>
+<p>从根本上来说，解决SQL注入攻击的方法依然是不要信任用户的任何数据输入。</p>
+<h3 id="攻击例子"><a href="#攻击例子" class="headerlink" title="攻击例子"></a>攻击例子</h3><p>下面一个通过id搜索学生数据页面:</p>
+<p><img src="../../../../img/WEB安全/SQL注入攻击/1.png" alt=""></p>
+<p>该数据库中所拥有的数据: </p>
+<p><img src="../../../../img/WEB安全/SQL注入攻击/2.png" alt=""></p>
+<p>当点击搜索按钮时，页面往服务器发送请求，服务器根据id字段进行搜索并返回结果：</p>
+<pre class=" language-javascript"><code class="language-javascript">请求<span class="token punctuation">:</span> http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">3000</span><span class="token operator">/</span>getStudentById<span class="token operator">?</span>id<span class="token operator">=</span><span class="token number">1</span>
+
+结果<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span><span class="token string">"id"</span><span class="token punctuation">:</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">"name"</span><span class="token punctuation">:</span><span class="token string">"小明"</span><span class="token punctuation">,</span><span class="token string">"sex"</span><span class="token punctuation">:</span><span class="token string">"男"</span><span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre>
+<p>从上述的请求中可以攻击者猜测：服务器根据id进行数据库的查询操作，极有可能表明查询的表中含有id字段。随后攻击者猜测表名，在输入框中插入了一条删除数据的SQL：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token number">1</span><span class="token punctuation">;</span><span class="token keyword">delete</span> <span class="token keyword">from</span> Student where id <span class="token operator">=</span> <span class="token number">2</span>
+</code></pre>
+<p>执行结果：</p>
+<p><img src="../../../../img/WEB安全/SQL注入攻击/3.png" alt=""></p>
+<p>此时查看数据库：</p>
+<p><img src="../../../../img/WEB安全/SQL注入攻击/4.png" alt=""></p>
+<p>可以发现<code>id=2</code>的学生信息已经被删除。</p>
+<p>查看后台的编写代码：</p>
+<pre class=" language-javascript"><code class="language-javascript">
+<span class="token keyword">const</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> mysql <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'mysql'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//创建 connection</span>
+<span class="token keyword">const</span> connection <span class="token operator">=</span> mysql<span class="token punctuation">.</span><span class="token function">createConnection</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  host<span class="token punctuation">:</span> <span class="token string">'localhost'</span><span class="token punctuation">,</span>
+  user<span class="token punctuation">:</span> <span class="token string">'root'</span><span class="token punctuation">,</span>
+  password<span class="token punctuation">:</span> <span class="token string">'********'</span><span class="token punctuation">,</span>
+  database<span class="token punctuation">:</span> <span class="token string">'test'</span><span class="token punctuation">,</span><span class="token comment" spellcheck="true">//数据库名</span>
+  port<span class="token punctuation">:</span> <span class="token number">3306</span><span class="token punctuation">,</span>   <span class="token comment" spellcheck="true">//端口号</span>
+  multipleStatements<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token comment" spellcheck="true">// 允许执行多条执行语句</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 跨域设置 </span>
+app<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">//设置允许跨域的域名，代表允许任意域名跨域</span>
+  res<span class="token punctuation">.</span><span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'Access-Control-Allow-Origin'</span><span class="token punctuation">,</span> <span class="token string">'*'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//允许的header类型</span>
+  res<span class="token punctuation">.</span><span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'Access-Control-Allow-Headers'</span><span class="token punctuation">,</span> <span class="token string">'content-type'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">//跨域允许的请求方式</span>
+  res<span class="token punctuation">.</span><span class="token function">header</span><span class="token punctuation">(</span><span class="token string">'Access-Control-Allow-Methods'</span><span class="token punctuation">,</span> <span class="token string">'DELETE,PUT,POST,GET,OPTIONS'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span>method<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">'options'</span><span class="token punctuation">)</span>
+    res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//让options尝试请求快速结束</span>
+  <span class="token keyword">else</span>
+    <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/getStudentById'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> sql <span class="token operator">=</span> <span class="token string">'select * from student where id = '</span> <span class="token operator">+</span> req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 获取所有的数据</span>
+  connection<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> rows<span class="token punctuation">,</span> fields<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// throw err</span>
+      res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 如果开启了错误回显</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>rows<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'服务已启动'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>其中关键语句:</p>
+<pre class=" language-javascript"><code class="language-javascript"> <span class="token keyword">var</span> sql <span class="token operator">=</span> <span class="token string">'select * from student where id = '</span> <span class="token operator">+</span> req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id
+</code></pre>
+<p>SQL语句是通过用户输入与现有字符拼接而成的，如果用户输入类似<code>1;delete from Student where id = 2</code>的查询字符，则会被拼接成</p>
+<pre><code> &#39;select * from student where id = 1;delete from Student where id = 2&#39;
+</code></pre><p>然后被query()方法执行。</p>
+<p>虽然攻击者无从得知表名，在构造SQL时稍有困难，但是搜索并不会因为执行错误而禁止再次执行，所以攻击者可以无限猜测，风险仍然是存在的。另外，在上述的后台程序中，当query()执行错误时，会把错误信息返回至请求结果中，攻击者则可以通过故意触发查询错误而获取敏感信息，假如搜索框中输入单引号<code>&#39;</code>并执行搜索，则返回如下信息：</p>
+<p><img src="../../../../img/WEB安全/SQL注入攻击/5.png" alt=""></p>
+<p>其中sql字段直接暴露了表名，也直接表明了该接口存在漏洞，会执行外部输入的SQL语句（正常的请求下应该根据<code>id=&#39;</code>进行搜索并返回空的数组）。</p>
+<h3 id="盲注攻击"><a href="#盲注攻击" class="headerlink" title="盲注攻击"></a>盲注攻击</h3><p>很多时候，服务器并不会直接把错误返回给web，这样就避免了敏感信息的暴露并且使攻击者难以判断注入的SQL是否被执行。但是关闭了错误回显就能避免SQL攻击了吗？答案使否定的。</p>
+<p>这里依然使用上述攻击例子的web网站来进行测试，我们在搜索框中输入<code>1 and 1=2</code>并且执行搜索:</p>
+<p><img src="../../../../img/WEB安全/SQL注入攻击/6.png" alt=""></p>
+<p>请求结果:</p>
+<p><img src="../../../../img/WEB安全/SQL注入攻击/7.png" alt=""></p>
+<p>可以看到搜索结果返回了一个空数组，这是正常的。然后继续在搜索框中输入<code>1 and 1=1</code>并且执行搜索:</p>
+<p><img src="../../../../img/WEB安全/SQL注入攻击/8.png" alt=""></p>
+<p>请求结果:</p>
+<p><img src="../../../../img/WEB安全/SQL注入攻击/9.png" alt=""></p>
+<p>这次却不正常地返回了数据，由此可以猜测，第一次搜索<code>1 and 1=2</code>时，由于<code>1=2</code>永远不成立，导致SQL执行<code>and</code>的运算时错误，而搜索<code>1 and 1=1</code>时，<code>1=1</code>恒成立，SQL正常执行，返回了搜索数据，所以可以判定此接口漏洞存在，能够注入SQL并执行。</p>
+<p>除了上述通过页面请求结果差异化来判断是否存在SQL注入漏洞，还可以利用SQL执行时间的差异化进行判断，这类型的盲注攻击也称为Timing Attack。</p>
+<p>在Mysql数据库中，有一个BENCHMARK()函数，它是用于测试函数性能的。它有两个参数：</p>
+<pre class=" language-sql"><code class="language-sql">BENCHMARK<span class="token punctuation">(</span>count<span class="token punctuation">,</span> expr<span class="token punctuation">)</span>
+</code></pre>
+<p>函数实现的是将expr表达式执行count次。借此，我们利用该函数构造如下表达式：</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> student <span class="token keyword">where</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token keyword">select</span> BENCHMARK<span class="token punctuation">(</span><span class="token number">100000</span><span class="token punctuation">,</span> ENCODE<span class="token punctuation">(</span><span class="token string">'timing'</span><span class="token punctuation">,</span> <span class="token string">'attack'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>即需要在输入框中输入<code>1; select BENCHMARK(100000, ENCODE(&#39;timing&#39;, &#39;attack&#39;))</code>并执行:</p>
+<p><img src="../../../../img/WEB安全/SQL注入攻击/10.png" alt=""></p>
+<p>执行结果：</p>
+<p><img src="../../../../img/WEB安全/SQL注入攻击/11.png" alt=""></p>
+<p>可见，请求在16.43ms后执行完成。接着修改BENCHMARK()的执行次数为10000000次:</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> student <span class="token keyword">where</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token keyword">select</span> BENCHMARK<span class="token punctuation">(</span><span class="token number">10000000</span><span class="token punctuation">,</span> ENCODE<span class="token punctuation">(</span><span class="token string">'timing'</span><span class="token punctuation">,</span> <span class="token string">'attack'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p><img src="../../../../img/WEB安全/SQL注入攻击/12.png" alt=""></p>
+<p>同样搜索目标为<code>id=1</code>的信息，请求返回的时间却相差巨大，由此也可以判断出该接口存在SQL注入漏洞。</p>
+<h3 id="防御手段"><a href="#防御手段" class="headerlink" title="防御手段"></a>防御手段</h3><p>理论上来说，只要存在SQL注入漏洞，就有可能被成功攻击，反过来说就是，只要消灭SQL注入漏洞，被成功攻击的可能性就更低。所以我们SQL注入防御工程需要做一下两件事:</p>
+<ol>
+<li>找到所有的SQL注入漏洞;</li>
+<li>修补这些漏洞。</li>
+</ol>
+<p>做好以上两件事，就能有效防御SQL注入攻击。做好防御工程并不是一件容易的事情，下面介绍有哪些常用的防御手段。</p>
+<h4 id="使用预编译语句"><a href="#使用预编译语句" class="headerlink" title="使用预编译语句"></a>使用预编译语句</h4><p>预编译语句的工作原理：</p>
+<ol>
+<li><p>预处理：创建 SQL 语句模板并发送到数据库。预留的值使用参数 “?” 标记 。例如：</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> myCity <span class="token punctuation">(</span>Name<span class="token punctuation">,</span> CountryCode<span class="token punctuation">,</span> District<span class="token punctuation">)</span> <span class="token keyword">VALUES</span> <span class="token punctuation">(</span>?<span class="token punctuation">,</span> ?<span class="token punctuation">,</span> ?<span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li><p>数据库解析，编译，对SQL语句模板执行查询优化，并存储结果不输出。</p>
+</li>
+<li><p>执行：最后，将应用绑定的值传递给参数（”?” 标记），数据库执行语句。</p>
+<p>例如在PHP中这样使用：</p>
+<pre class=" language-php"><code class="language-php">    <span class="token variable">$query</span> <span class="token operator">=</span> <span class="token string">"INSERT INTO myCity (Name, CountryCode, District) VALUES (?, ?, ?)"</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 定义预编译语句, 预留？？？分别对应Name, CountryCode, District变量</span>
+    <span class="token variable">$stmt</span> <span class="token operator">=</span> <span class="token variable">$mysqli</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">prepare</span><span class="token punctuation">(</span><span class="token variable">$query</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// mysql解析</span>
+    <span class="token variable">$stmt</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bind_param</span><span class="token punctuation">(</span><span class="token string">"sss"</span><span class="token punctuation">,</span> <span class="token variable">$val1</span><span class="token punctuation">,</span> <span class="token variable">$val2</span><span class="token punctuation">,</span> <span class="token variable">$val3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token variable">$val1</span> <span class="token operator">=</span> <span class="token string">'Stuttgart'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 赋值</span>
+    <span class="token variable">$val2</span> <span class="token operator">=</span> <span class="token string">'DEU'</span><span class="token punctuation">;</span>
+    <span class="token variable">$val3</span> <span class="token operator">=</span> <span class="token string">'Baden-Wuerttemberg'</span><span class="token punctuation">;</span>
+    <span class="token variable">$stmt</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 执行语句</span>
+</code></pre>
+<p>使用预编译的SQL语句，SQL语句的语义不会发生改变。在SQL语句中，变量用？表示，攻击者无法改变SQL的结构，在上面的例子中，即使攻击者插入类似于tom’ or ‘1’=’1的字符串，也只会将此字符串当做username来查询。</p>
+</li>
+</ol>
+<h4 id="使用存储过程"><a href="#使用存储过程" class="headerlink" title="使用存储过程"></a>使用存储过程</h4><p>使用存储过程的效果和使用预编语句译类似，其区别就是存储过程需要先将SQL语句定义在数据库中。但需要注意的是，存储过程中也可能会存在注入问题，因此应该尽量避免在存储过程内使用动态的SQL语句。如果无法避免，则应该使用严格的输入过滤或者是编码函数来处理用户的输入数据。</p>
+<h4 id="检查数据类型"><a href="#检查数据类型" class="headerlink" title="检查数据类型"></a>检查数据类型</h4><p>检查用户输入，严格控制数据格式在某种程度上来说，也可以有限防御SQL攻击。</p>
+<p>例如在文章最开始的攻击举例中，id字段应该是一个integer类型的数据，所以只需在接收参数的处理函数稍加处理: </p>
+<pre class=" language-javascript"><code class="language-javascript">app<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'/getStudentById'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">typeof</span> req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id <span class="token operator">!==</span> <span class="token string">'number'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      status<span class="token punctuation">:</span> Status<span class="token punctuation">.</span>Error<span class="token punctuation">,</span>
+      message<span class="token punctuation">:</span> <span class="token string">'请输入正确的数据格式！'</span><span class="token punctuation">,</span>
+      data<span class="token punctuation">:</span> <span class="token keyword">null</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">var</span> sql <span class="token operator">=</span> <span class="token template-string"><span class="token string">`select * from student where id = </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">;</span>
+
+  <span class="token comment" spellcheck="true">// 获取所有的数据</span>
+  connection<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>sql<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>err<span class="token punctuation">,</span> rows<span class="token punctuation">,</span> fields<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/*... code ...*/</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>经过格式检查的处理后，该接口的SQL漏洞直接消失殆尽，因为单纯的integer数据无法构造出SQL语句。不过总有需要用户输入字符串作为数据的时候，这时限制数据类型为字符串并不能有效消灭SQL漏洞，这时就需要使用安全编码函数。</p>
+<h4 id="使用安全函数"><a href="#使用安全函数" class="headerlink" title="使用安全函数"></a>使用安全函数</h4><p>使用安全编码函数对用户输入数据按照黑名单原则进行敏感字符进行转义编码，也能有效地减少SQL注入攻击，一般数据库厂商都会给出黑名单指导意见。例如在Mysql中，厂商建议按照一下思路进行编码字符:</p>
+<pre class=" language-html"><code class="language-html">       NUL (0x00) --> \0  
+       BS  (0x08) --> \b
+       TAB (0x09) --> \t
+       LF  (0x0a) --> \n
+       CR  (0x0d) --> \r
+       SUB (0x1a) --> \z
+       "   (0x22) --> \"
+       %   (0x25) --> \%
+       '   (0x27) --> \'
+       \   (0x5c) --> \\
+       _   (0x5f) --> \_
+</code></pre>
+<h4 id="最小权限原则"><a href="#最小权限原则" class="headerlink" title="最小权限原则"></a>最小权限原则</h4><p>在最后，从数据库自身的角度来说，应该使用最小权限原则，避免Web应用直接使用root、dbowner等高权限账户直接连接数据库。如果有多个不同的应用在使用同一个数据库，则也应该为每个应用分配不同的账户。Web应用使用的数据库账户，不应该有创建自定义函数、操作本地文件的权限。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>安全问题就是信任问题，注入攻击是过于信任用户输入的结果，也违背了“数据与代码分离原则”。它有两个条件：一是用户能够控制数据的输入；二是代码拼凑了用户输入的数据，把数据当做代码执行了。在编写代码时，保持“一切不可信任”的思想，在用户交互需要输入数据的地方加强安全检查，尤其是当用户数据需要拼接代码时，如此以往就能有效减少注入漏洞。</p>
+
+            </div>
+            <hr/>
+
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《WEB安全之SQL注入攻击》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/04/16/WEB%E5%AE%89%E5%85%A8%E4%B9%8BSQL%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                Leno
+            </a> 采用
+            <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        repo: '',
+        owner: '',
+        admin: null,
+        id: '2020-04-16T18-16-57',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/04/16/WEB%E5%AE%89%E5%85%A8%E4%B9%8BSQL%E6%B3%A8%E5%85%A5%E6%94%BB%E5%87%BB/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="WEB安全之SQL注入攻击">
+                        
+                        <span class="card-title">WEB安全之SQL注入攻击</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            SQL注入攻击简介SQL注入攻击是黑客对数据库进行攻击的常用手段之一，不论是在WEB领域还是其它领域。攻击发生的原因依然是信任问题，开发人员信任用户输入，未对用户输入进行合法性检查，使应用程序存在安全隐患。譬如最常见的搜索功能，用户输入一段
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Leno
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/04/16/WEB%E5%AE%89%E5%85%A8%E4%B9%8B%E9%92%93%E9%B1%BC%E7%BD%91%E7%AB%99/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="WEB安全之钓鱼网站">
+                        
+                        <span class="card-title">WEB安全之钓鱼网站</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            钓鱼网站钓鱼网站是指欺骗用户的虚假网站。钓鱼网站的基本特征是，其界面基本与真实网站一致，充满诱导性，通过表单交互来欺骗消费者或者窃取访问者提交的账号和密码信息。钓鱼网站是互联网中最常碰到的一种诈骗方式，通常伪装成银行及电子商务、窃取用户提交
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Leno
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
